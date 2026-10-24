@@ -1,0 +1,96 @@
+/* Prelims Arena v2: Google Sheet sync script.
+   Setup:
+   1) In a new Google Sheet: Extensions > Apps Script. Delete the sample code and paste this whole script.
+   2) Change the passphrase on the next line. Use the same passphrase in the app.
+   3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.
+   4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.
+   You can type your own questions in the "My questions" tab. Answer column takes A, B, C or D. Leave the id column empty. */
+var KEY = 'change-this-passphrase';
+
+var T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data';
+var H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];
+var H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];
+var H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];
+var H_DATA = ['id','kind','ts','record'];
+
+function sheet_(name, h) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var s = ss.getSheetByName(name);
+  if (!s) { s = ss.insertSheet(name); s.appendRow(h); s.setFrozenRows(1); s.getRange(1, 1, 1, h.length).setFontWeight('bold'); }
+  return s;
+}
+function rows_(s, w) { var n = s.getLastRow(); return n > 1 ? s.getRange(2, 1, n - 1, w).getValues() : []; }
+function idx_(rows) { var m = {}; rows.forEach(function (r, i) { if (r[0] !== '') m[String(r[0])] = i; }); return m; }
+function out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }
+function d_(v) { return v instanceof Date ? Utilities.formatDate(v, Session.getScriptTimeZone(), 'yyyy-MM-dd') : String(v); }
+function n_(v) { return v === '' || v == null ? null : Number(v); }
+function L_(i) { return ['A', 'B', 'C', 'D'][i] || ''; }
+
+function doPost(e) {
+  var lock = LockService.getScriptLock(); lock.waitLock(25000);
+  try {
+    var b = JSON.parse(e.postData.contents);
+    if (b.key !== KEY) return out_({error: 'wrong passphrase'});
+    var res = sheet_(T_RES, H_RES), tst = sheet_(T_TEST, H_TEST), myq = sheet_(T_MYQ, H_MYQ), dat = sheet_(T_DATA, H_DATA);
+    var resIdx = idx_(rows_(res, 1));
+    var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);
+    var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);
+    var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);
+    var newRes = [];
+    (b.recs || []).forEach(function (r) {
+      var ts = Number(r.ts) || 0;
+      if (r.kind === 'att') {
+        if (r.id in resIdx) return;
+        resIdx[r.id] = -1;
+        var att = r.r + r.w;
+        newRes.push([r.id, r.date, r.type, r.title, r.subject, r.n, r.r, r.w, r.sk, r.pts, r.max,
+          r.max ? Math.round(r.pts / r.max * 1000) / 10 : '', att ? Math.round(r.r / att * 1000) / 10 : '',
+          Math.round((r.sec || 0) / 6) / 10, r.sched || '', r.setId || '', ts, JSON.stringify(r)]);
+      } else if (r.kind === 'test') {
+        var row = [r.id, r.name || '', r.type || '', r.subject || '', r.date || '', r.marks == null ? '' : r.marks, r.max == null ? '' : r.max,
+          (r.marks != null && r.max) ? Math.round(r.marks / r.max * 1000) / 10 : '', r.r == null ? '' : r.r, r.w == null ? '' : r.w, r.rank == null ? '' : r.rank, ts, r.del ? 'yes' : ''];
+        upsert_(tst, tRows, tIdx, row, 11);
+      } else if (r.kind === 'myq') {
+        var o = r.o || [];
+        var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];
+        upsert_(myq, qRows, qIdx, row2, 11);
+      } else {
+        upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);
+      }
+    });
+    if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);
+    if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);
+    return out_({ok: true});
+  } finally { lock.releaseLock(); }
+}
+function upsert_(s, rows, idx, row, tsCol) {
+  var id = String(row[0]);
+  if (id in idx) {
+    var i = idx[id];
+    if ((Number(row[tsCol]) || 0) >= (Number(rows[i][tsCol]) || 0)) { s.getRange(i + 2, 1, 1, row.length).setValues([row]); rows[i] = row; }
+  } else { s.appendRow(row); rows.push(row); idx[id] = rows.length - 1; }
+}
+function doGet(e) {
+  if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});
+  var out = [];
+  rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {
+    try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}
+  });
+  rows_(sheet_(T_TEST, H_TEST), H_TEST.length).forEach(function (r) {
+    out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});
+  });
+  var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);
+  qRows.forEach(function (r, i) {
+    if (r[3] === '') return;
+    if (r[0] === '') { // typed by hand in the Sheet: give it an id
+      r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();
+      q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);
+    }
+    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());
+    out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});
+  });
+  rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {
+    try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}
+  });
+  return out_({recs: out});
+}
