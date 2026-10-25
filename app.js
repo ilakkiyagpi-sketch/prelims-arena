@@ -20,7 +20,16 @@ var TESTS=[
 ["T25","Test 25: History Complete","2027-04-10","History"],["T26","Test 26: Science & Tech Complete","2027-04-17","Science & Tech"],["T27","Test 27: Current Affairs Full","2027-04-21","Current Affairs"],
 ["T28","Test 28: Environment Complete","2027-04-24","Environment"],["MK1","Mock Test I (online)","2027-04-27","Mixed"],["MK2","Mock Test II (online)","2027-04-29","Mixed"],
 ["AM1","All India Mock Test I","2027-05-02","Mixed"],["AM2","All India Mock Test II","2027-05-09","Mixed"],["AM3","All India Mock Test III","2027-05-16","Mixed"]
-].map(function(t){return {k:t[0],name:t[1],date:t[2],subject:t[3],type:/^(MK|AM)/.test(t[0])?"mock":"weekly"}});
+].map(function(t){return {k:t[0],name:t[1],date:t[2],subject:t[3],type:/^(MK|AM)/.test(t[0])?"mock":"weekly",kind:/^(MK|AM)/.test(t[0])?"GS mock":"GS weekly test"}});
+// Shankar CSAT schedule (Sundays, 2 to 4 pm; recorded discussion at 4:30 pm; live discussion for complete-syllabus tests)
+(function(){
+  var R=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
+  ["2026-10-25","2026-11-01","2026-11-15","2026-11-22","2026-11-29","2026-12-06","2026-12-13","2026-12-20","2026-12-27","2027-01-03","2027-01-10","2027-01-24","2027-01-31","2027-02-07","2027-02-14"].forEach(function(d,i){
+    var full=i>=12;
+    TESTS.push({k:"C"+(i+1),name:"CSAT "+(full?"Complete Syllabus":"Sectional")+" Test "+R[i],date:d,subject:"CSAT",type:full?"mock":"weekly",kind:full?"CSAT complete syllabus":"CSAT sectional",csat:true});
+  });
+  TESTS.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)});
+})();
 var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
 function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
@@ -669,7 +678,7 @@ function dayPanel(ds,td){
   var sch=scheduledFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
   var h='<section class="panel"><h2>'+(ds===td?"Today's work":fdw(ds))+'</h2>';
   if(sch.length){var s0=sch[0];h+='<p class="muted">'+esc(s0.testName)+', '+esc(s0.dayLabel)+'. Shankar test on '+fdw(s0.testDate)+'.</p>';}
-  if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm.</p>';
+  if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm'+(t.csat?(t.type==="mock"?', with a live discussion at 4:30 pm.':'. The recorded discussion is uploaded at 4:30 pm.'):', with a live discussion at 4:30 pm.')+' Enter your marks afterwards in the Scores tab.</p>';
   if(sch.length){
     h+='<div class="row wrap tight"><span class="muted small">Timing</span><div class="seg small"><button data-timed="0" aria-pressed="'+!DB.meta.timed+'">Untimed</button><button data-timed="1" aria-pressed="'+!!DB.meta.timed+'">Timed, 1.2 min per question</button></div></div>';
     h+='<ul class="list">'+sch.map(function(s){return setRowHtml(s,done)}).join("")+'</ul>';
@@ -687,12 +696,12 @@ function calendarPanel(sel,td){
     var ds=y+"-"+pad(m+1)+"-"+pad(d),s=dayState(ds,done,td);
     var cls="day "+s.st+(ds===td?" today":"")+(ds===sel?" sel":"")+(s.test?" tday":"");
     var lab=fdw(ds)+({done:", scheduled set done",missed:", scheduled set missed",paused:", paused",todo:", set scheduled"}[s.st]||"")+(s.star?", extra test taken":"")+(s.test?", "+s.test.name:"")+(s.chk?", check-in "+s.chk:"");
-    g+='<button class="'+cls+'" data-d="'+ds+'" aria-label="'+esc(lab)+'"><span class="n">'+d+'</span>'+(s.star?'<span class="star" aria-hidden="true">★</span>':'')+(s.chk?'<span class="cdot '+s.chk+'" aria-hidden="true"></span>':'')+(s.test?'<span class="tmark" aria-hidden="true">T</span>':'')+'</button>';
+    g+='<button class="'+cls+'" data-d="'+ds+'" aria-label="'+esc(lab)+'"><span class="n">'+d+'</span>'+(s.star?'<span class="star" aria-hidden="true">★</span>':'')+(s.chk?'<span class="cdot '+s.chk+'" aria-hidden="true"></span>':'')+(s.test?'<span class="tmark'+(s.test.csat?" csat":"")+'" aria-hidden="true">'+(s.test.csat?"C":"T")+'</span>':'')+'</button>';
   }
   g+='</div>';
   var minM=[2026,9],maxM=[2027,4],cur=y*12+m;
   return '<section class="panel"><div class="row between"><h2>'+MONTHS[m]+' '+y+'</h2><div class="row tight"><button class="btn ghost small" id="cal-prev" aria-label="Previous month"'+(cur<=minM[0]*12+minM[1]?" disabled":"")+'>‹</button><button class="btn ghost small" id="cal-today">Today</button><button class="btn ghost small" id="cal-next" aria-label="Next month"'+(cur>=maxM[0]*12+maxM[1]?" disabled":"")+'>›</button></div></div>'+g+
-    '<div class="legend"><span><i class="lg done"></i>Set done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar test</span></div></section>';
+    '<div class="legend"><span><i class="lg done"></i>Set done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
 }
 function bindToday(){
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
@@ -946,12 +955,12 @@ function bindSubjects(){
 /* Scores tab: Shankar marks, added results, sync settings, backup */
 function viewScores(){
   var v=$("view"),td=today();
-  var html='<div class="pagehead"><div><h1>Scores</h1><p class="muted">Enter your Shankar test marks after each test. They feed the Weekly and Mock views of the dashboard and each subject\'s progress.</p></div></div>';
-  html+='<section class="panel"><h2>Shankar Prestorming tests</h2><div class="scroll"><table class="tbl entry"><thead><tr><th>Test</th><th>Marks</th><th>Out of</th><th>Right</th><th>Wrong</th><th>Rank</th><th>%</th></tr></thead><tbody>'+
+  var html='<div class="pagehead"><div><h1>Scores</h1><p class="muted">Enter your Shankar test marks after each test. They feed the Weekly and Mock views of the dashboard and each subject\'s progress. CSAT is out of 200 and qualifying at 33%.</p></div></div>';
+  html+='<section class="panel"><h2>Shankar Prestorming tests (GS and CSAT)</h2><div class="scroll"><table class="tbl entry"><thead><tr><th>Test</th><th>Marks</th><th>Out of</th><th>Right</th><th>Wrong</th><th>Rank</th><th>%</th></tr></thead><tbody>'+
     TESTS.filter(function(t,i){var nxt=TESTS.findIndex(function(x){return x.date>=td});return VIEW.allTests||nxt<0||i<=nxt+1||DB.recs["test_"+t.k]}).map(function(t){var e=DB.recs["test_"+t.k]||{};var p=(e.marks!=null&&e.marks!=="")?pct(e.marks,e.max||200):null;
-      return '<tr class="'+(t.date<=td?"past":"")+'"><td><b>'+esc(t.name)+'</b><span class="muted small">'+fdw(t.date)+', '+(t.type==="mock"?"mock":"weekly")+(t.subject&&t.subject!=="Mixed"?", "+esc(t.subject):"")+'</span></td>'+
+      return '<tr class="'+(t.date<=td?"past":"")+'"><td><b>'+esc(t.name)+'</b><span class="muted small">'+fdw(t.date)+', '+esc(t.kind)+(t.subject&&t.subject!=="Mixed"&&!t.csat?", "+esc(t.subject):"")+'</span></td>'+
       ["marks","max","r","w","rank"].map(function(f){var val=f==="max"?(e.max==null?200:e.max):e[f];return '<td><input type="number" inputmode="decimal" step="any" data-k="'+t.k+'" data-f="'+f+'" value="'+(val==null?"":esc(val))+'" aria-label="'+esc(t.name)+' '+f+'"></td>'}).join("")+
-      '<td class="num" id="pc-'+t.k+'">'+(p==null?"–":r1(p))+'</td></tr>'}).join("")+'</tbody></table></div><button class="link" id="t-all">'+(VIEW.allTests?"Show only past and next tests":"Show all "+TESTS.length+" tests")+'</button></section>';
+      '<td class="num" id="pc-'+t.k+'">'+(p==null?"–":r1(p)+(t.csat?(p>=33?' <span class="good small">qualifies</span>':' <span class="bad-t small">below 33%</span>'):''))+'</td></tr>'}).join("")+'</tbody></table></div><button class="link" id="t-all">'+(VIEW.allTests?"Show only past and next tests":"Show all "+TESTS.length+" tests")+'</button></section>';
   var extra=testMarks().filter(function(t){return !TESTBYKEY[t.k]}).sort(function(a,b){return a.date<b.date?1:-1});
   html+='<section class="panel"><div class="row between wrap"><h2>Other test results</h2><button class="btn" id="xt-add">Add a test result</button></div><p class="muted small">For CSAT tests, other mocks or any test outside the timetable.</p>'+
     (extra.length?'<ul class="list">'+extra.map(function(t){return '<li><div><b>'+esc(t.name)+'</b><span class="muted small">'+fdy(t.date)+', '+(t.type==="mock"?"mock":"weekly")+', '+esc(t.subject||"")+(t.rank?', rank '+t.rank:'')+'</span></div><div class="row tight"><span class="num">'+t.marks+' / '+t.max+'</span><button class="btn ghost small" data-xedit="'+t.id+'">Edit</button><button class="btn ghost small" data-xdel="'+t.id+'">Delete</button></div></li>'}).join("")+'</ul>':'')+'</section>';
@@ -972,7 +981,7 @@ function viewScores(){
     var k=inp.dataset.k,f=inp.dataset.f,t=TESTBYKEY[k],id="test_"+k;
     var e=Object.assign({kind:"test",k:k,name:t.name,type:t.type,subject:t.subject,date:t.date,max:200},DB.recs[id]||{});
     e[f]=inp.value===""?null:Number(inp.value);
-    var p=(e.marks!=null)?pct(e.marks,e.max||200):null;$("pc-"+k).textContent=p==null?"–":r1(p);
+    var p=(e.marks!=null)?pct(e.marks,e.max||200):null;$("pc-"+k).innerHTML=p==null?"–":r1(p)+(t.csat?(p>=33?' <span class="good small">qualifies</span>':' <span class="bad-t small">below 33%</span>'):'');
     clearTimeout(timers[k]);timers[k]=setTimeout(function(){put(id,e)},700);
   })});
   $("xt-add").onclick=function(){xtestDialog(null)};
