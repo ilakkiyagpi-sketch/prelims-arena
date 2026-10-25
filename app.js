@@ -3,7 +3,7 @@ var GAS_SCRIPT="/* Prelims Arena v2: Google Sheet sync script.\n   Setup:\n   1)
 "use strict";
 var CFG={
   START:"2026-10-18", PRELIMS:"2027-05-23", IDEAL_END:"2027-05-16", GOAL:90, RIGHT:2, WRONG:0.66,
-  SEC_PER_Q:72, STORE:"pa2-store", OLD:"prelims-arena-v3", OLD_SYNC:"prelims-arena-sync-v1",
+  SEC_PER_Q:72, PYQ_SHARE:0.3, PYQ_HOLD:[2024,2025,2026], CSAT_MK:[2.5,0.83], CSAT_PASS:33, STORE:"pa2-store", OLD:"prelims-arena-v3", OLD_SYNC:"prelims-arena-sync-v1",
   MOCK_WEIGHTS:{"Polity":15,"History":15,"Geography":12,"Economy":14,"Environment":14,"Science & Tech":12,"Current Affairs":18},
   REVIEW_DAYS:[1,3,7,21]
 };
@@ -21,9 +21,11 @@ var TESTS=[
 ["T28","Test 28: Environment Complete","2027-04-24","Environment"],["MK1","Mock Test I (online)","2027-04-27","Mixed"],["MK2","Mock Test II (online)","2027-04-29","Mixed"],
 ["AM1","All India Mock Test I","2027-05-02","Mixed"],["AM2","All India Mock Test II","2027-05-09","Mixed"],["AM3","All India Mock Test III","2027-05-16","Mixed"]
 ].map(function(t){return {k:t[0],name:t[1],date:t[2],subject:t[3],type:/^(MK|AM)/.test(t[0])?"mock":"weekly"}});
-var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock"};
+var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
-function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly"})[t]||"daily"}
+function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
+function isPyq(qid){return String(qid).indexOf("PYQ-")===0}
+function pyqYear(qid){var m=/^PYQ-[A-Z]+-(\d{4})/.exec(qid);return m?+m[1]:null}
 
 /* helpers */
 function $(id){return document.getElementById(id)}
@@ -43,7 +45,7 @@ function fdy(s){if(!s)return "";var d=pd(s);return d.getDate()+" "+MON[d.getMont
 function fdw(s){var d=pd(s);return WD[d.getDay()]+", "+d.getDate()+" "+MON[d.getMonth()]}
 function fmtT(sec){sec=Math.max(0,Math.floor(sec));var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h?h+":"+pad(m):m)+":"+pad(s)}
 function fmtMin(sec){var m=Math.round(sec/60);return m<60?m+" min":Math.floor(m/60)+" h "+(m%60?m%60+" min":"")}
-function pts(r,w){return Math.round((r*CFG.RIGHT-w*CFG.WRONG)*100)/100}
+function pts(r,w,mk){mk=mk||[CFG.RIGHT,CFG.WRONG];return Math.round((r*mk[0]-w*mk[1])*100)/100}
 function pct(a,b){return b?a/b*100:0}
 function r1(x){return Math.round(x*10)/10}
 function uid(p){return p+"_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
@@ -113,7 +115,7 @@ function loadSet(id){
   if(CACHE[id])return Promise.resolve(CACHE[id]);
   if(id==="myq")return Promise.resolve(myqSet());
   return fetch("data/sets/"+encodeURIComponent(id)+".json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){
-    d.questions.forEach(function(q,i){q.qid=id+"#"+i});CACHE[id]=d;return d;
+    d.questions.forEach(function(q,i){q.qid=id+"#"+i;if(q.pid&&d.passages)q.p=d.passages[q.pid]});CACHE[id]=d;return d;
   });
 }
 function myqSet(){
@@ -138,7 +140,7 @@ function loadQids(qids){
 /* per-question history from all finished attempts: qid -> [{ts,c}] (c: 1 right, 0 wrong, -1 skipped) */
 function qHistory(){
   var h={};
-  attempts().forEach(function(a){(a.items||[]).forEach(function(x){(h[x[0]]=h[x[0]]||[]).push({ts:a.ts,c:x[4]})})});
+  attempts().forEach(function(a){(a.items||[]).forEach(function(x){if(x[4]===2)return;(h[x[0]]=h[x[0]]||[]).push({ts:a.ts,c:x[4]})})});
   return h;
 }
 /* mistake book: questions answered wrong or skipped, until right twice in a row afterwards */
@@ -168,7 +170,7 @@ function unitStats(from,to){
   attempts().forEach(function(a){
     if(from&&a.date<from)return;if(to&&a.date>to)return;
     (a.items||[]).forEach(function(x){
-      var s=x[1],u=x[2];if(!s)return;
+      var s=x[1],u=x[2];if(!s||x[4]===2)return;
       var su=st[s]||(st[s]={r:0,w:0,sk:0,units:{}});
       var o=su.units[u]||(su.units[u]={r:0,w:0,sk:0,ev:[]});
       if(x[4]===1){su.r++;o.r++}else if(x[4]===0){su.w++;o.w++}else{su.sk++;o.sk++}
@@ -262,7 +264,7 @@ function startQuiz(o){
   var n=o.qs.length,run=o.run;
   QZ={key:o.key,type:o.type,setId:o.setId||null,title:o.title,subject:o.subject||"Mixed",sched:o.sched||null,qs:o.qs,
     i:0,ans:new Array(n).fill(null),conf:new Array(n).fill(0),mark:new Array(n).fill(0),secs:new Array(n).fill(0),seen:new Array(n).fill(0),
-    timed:!!o.timed,limit:o.limit||Math.round(n*CFG.SEC_PER_Q),el:0,t0:Date.now(),qt0:Date.now(),nav:false,tick:null};
+    timed:!!o.timed,limit:o.limit||Math.round(n*CFG.SEC_PER_Q),mk:o.mk||(run&&run.mk)||null,el:0,t0:Date.now(),qt0:Date.now(),nav:false,tick:null};
   if(run){["i","ans","conf","mark","secs","seen"].forEach(function(k){if(run[k]&&(k==="i"||run[k].length===n))QZ[k]=Array.isArray(run[k])?run[k].slice():run[k]});QZ.el=run.el||0;QZ.limit=run.limit||QZ.limit;QZ.timed=!!run.timed}
   QZ.t0=Date.now()-QZ.el*1000;QZ.qt0=Date.now();
   VIEW.screen="quiz";document.body.classList.add("in-quiz");
@@ -282,7 +284,7 @@ function saveRun(sync){
   if(!answered&&QZ.i===0&&!QZ.mark.some(Boolean))return;
   put("run_"+QZ.key,{kind:"run",key:QZ.key,type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,
     qids:QZ.qs.map(function(q){return q.qid}),i:QZ.i,ans:QZ.ans,conf:QZ.conf,mark:QZ.mark,secs:QZ.secs,seen:QZ.seen,
-    el:Math.round(elapsed()),timed:QZ.timed,limit:QZ.limit,done:answered,n:QZ.qs.length},{noSync:!sync});
+    el:Math.round(elapsed()),timed:QZ.timed,limit:QZ.limit,mk:QZ.mk,done:answered,n:QZ.qs.length},{noSync:!sync});
 }
 function goQ(i){if(!QZ||i<0||i>=QZ.qs.length)return;noteTime();QZ.i=i;QZ.nav=false;renderQuiz();saveRun(false);var c=$("qz-card");if(c&&c.scrollIntoView&&window.innerWidth<900)window.scrollTo(0,0)}
 function choose(k){QZ.ans[QZ.i]=QZ.ans[QZ.i]===k?null:k;if(QZ.ans[QZ.i]==null)QZ.conf[QZ.i]=0;renderQuiz();saveRun(false)}
@@ -308,8 +310,8 @@ function renderQuiz(){
     '<div class="qz-body">'+
      '<aside class="qz-grid'+(QZ.nav?" open":"")+'" aria-label="Question navigator"><div class="gridhead"><span>Jump to a question</span><span class="key"><i class="k ans"></i>Answered <i class="k skip"></i>Skipped <i class="k mark"></i>Marked</span></div><div class="bubs">'+grid+'</div></aside>'+
      '<section class="qz-main">'+
-      '<article class="qcard" id="qz-card"><div class="qmeta"><span>Question '+(QZ.i+1)+' of '+n+'</span><span class="chip">'+esc(q.u)+'</span></div>'+
-       '<div class="qtext">'+esc(q.q)+'</div><div class="opts">'+opts+'</div>'+
+      '<article class="qcard" id="qz-card"><div class="qmeta"><span>Question '+(QZ.i+1)+' of '+n+'</span>'+pyqChip(q)+'<span class="chip">'+esc(q.u)+'</span></div>'+
+       passageHtml(q,true)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><div class="opts">'+opts+'</div>'+
        '<div class="conf"><span>How sure are you?</span><div class="seg">'+[1,2,3].map(function(c){return '<button data-c="'+c+'" aria-pressed="'+(QZ.conf[QZ.i]===c)+'"'+(QZ.ans[QZ.i]==null?" disabled":"")+'>'+CONF[c]+'</button>'}).join("")+'</div></div>'+
       '</article>'+
       '<div class="qz-actions"><button class="btn" id="qz-prev"'+(QZ.i===0?" disabled":"")+'>Previous</button><button class="btn'+(QZ.mark[QZ.i]?" on":"")+'" id="qz-mark" aria-pressed="'+!!QZ.mark[QZ.i]+'">'+(QZ.mark[QZ.i]?"Marked for review":"Mark for review")+'</button><button class="btn" id="qz-clear"'+(QZ.ans[QZ.i]==null?" disabled":"")+'>Clear answer</button><button class="btn primary" id="qz-next">'+(last?"Review and submit":"Next")+'</button></div>'+
@@ -336,9 +338,17 @@ document.addEventListener("keydown",function(ev){
   else if(k==="arrowleft")goQ(QZ.i-1);
   else if(k==="m")toggleMark();
 });
-window.addEventListener("pagehide",function(){if(QZ){noteTime();saveRun(false);saveStore(true)}});
+window.addEventListener("pagehide",function(){if(QZ){noteTime();saveRun(false)}saveStore(true)});
 document.addEventListener("visibilitychange",function(){if(document.hidden&&QZ){noteTime();saveRun(false);saveStore(true)}});
 
+function pyqChip(q){return q&&q.y?'<span class="tag pyq">UPSC '+q.y+(q.paper==="CSAT"?" CSAT":"")+'</span>':''}
+function dropNote(q){return q.x===2?"This question needs a figure from the original paper that is not reproduced here, so it is not scored.":"UPSC dropped this question from evaluation, so it is not scored."}
+function paras(t){return String(t||"").split(/\n\s*\n/).map(function(p){var L=p.split("\n");if(L.every(function(l){return l.indexOf(" | ")>=0}))return '<div class="ptab"><table>'+L.map(function(l,i){var c=i?"td":"th";return "<tr>"+l.split(" | ").map(function(x){return "<"+c+">"+esc(x.trim())+"</"+c+">"}).join("")+"</tr>"}).join("")+'</table></div>';return '<p>'+esc(p)+'</p>'}).join("")}
+function passageHtml(q,quiz){
+  if(!q||!q.p)return "";
+  if(quiz)return '<div class="passage" tabindex="0" aria-label="Passage"><div class="plabel">Passage</div>'+paras(q.p)+'</div>';
+  return '<details class="passage-d"><summary>Show the passage</summary><div class="passage">'+paras(q.p)+'</div></details>';
+}
 function confirmSubmit(){
   noteTime();
   var n=QZ.qs.length,un=QZ.ans.filter(function(a){return a==null}).length,mk=QZ.mark.filter(Boolean).length;
@@ -349,13 +359,15 @@ function confirmSubmit(){
 }
 function submitQuiz(){
   if(!QZ)return;noteTime();clearInterval(QZ.tick);
-  var r=0,w=0,sk=0,items=[];
-  QZ.qs.forEach(function(q,i){var a=QZ.ans[i],c=a==null?-1:(a===q.a?1:0);if(c===1)r++;else if(c===0)w++;else sk++;
+  var r=0,w=0,sk=0,nd=0,items=[],mk=QZ.mk||[CFG.RIGHT,CFG.WRONG];
+  QZ.qs.forEach(function(q,i){var a=QZ.ans[i],c=q.x?2:(a==null?-1:(a===q.a?1:0));if(c===1)r++;else if(c===0)w++;else if(c===2)nd++;else sk++;
     items.push([q.qid,q.sub,q.u,a==null?-1:a,c,QZ.conf[i],QZ.secs[i],QZ.mark[i]])});
   var id=uid("att"),n=QZ.qs.length;
-  var rec={kind:"att",type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,date:today(),n:n,r:r,w:w,sk:sk,pts:pts(r,w),max:n*CFG.RIGHT,sec:Math.round(elapsed()),timed:QZ.timed,items:items};
+  var rec={kind:"att",type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,date:today(),n:n,r:r,w:w,sk:sk,pts:pts(r,w,mk),max:Math.round((n-nd)*mk[0]*100)/100,sec:Math.round(elapsed()),timed:QZ.timed,items:items};
+  if(QZ.mk)rec.mk=QZ.mk;if(nd)rec.nd=nd;
   put(id,rec);
   if(DB.recs["run_"+QZ.key])del("run_"+QZ.key);
+  saveStore(true);
   var qs=QZ.qs;QZ=null;document.body.classList.remove("in-quiz");
   showResult(Object.assign({id:id},rec),qs,true);
 }
@@ -363,7 +375,7 @@ function submitQuiz(){
 /* result + review */
 function confStats(items){
   var o={1:{n:0,r:0,w:0},2:{n:0,r:0,w:0},3:{n:0,r:0,w:0},0:{n:0,r:0,w:0}};
-  items.forEach(function(x){if(x[4]===-1)return;var c=o[x[5]||0];c.n++;if(x[4]===1)c.r++;else c.w++});
+  items.forEach(function(x){if(x[4]===-1||x[4]===2)return;var c=o[x[5]||0];c.n++;if(x[4]===1)c.r++;else c.w++});
   return o;
 }
 function confTable(items){
@@ -382,7 +394,7 @@ var RES=null;
 function renderResult(fresh){
   var a=RES.att,qs=RES.qs,items=a.items||[];
   var acc=(a.r+a.w)?Math.round(a.r/(a.r+a.w)*100):0,pc=Math.round(pct(a.pts,a.max));
-  var unitAgg={};items.forEach(function(x){var o=unitAgg[x[2]]||(unitAgg[x[2]]={r:0,w:0,sk:0});if(x[4]===1)o.r++;else if(x[4]===0)o.w++;else o.sk++});
+  var unitAgg={};items.forEach(function(x){if(x[4]===2)return;var o=unitAgg[x[2]]||(unitAgg[x[2]]={r:0,w:0,sk:0});if(x[4]===1)o.r++;else if(x[4]===0)o.w++;else o.sk++});
   var unitRows=Object.keys(unitAgg).map(function(u){var o=unitAgg[u],n=o.r+o.w;return '<tr><td>'+esc(u)+'</td><td>'+o.r+'</td><td>'+o.w+'</td><td class="hide-sm">'+o.sk+'</td><td>'+(n?Math.round(o.r/n*100)+"%":"–")+'</td></tr>'}).join("");
   var filters=[["all","All"],["wrong","Wrong"],["skip","Skipped"],["mark","Marked"],["unsure","50-50 and guesses"]];
   var byQid={};qs.forEach(function(q){byQid[q.qid]=q});
@@ -392,16 +404,16 @@ function renderResult(fresh){
   var cards=list.map(function(o){
     var x=o.x,q=o.q;if(!q)return '<div class="rcard"><p class="muted">Question '+(o.i+1)+' is no longer available.</p></div>';
     var ch=x[3];
-    var opts=q.o.map(function(t,k){var cl=k===q.a?"right":(k===ch?"wrong":"");return '<li class="'+cl+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+(k===q.a?'<em>Correct answer'+(k===ch?', your answer':'')+'</em>':(k===ch?'<em>Your answer</em>':''))+'</span></li>'}).join("");
-    var verdict=x[4]===1?'<span class="tag good">Right</span>':(x[4]===0?'<span class="tag bad">Wrong</span>':'<span class="tag">Not answered</span>');
+    var opts=q.o.map(function(t,k){var cl=k===q.a?"right":(k===ch&&x[4]!==2?"wrong":"");return '<li class="'+cl+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+(k===q.a?'<em>Correct answer'+(k===ch?', your answer':'')+'</em>':(k===ch?'<em>Your answer</em>':''))+'</span></li>'}).join("");
+    var verdict=x[4]===1?'<span class="tag good">Right</span>':(x[4]===0?'<span class="tag bad">Wrong</span>':(x[4]===2?'<span class="tag">Not scored</span>':'<span class="tag">Not answered</span>'));
     if(ch==null&&!a.v1)verdict=x[4]===1?verdict:verdict;
-    return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
-      '<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
+    return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
+      passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
       '<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
-    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
+    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
     '<section class="panel"><h2>Confidence</h2>'+confTable(items)+'</section></div>'+
     '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
@@ -469,16 +481,16 @@ function startSet(id,timed){
   var run=DB.recs["run_"+id];if(run&&run.del)run=null;
   $("app").innerHTML='<div class="page"><p class="muted">Loading '+esc(s.title)+'…</p></div>';
   loadSet(id).then(function(d){
-    startQuiz({key:id,type:s.type,setId:id,title:s.title,subject:s.subject,sched:s.date,qs:d.questions,timed:run?run.timed:timed,run:run});
+    startQuiz({key:id,type:s.type,setId:id,title:s.title,subject:s.subject,sched:s.date,qs:d.questions,timed:run?run.timed:timed,run:run,mk:s.paper==="CSAT"?CFG.CSAT_MK:null,limit:s.limit||null});
   }).catch(function(){VIEW.screen="tabs";render();toast("Could not load this set. Check your connection and try again.")});
 }
 function resumeRun(runId){
   var run=DB.recs[runId];if(!run||run.del)return;
-  if(run.setId&&SET[run.setId]&&run.type!=="subject"&&run.type!=="fullmock"&&run.type!=="revision"&&run.type!=="myq")return startSet(run.setId);
+  if(run.setId&&SET[run.setId]&&["subject","fullmock","revision","myq","pyqsub","pyqmock","csatmock"].indexOf(run.type)<0)return startSet(run.setId);
   $("app").innerHTML='<div class="page"><p class="muted">Loading your paused test…</p></div>';
   loadQids(run.qids).then(function(qs){
     if(qs.length!==run.qids.length){toast("Some questions in this paused test are no longer available, so it restarts with the rest.");run=Object.assign({},run,{ans:null,conf:null,mark:null,secs:null,seen:null,i:0})}
-    startQuiz({key:run.key,type:run.type,setId:run.setId,title:run.title,subject:run.subject,sched:run.sched,qs:qs,timed:run.timed,limit:run.limit,run:run});
+    startQuiz({key:run.key,type:run.type,setId:run.setId,title:run.title,subject:run.subject,sched:run.sched,qs:qs,timed:run.timed,limit:run.limit,run:run,mk:run.mk||null});
   });
 }
 function pausedRuns(){return recs("run").sort(function(a,b){return b.ts-a.ts})}
@@ -487,7 +499,7 @@ function startCustom(o){
   $("app").innerHTML='<div class="page"><p class="muted">Preparing your test…</p></div>';
   loadQids(o.qids).then(function(qs){
     if(!qs.length){VIEW.screen="tabs";render();toast("No questions available for this selection.");return}
-    startQuiz({key:uid("q"),type:o.type,setId:null,title:o.title,subject:o.subject,qs:qs,timed:o.timed,limit:Math.round(qs.length*CFG.SEC_PER_Q)});
+    startQuiz({key:uid("q"),type:o.type,setId:null,title:o.title,subject:o.subject,qs:qs,timed:o.timed,limit:o.limit||Math.round(qs.length*CFG.SEC_PER_Q),mk:o.mk||null});
   }).catch(function(){VIEW.screen="tabs";render();toast("Could not load the questions. Check your connection and try again.")});
 }
 function poolFor(subject,units){
@@ -497,6 +509,13 @@ function poolFor(subject,units){
   return bank;
 }
 function pickQids(pool,size){
+  var py=[],own=[];pool.forEach(function(q){(isPyq(q)?py:own).push(q)});
+  if(!py.length||!own.length)return pickPart(pool,size);
+  var np=Math.min(py.length,Math.round(size*CFG.PYQ_SHARE)),no=Math.min(own.length,size-np);
+  np=Math.min(py.length,size-no);
+  return shuffle(pickPart(py,np).concat(pickPart(own,no)));
+}
+function pickPart(pool,size){
   var h=qHistory(),mb={};mistakeBook().forEach(function(m){mb[m.qid]=m});
   var inPool={};pool.forEach(function(q){inPool[q]=1});
   var mist=mistakeBook().filter(function(m){return inPool[m.qid]}).map(function(m){return m.qid});
@@ -509,7 +528,7 @@ function pickQids(pool,size){
 }
 function sizeDialog(title,poolSize,sizes,cb){
   var opts=sizes.map(function(n){var ok=poolSize>=n;return '<button class="sizebtn" data-m="'+n+'"'+(ok?"":" disabled")+'><b>'+n+' questions</b><span>'+fmtMin(n*CFG.SEC_PER_Q)+' timed</span></button>'}).join("");
-  modal('<h2>'+esc(title)+'</h2><p class="muted">'+poolSize+' questions available. The test is timed at 1.2 minutes per question, as in the exam. Questions you have not seen come first, with some of your past mistakes mixed in.</p><div class="sizes">'+opts+'</div><div class="row"><button class="btn ghost" data-m="x">Cancel</button></div>',
+  modal('<h2>'+esc(title)+'</h2><p class="muted">'+poolSize+' questions available. The test is timed at 1.2 minutes per question, as in the exam. Questions you have not seen come first, with some of your past mistakes mixed in'+(title.indexOf("PYQ")<0?', and about 30% are real UPSC questions from 2016–2023':'')+'.</p><div class="sizes">'+opts+'</div><div class="row"><button class="btn ghost" data-m="x">Cancel</button></div>',
     function(act){if(act!=="x")cb(+act)});
 }
 function startSubjectTest(subject,units){
@@ -517,14 +536,45 @@ function startSubjectTest(subject,units){
   if(!pool.length){toast("There are no questions for this choice yet.");return}
   var label=subject+(units&&units.length?(units.length===1?": "+units[0]:": "+units.length+" units"):"");
   sizeDialog(label,pool.length,units&&units.length===1?[25,50,100]:[50,100,150,200],function(n){
-    startCustom({type:"subject",title:label+" test ("+n+" questions)",subject:subject,qids:pickQids(pool,Math.min(n,pool.length)),timed:true});
+    startCustom({type:"subject",title:label+" test ("+n+" questions)",subject:subject,qids:pickQids(pool,Math.min(n,pool.length)),timed:true,mk:subject==="CSAT"?CFG.CSAT_MK:null,limit:subject==="CSAT"?Math.round(n*90):null});
   });
 }
 function startFullMock(){
   var q=[];
   Object.keys(CFG.MOCK_WEIGHTS).forEach(function(s){q=q.concat(pickQids(poolFor(s),CFG.MOCK_WEIGHTS[s]))});
-  modal('<h2>Full UPSC-style mock</h2><p>100 questions across all subjects, weighted like recent Prelims papers. You have 2 hours. Marking: +2 for right, minus 0.66 for wrong.</p><div class="row"><button class="btn primary" data-m="go">Start the mock</button><button class="btn ghost" data-m="x">Cancel</button></div>',
+  modal('<h2>Full UPSC-style mock</h2><p>100 questions across all subjects, weighted like recent Prelims papers. About 30 of them are real UPSC questions from 2016–2023. You have 2 hours. Marking: +2 for right, minus 0.66 for wrong.</p><div class="row"><button class="btn primary" data-m="go">Start the mock</button><button class="btn ghost" data-m="x">Cancel</button></div>',
     function(a){if(a==="go")startCustom({type:"fullmock",title:"Full mock, "+fd(today()),subject:"Mixed",qids:shuffle(q),timed:true})});
+}
+/* UPSC previous year papers */
+function pyqSets(paper){return M.sets.filter(function(s){return s.type==="pyq"&&s.paper===paper}).sort(function(a,b){return b.year-a.year})}
+function pyqPool(subject){return poolFor(subject).filter(isPyq)}
+function bestOf(setId){var b=null;attempts().forEach(function(a){if(a.setId===setId&&(b==null||a.pts>b.pts))b=a});return b}
+function startPyqPaper(id){
+  var s=SET[id];if(!s)return;var run=DB.recs["run_"+id];if(run&&!run.del)return startSet(id,true);
+  var csat=s.paper==="CSAT",best=bestOf(id);
+  modal('<h2>'+esc(s.title)+'</h2><p>'+s.n+' questions, 2 hours, '+(csat?'+2.5 for right, minus 0.83 for wrong. CSAT is qualifying: you need 33% (66.67 of 200).':'+2 for right, minus 0.66 for wrong.')+' Explanations are shown at the end, as in your other tests.</p>'+
+    (s.held?'<p class="note">You chose to keep this paper aside for a full exam-day simulation closer to Prelims. Its questions never appear in your other tests.</p>':'')+
+    (best?'<p class="muted small">Your best so far: '+best.pts+' of '+best.max+' on '+fdy(best.date)+'.</p>':'')+
+    '<div class="row"><button class="btn primary" data-m="go">Start the paper</button><button class="btn ghost" data-m="x">Cancel</button></div>',
+    function(a){if(a==="go")startSet(id,true)});
+}
+function startPyqSubject(subject){
+  var pool=pyqPool(subject);if(!pool.length){toast("No previous year questions for this subject yet.");return}
+  sizeDialog("PYQ: "+subject,pool.length,[25,50,100],function(n){
+    startCustom({type:"pyqsub",title:"PYQ "+subject+" ("+n+" questions)",subject:subject,qids:pickPart(pool,Math.min(n,pool.length)),timed:true});
+  });
+}
+function startPyqMock(){
+  var q=[],used={};
+  Object.keys(CFG.MOCK_WEIGHTS).forEach(function(s){pickPart(pyqPool(s),CFG.MOCK_WEIGHTS[s]).forEach(function(x){q.push(x);used[x]=1})});
+  if(q.length<100){var rest=[];Object.keys(CFG.MOCK_WEIGHTS).forEach(function(s){pyqPool(s).forEach(function(x){if(!used[x])rest.push(x)})});q=q.concat(pickPart(rest,100-q.length))}
+  modal('<h2>PYQ mock</h2><p>100 real UPSC questions from 2016–2023, mixed across subjects. 2 hours, +2 for right, minus 0.66 for wrong. The 2024–2026 papers are kept aside.</p><div class="row"><button class="btn primary" data-m="go">Start the mock</button><button class="btn ghost" data-m="x">Cancel</button></div>',
+    function(a){if(a==="go")startCustom({type:"pyqmock",title:"PYQ mock, "+fd(today()),subject:"Mixed",qids:shuffle(q),timed:true})});
+}
+function startCsatMock(){
+  var pool=poolFor("CSAT");if(pool.length<80){toast("Not enough CSAT questions yet.");return}
+  modal('<h2>CSAT mock</h2><p>80 questions, 2 hours, as in Paper II: comprehension, reasoning, numeracy and data. About 30% are real UPSC CSAT questions from 2016–2023. +2.5 for right, minus 0.83 for wrong; 33% qualifies.</p><div class="row"><button class="btn primary" data-m="go">Start the mock</button><button class="btn ghost" data-m="x">Cancel</button></div>',
+    function(a){if(a==="go")startCustom({type:"csatmock",title:"CSAT mock, "+fd(today()),subject:"CSAT",qids:pickQids(pool,80),timed:true,limit:7200,mk:CFG.CSAT_MK})});
 }
 function startRevision(all){
   var mb=mistakeBook(),list=(all?mb:mb.filter(function(m){return m.isDue})).slice(0,25);
@@ -623,6 +673,7 @@ function viewPractice(){
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
+  html+=pyqPanel();
   var mb=mistakeBook(),due=mb.filter(function(m){return m.isDue}).length;
   var bySub={},meta=qMeta();mb.forEach(function(m){var s=(meta[m.qid]||["Other"])[0];bySub[s]=(bySub[s]||0)+1});
   html+='<div class="cols">';
@@ -641,6 +692,7 @@ function viewPractice(){
   if($("u-clear"))$("u-clear").onclick=function(){VIEW.practiceUnits[subj]={};render()};
   $("st-go").onclick=function(){startSubjectTest(subj,Object.keys(chosen).filter(function(k){return chosen[k]}))};
   $("fm-go").onclick=startFullMock;
+  bindPyq();
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
   if($("mb-all"))$("mb-all").onclick=function(){startRevision(true)};
   $("myq-add").onclick=function(){myqDialog(null)};
@@ -648,6 +700,32 @@ function viewPractice(){
   qsa("[data-myedit]").forEach(function(b){b.onclick=function(){myqDialog(b.dataset.myedit)}});
   qsa("[data-mydel]").forEach(function(b){b.onclick=function(){modal('<h2>Delete this question?</h2><div class="row"><button class="btn danger" data-m="y">Delete</button><button class="btn ghost" data-m="x">Cancel</button></div>',function(a){if(a==="y"){del(b.dataset.mydel);render()}})}});
   qsa("[data-repdel]").forEach(function(b){b.onclick=function(){del(b.dataset.repdel);render()}});
+}
+function pyqPanel(){
+  var paper=VIEW.pyqPaper||"GS",sets=pyqSets(paper);if(!M.sets.some(function(s){return s.type==="pyq"}))return "";
+  var runs={};pausedRuns().forEach(function(r){runs[r.key]=1});
+  var cards=sets.map(function(s){var b=bestOf(s.id),st=runs[s.id]?'Paused':(b?'Best '+b.pts+' / '+b.max:'Not taken');
+    return '<button class="subj yr'+(s.held?" held":"")+'" data-pyq="'+s.id+'"><b>'+s.year+'</b><span>'+esc(st)+'</span>'+(s.held?'<span class="hold">Kept for simulation</span>':'')+'</button>'}).join("");
+  var subs=M.subjects.filter(function(s){return s!=="CSAT"&&pyqPool(s).length});
+  var h='<section class="panel" id="pyq-panel"><div class="row between wrap"><h2>UPSC previous year papers</h2><div class="seg small" role="group" aria-label="Paper">'+
+    [["GS","GS Paper I"],["CSAT","CSAT (Paper II)"]].map(function(p){return '<button data-pp="'+p[0]+'" aria-pressed="'+(paper===p[0])+'">'+p[1]+'</button>'}).join("")+'</div></div>'+
+    '<p class="muted small">Real Prelims papers from 2016 to 2026 with the official answers. Take a whole year as it was set, or practise by subject. '+(paper==="GS"?'30% of every subject test and full mock now comes from the 2016–2023 papers.':'CSAT is qualifying: 33% (66.67 of 200) is the target.')+' The 2024, 2025 and 2026 papers are kept out of all other tests so you can sit them fresh as full simulations.</p>'+
+    '<div class="subjgrid yrs">'+cards+'</div>';
+  if(paper==="GS")h+='<div class="row wrap pyq-more"><label class="inline">PYQ by subject <select id="pyq-subj">'+subs.map(function(s){return '<option>'+esc(s)+'</option>'}).join("")+'</select></label><button class="btn" id="pyq-subj-go">Start</button><button class="btn primary" id="pyq-mock">PYQ mock (100 mixed)</button></div>';
+  else{
+    var cs=M.sets.filter(function(s){return s.type==="csatset"}),done=setDoneMap();
+    h+='<h3>CSAT practice sets</h3><p class="muted small">New questions in the UPSC pattern, 25 per set. Untimed, so you can work things out.</p><ul class="list">'+cs.map(function(s){return '<li><div><b>'+esc(s.title)+'</b><span class="muted small">'+s.n+' questions'+(done[s.id]?', taken '+done[s.id]+' time'+(done[s.id]>1?"s":""):'')+'</span></div><button class="btn small'+(done[s.id]?"":" primary")+'" data-cset="'+s.id+'">'+(runs[s.id]?"Resume":(done[s.id]?"Retake":"Start"))+'</button></li>'}).join("")+'</ul>'+
+      '<div class="row wrap pyq-more"><button class="btn primary" id="csat-mock">CSAT mock (80 questions, 2 hours)</button><span class="muted small">Mixes these sets with 2016–2023 CSAT questions.</span></div>';
+  }
+  return h+'</section>';
+}
+function bindPyq(){
+  qsa("[data-pp]").forEach(function(b){b.onclick=function(){VIEW.pyqPaper=b.dataset.pp;render()}});
+  qsa("[data-pyq]").forEach(function(b){b.onclick=function(){startPyqPaper(b.dataset.pyq)}});
+  qsa("[data-cset]").forEach(function(b){b.onclick=function(){startSet(b.dataset.cset,false)}});
+  if($("pyq-subj-go"))$("pyq-subj-go").onclick=function(){startPyqSubject($("pyq-subj").value)};
+  if($("pyq-mock"))$("pyq-mock").onclick=startPyqMock;
+  if($("csat-mock"))$("csat-mock").onclick=startCsatMock;
 }
 function myqDialog(id){
   var q=id?DB.recs[id]:{sub:VIEW.practiceSubj||"Polity",u:"",q:"",o:["","","",""],a:null,e:"",src:""};
@@ -674,7 +752,7 @@ function myqDialog(id){
 }
 
 /* Dashboard */
-var DASH_TYPES=[["daily","Daily"],["weekly","Weekly"],["mock","Mock"],["subject","Subject tests"],["ca","Current affairs"],["all","All"]];
+var DASH_TYPES=[["daily","Daily"],["weekly","Weekly"],["mock","Mock"],["subject","Subject tests"],["ca","Current affairs"],["pyq","UPSC PYQ"],["all","All"]];
 function dashRows(type){
   var rows=[];
   attempts().forEach(function(a){var g=typeGroup(a.type);if(type==="all"||g===type)rows.push({kind:"att",id:a.id,date:a.date,title:a.title,type:TYPE_LABEL[a.type]||a.type,subject:a.subject,marks:a.pts,max:a.max,p:pct(a.pts,a.max),r:a.r,w:a.w,sk:a.sk,sec:a.sec,ts:a.ts,src:"app"})});
@@ -689,7 +767,7 @@ function viewDash(){
   var html='<div class="pagehead"><div><h1>Dashboard</h1><p class="muted">Goal: 90% in Prelims on 24 May 2027.</p></div></div>';
   html+='<section class="panel"><div class="row between wrap"><h2>Performance</h2><div class="seg toggle" role="group" aria-label="Test type">'+DASH_TYPES.map(function(t){return '<button data-dt="'+t[0]+'" aria-pressed="'+(type===t[0])+'">'+t[1]+'</button>'}).join("")+'</div></div>';
   if(!rows.length){
-    html+='<p class="empty">'+({daily:"Take a daily set from the Today tab to start your record.",weekly:"Enter your Shankar weekly test marks in the Scores tab to see them here.",mock:"Take a full mock in Practice, or enter Shankar mock marks in Scores.",subject:"Take a subject test in Practice to see it here.",ca:"Take a current affairs set from the Today tab to see it here.",all:"Your results will appear here after your first test."})[type]+'</p></section>';
+    html+='<p class="empty">'+({daily:"Take a daily set from the Today tab to start your record.",weekly:"Enter your Shankar weekly test marks in the Scores tab to see them here.",mock:"Take a full mock in Practice, or enter Shankar mock marks in Scores.",subject:"Take a subject test in Practice to see it here.",ca:"Take a current affairs set from the Today tab to see it here.",pyq:"Take a UPSC previous year paper in Practice to see it here.",all:"Your results will appear here after your first test."})[type]+'</p></section>';
   }else{
     var ps=rows.map(function(r){return r.p}),avg=ps.reduce(function(a,b){return a+b},0)/ps.length;
     var last=rows[rows.length-1];
