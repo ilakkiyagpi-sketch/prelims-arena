@@ -189,13 +189,16 @@ function unitTrend(o){ // accuracy last 30 days vs before
 }
 
 /* calendar day state */
-function setDoneMap(){var m={};attempts().forEach(function(a){if(a.setId)m[a.setId]=(m[a.setId]||0)+1});return m}
+// a set counts as done once taken whole, or once all 5 of its parts are done
+function setDoneMap(){var m={},parts={};attempts().forEach(function(a){if(!a.setId)return;if(a.part){(parts[a.setId]=parts[a.setId]||{})[a.part]=1}else m[a.setId]=(m[a.setId]||0)+1});
+  Object.keys(parts).forEach(function(id){if(Object.keys(parts[id]).length>=5&&!m[id])m[id]=1});return m}
+function partsDone(id){var d={};attempts().forEach(function(a){if(a.setId===id&&a.part)d[a.part]=1});return d}
 function dayState(ds,done,td){
   var sch=scheduledFor(ds).filter(function(s){return s.ready});
   var st="none";
   if(sch.length){
     var allDone=sch.every(function(s){return done[s.id]});
-    var paused=sch.some(function(s){var r=DB.recs["run_"+s.id];return r&&!r.del});
+    var paused=sch.some(function(s){return Object.keys(DB.recs).some(function(k){var r=DB.recs[k];return r.kind==="run"&&!r.del&&(k==="run_"+s.id||k.indexOf("run_"+s.id+"~")===0)})});
     st=allDone?"done":(paused?"paused":(ds<td?"missed":"todo"));
   }
   var schIds={};sch.forEach(function(s){schIds[s.id]=1});
@@ -263,17 +266,18 @@ function startQuiz(o){
   // o: {key,type,setId,title,subject,sched,qs,timed,limit,run}
   var n=o.qs.length,run=o.run;
   QZ={key:o.key,type:o.type,setId:o.setId||null,title:o.title,subject:o.subject||"Mixed",sched:o.sched||null,qs:o.qs,
-    i:0,ans:new Array(n).fill(null),conf:new Array(n).fill(0),mark:new Array(n).fill(0),secs:new Array(n).fill(0),seen:new Array(n).fill(0),
+    i:0,ans:new Array(n).fill(null),conf:new Array(n).fill(0),mark:new Array(n).fill(0),secs:new Array(n).fill(0),seen:new Array(n).fill(0),strike:new Array(n).fill(0),part:o.part||(run&&run.part)||null,
     timed:!!o.timed,limit:o.limit||Math.round(n*CFG.SEC_PER_Q),mk:o.mk||(run&&run.mk)||null,el:0,t0:Date.now(),qt0:Date.now(),nav:false,tick:null};
-  if(run){["i","ans","conf","mark","secs","seen"].forEach(function(k){if(run[k]&&(k==="i"||run[k].length===n))QZ[k]=Array.isArray(run[k])?run[k].slice():run[k]});QZ.el=run.el||0;QZ.limit=run.limit||QZ.limit;QZ.timed=!!run.timed}
+  if(run){["i","ans","conf","mark","secs","seen","strike"].forEach(function(k){if(run[k]&&(k==="i"||run[k].length===n))QZ[k]=Array.isArray(run[k])?run[k].slice():run[k]});QZ.el=run.el||0;QZ.limit=run.limit||QZ.limit;QZ.timed=!!run.timed}
   QZ.t0=Date.now()-QZ.el*1000;QZ.qt0=Date.now();
+  if(typeof stopPlayer==="function"&&PL.list.length)stopPlayer();
   VIEW.screen="quiz";document.body.classList.add("in-quiz");
   clearInterval(QZ.tick);QZ.tick=setInterval(quizTick,1000);
   renderQuiz();window.scrollTo(0,0);
 }
 function elapsed(){return QZ?(Date.now()-QZ.t0)/1000:0}
 function quizTick(){
-  if(!QZ)return;var el=$("qz-clock");if(!el)return;
+  if(!QZ||QZ.hiddenAt)return;var el=$("qz-clock");if(!el)return;
   if(QZ.timed){var left=QZ.limit-elapsed();el.textContent=fmtT(left)+" left";el.classList.toggle("low",left<300);if(left<=0){toast("Time is up. Your test has been submitted.");submitQuiz()}}
   else el.textContent=fmtT(elapsed());
 }
@@ -283,11 +287,12 @@ function saveRun(sync){
   var answered=QZ.ans.filter(function(a){return a!=null}).length;
   if(!answered&&QZ.i===0&&!QZ.mark.some(Boolean))return;
   put("run_"+QZ.key,{kind:"run",key:QZ.key,type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,
-    qids:QZ.qs.map(function(q){return q.qid}),i:QZ.i,ans:QZ.ans,conf:QZ.conf,mark:QZ.mark,secs:QZ.secs,seen:QZ.seen,
+    qids:QZ.qs.map(function(q){return q.qid}),i:QZ.i,ans:QZ.ans,conf:QZ.conf,mark:QZ.mark,secs:QZ.secs,seen:QZ.seen,strike:QZ.strike,part:QZ.part,
     el:Math.round(elapsed()),timed:QZ.timed,limit:QZ.limit,mk:QZ.mk,done:answered,n:QZ.qs.length},{noSync:!sync});
 }
 function goQ(i){if(!QZ||i<0||i>=QZ.qs.length)return;noteTime();QZ.i=i;QZ.nav=false;renderQuiz();saveRun(false);var c=$("qz-card");if(c&&c.scrollIntoView&&window.innerWidth<900)window.scrollTo(0,0)}
-function choose(k){QZ.ans[QZ.i]=QZ.ans[QZ.i]===k?null:k;if(QZ.ans[QZ.i]==null)QZ.conf[QZ.i]=0;renderQuiz();saveRun(false)}
+function choose(k){QZ.strike[QZ.i]&=~(1<<k);QZ.ans[QZ.i]=QZ.ans[QZ.i]===k?null:k;if(QZ.ans[QZ.i]==null)QZ.conf[QZ.i]=0;renderQuiz();saveRun(false)}
+function toggleStrike(k){QZ.strike[QZ.i]^=(1<<k);if(QZ.ans[QZ.i]===k&&(QZ.strike[QZ.i]&(1<<k))){QZ.ans[QZ.i]=null;QZ.conf[QZ.i]=0}renderQuiz();saveRun(false)}
 function setConf(c){QZ.conf[QZ.i]=QZ.conf[QZ.i]===c?0:c;renderQuiz();saveRun(false)}
 function toggleMark(){QZ.mark[QZ.i]=QZ.mark[QZ.i]?0:1;renderQuiz();saveRun(false)}
 function clearAns(){QZ.ans[QZ.i]=null;QZ.conf[QZ.i]=0;renderQuiz();saveRun(false)}
@@ -302,7 +307,7 @@ function renderQuiz(){
   var q=QZ.qs[QZ.i],n=QZ.qs.length;QZ.seen[QZ.i]=1;
   var answered=QZ.ans.filter(function(a){return a!=null}).length,marked=QZ.mark.filter(Boolean).length;
   var grid=QZ.qs.map(function(_,i){return '<button class="bub '+bubbleClass(i)+'" data-go="'+i+'" aria-label="Question '+(i+1)+'">'+(i+1)+'</button>'}).join("");
-  var opts=q.o.map(function(t,k){return '<button class="opt'+(QZ.ans[QZ.i]===k?" sel":"")+'" data-k="'+k+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+'</span></button>'}).join("");
+  var opts=q.o.map(function(t,k){var st=(QZ.strike[QZ.i]>>k)&1;return '<div class="optrow"><button class="opt'+(QZ.ans[QZ.i]===k?" sel":"")+(st?" struck":"")+'" data-k="'+k+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+'</span></button><button class="strike" data-x="'+k+'" aria-pressed="'+!!st+'" aria-label="'+(st?"Bring back option ":"Cross out option ")+"ABCD"[k]+'" title="'+(st?"Bring back":"Cross out")+'">'+(st?"↺":"✕")+'</button></div>'}).join("");
   var last=QZ.i===n-1;
   $("app").innerHTML=
    '<div class="quiz">'+
@@ -320,6 +325,7 @@ function renderQuiz(){
     '</div>'+
    '</div>';
   qsa(".opt").forEach(function(b){b.onclick=function(){choose(+b.dataset.k)}});
+  qsa(".strike").forEach(function(b){b.onclick=function(){toggleStrike(+b.dataset.x)}});
   qsa(".conf button").forEach(function(b){b.onclick=function(){setConf(+b.dataset.c)}});
   qsa("[data-go]").forEach(function(b){b.onclick=function(){goQ(+b.dataset.go)}});
   $("qz-prev").onclick=function(){goQ(QZ.i-1)};
@@ -339,7 +345,11 @@ document.addEventListener("keydown",function(ev){
   else if(k==="m")toggleMark();
 });
 window.addEventListener("pagehide",function(){if(QZ){noteTime();saveRun(false)}saveStore(true)});
-document.addEventListener("visibilitychange",function(){if(document.hidden&&QZ){noteTime();saveRun(false);saveStore(true)}});
+document.addEventListener("visibilitychange",function(){
+  if(!QZ)return;
+  if(document.hidden){noteTime();if(DB.meta.autoPause!==false)QZ.hiddenAt=Date.now();saveRun(false);saveStore(true)}
+  else if(QZ.hiddenAt){var gap=Date.now()-QZ.hiddenAt;QZ.hiddenAt=null;QZ.t0+=gap;QZ.qt0=Date.now();if(gap>20000)toast("The clock was paused while you were away ("+fmtMin(gap/1000)+").")}
+});
 
 function pyqChip(q){return q&&q.y?'<span class="tag pyq">UPSC '+q.y+(q.paper==="CSAT"?" CSAT":"")+'</span>':''}
 function dropNote(q){return q.x===2?"This question needs a figure from the original paper that is not reproduced here, so it is not scored.":"UPSC dropped this question from evaluation, so it is not scored."}
@@ -361,10 +371,10 @@ function submitQuiz(){
   if(!QZ)return;noteTime();clearInterval(QZ.tick);
   var r=0,w=0,sk=0,nd=0,items=[],mk=QZ.mk||[CFG.RIGHT,CFG.WRONG];
   QZ.qs.forEach(function(q,i){var a=QZ.ans[i],c=q.x?2:(a==null?-1:(a===q.a?1:0));if(c===1)r++;else if(c===0)w++;else if(c===2)nd++;else sk++;
-    items.push([q.qid,q.sub,q.u,a==null?-1:a,c,QZ.conf[i],QZ.secs[i],QZ.mark[i]])});
+    items.push([q.qid,q.sub,q.u,a==null?-1:a,c,QZ.conf[i],QZ.secs[i],QZ.mark[i],QZ.strike[i]||0])});
   var id=uid("att"),n=QZ.qs.length;
   var rec={kind:"att",type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,date:today(),n:n,r:r,w:w,sk:sk,pts:pts(r,w,mk),max:Math.round((n-nd)*mk[0]*100)/100,sec:Math.round(elapsed()),timed:QZ.timed,items:items};
-  if(QZ.mk)rec.mk=QZ.mk;if(nd)rec.nd=nd;
+  if(QZ.mk)rec.mk=QZ.mk;if(nd)rec.nd=nd;if(QZ.part)rec.part=QZ.part;
   put(id,rec);
   if(DB.recs["run_"+QZ.key])del("run_"+QZ.key);
   saveStore(true);
@@ -404,10 +414,11 @@ function renderResult(fresh){
   var cards=list.map(function(o){
     var x=o.x,q=o.q;if(!q)return '<div class="rcard"><p class="muted">Question '+(o.i+1)+' is no longer available.</p></div>';
     var ch=x[3];
-    var opts=q.o.map(function(t,k){var cl=k===q.a?"right":(k===ch&&x[4]!==2?"wrong":"");return '<li class="'+cl+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+(k===q.a?'<em>Correct answer'+(k===ch?', your answer':'')+'</em>':(k===ch?'<em>Your answer</em>':''))+'</span></li>'}).join("");
+    var sm=x[8]||0;
+    var opts=q.o.map(function(t,k){var cl=k===q.a?"right":(k===ch&&x[4]!==2?"wrong":"");var cr=(sm>>k)&1;return '<li class="'+cl+(cr?" crossed":"")+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+(k===q.a?'<em>Correct answer'+(k===ch?', your answer':'')+(cr?', but you crossed it out':'')+'</em>':(k===ch?'<em>Your answer</em>':(cr?'<em class="xo">Crossed out</em>':'')))+'</span></li>'}).join("");
     var verdict=x[4]===1?'<span class="tag good">Right</span>':(x[4]===0?'<span class="tag bad">Wrong</span>':(x[4]===2?'<span class="tag">Not scored</span>':'<span class="tag">Not answered</span>'));
     if(ch==null&&!a.v1)verdict=x[4]===1?verdict:verdict;
-    return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
+    return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+(((x[8]||0)>>q.a)&1?'<span class="tag bad">Crossed out the right answer</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
       passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
       '<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
@@ -415,9 +426,11 @@ function renderResult(fresh){
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
     '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
-    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+'</section></div>'+
-    '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
+    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+
+    '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><button class="btn small" id="rs-listen">Listen to these</button><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
   $("rs-back").onclick=function(){VIEW.screen="tabs";render()};
+  $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
+  if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
 }
@@ -445,6 +458,25 @@ function modal(html,cb,keepForRead){
   m.addEventListener("keydown",function(e){if(e.key==="Escape")closeModal()});
 }
 function closeModal(){var m=$("modal");if(m)m.remove()}
+
+/* elimination (crossed-out options) summary */
+function elimStats(items,qs){
+  var byQ={};(qs||[]).forEach(function(q){byQ[q.qid]=q});
+  var o={opts:0,good:0,badQ:0,qn:0};
+  items.forEach(function(x){var m=x[8]||0;if(!m||x[4]===2)return;var q=byQ[x[0]];o.qn++;
+    for(var k=0;k<4;k++)if((m>>k)&1){o.opts++;if(q&&q.a===k)o.badQ++;else o.good++}});
+  return o;
+}
+function elimHtml(items,qs){
+  var e=elimStats(items,qs);if(!e.opts)return '<h3>Elimination</h3><p class="muted small">Cross out options you rule out (the ✕ beside each option) to practise the elimination method. Your record will show here.</p>';
+  return '<h3>Elimination</h3><p>You crossed out '+e.opts+' option'+(e.opts>1?"s":"")+' in '+e.qn+' question'+(e.qn>1?"s":"")+'. <b>'+Math.round(e.good/e.opts*100)+'%</b> were rightly ruled out'+(e.badQ?'; in '+e.badQ+' question'+(e.badQ>1?"s":"")+' you crossed out the correct answer.':'.')+'</p>';
+}
+function nextPartHtml(a){
+  if(!a.part||!a.setId||!SET[a.setId])return "";
+  var done=partsDone(a.setId),nxt=null;for(var k=1;k<=5;k++)if(!done[k]){nxt=k;break}
+  if(!nxt)return '<section class="panel"><p><b>All 5 parts done.</b> This set now counts as complete for '+fdy(SET[a.setId].date)+'.</p></section>';
+  return '<section class="panel row between wrap"><p>'+Object.keys(done).length+' of 5 parts of this set done.</p><button class="btn primary" id="rs-next" data-p="'+nxt+'">Start part '+nxt+' (10 questions)</button></section>';
+}
 
 /* app shell, router, starting tests */
 var VIEW={tab:"today",screen:"tabs",sel:null,month:null,dashType:"all",dashMonth:"all",subjOpen:{},from:null,to:null,practiceSubj:null,practiceUnits:{}};
@@ -486,12 +518,21 @@ function startSet(id,timed){
 }
 function resumeRun(runId){
   var run=DB.recs[runId];if(!run||run.del)return;
-  if(run.setId&&SET[run.setId]&&["subject","fullmock","revision","myq","pyqsub","pyqmock","csatmock"].indexOf(run.type)<0)return startSet(run.setId);
+  if(run.setId&&SET[run.setId]&&!run.part&&["subject","fullmock","revision","myq","pyqsub","pyqmock","csatmock"].indexOf(run.type)<0)return startSet(run.setId);
   $("app").innerHTML='<div class="page"><p class="muted">Loading your paused test…</p></div>';
   loadQids(run.qids).then(function(qs){
     if(qs.length!==run.qids.length){toast("Some questions in this paused test are no longer available, so it restarts with the rest.");run=Object.assign({},run,{ans:null,conf:null,mark:null,secs:null,seen:null,i:0})}
     startQuiz({key:run.key,type:run.type,setId:run.setId,title:run.title,subject:run.subject,sched:run.sched,qs:qs,timed:run.timed,limit:run.limit,run:run,mk:run.mk||null});
   });
+}
+function startPart(id,k){
+  var s=SET[id];if(!s||!s.ready)return;
+  var key=id+"~p"+k,run=DB.recs["run_"+key];if(run&&!run.del)return resumeRun("run_"+key);
+  $("app").innerHTML='<div class="page"><p class="muted">Loading part '+k+'…</p></div>';
+  loadSet(id).then(function(d){
+    var qs=d.questions.slice((k-1)*10,k*10);
+    startQuiz({key:key,type:s.type,setId:id,part:k,title:s.title+" (part "+k+" of 5)",subject:s.subject,sched:s.date,qs:qs,timed:!!DB.meta.timed});
+  }).catch(function(){VIEW.screen="tabs";render();toast("Could not load this set. Check your connection and try again.")});
 }
 function pausedRuns(){return recs("run").sort(function(a,b){return b.ts-a.ts})}
 function startCustom(o){
@@ -590,6 +631,7 @@ function viewToday(){
   if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
   var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
   html+=checkinCard(td);
+  html+='<section class="panel budget"><div><h2>Got a few minutes?</h2><p class="muted small">Tap the time you have. The app picks the most useful thing to do with it.</p></div><div class="row wrap">'+[10,20,40].map(function(m){return '<button class="btn" data-budget="'+m+'">'+m+' minutes</button>'}).join("")+'</div></section>';
   var runs=pausedRuns();
   if(runs.length)html+='<section class="panel"><h2>Paused tests</h2><ul class="list">'+runs.map(function(r){return '<li><div><b>'+esc(r.title)+'</b><span class="muted">'+r.done+' of '+r.n+' answered'+(r.timed?', '+fmtMin(Math.max(0,r.limit-r.el))+' left':'')+'</span></div><div class="row"><button class="btn primary small" data-resume="'+esc(r.id)+'">Resume</button><button class="btn ghost small" data-discard="'+esc(r.id)+'">Discard</button></div></li>'}).join("")+'</ul></section>';
   html+='<div class="cols wide-left">'+dayPanel(sel,td)+calendarPanel(sel,td)+'</div>';
@@ -609,14 +651,19 @@ function checkinCard(td){
 }
 function setRowHtml(s,done){
   var run=DB.recs["run_"+s.id];run=run&&!run.del?run:null;var n=done[s.id]||0;
-  var best=null;attempts().forEach(function(a){if(a.setId===s.id&&(best==null||a.pts>best))best=a.pts});
+  var best=null;attempts().forEach(function(a){if(a.setId===s.id&&!a.part&&(best==null||a.pts>best))best=a.pts});
   var label=s.type==="ca"?"Current affairs, 25 questions":(s.type==="mock"?"Mock drill, 50 questions":"Daily set, 50 questions");
   var act;
   if(s.pending)act='<span class="muted small">'+esc(s.pending)+'</span>';
   else if(!s.ready)act='<span class="muted small">Being prepared</span>';
   else if(run)act='<button class="btn primary small" data-resume="run_'+s.id+'">Resume ('+run.done+'/'+run.n+')</button>';
   else act='<button class="btn '+(n?"":"primary ")+'small" data-start="'+s.id+'">'+(n?"Take again":"Start")+'</button>';
-  return '<li><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</li>';
+  var parts="";
+  if(s.ready&&!s.pending&&s.n===50){
+    var pd_=partsDone(s.id),nd=Object.keys(pd_).length;
+    parts='<div class="parts"><span class="muted small">Or in 5 parts of 10'+(nd&&nd<5?', '+nd+' done':'')+':</span>'+[1,2,3,4,5].map(function(k){var r=DB.recs["run_"+s.id+"~p"+k],pa=r&&!r.del;return '<button class="pchip'+(pd_[k]?" done":(pa?" paused":""))+'" data-part="'+s.id+'|'+k+'" aria-label="Part '+k+(pd_[k]?', done':(pa?', paused':''))+'">'+(pd_[k]?"✓ ":"")+k+'</button>'}).join("")+'</div>';
+  }
+  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+parts+'</li>';
 }
 function dayPanel(ds,td){
   var sch=scheduledFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
@@ -650,6 +697,8 @@ function calendarPanel(sel,td){
 function bindToday(){
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
+  qsa("[data-part]").forEach(function(b){b.onclick=function(){var p=b.dataset.part.split("|");startPart(p[0],+p[1])}});
+  qsa("[data-budget]").forEach(function(b){b.onclick=function(){budgetPlan(+b.dataset.budget)}});
   qsa("[data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   qsa("[data-discard]").forEach(function(b){b.onclick=function(){modal('<h2>Discard this paused test?</h2><p>Your answers so far will be lost.</p><div class="row"><button class="btn danger" data-m="y">Discard</button><button class="btn ghost" data-m="x">Keep it</button></div>',function(a){if(a==="y"){del(b.dataset.discard);render()}})}});
   qsa("[data-att]").forEach(function(b){b.onclick=function(){openAttempt(b.dataset.att)}});
@@ -658,6 +707,38 @@ function bindToday(){
   var mv=function(k){var y=VIEW.month[0],m=VIEW.month[1]+k;if(m<0){m=11;y--}if(m>11){m=0;y++}VIEW.month=[y,m];render()};
   $("cal-prev").onclick=function(){mv(-1)};$("cal-next").onclick=function(){mv(1)};
   $("cal-today").onclick=function(){VIEW.sel=null;VIEW.month=null;render()};
+}
+
+/* "I have N minutes": pick the most useful short session */
+function todaysOpenSet(){
+  var td=today(),done=setDoneMap();
+  var cands=scheduledFor(td).filter(function(s){return s.ready&&!s.pending&&s.n===50&&!done[s.id]});
+  if(!cands.length){ // nearest earlier day with an unfinished set
+    var ds=Object.keys(BYDATE).filter(function(d){return d<td}).sort().reverse();
+    for(var i=0;i<ds.length&&i<14;i++){var c=BYDATE[ds[i]].filter(function(s){return s.ready&&!s.pending&&s.n===50&&!done[s.id]});if(c.length){cands=c;break}}
+  }
+  return cands[0]||null;
+}
+function weakestUnit(){
+  var st=unitStats(),best=null;
+  Object.keys(st).forEach(function(s){if(s==="CSAT")return;Object.keys(st[s].units).forEach(function(u){var o=st[s].units[u],n=o.r+o.w;if(n<5)return;var a=o.r/n;if(!best||a<best.a)best={s:s,u:u,a:a,n:n}})});
+  return best;
+}
+function budgetPlan(min){
+  var n={10:8,20:16,40:33}[min],nParts={10:1,20:2,40:3}[min];
+  var due=mistakeBook().filter(function(m){return m.isDue});
+  var set=todaysOpenSet(),plan=null;
+  if(due.length>=n||(due.length>=5&&!set)){
+    plan={what:"Revise "+Math.min(due.length,n)+" questions from your mistake book that are due today.",why:"Revising mistakes on time is the fastest way to stop losing the same marks again.",go:function(){startCustom({type:"revision",title:"Mistake revision, "+fd(today()),subject:"Mixed",qids:due.slice(0,n).map(function(m){return m.qid}),timed:false})}};
+  }else if(set){
+    var pd_=partsDone(set.id),left=[1,2,3,4,5].filter(function(k){return !pd_[k]}),take=left.slice(0,nParts);
+    plan={what:(take.length>1?"Parts "+take.join(", "):"Part "+take[0])+" of "+set.title+(take.length>1?" (10 questions each).":" (10 questions)."),why:(set.date===today()?"This keeps today's set on track.":"This catches up the set scheduled for "+fdw(set.date)+".")+(take.length>1?" When a part ends, the result screen takes you straight to the next one.":"")+(due.length?" You also have "+due.length+" mistake"+(due.length>1?"s":"")+" due; the next short gap is a good time for them.":""),go:function(){startPart(set.id,take[0])}};
+  }else{
+    var w=weakestUnit();
+    if(w){var pool=poolFor(w.s,[w.u]);plan={what:Math.min(n,pool.length)+" questions on "+w.u+" ("+w.s+").",why:"It is your weakest unit so far, at "+Math.round(w.a*100)+"% accuracy.",go:function(){startCustom({type:"subject",title:w.s+": "+w.u+" ("+Math.min(n,pool.length)+" questions)",subject:w.s,qids:pickQids(pool,Math.min(n,pool.length)),timed:true})}}}
+    else plan={what:n+" questions from today's subject.",why:"Once you have more results, this will target your weakest unit.",go:function(){var s=(scheduledFor(today())[0]||{}).subject;if(!s||!M.bank[s])s="Polity";startCustom({type:"subject",title:s+" quick test ("+n+" questions)",subject:s,qids:pickQids(poolFor(s),n),timed:true})}};
+  }
+  modal('<h2>'+min+' minutes</h2><p><b>'+esc(plan.what)+'</b></p><p class="muted">'+esc(plan.why)+'</p><div class="row"><button class="btn primary" data-m="go">Start</button><button class="btn ghost" data-m="x">Not now</button></div>',function(a){if(a==="go")plan.go()});
 }
 
 /* Practice tab: subject tests, full mock, mistake book, my questions, reports */
@@ -674,6 +755,7 @@ function viewPractice(){
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
   html+=pyqPanel();
+  html+=listenPanel();
   var mb=mistakeBook(),due=mb.filter(function(m){return m.isDue}).length;
   var bySub={},meta=qMeta();mb.forEach(function(m){var s=(meta[m.qid]||["Other"])[0];bySub[s]=(bySub[s]||0)+1});
   html+='<div class="cols">';
@@ -693,6 +775,7 @@ function viewPractice(){
   $("st-go").onclick=function(){startSubjectTest(subj,Object.keys(chosen).filter(function(k){return chosen[k]}))};
   $("fm-go").onclick=startFullMock;
   bindPyq();
+  bindListen();
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
   if($("mb-all"))$("mb-all").onclick=function(){startRevision(true)};
   $("myq-add").onclick=function(){myqDialog(null)};
@@ -878,6 +961,9 @@ function viewScores(){
     '<div class="row wrap"><button class="btn primary" id="sy-save">Save and sync</button><button class="btn" id="sy-now"'+(c.url?"":" disabled")+'>Sync now</button><span class="muted small" id="sy-msg"></span></div>'+
     '<p class="muted small">'+(DB.meta.lastSync?'Last synced '+new Date(DB.meta.lastSync).toLocaleString()+'. ':'')+pendingCount()+' change(s) waiting to upload.</p>'+
     '<details><summary>Set up the Sheet (once, about 5 minutes)</summary><ol class="steps"><li>Create a new Google Sheet. Open Extensions, then Apps Script.</li><li>Delete the sample code. Tap Copy the script below and paste it in.</li><li>Change the passphrase on the line that starts with var KEY, then save.</li><li>Tap Deploy, New deployment. Choose Web app. Set Execute as: Me, and Who has access: Anyone. Tap Deploy and allow access.</li><li>Copy the Web app URL into the box above, type the same passphrase, and tap Save and sync.</li></ol><p class="muted small">Use the same URL and passphrase on every device. If you change the script later, choose Deploy, Manage deployments, Edit, New version, so the URL stays the same.</p><button class="btn" id="sy-copy">Copy the script</button></details></section>';
+  html+='<section class="panel"><h2>Test settings</h2>'+
+    '<label class="check"><input type="checkbox" id="st-ap"'+(DB.meta.autoPause!==false?" checked":"")+'> Pause the clock when I leave the app during a test</label><p class="muted small">If your baby wakes or a call comes in, the timer stops while the app is in the background and starts again when you return.</p>'+
+    '<label class="inline">Listen mode: thinking time before the answer <select id="st-think">'+[0,4,8,12].map(function(v){var cur=DB.meta.ttsThink==null?4:DB.meta.ttsThink;return '<option value="'+v+'"'+(v===cur?" selected":"")+'>'+(v?v+" seconds":"None")+'</option>'}).join("")+'</select></label></section>';
   html+='<section class="panel"><h2>Backup</h2><p class="muted small">Download everything on this device as a file, or restore from one. Restoring merges with what is already here.</p><div class="row wrap"><button class="btn" id="bk-exp">Download backup</button><label class="btn">Restore from file<input type="file" id="bk-imp" accept="application/json,.json" hidden></label></div></section>';
   html+='<p class="muted small center">Prelims Arena, question bank '+esc(M.version)+'. '+(navigator.serviceWorker&&navigator.serviceWorker.controller?"Available offline on this device.":"")+'</p>';
   v.innerHTML=html;
@@ -898,6 +984,8 @@ function viewScores(){
   $("sy-now").onclick=function(){saveCfg();sync()};
   $("sy-copy").onclick=function(){copyText(GAS_SCRIPT,"Script copied. Paste it into Apps Script.")};
   $("bk-exp").onclick=exportBackup;
+  $("st-ap").onchange=function(){DB.meta.autoPause=this.checked;saveStore(true)};
+  $("st-think").onchange=function(){DB.meta.ttsThink=+this.value;saveStore(true)};
   $("bk-imp").onchange=function(){var f=this.files[0];if(f)importBackup(f)};
   updateSyncBadge();
 }
@@ -936,6 +1024,75 @@ function importBackup(file){
     }catch(e){toast("That file is not a Prelims Arena backup.")}
   };
   rd.readAsText(file);
+}
+
+/* Listen mode: the phone reads questions, the answer, the explanation and the memory hook aloud */
+var PL={list:[],i:0,on:false,title:"",wake:null,timer:null,token:0};
+var RATES=[0.8,1,1.15,1.3,1.5];
+function ttsOk(){return "speechSynthesis" in window&&"SpeechSynthesisUtterance" in window}
+function pickVoice(){
+  var v=window.speechSynthesis.getVoices()||[];
+  return v.filter(function(x){return /en[-_]IN/i.test(x.lang)})[0]||v.filter(function(x){return /en[-_]GB/i.test(x.lang)})[0]||v.filter(function(x){return /^en/i.test(x.lang)})[0]||null;
+}
+function chunks(t){
+  return String(t||"").replace(/\s*\n+\s*/g,". ").replace(/\.\s*\./g,".").split(/(?<=[.?!;:])\s+/).reduce(function(acc,p){
+    p=p.trim();if(!p)return acc;
+    while(p.length>200){var cut=p.lastIndexOf(",",200);if(cut<60)cut=p.lastIndexOf(" ",200);acc.push(p.slice(0,cut+1));p=p.slice(cut+1).trim()}
+    acc.push(p);return acc;
+  },[]);
+}
+function readable(s){return String(s).replace(/Statement-I\b/g,"Statement one").replace(/Statement-II\b/g,"Statement two").replace(/\bvs\.?\b/g,"versus").replace(/ \| /g,", ")}
+function playList(list,title){
+  if(!ttsOk()){toast("This device cannot read text aloud.");return}
+  stopPlayer(true);
+  PL.list=list;PL.i=0;PL.title=title;PL.on=true;
+  try{if(navigator.wakeLock)navigator.wakeLock.request("screen").then(function(w){PL.wake=w}).catch(function(){})}catch(e){}
+  drawPlayer();speakCur();
+}
+function speakCur(){
+  var tok=++PL.token;window.speechSynthesis.cancel();clearTimeout(PL.timer);
+  var it=PL.list[PL.i];if(!it){stopPlayer();toast("Finished reading "+PL.list.length+" question"+(PL.list.length>1?"s":"")+".");return}
+  var q=it.q,L="ABCD";
+  var pre=["Question "+(PL.i+1)+" of "+PL.list.length+"."].concat(q.p?["Passage."].concat(chunks(readable(q.p))):[]).concat(chunks(readable(q.q))).concat(["Options."]).concat(q.o.map(function(o,k){return L[k]+". "+readable(o)}));
+  var post=["The answer is "+L[q.a]+". "+readable(q.o[q.a])+"."];
+  if(it.ch!=null&&it.ch>=0)post.push(it.ch===q.a?"You got this right.":"You chose "+L[it.ch]+".");
+  post=post.concat(chunks(readable(q.e||"")));
+  if(q.h)post=post.concat(["Memory hook."]).concat(chunks(readable(q.h)));
+  var think=(DB.meta.ttsThink==null?4:DB.meta.ttsThink)*1000;
+  var say=function(arr,done){var j=0;var nx=function(){if(tok!==PL.token)return;if(j>=arr.length){done();return}
+      var u=new SpeechSynthesisUtterance(arr[j++]);u.rate=DB.meta.ttsRate||1;var v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang="en-IN";
+      u.onend=nx;u.onerror=function(e){if(e.error==="interrupted"||e.error==="canceled")return;nx()};window.speechSynthesis.speak(u)};nx()};
+  drawPlayer();
+  say(pre,function(){PL.timer=setTimeout(function(){if(tok!==PL.token)return;say(post,function(){PL.timer=setTimeout(function(){if(tok!==PL.token)return;PL.i++;speakCur()},1200)})},think)});
+}
+function pausePlayer(){PL.on=false;PL.token++;clearTimeout(PL.timer);window.speechSynthesis.cancel();drawPlayer()}
+function resumePlayer(){PL.on=true;speakCur()}
+function stopPlayer(silent){PL.token++;clearTimeout(PL.timer);if(ttsOk())window.speechSynthesis.cancel();PL.on=false;if(PL.wake){try{PL.wake.release()}catch(e){}PL.wake=null}var b=$("player");if(b)b.remove();if(!silent)PL.list=[]}
+function drawPlayer(){
+  var b=$("player");if(!PL.list.length){if(b)b.remove();return}
+  if(!b){b=document.createElement("div");b.id="player";b.className="player";b.setAttribute("role","region");b.setAttribute("aria-label","Listen mode");document.body.appendChild(b)}
+  var it=PL.list[PL.i],rate=DB.meta.ttsRate||1;
+  b.innerHTML='<div class="pl-info"><b>'+esc(PL.title)+'</b><span>Question '+Math.min(PL.i+1,PL.list.length)+' of '+PL.list.length+(it?': '+esc(it.q.q.slice(0,70))+(it.q.q.length>70?"…":""):'')+'</span></div>'+
+    '<div class="pl-ctl"><button class="btn ghost small" id="pl-prev" aria-label="Previous question"'+(PL.i===0?" disabled":"")+'>‹</button><button class="btn primary small" id="pl-play">'+(PL.on?"Pause":"Play")+'</button><button class="btn ghost small" id="pl-next" aria-label="Next question">›</button><button class="btn ghost small" id="pl-rate" aria-label="Reading speed">'+rate+'×</button><button class="btn ghost small" id="pl-close" aria-label="Stop listening">✕</button></div>';
+  $("pl-play").onclick=function(){PL.on?pausePlayer():resumePlayer()};
+  $("pl-prev").onclick=function(){if(PL.i>0){PL.i--;PL.on=true;speakCur()}};
+  $("pl-next").onclick=function(){PL.i++;PL.on=true;speakCur()};
+  $("pl-rate").onclick=function(){var i=RATES.indexOf(rate);DB.meta.ttsRate=RATES[(i+1)%RATES.length];saveStore();if(PL.on)speakCur();else drawPlayer()};
+  $("pl-close").onclick=function(){stopPlayer()};
+}
+function listenPanel(){
+  var mb=mistakeBook(),set=todaysOpenSet()||scheduledFor(today()).filter(function(s){return s.ready})[0];
+  var subs=M.subjects.filter(function(s){return s!=="CSAT"&&poolFor(s).length});
+  if(!ttsOk())return '<section class="panel"><h2>Listen and revise</h2><p class="muted">This device or browser cannot read text aloud.</p></section>';
+  return '<section class="panel"><h2>Listen and revise</h2><p class="muted small">Your phone reads each question and its options, pauses '+(DB.meta.ttsThink==null?4:DB.meta.ttsThink)+' seconds for you to think, then reads the answer, the explanation and the memory hook. Good for walks and cooking. The screen stays on while it reads; some phones stop reading when the screen locks.</p>'+
+    '<div class="row wrap"><button class="btn" id="ls-mist"'+(mb.length?"":" disabled")+'>My mistakes ('+Math.min(mb.length,30)+')</button>'+(set?'<button class="btn" id="ls-set">'+esc(set.title)+'</button>':'')+
+    '<label class="inline">Subject <select id="ls-subj">'+subs.map(function(s){return '<option>'+esc(s)+'</option>'}).join("")+'</select></label><button class="btn" id="ls-subj-go">Listen to 20</button></div></section>';
+}
+function bindListen(){
+  var go=function(qids,title){loadQids(qids).then(function(qs){qs=qs.filter(function(q){return !q.x});if(!qs.length){toast("Nothing to read out.");return}playList(qs.map(function(q){return {q:q}}),title)})};
+  if($("ls-mist"))$("ls-mist").onclick=function(){var mb=mistakeBook().slice(0,30);go(mb.map(function(m){return m.qid}),"My mistakes")};
+  if($("ls-set"))$("ls-set").onclick=function(){var s=todaysOpenSet()||scheduledFor(today()).filter(function(x){return x.ready})[0];loadSet(s.id).then(function(d){playList(d.questions.filter(function(q){return !q.x}).map(function(q){return {q:q}}),s.title)})};
+  if($("ls-subj-go"))$("ls-subj-go").onclick=function(){var s=$("ls-subj").value;go(shuffle(poolFor(s)).slice(0,20),s+": 20 questions")};
 }
 
 /* boot */
