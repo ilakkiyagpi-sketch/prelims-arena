@@ -309,3 +309,17 @@ body.in-quiz .player{display:none}
 
 .tmark.csat{color:var(--pen)}
 .bad-t{color:var(--bad)}
+
+/* study log, Shankar chart */
+.logcard{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logcard.done{border-left:4px solid var(--good)}
+.seg.wide{display:flex;width:100%}.seg.wide button{flex:1}
+.hbars{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px}
+.hbars li{display:grid;grid-template-columns:minmax(110px,40%) 1fr 44px;align-items:center;gap:8px;font-size:.88rem}
+.hbars i{display:block;height:10px;border-radius:99px;background:var(--s2)}
+.hbars.s i{background:var(--s1)}
+.hbars b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.kpis dd small{font-size:.8rem;font-weight:400;color:var(--ink2)}
+.chartwrap .ln.csat{stroke:var(--s1)} .chartwrap .pt.csat{fill:var(--s1)}
+.lg.csat{background:var(--s1);border:0;height:4px;border-radius:2px}
+.chartwrap .qual{stroke:var(--warn);stroke-dasharray:4 4;stroke-width:1.3} .chartwrap .qualtxt{fill:var(--warn);font-size:11px;font-weight:600}
