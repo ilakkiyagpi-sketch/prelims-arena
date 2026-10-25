@@ -253,3 +253,28 @@ body.in-quiz{background:var(--paper)}
 .qz-title span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:600px){.hide-sm{display:none}.navbtn{padding:6px 10px}.qz-top{gap:6px}.units td:first-child{min-width:140px}}
 .units td .sub{display:block;font-size:.78rem;color:var(--ink3)}
+
+/* UPSC previous year papers and CSAT */
+.tag.pyq{background:var(--pen-soft);color:var(--pen)}
+.note{background:var(--warn-soft);color:var(--warn);border-radius:var(--r-sm);padding:8px 12px;font-size:.9rem;max-width:80ch}
+.passage{border-left:3px solid var(--pen);background:var(--line2);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin:8px 0 14px;max-width:72ch;font-size:.98rem;line-height:1.65}
+.passage p{margin:0 0 10px}.passage p:last-child{margin-bottom:0}
+.passage .plabel{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+@media (min-width:900px){.qcard .passage{max-height:46vh;overflow:auto}}
+.passage-d{margin:6px 0 10px}
+.passage-d summary{cursor:pointer;color:var(--pen);font-size:.9rem;font-weight:600}
+.subjgrid.yrs{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
+.subj.yr b{font-size:1.1rem;font-variant-numeric:tabular-nums}
+.subj.yr.held{border-style:dashed}
+.subj.yr .hold{font-size:.72rem;color:var(--warn);font-weight:600}
+.pyq-more{margin-top:6px}
+.pyq-more select{margin-left:6px;padding:6px 8px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--card)}
+.scorecard em.pass{font-style:normal;color:var(--good);font-weight:600}
+.scorecard em.fail{font-style:normal;color:var(--bad);font-weight:600}
+.ptab{overflow-x:auto;margin:.6em 0}
+.ptab table{border-collapse:collapse;font-size:.92em;font-variant-numeric:tabular-nums}
+.ptab th,.ptab td{border:1px solid var(--line,#ccc);padding:.3em .6em;text-align:right;white-space:nowrap}
+.ptab th:first-child,.ptab td:first-child{text-align:left}
+.ptab th{font-weight:600}
+.ptab th{white-space:normal;vertical-align:bottom}
+@media (max-width:480px){.ptab table{font-size:.82em}.ptab th,.ptab td{padding:.25em .4em}}
