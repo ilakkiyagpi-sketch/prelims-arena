@@ -31,7 +31,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .shell{min-height:100vh}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;padding-top:max(10px,env(safe-area-inset-top));background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:-.01em}
-.brand .mark{width:20px;height:20px;border-radius:50%;background:var(--pen);box-shadow:inset 0 0 0 4px var(--pen-soft)}
+.brand .mark{width:26px;height:26px;border-radius:7px;background:url(icons/logo.svg) center/cover no-repeat;flex:none}
 .syncbadge{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 11px 4px 24px;font-size:.82rem;color:var(--ink2);position:relative;cursor:pointer}
 .syncbadge::before{content:"";position:absolute;left:10px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--ink3)}
 .syncbadge.ok::before{background:var(--good)} .syncbadge.busy::before{background:var(--pen)} .syncbadge.pending::before,.syncbadge.offline::before{background:var(--warn)} .syncbadge.error::before{background:var(--bad)}
