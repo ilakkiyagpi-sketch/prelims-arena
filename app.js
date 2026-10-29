@@ -663,7 +663,8 @@ function setRowHtml(s,done){
     var pd_=partsDone(s.id),nd=Object.keys(pd_).length;
     parts='<div class="parts"><span class="muted small">Or in 5 parts of 10'+(nd&&nd<5?', '+nd+' done':'')+':</span>'+[1,2,3,4,5].map(function(k){var r=DB.recs["run_"+s.id+"~p"+k],pa=r&&!r.del;return '<button class="pchip'+(pd_[k]?" done":(pa?" paused":""))+'" data-part="'+s.id+'|'+k+'" aria-label="Part '+k+(pd_[k]?', done':(pa?', paused':''))+'">'+(pd_[k]?"✓ ":"")+k+'</button>'}).join("")+'</div>';
   }
-  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+parts+'</li>';
+  var nt=(M&&M.notes&&M.notes[s.id])?'<div class="notesrow"><button class="btn small'+(n?"":" primary")+'" data-notes="'+s.id+'">Read the notes'+(n?'':' first')+'</button><span class="muted small">'+M.notes[s.id].pages+' pages, works offline</span></div>':'';
+  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+nt+parts+'</li>';
 }
 function dayPanel(ds,td){
   var sch=scheduledFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
@@ -697,6 +698,7 @@ function calendarPanel(sel,td){
 function bindToday(){
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
+  qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
   qsa("[data-part]").forEach(function(b){b.onclick=function(){var p=b.dataset.part.split("|");startPart(p[0],+p[1])}});
   qsa("[data-budget]").forEach(function(b){b.onclick=function(){budgetPlan(+b.dataset.budget)}});
   qsa("[data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
