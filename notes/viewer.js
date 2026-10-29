@@ -27,8 +27,8 @@
       return window.pdfjsLib.getDocument({data:a[1]}).promise;
     }).then(function(doc){
       if(cur!==st){doc.destroy();return}
-      st.doc=doc;return doc.getPage(1).then(function(p1){
-        var vp=p1.getViewport({scale:1});st.ratio=vp.height/vp.width;
+      st.doc=doc;var ps=[];for(var k=1;k<=doc.numPages;k++)ps.push(doc.getPage(k).then(function(p){var vp=p.getViewport({scale:1});return vp.height/vp.width}));return Promise.all(ps).then(function(rs){
+        st.ratios=rs;
         body.innerHTML="";
         for(var i=1;i<=doc.numPages;i++){var w=document.createElement("div");w.className="nv-page";w.dataset.n=i;var c=document.createElement("canvas");w.appendChild(c);body.appendChild(w);st.pages.push(w)}
         layout();
@@ -47,7 +47,7 @@
     function width(){return Math.min(body.clientWidth-8,900)*st.zoom}
     function layout(){
       var w=Math.round(width());
-      st.pages.forEach(function(el){el.style.width=w+"px";el.style.height=Math.round(w*st.ratio)+"px";el.dataset.drawn=""});
+      st.pages.forEach(function(el){el.style.width=w+"px";el.style.height=Math.round(w*st.ratios[+el.dataset.n-1])+"px";el.dataset.drawn=""});
       st.pages.forEach(function(el){var c=el.firstChild;c.width=0;c.height=0});
       st.rendering={};
       var vis=visible();vis.forEach(draw);
