@@ -307,7 +307,38 @@ body.in-quiz .player{display:none}
 .pl-info b{font-size:.9rem}.pl-info span{font-size:.8rem;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pl-ctl{display:flex;gap:4px;align-items:center}
 
-/* notes reader */
+.tmark.csat{color:var(--pen)}
+.bad-t{color:var(--bad)}
+
+/* study log, Shankar chart */
+.logcard{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logcard.done{border-left:4px solid var(--good)}
+.seg.wide{display:flex;width:100%}.seg.wide button{flex:1}
+.hbars{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:6px}
+.hbars li{display:grid;grid-template-columns:minmax(110px,40%) 1fr 44px;align-items:center;gap:8px;font-size:.88rem}
+.hbars i{display:block;height:10px;border-radius:99px;background:var(--s2)}
+.hbars.s i{background:var(--s1)}
+.hbars b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.kpis dd small{font-size:.8rem;font-weight:400;color:var(--ink2)}
+.chartwrap .ln.csat{stroke:var(--s1)} .chartwrap .pt.csat{fill:var(--s1)}
+.lg.csat{background:var(--s1);border:0;height:4px;border-radius:2px}
+.chartwrap .qual{stroke:var(--warn);stroke-dasharray:4 4;stroke-width:1.3} .chartwrap .qualtxt{fill:var(--warn);font-size:11px;font-weight:600}
+
+/* monthly current affairs, notes, calendar "one of two done" */
+.day.part{background:var(--pen-soft);border-color:var(--pen)} .day.part .n{color:var(--pen);font-weight:700}
+.lg.part{background:var(--pen-soft);border-color:var(--pen)}
+.notes{max-width:720px}
+.npbar{height:4px;background:var(--line2);border-radius:2px;margin:6px 0 12px;overflow:hidden} .npbar i{display:block;height:100%;background:var(--pen)}
+.notecard{padding:20px 20px 22px} .notecard .nh{font-size:1.25rem;margin:10px 0 6px}
+.nkey{margin:4px 0 0;padding-left:20px} .nkey li{margin:5px 0}
+.nrem{margin-top:16px;padding:12px 14px;border-radius:var(--r-sm);background:var(--pen-soft);color:var(--ink)} .nrem b{color:var(--pen);margin-right:4px}
+.notenav{display:flex;gap:10px;justify-content:space-between;margin:4px 0 10px} .notenav .btn{flex:1}
+.setrow .setmain{flex-direction:row!important;flex-wrap:wrap;align-items:center;justify-content:space-between;text-align:left;width:100%}
+.setrow .setmain>div:first-child{flex:1 1 200px;display:flex;flex-direction:column;align-items:flex-start}
+.mchips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.mchips .chipbtn{flex:0 0 auto;white-space:nowrap}
+
+/* notes reader (PDF notes) */
 body.in-notes{background:#e9ecea;overscroll-behavior:none}
 body.in-notes .player{display:none}
 .nv{position:fixed;inset:0;display:flex;flex-direction:column;background:#e9ecea}

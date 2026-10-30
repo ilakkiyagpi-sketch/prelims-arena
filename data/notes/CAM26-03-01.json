@@ -1,0 +1,484 @@
+{
+ "id": "CAM26-03-01",
+ "title": "March 2026: Polity & Governance",
+ "category": "Polity & Governance",
+ "index": [
+  {
+   "t": "Supreme Court Judgments",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "t": "Legislation & Parliament",
+   "pages": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  {
+   "t": "Elections & Federalism",
+   "pages": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  {
+   "t": "Parliamentary Committees",
+   "pages": [
+    21,
+    22,
+    23
+   ]
+  },
+  {
+   "t": "Governance & Administration",
+   "pages": [
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Supreme Court Judgments",
+   "headline": "SC allows passive euthanasia in Harish Rana case",
+   "when": "11 March 2026",
+   "what": "A bench of Justices J.B. Pardiwala and K.V. Viswanathan allowed withdrawal of life-sustaining treatment for a man in a permanent vegetative state for over 13 years. It is the first use of the Common Cause (2018) passive-euthanasia framework. The Court urged Parliament to frame a comprehensive end-of-life care law.",
+   "key": [
+    "Harish Rana v. Union of India, decided 11 March 2026",
+    "Clinically assisted nutrition (PEG tube) held to be medical treatment",
+    "30-day reconsideration period waived; AIIMS Delhi to provide palliative care",
+    "Rana died at AIIMS Delhi on 24 March 2026",
+    "Court urged a statute on end-of-life care; none made a precondition"
+   ],
+   "static": "Right to die with dignity is read into Article 21; Common Cause (2018) allowed passive euthanasia and living wills.",
+   "angle": "Statements that the Court waited for Parliament to legislate, or allowed active euthanasia, are traps.",
+   "remember": "Passive euthanasia: withdraw treatment; active euthanasia stays illegal."
+  },
+  {
+   "n": 2,
+   "t": "Supreme Court Judgments",
+   "headline": "SC orders no-fault Covid vaccine compensation policy",
+   "when": "10 March 2026",
+   "what": "In Rachana Gangu v. Union of India the Supreme Court told the Centre to frame a no-fault compensation policy for serious adverse events or deaths after Covid-19 vaccination. The Court did not attribute any death to the vaccines and held that existing AEFI committees were adequate.",
+   "key": [
+    "Case: Rachana Gangu v. Union of India",
+    "Order rests on Articles 21 and 14",
+    "Compensation is not an admission of liability",
+    "Centre's plea for individual civil or consumer remedies rejected",
+    "Jacob Puliyel (2022) had held no individual can be forced to take a vaccine"
+   ],
+   "static": "Article 21 includes the right to health; AEFI means Adverse Events Following Immunisation, tracked under the national immunisation programme.",
+   "angle": "Options that fix liability on makers or abolish AEFI panels are wrong.",
+   "remember": "No-fault: compensation without blame."
+  },
+  {
+   "n": 3,
+   "t": "Supreme Court Judgments",
+   "headline": "SC: parental salary alone cannot fix OBC creamy layer",
+   "when": "11-12 March 2026",
+   "what": "The Supreme Court held that OBC creamy-layer status is primarily status-based, meaning the category of the parent's post, and not just parental salary income. A 2004 DoPT letter could not override the 1993 Office Memorandum. Affected claims must be reconsidered within six months.",
+   "key": [
+    "Bench: Justices P.S. Narasimha and R. Mahadevan",
+    "1993 OM followed Indra Sawhney (1992)",
+    "2004 DoPT clarificatory letter cannot override the 1993 OM",
+    "Reconsideration of claims within six months; supernumerary posts allowed",
+    "Salary income is not the only test"
+   ],
+   "static": "Indra Sawhney (1992) introduced the creamy layer for OBCs; the 50 percent ceiling and Article 16(4) come from it.",
+   "angle": "Trap: options that make parental salary the sole or decisive test.",
+   "remember": "Indra Sawhney (1992) born creamy layer; 1993 OM beats 2004 letter."
+  },
+  {
+   "n": 4,
+   "t": "Supreme Court Judgments",
+   "headline": "Adoptive mothers get 12 weeks' leave regardless of child's age",
+   "when": "17 March 2026",
+   "what": "The Supreme Court struck down the age ceiling in Section 60(4) of the Code on Social Security, 2020, which had limited maternity benefit to women adopting a child below three months. Any woman legally adopting a child gets 12 weeks of leave. The Court also urged consideration of statutory paternity leave.",
+   "key": [
+    "Hamsaanandini Nanduri v. Union of India, 17 March 2026",
+    "Section 60(4) of Code on Social Security, 2020 struck down",
+    "Old rule: child under three months only",
+    "New rule: 12 weeks irrespective of child's age",
+    "Violation of Articles 14 and 21"
+   ],
+   "static": "The Code on Social Security, 2020 replaced the Maternity Benefit Act, 1961 (among other laws).",
+   "angle": "Watch for wrong durations (26 weeks) and the wrong age limit.",
+   "remember": "Adopt at any age, 12 weeks of leave."
+  },
+  {
+   "n": 5,
+   "t": "Supreme Court Judgments",
+   "headline": "SC upholds religion limit on Scheduled Caste status",
+   "when": "24 March 2026",
+   "what": "In Chinthada Anand v. State of Andhra Pradesh the Supreme Court upheld Paragraph 3 of the Constitution (Scheduled Castes) Order, 1950. Only persons professing Hinduism, Sikhism or Buddhism can be SCs, and conversion to another religion ends SC status.",
+   "key": [
+    "Case: Chinthada Anand v. State of Andhra Pradesh",
+    "Paragraph 3 of the SC Order, 1950 upheld",
+    "Sikhs added in 1956; Buddhists added in 1990",
+    "Conversion to other religions ends SC status",
+    "K.G. Balakrishnan Commission (2022) examines SC status for converts"
+   ],
+   "static": "Article 341 lets the President specify Scheduled Castes by order; Parliament alone can alter the list.",
+   "angle": "Trap: adding Jainism or Christianity to the list.",
+   "remember": "Hindu 1950, Sikh 1956, Buddhist 1990; no Jain."
+  },
+  {
+   "n": 6,
+   "t": "Supreme Court Judgments",
+   "headline": "No arbitrary disability ceiling for Assistant District Attorney",
+   "when": "March 2026",
+   "what": "The Supreme Court held that Himachal Pradesh could not fix 60 per cent as an upper disability limit for appointment as Assistant District Attorney. The RPwD Act, 2016 prescribes a 40 per cent benchmark disability. Suitability must depend on the functional needs of the post.",
+   "key": [
+    "Case: Prabhu Kumar v. State of Himachal Pradesh (2026)",
+    "State cap: upper limit of 60 per cent disability",
+    "RPwD Act, 2016: benchmark disability is 40 per cent",
+    "Violates Articles 14 and 16",
+    "Himachal Pradesh High Court had upheld the cap"
+   ],
+   "static": "RPwD Act, 2016 replaced the 1995 Act and lists 21 disabilities with a 4 per cent reservation in government jobs.",
+   "angle": "Trap: confusing a benchmark (floor of 40 per cent) with a ceiling.",
+   "remember": "Benchmark 40 per cent is a floor, not a ceiling."
+  },
+  {
+   "n": 7,
+   "t": "Supreme Court Judgments",
+   "headline": "Nine judges reconsider what counts as 'industry'",
+   "when": "19 March 2026",
+   "what": "A nine-judge Constitution Bench led by CJI Surya Kant reserved judgment after three days of hearing. The question is whether Bangalore Water Supply v. A. Rajappa (1978) rightly defined 'industry' under Section 2(j) of the Industrial Disputes Act, 1947.",
+   "key": [
+    "Bench strength: nine judges, led by CJI Surya Kant",
+    "Judgment reserved on 19 March 2026 after three days",
+    "Case under review: Bangalore Water Supply v. A. Rajappa (1978)",
+    "Provision: Section 2(j), Industrial Disputes Act, 1947",
+    "Rajappa's triple test gave a very wide meaning to 'industry'"
+   ],
+   "static": "Industrial Disputes Act, 1947 is among the labour laws now subsumed in the Industrial Relations Code.",
+   "angle": "Trap: attributing the reference to a different Act such as the Factories Act.",
+   "remember": "Rajappa widened 'industry'; nine judges reopen it."
+  },
+  {
+   "n": 8,
+   "t": "Legislation & Parliament",
+   "headline": "Parliament passes Transgender Persons Amendment Bill",
+   "when": "24-25 March 2026",
+   "what": "The Lok Sabha passed the Bill by voice vote on 24 March amid an Opposition walkout and the Rajya Sabha approved it on 25 March. It removes self-perceived gender identity and makes a District Magistrate issue the certificate on a medical board's recommendation.",
+   "key": [
+    "Introduced in Lok Sabha on 13 March 2026 by Dr Virendra Kumar",
+    "Passed by Lok Sabha 24 March; Rajya Sabha 25 March",
+    "Removes self-perceived gender identity",
+    "DM issues certificate on medical board recommendation",
+    "Critics: conflicts with NALSA v. Union of India (2014)"
+   ],
+   "static": "The 2019 Act and NALSA (2014) recognise the right of self-identification of gender under Articles 14, 19 and 21.",
+   "angle": "Trap: wrong sponsoring ministry, or saying self-identification is retained.",
+   "remember": "Medical board replaces self-identity."
+  },
+  {
+   "n": 9,
+   "t": "Legislation & Parliament",
+   "headline": "FCRA Amendment Bill vests assets in Designated Authority",
+   "when": "25 March 2026",
+   "what": "The Bill, introduced in the Lok Sabha on 25 March 2026, says that on cancellation, surrender or cessation of an FCRA registration, foreign contributions and assets created from them vest provisionally in a Designated Authority. Vesting turns permanent if no fresh registration is obtained in time.",
+   "key": [
+    "Introduced in Lok Sabha on 25 March 2026",
+    "Provisional vesting in a Designated Authority",
+    "Permanent vesting if no new registration in the prescribed period",
+    "FCRA, 2010 administered by the Ministry of Home Affairs",
+    "Bill pending at the end of the Budget Session"
+   ],
+   "static": "FCRA, 2010 regulates foreign donations to individuals and associations to protect internal security and sovereignty.",
+   "angle": "Trap: assuming assets go to the Consolidated Fund or back to donors.",
+   "remember": "Registration ends: provisional vesting, then permanent."
+  },
+  {
+   "n": 10,
+   "t": "Legislation & Parliament",
+   "headline": "Jan Vishwas 2025 Bill withdrawn, 2026 Bill replaces it",
+   "when": "17 March 2026",
+   "what": "After the Select Committee led by Tejasvi Surya reported on 13 March, the 2025 Jan Vishwas Bill was withdrawn from the Lok Sabha on 17 March and replaced by a 2026 Bill amending 80 central Acts. The new Bill was passed by the Lok Sabha on 1 April and the Rajya Sabha on 2 April.",
+   "key": [
+    "2025 Bill introduced 18 August 2025; amended 17 Acts",
+    "Select Committee chaired by Tejasvi Surya; report on 13 March",
+    "2026 Bill amends 80 central Acts",
+    "Passed: Lok Sabha 1 April, Rajya Sabha 2 April 2026",
+    "Minimum fines to rise 10 per cent every three years"
+   ],
+   "static": "Jan Vishwas aims at decriminalising minor offences to improve ease of living and doing business.",
+   "angle": "Trap: mixing the Act counts of the 2025 and 2026 Bills.",
+   "remember": "2025: 17 Acts. 2026: 80 Acts."
+  },
+  {
+   "n": 11,
+   "t": "Legislation & Parliament",
+   "headline": "Maharashtra passes Freedom of Religion Bill, 2026",
+   "when": "March 2026",
+   "what": "Both Houses of the Maharashtra Legislature passed a Bill to prohibit conversion by force, fraud, allurement, inducement or coercion. It needs a 60-day prior declaration to the District Magistrate and a post-conversion declaration, lets relatives file complaints, and prescribes up to seven years' imprisonment.",
+   "key": [
+    "Targets force, fraud, allurement, inducement and coercion",
+    "Declaration to the District Magistrate 60 days before converting",
+    "Priest or facilitator must also give prior notice",
+    "Complainants include relatives by blood, marriage or adoption",
+    "General penalty: up to 7 years and fine up to Rs 1 lakh"
+   ],
+   "static": "In Stanislaus v. State of Madhya Pradesh (1977) the Supreme Court held that the right to propagate religion under Article 25 does not include a right to convert.",
+   "angle": "Trap: assuming voluntary conversion needs no notice.",
+   "remember": "Maharashtra: 60-day notice, relatives can complain, up to 7 years."
+  },
+  {
+   "n": 12,
+   "t": "Legislation & Parliament",
+   "headline": "CAPF (General Administration) Bill passed",
+   "when": "March 2026",
+   "what": "Parliament passed a Bill creating one overarching law for officers of the five major Central Armed Police Forces, which were earlier governed by separate service laws. It sets quotas for IPS deputation to senior posts, following a 2025 Supreme Court direction to reduce IPS deputation at DIG and IG levels.",
+   "key": [
+    "Covers CRPF, BSF, CISF, ITBP and SSB",
+    "Assam Rifles and NSG not included at present",
+    "IPS deputation: 50 per cent of IG posts",
+    "At least 67 per cent of ADG posts by deputation",
+    "All DG and Special DG posts by IPS deputation"
+   ],
+   "static": "Police and public order are State subjects, but the CAPFs are Union forces under the Ministry of Home Affairs.",
+   "angle": "Trap: including Assam Rifles or NSG among the covered forces.",
+   "remember": "Five CAPFs in; Assam Rifles and NSG out."
+  },
+  {
+   "n": 13,
+   "t": "Legislation & Parliament",
+   "headline": "No-confidence notice against the Lok Sabha Speaker",
+   "when": "March 2026",
+   "what": "The Opposition moved a notice for removal of Speaker Om Birla. Article 94(c) lets the House remove a Speaker by a resolution passed by a majority of all its members, after 14 days' notice. Earlier motions against three Speakers all failed.",
+   "key": [
+    "Article 94(c): removal by effective majority of the whole House",
+    "At least 14 days' notice before the resolution is moved",
+    "Leave to move needs support of at least 50 members (Rule 200)",
+    "Earlier motions: Mavalankar 1954, Hukam Singh 1966, Balram Jakhar 1987",
+    "All earlier motions failed"
+   ],
+   "static": "Under Article 96 the Speaker does not preside while the resolution is considered but may speak and vote in the first instance, though not on a tie.",
+   "angle": "Trap: treating it as a simple majority of those present.",
+   "remember": "Speaker out by effective majority and 14 days' notice."
+  },
+  {
+   "n": 14,
+   "t": "Legislation & Parliament",
+   "headline": "Corporate Laws Amendment Bill sent to a JPC",
+   "when": "23 March 2026",
+   "what": "The Corporate Laws (Amendment) Bill, 2026 was introduced in the Lok Sabha on 23 March 2026 and referred to a Joint Parliamentary Committee. The Budget Session 2026 saw 13 Bills introduced, with nine passed and one withdrawn.",
+   "key": [
+    "Introduced in the Lok Sabha on 23 March 2026",
+    "Referred to a Joint Parliamentary Committee",
+    "Budget Session 2026: 13 Bills introduced, nine passed",
+    "Jan Vishwas Bill was withdrawn and replaced",
+    "Constitution (131st Amendment) Bill on delimitation was later voted down"
+   ],
+   "static": "A Joint Parliamentary Committee has members from both Houses, with Lok Sabha members in the majority; a Select Committee belongs to one House.",
+   "angle": "Trap: Select Committee versus Joint Committee.",
+   "remember": "JPC: both Houses. Select Committee: one House."
+  },
+  {
+   "n": 15,
+   "t": "Elections & Federalism",
+   "headline": "37 Rajya Sabha seats filled; 11 went to polls",
+   "when": "16 March 2026",
+   "what": "Biennial elections to 37 Rajya Sabha seats in 10 States were held on 16 March 2026. Twenty-six candidates, including Sharad Pawar and Abhishek Manu Singhvi, won unopposed. Polling was needed for 11 seats: five in Bihar, four in Odisha and two in Haryana. Nitish Kumar was elected from Bihar.",
+   "key": [
+    "37 seats in 10 States; 26 unopposed",
+    "Polling for 11 seats: Bihar 5, Odisha 4, Haryana 2",
+    "Winners included Sharad Pawar, Abhishek Manu Singhvi, Nitish Kumar",
+    "Rajya Sabha strength 245: 233 elected, 12 nominated",
+    "One-third retire every two years"
+   ],
+   "static": "Article 80 fixes the Rajya Sabha at 250 members (238 elected, 12 nominated); Article 83 makes it a permanent House.",
+   "angle": "Trap: confusing the polled States with the unopposed ones.",
+   "remember": "Five Bihar, four Odisha, two Haryana."
+  },
+  {
+   "n": 16,
+   "t": "Elections & Federalism",
+   "headline": "EC announces assembly polls in five States/UTs",
+   "when": "15 March 2026",
+   "what": "The Election Commission announced elections for Assam, Kerala and Puducherry on 9 April, Tamil Nadu on 23 April and West Bengal in two phases on 23 and 29 April 2026. Counting is on 4 May. About 17.4 crore electors will vote across 824 seats.",
+   "key": [
+    "Assam, Kerala, Puducherry: 9 April",
+    "Tamil Nadu: 23 April",
+    "West Bengal: 23 and 29 April",
+    "Counting on 4 May 2026",
+    "Seats: Assam 126, Kerala 140, Puducherry 30, Tamil Nadu 234, West Bengal 294"
+   ],
+   "static": "Article 324 vests superintendence of elections in the Election Commission; the Model Code of Conduct is a non-statutory code.",
+   "angle": "Trap: swapping Puducherry's date with Tamil Nadu's.",
+   "remember": "Nine April: Assam, Kerala, Puducherry."
+  },
+  {
+   "n": 17,
+   "t": "Elections & Federalism",
+   "headline": "Nine Governors and LGs reshuffled",
+   "when": "5 March 2026",
+   "what": "President Droupadi Murmu moved R.N. Ravi from Tamil Nadu to West Bengal, appointed former diplomat Taranjit Singh Sandhu as Delhi's Lieutenant Governor and shifted V.K. Saxena to Ladakh. Arlekar got additional charge of Tamil Nadu.",
+   "key": [
+    "R.N. Ravi: Tamil Nadu to West Bengal",
+    "Taranjit Singh Sandhu: Lieutenant Governor of Delhi",
+    "V.K. Saxena: Lieutenant Governor of Ladakh",
+    "Rajendra Arlekar: additional charge of Tamil Nadu",
+    "C.V. Ananda Bose's resignation accepted"
+   ],
+   "static": "Governors are appointed under Article 155 and serve at the pleasure of the President (Article 156); Delhi is governed by Article 239AA.",
+   "angle": "Trap: giving Governors a fixed, non-removable term.",
+   "remember": "Sandhu in Delhi, Saxena in Ladakh."
+  },
+  {
+   "n": 18,
+   "t": "Elections & Federalism",
+   "headline": "Garo Hills ADC polls postponed",
+   "when": "March 2026",
+   "what": "Elections to the Garo Hills Autonomous District Council, due on 10 April 2026, were postponed after unrest over a rule that candidates must hold an ST certificate. The Council's term was extended by six months. Plains non-tribal residents say only Parliament can amend the Sixth Schedule.",
+   "key": [
+    "Polls set for 10 April 2026 were postponed",
+    "Trigger: ST-certificate requirement for candidates",
+    "Council term extended by six months",
+    "Meghalaya ADCs: Garo Hills, Khasi Hills, Jaintia Hills",
+    "Sixth Schedule, Article 244(2)"
+   ],
+   "static": "Sixth Schedule covers tribal areas in Assam, Meghalaya, Tripura and Mizoram; Fifth Schedule covers Scheduled Areas elsewhere.",
+   "angle": "Trap: Fifth Schedule versus Sixth Schedule.",
+   "remember": "Sixth Schedule: four north-eastern States."
+  },
+  {
+   "n": 19,
+   "t": "Elections & Federalism",
+   "headline": "Postal ballot extended to 85-plus voters and PwDs",
+   "when": "March 2026",
+   "what": "The Election Commission extended postal ballot voting to electors above 85 years and Persons with Disabilities. The facility is governed by the Conduct of Election Rules, 1961 and the Representation of the People Act, 1951, and also covers service voters, special voters, preventive detainees and election duty staff.",
+   "key": [
+    "Extended to electors above 85 years and PwDs",
+    "Legal base: Conduct of Election Rules, 1961 and RP Act, 1951",
+    "Service voters: armed forces, CAPFs, officials posted abroad",
+    "Special voters include President, Vice-President, Governors, Cabinet Ministers",
+    "Preventive detainees and election duty staff can vote by post"
+   ],
+   "static": "Article 324 vests superintendence, direction and control of elections in the Election Commission.",
+   "angle": "Trap: thinking detained voters are excluded.",
+   "remember": "Postal ballot: service, special, absentee, detained, duty staff."
+  },
+  {
+   "n": 20,
+   "t": "Elections & Federalism",
+   "headline": "SC orders appellate route for SIR deletions in West Bengal",
+   "when": "10 and 24 March 2026",
+   "what": "The Supreme Court directed an appellate mechanism for people whose names were deleted in the Special Intensive Revision of West Bengal's electoral rolls. On 24 March it asked the parties to approach the Chief Justice of the Calcutta High Court to supervise the process.",
+   "key": [
+    "Matter: Election Commission's SIR of West Bengal rolls",
+    "10 March: appellate mechanism for deleted names",
+    "24 March: parties to approach Calcutta HC Chief Justice",
+    "SIR done ahead of the 2026 assembly election",
+    "SIR not scrapped by the Court"
+   ],
+   "static": "Article 326 gives universal adult suffrage; Article 324 gives the Election Commission control over the preparation of electoral rolls.",
+   "angle": "Trap: options saying the SIR was quashed or all names restored.",
+   "remember": "Appeal route, not cancellation."
+  },
+  {
+   "n": 21,
+   "t": "Parliamentary Committees",
+   "headline": "Four standing committee reports in March 2026",
+   "when": "18-30 March 2026",
+   "what": "Four departmentally related standing committees tabled reports: Empowerment of Women on cyber safety, Health on AIIMS New Delhi, Agriculture on procurement and seeds, and Communications and IT on AI. Each chair and subject is a likely matching question.",
+   "key": [
+    "Women: Dr D. Purandeswari, cyber safety, 23 March",
+    "Health: Prof. Ram Gopal Yadav, 171st report on AIIMS Delhi, 18 March",
+    "Agriculture: Charanjit Singh Channi, 27 March",
+    "Comm and IT: Dr Nishikant Dubey, Report No. 27 on AI, 30 March",
+    "Cybercrimes against women rose 239 per cent, 2017-22 (NCRB)"
+   ],
+   "static": "Departmentally related standing committees were created in 1993; they examine demands for grants and bills referred to them.",
+   "angle": "Matching committee, chair and subject is the typical pattern.",
+   "remember": "Purandeswari cyber, Dubey AI, Channi seeds, Yadav AIIMS."
+  },
+  {
+   "n": 22,
+   "t": "Parliamentary Committees",
+   "headline": "Standing Committee report on AI",
+   "when": "30 March 2026",
+   "what": "The Standing Committee on Communications and IT, chaired by Dr Nishikant Dubey, presented Report No. 27 on AI. It recommended exploring comprehensive AI legislation, age restrictions on some platforms, AI education in schools and colleges, and quicker IT Rules amendments.",
+   "key": [
+    "Report No. 27, presented 30 March 2026",
+    "Chair: Dr Nishikant Dubey",
+    "Explore comprehensive AI legislation",
+    "Age restrictions on certain platforms",
+    "AI education in schools and colleges; faster IT Rules amendments"
+   ],
+   "static": "The IT Act, 2000 and the IT Rules currently regulate digital intermediaries in India; the DPDP Act, 2023 treats anyone under 18 as a child.",
+   "angle": "Trap: reversing a recommendation, such as keeping AI out of education.",
+   "remember": "AI report: legislate, age-limit, teach AI."
+  },
+  {
+   "n": 23,
+   "t": "Parliamentary Committees",
+   "headline": "Committee of Privileges constituted in 18th Lok Sabha",
+   "when": "March 2026",
+   "what": "Speaker Om Birla nominated 15 members to the Committee of Privileges, chaired by Ravi Shankar Prasad. The committee examines breach of privilege of the House or its members and recommends action. No law yet codifies parliamentary privileges.",
+   "key": [
+    "Lok Sabha committee: 15 members; Rajya Sabha: 10",
+    "Chair: Ravi Shankar Prasad, nominated by the Speaker",
+    "Articles 105 and 122 for Parliament; 194 and 212 for States",
+    "Functions are semi-judicial; recommends action on breach",
+    "No specific law codifies privileges"
+   ],
+   "static": "Article 105(2) gives MPs immunity from court proceedings for anything said or voted in Parliament.",
+   "angle": "Trap: assuming privileges are codified by statute.",
+   "remember": "15 members, Prasad chairs, no codifying law."
+  },
+  {
+   "n": 24,
+   "t": "Governance & Administration",
+   "headline": "MHA tightens who can request a Look Out Circular",
+   "when": "March 2026",
+   "what": "The Ministry of Home Affairs revised LOC guidelines so that statutory bodies like the NCW, NHRC, NCPCR and NCLT cannot ask the Bureau of Immigration directly. Requests must route through a law-enforcement agency with criminal jurisdiction. The proforma lists three standard actions.",
+   "key": [
+    "Barred from direct requests: NCW, NHRC, NCPCR, NCLT",
+    "Route: agency with criminal jurisdiction",
+    "Three actions: detain and inform; prevent departure and inform; see remarks",
+    "'See remarks' reserved for intelligence agencies, counter-terrorism",
+    "Bureau of Immigration is under the MHA"
+   ],
+   "static": "An LOC is a tool to stop persons wanted in criminal cases from leaving India; it is not provided by a statute but by MHA instructions.",
+   "angle": "Trap: placing the Bureau of Immigration under MEA.",
+   "remember": "LOC: only agencies with criminal jurisdiction."
+  },
+  {
+   "n": 25,
+   "t": "Governance & Administration",
+   "headline": "IVFRT 3.0 approved for 2026-31",
+   "when": "25 March 2026",
+   "what": "The Union Cabinet approved continuation of the Home Ministry's IVFRT scheme for five years from 1 April 2026 with an outlay of Rs 1,800 crore. First approved in 2010, the scheme now aligns with the Immigration and Foreigners Act, 2025 and adds iris scanning, AI and ML tools and self-service kiosks.",
+   "key": [
+    "Period: 1 April 2026 to 31 March 2031",
+    "Outlay: Rs 1,800 crore",
+    "Run by the Ministry of Home Affairs; first approved 2010",
+    "Aligned with Immigration and Foreigners Act, 2025",
+    "Adds iris scanning, AI/ML tools, self-service kiosks"
+   ],
+   "static": "The Bureau of Immigration, under the Ministry of Home Affairs, runs immigration check posts.",
+   "angle": "Trap: placing the scheme under External Affairs.",
+   "remember": "IVFRT: Home Ministry, Rs 1,800 crore, 2026-31."
+  }
+ ]
+}

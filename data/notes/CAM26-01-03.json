@@ -1,0 +1,476 @@
+{
+ "id": "CAM26-01-03",
+ "title": "January 2026: International Relations & Defence",
+ "category": "International Relations & Defence",
+ "index": [
+  {
+   "t": "India's Bilateral Ties",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "t": "Groupings & Multilateral Bodies",
+   "pages": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ]
+  },
+  {
+   "t": "Global Developments",
+   "pages": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ]
+  },
+  {
+   "t": "Defence & Security",
+   "pages": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "India's Bilateral Ties",
+   "headline": "India and EU conclude FTA talks",
+   "when": "27 Jan 2026",
+   "what": "India and the European Union announced the conclusion of FTA negotiations at the 16th India-EU Summit in New Delhi, covering a market of about 2 billion people. The deal still needs legal scrubbing and ratification. An EU-India Security and Defence Partnership was also signed.",
+   "key": [
+    "Concluded 27 January 2026, New Delhi; zone of about 2 billion people",
+    "EU is India's 22nd FTA partner",
+    "Talks began 2007, suspended 2013, relaunched 2022",
+    "No EU concessions on sugar, ethanol, rice, soft wheat, beef, poultry, milk powders, bananas, honey",
+    "Security and Defence Partnership signed: EU's third in Asia after Japan and South Korea"
+   ],
+   "static": "Free trade agreements vs Comprehensive Economic Partnership Agreements; WTO rules.",
+   "angle": "Assuming conclusion of talks means the deal is already in force.",
+   "remember": "Concluded, not yet ratified: 22nd FTA partner."
+  },
+  {
+   "n": 2,
+   "t": "India's Bilateral Ties",
+   "headline": "Merz visits India",
+   "when": "12-13 Jan 2026",
+   "what": "German Chancellor Friedrich Merz made his first visit to India as Chancellor, holding talks with Prime Minister Modi at Mahatma Mandir, Gandhinagar. Outcomes included a roadmap on defence co-development and visa-free transit through German airports for Indian passport holders.",
+   "key": [
+    "First visit as Chancellor; talks at Mahatma Mandir, Gandhinagar",
+    "25 years of strategic partnership; 75 years of diplomatic relations",
+    "Roadmap on defence co-development and co-production",
+    "Visa-free transit through German airports for Indian passport holders",
+    "Germany to join MILAN, IONS and Tarang Shakti; backs IMEC"
+   ],
+   "static": "Strategic partnerships; Indian Ocean Naval Symposium; IMEC.",
+   "angle": "Imagining Germany joining the Quad.",
+   "remember": "Merz in Gujarat: MILAN, IONS, Tarang Shakti, not Quad."
+  },
+  {
+   "n": 3,
+   "t": "India's Bilateral Ties",
+   "headline": "UAE President visits New Delhi",
+   "when": "19 Jan 2026",
+   "what": "UAE President Sheikh Mohamed bin Zayed Al Nahyan made an official visit to New Delhi. India and the UAE signed a Letter of Intent toward a Strategic Defence Partnership and a 10-year LNG supply deal between HPCL and ADNOC Gas starting in 2028.",
+   "key": [
+    "Letter of Intent: Strategic Defence Partnership",
+    "LNG deal: HPCL and ADNOC Gas, 10 years from 2028, 0.5 million tonnes a year",
+    "Trade target: USD 100 billion to USD 200 billion by 2032",
+    "Builds on the 2022 CEPA",
+    "Explore SMRs, a 'House of India' in Abu Dhabi, 'Digital Embassies'"
+   ],
+   "static": "India-UAE CEPA, 2022; energy diplomacy.",
+   "angle": "Naming IOC instead of HPCL as the LNG buyer.",
+   "remember": "HPCL buys UAE gas from 2028."
+  },
+  {
+   "n": 4,
+   "t": "India's Bilateral Ties",
+   "headline": "India's FTA network: Oman, NZ and the RCEP gap",
+   "when": "December 2025 - January 2026",
+   "what": "After concluding talks with New Zealand, India has FTAs with all RCEP members except China. Recent deals include the Oman CEPA, UK CETA and EFTA TEPA. The EU deal followed in January 2026.",
+   "key": [
+    "India-NZ FTA: negotiations concluded December 2025",
+    "India-Oman CEPA signed December 2025",
+    "India-UK CETA signed July 2025",
+    "India-EFTA TEPA signed March 2024",
+    "India-Australia ECTA in effect December 2022; India-UAE CEPA 2022"
+   ],
+   "static": "RCEP (India stayed out in 2019); GATT Article XXIV; TEPA vs CEPA.",
+   "angle": "Mixing up signing and entry-into-force years.",
+   "remember": "Oman Dec 25, UK Jul 25, EFTA Mar 24."
+  },
+  {
+   "n": 5,
+   "t": "India's Bilateral Ties",
+   "headline": "Adani begins Wangchhu hydro project in Bhutan",
+   "when": "Jan 2026",
+   "what": "Adani Group started construction of the 570 MW Wangchhu Hydroelectric Project, a run-of-river scheme on the Wangchu (Raidak) river in Chukha District, Bhutan. The joint venture is Adani Power (49%) and Druk Green Power Corporation (51%), investing about Rs 6,000 crore.",
+   "key": [
+    "570 MW run-of-river project, Wangchu (Raidak) river, Chukha district",
+    "Joint venture: Adani Power 49%, Druk Green Power 51%",
+    "Build-own-operate-transfer basis",
+    "Investment about Rs 6,000 crore",
+    "Winter power for Bhutan; summer surplus exported to India"
+   ],
+   "static": "India-Bhutan hydropower cooperation; run-of-river vs storage projects.",
+   "angle": "Reversing the equity split or calling it a storage project.",
+   "remember": "Bhutan holds 51; Adani holds 49."
+  },
+  {
+   "n": 6,
+   "t": "India's Bilateral Ties",
+   "headline": "India rejects China's Shaksgam activity",
+   "when": "Jan 2026",
+   "what": "India rejected Chinese infrastructure activity in the Shaksgam Valley as illegal and invalid after China asserted the area is Chinese territory. India reaffirmed that the valley is an integral part of India.",
+   "key": [
+    "Shaksgam Valley (Trans-Karakoram Tract) lies north of Siachen Glacier",
+    "Ceded by Pakistan to China, 1963 Sino-Pakistan Boundary Agreement",
+    "India does not recognise the 1963 agreement",
+    "China is building CPEC-linked infrastructure there",
+    "Different from Aksai Chin"
+   ],
+   "static": "Geography of Ladakh and Karakoram; India-China boundary questions.",
+   "angle": "Confusing Shaksgam with Aksai Chin.",
+   "remember": "Shaksgam: north of Siachen; ceded 1963."
+  },
+  {
+   "n": 7,
+   "t": "Groupings & Multilateral Bodies",
+   "headline": "India chairs BRICS 2026",
+   "when": "Jan 2026",
+   "what": "India holds the BRICS chairship for 2026 and will host the summit in New Delhi. The UAE backed the chairmanship in the India-UAE joint statement of 19 January 2026, and the RBI proposed putting BRICS CBDC linkage on the agenda.",
+   "key": [
+    "India chairs BRICS in 2026; summit in New Delhi",
+    "Chairship rotates annually",
+    "UAE backed India's chair in the 19 January 2026 joint statement",
+    "RBI: put linking of BRICS CBDCs on the agenda",
+    "Builds on the 2025 Rio de Janeiro declaration on payment interoperability"
+   ],
+   "static": "BRICS expansion and New Development Bank; CBDCs (e-Rupee).",
+   "angle": "Placing the 2025 declaration in the wrong city.",
+   "remember": "India chairs BRICS 2026; CBDCs on agenda."
+  },
+  {
+   "n": 8,
+   "t": "Groupings & Multilateral Bodies",
+   "headline": "Spain joins IPOI",
+   "when": "Jan 2026",
+   "what": "India welcomed Spain joining the Indo-Pacific Oceans Initiative, a voluntary non-treaty arrangement launched by India in November 2019 at the East Asia Summit in Bangkok. 2026 is the India-Spain Dual Year of Culture, Tourism and AI.",
+   "key": [
+    "IPOI launched Nov 2019, East Asia Summit, Bangkok; non-treaty",
+    "Maritime security: UK, India",
+    "Maritime ecology: Australia, Thailand; maritime resources: France, Indonesia",
+    "Capacity building: Germany; disaster risk reduction: India, Bangladesh",
+    "Science and technology: Italy, Singapore; trade and connectivity: Japan, US"
+   ],
+   "static": "Indo-Pacific policy; SAGAR and MAHASAGAR.",
+   "angle": "Mixing the lead countries across pillars.",
+   "remember": "Seven pillars; Australia and Thailand lead ecology."
+  },
+  {
+   "n": 9,
+   "t": "Groupings & Multilateral Bodies",
+   "headline": "India signs the Pax Silica Declaration",
+   "when": "January 2026",
+   "what": "India joined the US-led Pax Silica initiative for trusted technology supply chains. It also signed a joint statement on an India-US AI Opportunity Partnership as an addendum.",
+   "key": [
+    "US-led initiative for a secure technology ecosystem",
+    "Covers semiconductors, AI infrastructure, critical minerals, compute",
+    "Aim: reduce coercive dependencies, protect sensitive technology",
+    "Members include Japan, South Korea, Singapore, UK, Israel",
+    "India-US AI Opportunity Partnership: bilateral addendum"
+   ],
+   "static": "Semiconductor supply chains; India Semiconductor Mission; critical minerals diplomacy.",
+   "angle": "Treating it as a UN or WTO instrument.",
+   "remember": "Pax Silica: chips-to-minerals trust club."
+  },
+  {
+   "n": 10,
+   "t": "Groupings & Multilateral Bodies",
+   "headline": "India's first engagement with Weimar Triangle",
+   "when": "Jan 2026",
+   "what": "India's External Affairs Minister took part in India's first-ever engagement with the Weimar Triangle, along with French and Polish counterparts and German representatives. The grouping was formed in 1991 to anchor German-Polish reconciliation.",
+   "key": [
+    "Members: France, Germany, Poland",
+    "Formed 29 August 1991, joint declaration, Weimar, Germany",
+    "Purpose: German-Polish reconciliation",
+    "Poland joined NATO in 1999 and the EU in 2004",
+    "No institutional structure; India engaged, did not join"
+   ],
+   "static": "European security architecture; India-Europe outreach.",
+   "angle": "Treating the engagement as membership.",
+   "remember": "Weimar Triangle: France, Germany, Poland; no secretariat."
+  },
+  {
+   "n": 11,
+   "t": "Groupings & Multilateral Bodies",
+   "headline": "2nd India-Arab Foreign Ministers' Meeting in Delhi",
+   "when": "30-31 January 2026 (scheduled)",
+   "what": "India was set to host all 22 Arab League members for the 2nd India-Arab Foreign Ministers' Meeting. A new India-Arab Countries Chambers of Commerce, Industry and Agriculture was to be inaugurated.",
+   "key": [
+    "League of Arab States: Cairo, 1945; 22 members; HQ Cairo",
+    "Council: one vote each; decisions bind only those who vote for them",
+    "Syria readmitted 7 May 2023 after 12 years",
+    "India-LAS MoU March 2002; Arab-India Cooperation Forum 2008",
+    "India-LAS Partnership and Investment Summit is biennial"
+   ],
+   "static": "West Asia diplomacy; India's Think West policy; Gulf energy ties.",
+   "angle": "Assuming League decisions bind every member.",
+   "remember": "Arab League: Cairo 1945, 22 members."
+  },
+  {
+   "n": 12,
+   "t": "Global Developments",
+   "headline": "US strikes Venezuela, captures Maduro",
+   "when": "3 Jan 2026",
+   "what": "United States forces struck Caracas and captured Venezuelan President Nicolas Maduro and his wife Cilia Flores, flown to New York for narco-terrorism charges. The operation was justified by a 'Trump Corollary' to the Monroe Doctrine. Venezuela's Supreme Court named Delcy Rodriguez interim president.",
+   "key": [
+    "3 January 2026; Operation Absolute Resolve",
+    "Maduro and Cilia Flores flown to New York",
+    "Justified by 'Trump Corollary' to the Monroe Doctrine (1823)",
+    "VP Delcy Rodriguez ordered to serve as interim president",
+    "UNSC emergency meeting on 5 January; about 300 billion barrels of proven oil reserves"
+   ],
+   "static": "Monroe Doctrine; sovereignty and UN Charter Article 2(4); oil geopolitics.",
+   "angle": "Giving the wrong US city for Maduro's arraignment.",
+   "remember": "Caracas strike; Maduro in New York."
+  },
+  {
+   "n": 13,
+   "t": "Global Developments",
+   "headline": "US exits 66 bodies including ISA",
+   "when": "Around 7 Jan 2026",
+   "what": "A US presidential memorandum signed around 7 January 2026 directed withdrawal from 66 international organisations, including 31 UN entities such as the IPCC and UN DESA, and the India-France-led International Solar Alliance.",
+   "key": [
+    "66 organisations, including 31 UN entities",
+    "Includes IPCC and UN DESA",
+    "Includes International Solar Alliance",
+    "ISA launched by India and France at COP21, Paris, 2015",
+    "ISA headquarters: Gurugram; 'Towards 1000' strategy; US joined 2021"
+   ],
+   "static": "Solar diplomacy; ISA Framework Agreement.",
+   "angle": "Placing ISA's headquarters in Paris.",
+   "remember": "ISA: born in Paris, based in Gurugram."
+  },
+  {
+   "n": 14,
+   "t": "Global Developments",
+   "headline": "Trump launches Board of Peace at Davos",
+   "when": "22 Jan 2026",
+   "what": "US President Donald Trump launched the 'Board of Peace' at Davos, where leaders signed its charter, with reports of about 35 signatory countries. India was invited but did not attend. It was set up for Gaza under UN Security Council Resolution 2803 (2025).",
+   "key": [
+    "Launched 22 January 2026, Davos",
+    "Set up for Gaza under UNSC Resolution 2803 (2025); mandate to 31 December 2027",
+    "India invited; neither accepted nor declined; absent from launch",
+    "Pakistan's PM Shehbaz Sharif attended",
+    "USD 1 billion payment grants permanent membership; Nickolay Mladenov High Representative for Gaza"
+   ],
+   "static": "UN Security Council resolutions; Gaza peace process.",
+   "angle": "Assuming India joined the charter.",
+   "remember": "India invited, did not sign on."
+  },
+  {
+   "n": 15,
+   "t": "Global Developments",
+   "headline": "Trump announces Greenland 'framework'",
+   "when": "21 Jan 2026",
+   "what": "At Davos, US President Trump announced a 'framework of a future deal' on Greenland and dropped a threatened tariff on eight European countries. He said he would not use force to acquire Greenland.",
+   "key": [
+    "21 January 2026, Davos",
+    "'Framework of a future deal' on Greenland",
+    "Tariff threat on eight European countries dropped",
+    "No use of force to acquire Greenland",
+    "China-Russia 'Polar Silk Road' announced 2017"
+   ],
+   "static": "Arctic geopolitics; Arctic Council; India's Arctic policy.",
+   "angle": "Naming the wrong partner for the Polar Silk Road.",
+   "remember": "Greenland: no force, no tariffs; Polar Silk Road is China-Russia."
+  },
+  {
+   "n": 16,
+   "t": "Global Developments",
+   "headline": "Bulgaria joins the eurozone",
+   "when": "1 Jan 2026",
+   "what": "Bulgaria adopted the euro on 1 January 2026, replacing the lev, and became the 21st member of the eurozone. Croatia had joined in 2023 as the 20th member.",
+   "key": [
+    "Adopted 1 January 2026; replaced the lev",
+    "21st eurozone member",
+    "Croatia was 20th (2023)",
+    "Euro launched 1 January 1999 with 11 countries",
+    "Outside: Sweden, Poland, Czech Republic, Hungary, Romania, Denmark"
+   ],
+   "static": "European Union institutions; Maastricht convergence criteria.",
+   "angle": "Using Croatia's number for Bulgaria.",
+   "remember": "Croatia twenty, Bulgaria twenty-one."
+  },
+  {
+   "n": 17,
+   "t": "Global Developments",
+   "headline": "New UNSC non-permanent members",
+   "when": "1 Jan 2026",
+   "what": "Bahrain, Colombia, the Democratic Republic of the Congo, Latvia and Liberia began two-year terms as non-permanent members of the UN Security Council on 1 January 2026, running through 2027. They were elected by the General Assembly in June 2025.",
+   "key": [
+    "Bahrain, Colombia, DR Congo, Latvia, Liberia",
+    "Terms: 1 January 2026 to end 2027",
+    "Elected by the General Assembly in June 2025",
+    "Council: five permanent and ten non-permanent members"
+   ],
+   "static": "UN Charter Chapter V; India's UNSC reform demand.",
+   "angle": "Mixing the new members with those already serving.",
+   "remember": "Five new faces: Bahrain, Colombia, DRC, Latvia, Liberia."
+  },
+  {
+   "n": 18,
+   "t": "Global Developments",
+   "headline": "High Seas Treaty enters into force",
+   "when": "17 Jan 2026",
+   "what": "The BBNJ Agreement entered into force on 17 January 2026, the first legally binding treaty for conserving marine biodiversity in international waters. It was adopted in 2023 under UNCLOS, 120 days after the 60th ratification took effect.",
+   "key": [
+    "In force 17 January 2026",
+    "Adopted 2023 under UNCLOS (1982)",
+    "Entry into force 120 days after 60th ratification",
+    "Four pillars: marine genetic resources, area-based tools, EIAs, capacity building",
+    "India signed 2024; ratification pending"
+   ],
+   "static": "UNCLOS; marine protected areas; Exclusive Economic Zones.",
+   "angle": "Linking BBNJ to the CBD instead of UNCLOS.",
+   "remember": "High seas treaty: UNCLOS child, in force 17 January."
+  },
+  {
+   "n": 19,
+   "t": "Global Developments",
+   "headline": "UK defends Chagos deal",
+   "when": "Late Jan 2026",
+   "what": "The United Kingdom defended its agreement to transfer the Chagos archipelago to Mauritius while retaining a 99-year lease on the Diego Garcia base, after criticism from US President Trump. The ICJ's 2019 advisory opinion had found the 1965 detachment unlawful.",
+   "key": [
+    "UK defended the transfer to Mauritius",
+    "99-year lease on Diego Garcia retained",
+    "Criticised by US President Trump",
+    "ICJ 2019 advisory opinion: 1965 detachment unlawful"
+   ],
+   "static": "ICJ advisory jurisdiction; decolonisation; Indian Ocean geopolitics.",
+   "angle": "Believing the UK scrapped the deal.",
+   "remember": "Chagos to Mauritius; Diego Garcia leased 99 years."
+  },
+  {
+   "n": 20,
+   "t": "Defence & Security",
+   "headline": "DRDO completes Akash-NG user trials",
+   "when": "Jan 2026",
+   "what": "DRDO completed user evaluation trials of the Akash-NG surface-to-air missile with the Indian Air Force as the user. It has a range of up to 70 km, Mach 2.5 speed and about 96 per cent indigenous content.",
+   "key": [
+    "User: Indian Air Force",
+    "Range up to 70 km (original Akash about 30 km)",
+    "Speed Mach 2.5; solid rocket motor instead of ramjet",
+    "About 96% indigenous content",
+    "Production partners: Bharat Dynamics and Bharat Electronics"
+   ],
+   "static": "Air defence systems; DRDO missile programmes.",
+   "angle": "Naming the Army as the user.",
+   "remember": "Akash-NG: IAF user, 70 km reach."
+  },
+  {
+   "n": 21,
+   "t": "Defence & Security",
+   "headline": "78th Army Day in Jaipur",
+   "when": "15 Jan 2026",
+   "what": "The 78th Army Day was observed in Jaipur, Rajasthan, the first Army Day parade held outside a cantonment. The new Bhairav Battalions made their debut and the Army named 2026 the 'Year of Networking and Data Centricity'.",
+   "key": [
+    "15 January 2026, Jaipur: first parade outside a cantonment",
+    "Marks 15 January 1949: Cariappa became first Indian C-in-C",
+    "Bhairav Battalions debut; about 200-250 personnel each",
+    "Infantry, artillery, air defence and signals mix",
+    "15 raised; 23 to 25 planned"
+   ],
+   "static": "Armed forces structure; Army Day history.",
+   "angle": "Overstating the size of a Bhairav battalion.",
+   "remember": "Army Day: Cariappa, 1949; Bhairav debuts in Jaipur."
+  },
+  {
+   "n": 22,
+   "t": "Defence & Security",
+   "headline": "LR-AShM debuts at Republic Day parade",
+   "when": "26 Jan 2026",
+   "what": "DRDO's Long Range Anti-Ship Hypersonic Missile was showcased for the first time at the 77th Republic Day parade. It is a hypersonic glide missile with a range of about 1,500 km, reaching up to Mach 10.",
+   "key": [
+    "First display at the 77th Republic Day parade",
+    "Hypersonic glide missile, two-stage solid rocket motor",
+    "Range about 1,500 km; up to Mach 10",
+    "Successful test in November 2024",
+    "Induction expected in 2-3 years"
+   ],
+   "static": "Hypersonic glide vehicle vs hypersonic cruise missile; scramjet engines.",
+   "angle": "Confusing a glide vehicle with a scramjet cruise missile.",
+   "remember": "Glide vehicle, solid motor, 1,500 km."
+  },
+  {
+   "n": 23,
+   "t": "Defence & Security",
+   "headline": "Pralay, Suryastra and MPATGM in the news",
+   "when": "January 2026",
+   "what": "DRDO test-fired two Pralay missiles and flight-tested the MPATGM against a moving target. The Army signed a Rs 293 crore deal for the Suryastra long-range rocket launcher.",
+   "key": [
+    "Pralay: short-range quasi-ballistic missile, 150-500 km, from Odisha coast",
+    "Suryastra: universal multi-calibre rocket launcher, up to 300 km, Rs 293 crore with NIBE",
+    "MPATGM: third-generation, shoulder-launched, imaging infrared seeker",
+    "Suryastra accuracy under 5 m; can fire loitering munitions to 100 km",
+    "Dhruv-NG helicopter (HAL) also made its first flight"
+   ],
+   "static": "DRDO missile programmes; Make in India in defence.",
+   "angle": "Treating MPATGM as a vehicle-mounted missile.",
+   "remember": "Pralay quasi-ballistic; MPATGM man-portable."
+  },
+  {
+   "n": 24,
+   "t": "Defence & Security",
+   "headline": "NATGRID linked to NPR",
+   "when": "Jan 2026",
+   "what": "NATGRID was integrated with the National Population Register, giving authorised agencies access to family-level data of about 119 crore residents. The intelligence grid was conceived in 2009 after the 26/11 attacks.",
+   "key": [
+    "Integrated with the National Population Register",
+    "Access to family-level data of about 119 crore residents",
+    "Conceived 2009 after 26/11",
+    "Operational in 2023; access extended to SP-rank State police officers",
+    "NPR last updated in 2015"
+   ],
+   "static": "Intelligence reforms after 26/11; privacy and the Puttaswamy judgment.",
+   "angle": "Treating the 2009 origin as the reason for the 2026 integration.",
+   "remember": "NATGRID: born after 26/11, live since 2023."
+  },
+  {
+   "n": 25,
+   "t": "Defence & Security",
+   "headline": "INSV Kaundinya reaches Muscat",
+   "when": "Jan 2026",
+   "what": "INSV Kaundinya, India's first 'stitched ship' built with the ancient Tankai method, reached Port Sultan Qaboos in Muscat, Oman, from Porbandar on its maiden voyage. Eutelsat provided connectivity through its OneWeb constellation.",
+   "key": [
+    "India's first stitched ship, Tankai method",
+    "Maiden voyage: Porbandar to Muscat (Port Sultan Qaboos), Oman",
+    "Connectivity from Eutelsat OneWeb",
+    "Not to be confused with INS Sudarshini (Lokayan 26) or INS Sagardhwani (Sagar Maitri)"
+   ],
+   "static": "Maritime heritage; Project Mausam; ancient Indian shipbuilding.",
+   "angle": "Confusing it with other January 2026 naval voyages.",
+   "remember": "Kaundinya: stitched, Tankai, Porbandar to Muscat."
+  }
+ ]
+}

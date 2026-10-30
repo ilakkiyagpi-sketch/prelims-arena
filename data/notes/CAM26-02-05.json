@@ -1,0 +1,479 @@
+{
+ "id": "CAM26-02-05",
+ "title": "February 2026: Science & Tech",
+ "category": "Science & Tech",
+ "index": [
+  {
+   "t": "AI & Digital Technology",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Space & Astronomy",
+   "pages": [
+    10,
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  {
+   "t": "Quantum & Clean Tech",
+   "pages": [
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "t": "Biotech, Drones & Rail Tech",
+   "pages": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "AI & Digital Technology",
+   "headline": "India hosts first global AI summit in the Global South",
+   "when": "February 2026, concluded 20 Feb",
+   "what": "The AI Impact Summit 2026 in New Delhi was the first global AI summit hosted in the Global South. It was held under the IndiaAI Mission, structured around 7 Chakras and 3 Sutras, and followed summits in Bletchley Park, Seoul and Paris.",
+   "key": [
+    "First global AI summit hosted in the Global South.",
+    "Earlier summits: Bletchley Park 2023, Seoul 2024, Paris (AI Action Summit) 2025.",
+    "Structured around 7 Chakras (working groups) and 3 Sutras (core principles).",
+    "Hosted under the IndiaAI Mission.",
+    "Outputs include the New Delhi Declaration and the Charter for the Democratic Diffusion of AI."
+   ],
+   "static": "The Bletchley Park summit of 2023 focused on AI safety; later editions moved towards innovation and inclusion.",
+   "angle": "Trap: Seoul was 2024; Paris was 2025.",
+   "remember": "Bletchley 2023, Seoul 2024, Paris 2025, Delhi 2026."
+  },
+  {
+   "n": 2,
+   "t": "AI & Digital Technology",
+   "headline": "M.A.N.A.V. framework guides India's human-centric AI approach",
+   "when": "AI Impact Summit, Feb 2026",
+   "what": "India presented the M.A.N.A.V. framework for human-centric AI at the summit. It stresses moral and ethical systems, accountable governance, national sovereignty, accessible and inclusive AI and valid and legitimate use.",
+   "key": [
+    "M: Moral and Ethical system.",
+    "A: Accountable Governance.",
+    "N: National Sovereignty.",
+    "A: Accessible and Inclusive AI.",
+    "V: Valid and Legitimate."
+   ],
+   "static": "The IT Rules amendment of 2026 on synthetically generated content is cited as an example of 'valid and legitimate' AI.",
+   "angle": "Trap: V is Valid and Legitimate.",
+   "remember": "MANAV: Moral, Accountable, National, Accessible, Valid."
+  },
+  {
+   "n": 3,
+   "t": "AI & Digital Technology",
+   "headline": "Sarvam AI unveils Sarvam-30B and Sarvam-105B models",
+   "when": "19 Feb 2026",
+   "what": "Sarvam AI unveiled Sarvam-30B (32,000-token context) and Sarvam-105B (128,000-token context), open-source mixture-of-experts models for 22 Indian languages. BharatGen launched Param2, and Gnani.ai launched a text-to-speech model, Vachana.",
+   "key": [
+    "Sarvam-30B: 30 billion parameters, 32,000-token context.",
+    "Sarvam-105B: 105 billion parameters, 128,000-token context.",
+    "Open-source mixture-of-experts models for 22 Indian languages.",
+    "Trained on GPUs from the IndiaAI Mission compute pool.",
+    "BharatGen launched Param2, a 17-billion-parameter multilingual model."
+   ],
+   "static": "A mixture-of-experts model activates only some of its parameters for each input, which lowers compute cost.",
+   "angle": "Trap: Param2 is BharatGen's, not Sarvam's.",
+   "remember": "Sarvam 30B and 105B; Param2 from BharatGen."
+  },
+  {
+   "n": 4,
+   "t": "AI & Digital Technology",
+   "headline": "India adds 20,000 GPUs to IndiaAI compute pool",
+   "when": "24 Feb 2026",
+   "what": "At the AI Impact Summit India announced 20,000 more GPUs for the IndiaAI compute pool of about 38,000, aiming for over 100,000 by end-2026. The mission has seven pillars, including compute, datasets, foundation models and safe and trusted AI.",
+   "key": [
+    "20,000 GPUs added to a pool of about 38,000.",
+    "Target: over 100,000 GPUs by end-2026.",
+    "Implemented by the IndiaAI independent business division under MeitY.",
+    "Mission outlay Rs 10,372 crore, approved March 2024.",
+    "Seven pillars include Compute, AIKosh datasets, Foundation Models, FutureSkills."
+   ],
+   "static": "AIKosh is the platform for datasets and models under the IndiaAI Mission.",
+   "angle": "Trap: MeitY, not NITI Aayog, runs the mission.",
+   "remember": "IndiaAI: +20,000 GPUs, 100,000 target, MeitY."
+  },
+  {
+   "n": 5,
+   "t": "AI & Digital Technology",
+   "headline": "SAHI framework and BODH platform launched for health AI",
+   "when": "17 Feb 2026",
+   "what": "Health Minister J.P. Nadda launched SAHI, a national guidance framework for safe and ethical health AI, and BODH, a platform to benchmark health AI models. BODH is a digital public good under the Ayushman Bharat Digital Mission.",
+   "key": [
+    "SAHI: Strategy for Artificial Intelligence in Healthcare for India.",
+    "BODH: Benchmarking Open Data Platform for Health AI.",
+    "Developed by IIT Kanpur with the National Health Authority.",
+    "Evaluates models on real health data without sharing datasets.",
+    "Digital public good under the Ayushman Bharat Digital Mission."
+   ],
+   "static": "The Ayushman Bharat Digital Mission builds a national digital health ecosystem with a unique health ID.",
+   "angle": "Trap: BODH tests models without releasing the data.",
+   "remember": "SAHI = framework; BODH = benchmark without sharing data."
+  },
+  {
+   "n": 6,
+   "t": "AI & Digital Technology",
+   "headline": "MeitY unveils open-source voice AI stack VoicERA",
+   "when": "19 Feb 2026",
+   "what": "MeitY unveiled VoicERA, an open-source voice AI stack built on BHASHINI. BHASHINI provides AI-powered translation under the National Language Translation Mission and is implemented by the Digital India BHASHINI Division.",
+   "key": [
+    "VoicERA is open source and end-to-end.",
+    "Built on the BHASHINI National Language Infrastructure.",
+    "BHASHINI: AI translation under the National Language Translation Mission.",
+    "Implemented by the Digital India BHASHINI Division of Digital India Corporation.",
+    "Unveiled by MeitY at the AI Impact Summit."
+   ],
+   "static": "Digital public infrastructure such as Aadhaar and UPI follows an open, interoperable design; BHASHINI extends it to language.",
+   "angle": "Trap: VoicERA is open source.",
+   "remember": "VoicERA = open voice stack on BHASHINI."
+  },
+  {
+   "n": 7,
+   "t": "AI & Digital Technology",
+   "headline": "AI Summit deliverables: Global AI Impact Commons and Trusted AI Commons",
+   "when": "Summit ended 20 Feb 2026",
+   "what": "The India AI Impact Summit's declaration listed several shared initiatives. The Global AI Impact Commons is a platform of AI use cases that can be replicated across countries, and the Trusted AI Commons is a repository of tools, benchmarks and best practices for secure and trustworthy AI. The declaration is non-binding.",
+   "key": [
+    "Global AI Impact Commons: shared database of AI use cases for replication.",
+    "Trusted AI Commons: tools, benchmarks and best practices for trustworthy AI.",
+    "International Network of AI for Science Institutions links technical institutes.",
+    "AI for Social Empowerment Platform and AI Workforce Development Playbook announced.",
+    "The Declaration is non-binding."
+   ],
+   "static": "A commons is a shared resource open to participants; digital public goods follow the same logic of open access.",
+   "angle": "Trap: Commons are voluntary shared resources, not binding obligations.",
+   "remember": "Impact Commons: use cases; Trusted Commons: tools and benchmarks; both voluntary."
+  },
+  {
+   "n": 8,
+   "t": "AI & Digital Technology",
+   "headline": "CERT-In and SIA-India issue space cybersecurity framework",
+   "when": "27 Feb 2026",
+   "what": "CERT-In and the Satcom Industry Association of India released a cybersecurity advisory framework for satellite operators, ground stations and vendors. It references ITU, CCSDS and NIST standards and requires a CISO and supply-chain security.",
+   "key": [
+    "Joint release by CERT-In and SIA-India.",
+    "Covers satellite operators, ground stations and vendors.",
+    "References ITU, CCSDS and NIST standards.",
+    "Requires a Chief Information Security Officer and supply-chain security.",
+    "CERT-In: Section 70B, IT Act 2000; under MeitY since 2004."
+   ],
+   "static": "CERT-In issues alerts and coordinates responses to cyber incidents, and companies must report incidents to it within six hours.",
+   "angle": "Trap: CERT-In is under MeitY.",
+   "remember": "CERT-In: MeitY, Section 70B."
+  },
+  {
+   "n": 9,
+   "t": "AI & Digital Technology",
+   "headline": "Budget announces India Semiconductor Mission 2.0",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget announced ISM 2.0, with Rs 1,000 crore for FY2026-27, to shift India's semiconductor effort towards equipment, materials and full-stack Indian IP. It also supports industry-led research and training centres.",
+   "key": [
+    "ISM 2.0 announced in Union Budget 2026-27.",
+    "Allocation FY2026-27: Rs 1,000 crore.",
+    "Focus: equipment, materials, full-stack Indian IP.",
+    "Industry-led research and training centres.",
+    "India joined the US-led Pax Silica initiative in the same month."
+   ],
+   "static": "The India Semiconductor Mission began in 2021 and is run by the Ministry of Electronics and Information Technology.",
+   "angle": "Trap: the allocation is Rs 1,000 crore.",
+   "remember": "ISM 2.0: Rs 1,000 crore, equipment, materials, IP."
+  },
+  {
+   "n": 10,
+   "t": "Space & Astronomy",
+   "headline": "DRDO tests Gaganyaan drogue parachute on rocket sled",
+   "when": "18 Feb 2026",
+   "what": "DRDO conducted a successful qualification-level load test of the Gaganyaan drogue parachute at the Rail Track Rocket Sled facility of TBRL, Chandigarh. ISRO and DRDO's Aerial Delivery Research and Development Establishment took part.",
+   "key": [
+    "Test on 18 February 2026 at RTRS, Terminal Ballistics Research Laboratory, Chandigarh.",
+    "Loads above maximum flight loads were simulated.",
+    "ISRO, ADRDE and TBRL teams participated.",
+    "Gaganyaan: three astronauts, 400 km low Earth orbit, three days, HLVM3.",
+    "First crewed mission expected in early 2027."
+   ],
+   "static": "Drogue parachutes stabilise and slow a capsule before the main parachutes open.",
+   "angle": "Trap: the test site is Chandigarh, not Sriharikota.",
+   "remember": "Drogue test at Chandigarh sled; crewed flight early 2027."
+  },
+  {
+   "n": 11,
+   "t": "Space & Astronomy",
+   "headline": "ISRO picks Mons Mouton as Chandrayaan-4 landing zone",
+   "when": "10 Feb 2026",
+   "what": "ISRO's Space Applications Centre identified Mons Mouton, a flat-topped peak spanning almost 100 km, as the landing zone for Chandrayaan-4, India's first lunar sample-return mission. Nearby permanently shadowed craters may hold water ice.",
+   "key": [
+    "Mons Mouton: about 6,000 m above surrounding terrain; flat-topped, almost 100 km across.",
+    "Located near the lunar south pole; also called Leibnitz Beta.",
+    "Chandrayaan-4: sample-return mission; planned timeline 2027.",
+    "Named after NASA mathematician Melba Roy Mouton.",
+    "Nearby permanently shadowed craters may hold water ice."
+   ],
+   "static": "Chandrayaan-3 landed near the south pole in August 2023 and made India the fourth country to soft-land on the Moon.",
+   "angle": "Trap: Mouton was a NASA mathematician.",
+   "remember": "Chandrayaan-4: sample return to Mons Mouton."
+  },
+  {
+   "n": 12,
+   "t": "Space & Astronomy",
+   "headline": "Budget sanctions solar and optical telescopes in Ladakh",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget sanctioned two new telescopes in Ladakh: the National Large Solar Telescope, a 2-metre telescope at Merak near Pangong Tso, and a 13.7-metre segmented-mirror optical and near-infrared telescope at Hanle with 90 hexagonal mirror segments.",
+   "key": [
+    "NLST: 2-metre aperture at Merak, Ladakh, to study solar dynamics and space weather.",
+    "Large optical-infrared telescope: 13.7 metres, 90 hexagonal segments, at Hanle.",
+    "NLST will be India's third ground-based solar observatory.",
+    "Kodaikanal Solar Observatory: 1899; Udaipur Solar Observatory: 1975.",
+    "Hanle also hosts the Indian Astronomical Observatory."
+   ],
+   "static": "Ladakh's high altitude, dry air and dark skies suit astronomy; Hanle is a Dark Sky Reserve.",
+   "angle": "Trap: Kodaikanal is 1899 and Udaipur 1975.",
+   "remember": "NLST 2 m Merak; optical 13.7 m Hanle; Kodaikanal 1899."
+  },
+  {
+   "n": 13,
+   "t": "Space & Astronomy",
+   "headline": "CHEOPS finds rocky outer planet around red dwarf LHS 1903",
+   "when": "16 Feb 2026",
+   "what": "ESA's CHEOPS space telescope revealed that the red dwarf LHS 1903 hosts four planets, with a small rocky planet outermost rather than a gas giant. CHEOPS measures planet diameters to within 10 per cent accuracy.",
+   "key": [
+    "LHS 1903: red dwarf 117 light-years away; four planets.",
+    "Outermost planet is small and rocky, not a gas giant.",
+    "CHEOPS: CHaracterising ExOPlanet Satellite of the European Space Agency.",
+    "Launched 18 December 2019 into a sun-synchronous orbit at about 700 km.",
+    "Measures planet diameters to within 10 per cent."
+   ],
+   "static": "A sun-synchronous orbit passes over a place at the same local solar time every day, which suits steady observation.",
+   "angle": "Trap: CHEOPS is a European mission.",
+   "remember": "CHEOPS: ESA, 2019, LHS 1903 rocky outer planet."
+  },
+  {
+   "n": 14,
+   "t": "Space & Astronomy",
+   "headline": "L&T wins contract to build LIGO-India in Hingoli",
+   "when": "February 2026",
+   "what": "Larsen and Toubro won the Department of Atomic Energy contract to build the LIGO-India facility in Hingoli district. LIGO-India will join the global detector network that includes LIGO in the USA, Virgo in Italy, KAGRA in Japan and GEO600 in Germany.",
+   "key": [
+    "L&T won the DAE contract for the LIGO-India facility.",
+    "Site: Aundh, Hingoli district, Maharashtra.",
+    "Implemented by DAE and DST with the US National Science Foundation.",
+    "Gravitational waves predicted by Einstein in 1916; detected in 2015.",
+    "Nobel Prize 2017: Rainer Weiss, Barry Barish, Kip Thorne."
+   ],
+   "static": "Gravitational waves are ripples in space-time produced by events such as merging black holes or colliding neutron stars.",
+   "angle": "Trap: prediction year is 1916.",
+   "remember": "LIGO-India: Hingoli; Einstein 1916."
+  },
+  {
+   "n": 15,
+   "t": "Quantum & Clean Tech",
+   "headline": "Quantum Valley foundation stone laid in Amaravati",
+   "when": "February 2026",
+   "what": "Under the National Quantum Mission the foundation stone of the Quantum Valley project was laid in Amaravati. It aims to make the city a global quantum hub and install India's first 133-qubit quantum computer by 2026.",
+   "key": [
+    "Quantum Valley foundation stone laid in Amaravati, Andhra Pradesh.",
+    "Aim: India's first 133-qubit quantum computer by 2026.",
+    "Triple helix: government, industry (IBM, TCS, L&T) and academia.",
+    "National Quantum Mission: 2023 to 2030-31, Ministry of Science and Technology.",
+    "Governed by the PM-STIAC."
+   ],
+   "static": "A qubit can exist in a superposition of states, which is why quantum computers can tackle some problems faster than classical ones.",
+   "angle": "Trap: the Mission sits under Science and Technology.",
+   "remember": "Quantum Valley: Amaravati, 133 qubits."
+  },
+  {
+   "n": 16,
+   "t": "Quantum & Clean Tech",
+   "headline": "National Quantum Mission thematic hubs",
+   "when": "February 2026",
+   "what": "The National Quantum Mission set up four thematic hubs in leading institutions, following the Hub-Spoke-Spike model. They cover quantum computing, communication, sensing and metrology, and materials and devices.",
+   "key": [
+    "Quantum computing: IISc, Bengaluru.",
+    "Quantum communication: IIT Madras; aims at satellite-based secure links over 2,000 km.",
+    "Sensing and metrology: IIT Bombay; precision navigation and timing.",
+    "Materials and devices: IIT Delhi.",
+    "QuEST was launched in 2018 by the Department of Science and Technology."
+   ],
+   "static": "Quantum key distribution uses quantum states to detect eavesdropping on an encryption key.",
+   "angle": "Trap: IIT Delhi has materials and devices.",
+   "remember": "IISc computing, Madras comms, Bombay sensing, Delhi materials."
+  },
+  {
+   "n": 17,
+   "t": "Quantum & Clean Tech",
+   "headline": "Sodium-ion batteries seen as an alternative to lithium-ion",
+   "when": "February 2026",
+   "what": "Sodium-ion batteries can reduce dependence on lithium, cobalt and nickel. They are safer, can be shipped at zero volts and can be made on adapted lithium-ion lines, though they need stricter moisture control and deeper vacuum drying.",
+   "key": [
+    "Lower specific energy than lithium-ion, because sodium has a higher atomic mass.",
+    "Aluminium current collectors on both electrodes.",
+    "Safe storage and transport at zero volts.",
+    "Lower peak temperatures in thermal runaway.",
+    "Made on lithium-ion lines with stricter moisture control."
+   ],
+   "static": "Specific energy means energy per unit mass; volumetric energy density is energy per unit volume.",
+   "angle": "Trap: sodium-ion cells run cooler in thermal runaway.",
+   "remember": "Sodium-ion: safer, zero-volt shipping, lower energy."
+  },
+  {
+   "n": 18,
+   "t": "Quantum & Clean Tech",
+   "headline": "ACC PLI: 40 GWh allocated but only about 1 GWh commissioned",
+   "when": "February 2026",
+   "what": "India's PLI scheme for Advanced Chemistry Cells has allocated about 40 GWh of capacity, but only just over 1 GWh has been commissioned. India's upstream ecosystem in mining, processing and active material is underdeveloped, so battery imports will continue.",
+   "key": [
+    "PLI for Advanced Chemistry Cells launched in 2021.",
+    "About 40 GWh capacity allocated.",
+    "Just over 1 GWh commissioned so far.",
+    "Domestic lithium reserves are limited and not commercially viable.",
+    "Global lithium-ion cost fell from about USD 1,100 to USD 108 per kWh by 2025."
+   ],
+   "static": "Lithium-ion batteries rely on lithium, cobalt, nickel and graphite, which are geographically concentrated.",
+   "angle": "Trap: allocation is large but commissioning is tiny.",
+   "remember": "ACC PLI: 40 GWh allocated, about 1 GWh live."
+  },
+  {
+   "n": 19,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Bio-based chemicals and enzymes: BioE3 priority for India",
+   "when": "Explained, Feb 2026",
+   "what": "Bio-based chemicals are industrial chemicals made from sugarcane, corn, starch or biomass through fermentation or enzymes. India lists them under the Department of Biotechnology's BioE3 policy, aiming to cut petrochemical imports and create markets for farm produce, though cost against petrochemicals remains a barrier.",
+   "key": [
+    "Made from biological feedstocks via fermentation or enzymatic processes.",
+    "Examples: lactic acid, bio-alcohols, solvents, surfactants.",
+    "Enzymes work at lower temperature and pressure, cutting energy use.",
+    "BioE3 policy of the DBT prioritises bio-based chemicals and enzymes.",
+    "India imported about USD 479.8 million of acetic acid in 2023."
+   ],
+   "static": "BioE3 stands for Biotechnology for Economy, Environment and Employment, a Department of Biotechnology policy for bio-manufacturing.",
+   "angle": "Trap: enzymes cut energy use; they do not raise it.",
+   "remember": "Bio-based chemicals: biological feedstock, BioE3 priority, enzymes use less energy."
+  },
+  {
+   "n": 20,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Davos Compact on AMR and India's action plan",
+   "when": "February 2026",
+   "what": "The Davos Compact on AMR, launched by the World Economic Forum, aims to unlock public and private financing and save over 100 million lives by 2050. India loses around 6 lakh lives a year to resistant infections.",
+   "key": [
+    "Davos Compact on AMR: aims to save more than 100 million lives by 2050.",
+    "India: about 6 lakh lives lost each year to resistant infections.",
+    "National Action Plan on AMR 2.0: 2025 to 2029.",
+    "Nafithromycin: first indigenous antibiotic, launched 2024.",
+    "UNGA 2024 target: cut bacterial AMR deaths by 10 per cent by 2030 against 2019."
+   ],
+   "static": "AMR arises when pathogens stop responding to drugs; misuse and overuse of antimicrobials accelerate it.",
+   "angle": "Trap: the UN target is 10 per cent, not 50.",
+   "remember": "NAP-AMR 2.0 2025-29; UN target 10 per cent by 2030."
+  },
+  {
+   "n": 21,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Kerala declares Bacillus subtilis its State microbe",
+   "when": "February 2026",
+   "what": "Kerala became the first State to declare Bacillus subtilis a State microbe. The probiotic bacterium occurs in soil, the human gut and fermented foods and is industrially valuable for enzymes and antibiotics.",
+   "key": [
+    "Kerala is the first State with a State microbe.",
+    "Bacillus subtilis is a probiotic bacterium.",
+    "Produces enzymes such as amylases and proteases; antibiotic bacitracin.",
+    "GRAS (Generally Recognized as Safe) status.",
+    "Used as a probiotic in agriculture and livestock feed."
+   ],
+   "static": "States designate State animals, birds, trees and now microbes to focus conservation and public awareness.",
+   "angle": "Trap: it is a bacterium, not a virus.",
+   "remember": "Kerala: first State microbe, a probiotic bacterium."
+  },
+  {
+   "n": 22,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Organ transplants nearly quadruple in a decade",
+   "when": "February 2026",
+   "what": "According to the health ministry, organ transplants rose nearly fourfold from under 5,000 in 2013 to almost 20,000 in 2025. About 18 per cent involve deceased donors. The three-tier structure under THOTA comprises NOTTO, ROTTO and SOTTO.",
+   "key": [
+    "Transplants: under 5,000 in 2013 to almost 20,000 in 2025.",
+    "About 18 per cent from deceased donors.",
+    "Transplantation of Human Organs and Tissues Act, 1994 (THOTA).",
+    "NOTTO apex; ROTTO regional; SOTTO State.",
+    "National Organ Transplant Programme is a central sector programme."
+   ],
+   "static": "Most transplants involve living donors, usually relatives, which is why deceased donation drives are promoted.",
+   "angle": "Trap: deceased donors are about 18 per cent, not 80.",
+   "remember": "Transplants 5,000 to 20,000; deceased 18 per cent."
+  },
+  {
+   "n": 23,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Liberalised drone rules and registration milestones",
+   "when": "February 2026",
+   "what": "India's Drone Rules 2021, amended in 2022 and 2023, simplified approvals, delinked fees from drone size and opened most airspace. By February 2026, 38,575 drones were registered, 39,890 Remote Pilot Certificates were issued and 244 RPTOs were approved.",
+   "key": [
+    "Forms reduced from 25 to 5; approvals reduced from 72 to 4.",
+    "Civilian drones up to 500 kg permitted.",
+    "About 90 per cent of airspace is a Green Zone, up to 400 feet.",
+    "GST on drones reduced to 5 per cent in September 2025.",
+    "Digital Sky platform (2018); 38,575 drones registered by February 2026."
+   ],
+   "static": "The Remote Pilot Certificate replaced the earlier DGCA licence for drone pilots.",
+   "angle": "Trap: the weight limit is 500 kg, not 5 kg.",
+   "remember": "Drones: 90 per cent green zone, 500 kg, GST 5."
+  },
+  {
+   "n": 24,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Drones in Namo Drone Didi and SVAMITVA",
+   "when": "February 2026",
+   "what": "Drones are now embedded in flagship schemes. Namo Drone Didi has distributed 1,094 drones to women self-help groups, while SVAMITVA uses drone surveys of rural abadi areas to issue property cards.",
+   "key": [
+    "Namo Drone Didi: launched 2023; drones for women SHGs; 1,094 drones distributed.",
+    "SVAMITVA: launched 2020; drone mapping of rural abadi areas.",
+    "About 2.76 crore property cards issued across 31 States and Union Territories.",
+    "NHAI mandates monthly drone-video recordings for highway projects.",
+    "Drones also used in PMFBY."
+   ],
+   "static": "SVAMITVA stands for Survey of Villages Abadi and Mapping with Improvised Technology in Village Areas.",
+   "angle": "Trap: SVAMITVA maps village habitation land, not crop fields.",
+   "remember": "Drone Didi: SHGs; SVAMITVA: rural abadi property cards."
+  },
+  {
+   "n": 25,
+   "t": "Biotech, Drones & Rail Tech",
+   "headline": "Railways commissions record 472.3 route km of Kavach 4.0",
+   "when": "6 Feb 2026",
+   "what": "Indian Railways commissioned a record 472.3 route km of Kavach 4.0 in one day, taking total Kavach 4.0 coverage to 1,306.3 route km across five railway zones. Kavach is the indigenous Automatic Train Protection system.",
+   "key": [
+    "Record 472.3 route km commissioned in a single day.",
+    "Total Kavach 4.0 coverage: 1,306.3 route km across five railway zones.",
+    "Indigenous Automatic Train Protection system, SIL-4 certified.",
+    "Approved by RDSO.",
+    "Prevents signals passed at danger and controls overspeeding using microprocessors, GPS and radio."
+   ],
+   "static": "SIL-4 is the highest safety integrity level in the international safety standard for electronic systems.",
+   "angle": "Trap: five railway zones, not fifteen.",
+   "remember": "Kavach 4.0: record 472.3 km; total 1,306.3 km; five zones."
+  }
+ ]
+}

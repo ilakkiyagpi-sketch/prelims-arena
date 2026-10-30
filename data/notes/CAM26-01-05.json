@@ -1,0 +1,474 @@
+{
+ "id": "CAM26-01-05",
+ "title": "January 2026: Science & Tech",
+ "category": "Science & Tech",
+ "index": [
+  {
+   "t": "Space & Aerospace",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "t": "Astronomy & Physics",
+   "pages": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "t": "Biotech & Health",
+   "pages": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "t": "Digital, AI & Telecom",
+   "pages": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Space & Aerospace",
+   "headline": "PSLV-C62 fails in third stage",
+   "when": "12 Jan 2026",
+   "what": "ISRO's PSLV-C62, the 64th PSLV mission, failed after an anomaly in the solid third stage, causing loss of the EOS-N1 (Anvesha) satellite and 15 co-passengers. It was also the 9th dedicated commercial mission of NSIL.",
+   "key": [
+    "64th PSLV flight; 9th dedicated NSIL commercial mission",
+    "Payload: EOS-N1 (Anvesha) plus 15 co-passenger satellites",
+    "Failure in solid third stage near burnout",
+    "Second PSLV failure in a row after PSLV-C61 (May 2025, EOS-09)",
+    "PSLV stages: solid, liquid (Vikas), solid, liquid"
+   ],
+   "static": "PSLV stages; NSIL as ISRO's commercial arm.",
+   "angle": "Calling the second stage solid.",
+   "remember": "PSLV: solid, liquid, solid, liquid."
+  },
+  {
+   "n": 2,
+   "t": "Space & Aerospace",
+   "headline": "Gaganyaan plan for 2027",
+   "when": "30 Jan 2026",
+   "what": "ISRO Chairman V. Narayanan said the Gaganyaan programme is planned for 2027, with three uncrewed missions to precede the crewed flight. The crew of the human spaceflight programme are called Gaganyatri.",
+   "key": [
+    "Crewed flight planned for 2027",
+    "Three uncrewed missions first",
+    "Crew name: Gaganyatri",
+    "Statement made 30 January 2026"
+   ],
+   "static": "Human spaceflight; ISRO's roadmap.",
+   "angle": "Miscounting the number of precursor missions.",
+   "remember": "Three uncrewed flights before Gaganyaan."
+  },
+  {
+   "n": 3,
+   "t": "Space & Aerospace",
+   "headline": "Pixxel-led EO constellation with IN-SPACe",
+   "when": "Jan 2026",
+   "what": "A Pixxel-led consortium signed an agreement with IN-SPACe to design, build and operate India's first national Earth Observation constellation under a PPP model. It marks a shift from government-built to industry-operated infrastructure.",
+   "key": [
+    "Consortium: Pixxel, Piersight Space, Satsure Analytics India, Dhruva Space",
+    "12 satellites: optical, multispectral, SAR, hyperspectral",
+    "Rs 1,200 crore over five years",
+    "PPP model",
+    "IN-SPACe is the authorising agency; NSIL is ISRO's commercial arm"
+   ],
+   "static": "Space sector reforms (2020); IN-SPACe and NSIL.",
+   "angle": "Confusing IN-SPACe with NSIL.",
+   "remember": "IN-SPACe authorises; NSIL sells."
+  },
+  {
+   "n": 4,
+   "t": "Space & Aerospace",
+   "headline": "Long-duration scramjet test",
+   "when": "Jan 2026",
+   "what": "DRDO completed a long-duration ground test of a full-scale, actively cooled scramjet combustor at DRDL, Hyderabad, running over 12 minutes of sustained supersonic combustion for the Hypersonic Cruise Missile programme.",
+   "key": [
+    "Test at DRDL, Hyderabad; over 12 minutes",
+    "Actively cooled, full-scale combustor",
+    "Scramjet: air-breathing, above Mach 5, supersonic combustion",
+    "No rotating compressor; needs assisted take-off",
+    "Typically uses hydrogen fuel and atmospheric oxygen"
+   ],
+   "static": "Ramjet vs scramjet; hypersonic weapons.",
+   "angle": "Assuming scramjets work from standstill.",
+   "remember": "Scramjet: fast to start, none from zero."
+  },
+  {
+   "n": 5,
+   "t": "Space & Aerospace",
+   "headline": "Reusable rocket technology",
+   "when": "Jan 2026 (feature)",
+   "what": "Reusable launch technology has cut launch costs by 5 to 20 times by recovering the expensive first stage. India's expendable PSLV and LVM-3 discard their stages, while ISRO is working on a winged RLV and stage-recovery systems.",
+   "key": [
+    "First stage holds engines, avionics and tanks: recovered",
+    "Over 90% of liftoff mass is propellant; payload under 4%",
+    "Falcon 9 uses retro-propulsion to land",
+    "PSLV and LVM-3 are expendable",
+    "India: winged RLV and stage-recovery systems"
+   ],
+   "static": "Rocket staging; Tsiolkovsky equation.",
+   "angle": "Mistaking propellant for payload in the mass breakdown.",
+   "remember": "Mostly fuel, barely payload."
+  },
+  {
+   "n": 6,
+   "t": "Space & Aerospace",
+   "headline": "ISRO's NGLV and the missing space law",
+   "when": "Jan 2026 (feature)",
+   "what": "Analysis of ISRO highlighted the Next-Generation Launch Vehicle, a partly reusable design for up to 30 tonnes to LEO, and the lack of a comprehensive space law. IN-SPACe has launched a technology adoption fund.",
+   "key": [
+    "NGLV: up to 30 tonnes to LEO, partially reusable",
+    "IN-SPACe technology adoption fund for prototypes",
+    "No comprehensive national space law",
+    "ISRO acts as fallback regulator without statutory authority",
+    "Reforms need legal roles for IN-SPACe and NSIL"
+   ],
+   "static": "Space Activities Bill debate; liberalisation since 2020.",
+   "angle": "Assuming a national space law exists.",
+   "remember": "No space law yet; NGLV is 30 tonnes."
+  },
+  {
+   "n": 7,
+   "t": "Astronomy & Physics",
+   "headline": "Fast-spinning asteroid 2025 MN45",
+   "when": "Jan 2026",
+   "what": "Asteroid 2025 MN45, found in the first images of the Vera C. Rubin Observatory in Chile, is the fastest-spinning asteroid over 500 m in diameter, rotating once every 1.88 minutes.",
+   "key": [
+    "Rotation: once every 1.88 minutes",
+    "Diameter about 710 m; main belt between Mars and Jupiter",
+    "Discovered in Rubin's first images (released 23 June 2025)",
+    "Rubin: 8.4 m Simonyi Survey Telescope, 3,200-megapixel camera"
+   ],
+   "static": "Asteroid belt; observatories.",
+   "angle": "Confusing minutes with hours.",
+   "remember": "Spins in under two minutes."
+  },
+  {
+   "n": 8,
+   "t": "Astronomy & Physics",
+   "headline": "ARIES studies a contact binary",
+   "when": "Jan 2026",
+   "what": "Astronomers at ARIES used the Devasthal Fast Optical Telescope and NASA's TESS to study a low-mass W Ursae Majoris contact binary star and found strong magnetic activity and star spots.",
+   "key": [
+    "Institute: ARIES, under Department of Science and Technology",
+    "Instruments: Devasthal Fast Optical Telescope, NASA's TESS",
+    "W UMa: eclipsing contact binary sharing outer atmosphere",
+    "Orbital periods about 0.25 to 1 day",
+    "Findings: strong magnetic activity, star spots"
+   ],
+   "static": "Binary stars; Indian observatories.",
+   "angle": "Confusing contact binaries with compact-object pairs.",
+   "remember": "W UMa: two stars in one shared envelope."
+  },
+  {
+   "n": 9,
+   "t": "Astronomy & Physics",
+   "headline": "Webb maps dark matter",
+   "when": "Jan 2026",
+   "what": "Astronomers used observations from the James Webb Space Telescope to unveil a detailed map of dark matter, a hypothesised invisible form of matter inferred from its gravitational effects.",
+   "key": [
+    "Dark matter does not emit, absorb or reflect light",
+    "Inferred from gravitational effects",
+    "Universe: normal matter 5%, dark matter 27%, dark energy 68%",
+    "Map based on James Webb Space Telescope data"
+   ],
+   "static": "Cosmology; gravitational lensing.",
+   "angle": "Swapping the dark matter and dark energy shares.",
+   "remember": "Five, twenty-seven, sixty-eight."
+  },
+  {
+   "n": 10,
+   "t": "Astronomy & Physics",
+   "headline": "Mpemba effect simulated",
+   "when": "Jan 2026",
+   "what": "Researchers at JNCASR created the first simulation of ice formation that reproduces the Mpemba effect, in which hot water can freeze faster than cold water.",
+   "key": [
+    "JNCASR: autonomous body under DST",
+    "First simulation reproducing the Mpemba effect",
+    "Named after Tanzanian student Erasto Mpemba (1969)",
+    "Aristotle described it in Meteorologica",
+    "Water passes through short-lived intermediate molecular states"
+   ],
+   "static": "Phase transitions; Indian research institutes.",
+   "angle": "Placing JNCASR under the wrong department.",
+   "remember": "Hot freezes first: Mpemba, via DST's JNCASR."
+  },
+  {
+   "n": 11,
+   "t": "Astronomy & Physics",
+   "headline": "Ocean heat content hits a record in 2025",
+   "when": "January 2026",
+   "what": "A study found oceans absorbed an extra 23 zettajoules of heat in 2025, the most recorded. Sea surface temperatures were about 0.5 degrees C above the 1981-2010 average.",
+   "key": [
+    "Extra heat absorbed: 23 zettajoules, highest since 1960s",
+    "Oceans absorb about 90% of excess greenhouse heat",
+    "Sea surface temperature about 0.5 C above 1981-2010 average",
+    "Warming raises stratification, cuts oxygen and nutrient mixing",
+    "Effects: marine heat waves, coral bleaching, stronger cyclones"
+   ],
+   "static": "Ocean stratification; marine heat waves; phytoplankton and the food chain.",
+   "angle": "Believing warming increases ocean mixing.",
+   "remember": "Warm oceans stratify; mixing drops."
+  },
+  {
+   "n": 12,
+   "t": "Astronomy & Physics",
+   "headline": "Red aurora at Hanle",
+   "when": "Jan 2026",
+   "what": "A rare blood-red auroral display was captured by the all-sky camera at the Indian Astronomical Observatory, Hanle, in the Hanle Dark Sky Reserve in Ladakh.",
+   "key": [
+    "All-sky camera at Indian Astronomical Observatory, Hanle",
+    "About 4,500 m, Changthang region, Ladakh",
+    "India's first Dark Sky Reserve (Dec 2022)",
+    "Notified by the Ladakh administration",
+    "Managed by Indian Institute of Astrophysics (DST)"
+   ],
+   "static": "Aurora; astronomy sites in India.",
+   "angle": "Naming ISRO as the manager.",
+   "remember": "Hanle sky is managed by IIA."
+  },
+  {
+   "n": 13,
+   "t": "Biotech & Health",
+   "headline": "Gujarat's BSL-4 laboratory",
+   "when": "Jan 2026",
+   "what": "Union Home Minister Amit Shah laid the foundation stone in Gandhinagar for India's first State-funded BSL-4 laboratory, to be run by the Gujarat Biotechnology Research Centre under the Gujarat State Biotechnology Mission.",
+   "key": [
+    "First State-funded BSL-4 lab in India",
+    "Run by Gujarat Biotechnology Research Centre",
+    "Second civilian BSL-4 after NIV Pune",
+    "DRDO's defence BSL-4 lab is at Gwalior",
+    "Pathogens: Ebola, Nipah, Marburg, CCHF, Kyasanur Forest Disease"
+   ],
+   "static": "Biosafety levels; zoonotic pathogens.",
+   "angle": "Calling it the first civilian BSL-4 lab.",
+   "remember": "BSL-4: Gandhinagar second civilian, Pune first."
+  },
+  {
+   "n": 14,
+   "t": "Biotech & Health",
+   "headline": "FDA approves Zycubo for Menkes disease",
+   "when": "Jan 2026",
+   "what": "The US FDA approved Zycubo (copper histidinate) as the first treatment for Menkes disease in paediatric patients.",
+   "key": [
+    "Drug: Zycubo (copper histidinate)",
+    "First approved treatment for Menkes disease",
+    "Cause: mutation in ATP7A gene on the X chromosome",
+    "Impairs copper transport",
+    "Mostly affects male infants"
+   ],
+   "static": "X-linked inheritance; copper metabolism.",
+   "angle": "Saying the disease mainly affects females.",
+   "remember": "X-linked, so mostly boys."
+  },
+  {
+   "n": 15,
+   "t": "Biotech & Health",
+   "headline": "Kamala: India's first genome-edited rice",
+   "when": "January 2026 (award)",
+   "what": "Scientist Satendra Mangrauthia received a Vigyan Yuva award for developing Kamala, described as India's first genome-edited rice.",
+   "key": [
+    "Kamala (DRR Dhan 100): first genome-edited rice variety of India",
+    "Developed by ICAR (rice research institute, Hyderabad)",
+    "Genome editing changes native genes; SDN-1 adds no foreign DNA",
+    "Different from transgenic (GM) crops like Bt cotton",
+    "Award: Vigyan Yuva (Shanti Swarup Bhatnagar)"
+   ],
+   "static": "SDN-1 and SDN-2 genome-edited plants exempt from GM rules (2022); GEAC regulation of GM crops.",
+   "angle": "Calling genome-edited rice a GM crop.",
+   "remember": "Kamala: genome-edited, not transgenic."
+  },
+  {
+   "n": 16,
+   "t": "Biotech & Health",
+   "headline": "Nipah cases in West Bengal",
+   "when": "13 Jan 2026",
+   "what": "Nipah virus infection was confirmed by NIV Pune in two nurses at a private hospital in Barasat, West Bengal. All 196 traced contacts tested negative.",
+   "key": [
+    "Two nurses, Barasat, North 24 Parganas",
+    "Confirmed by NIV Pune on 13 January 2026",
+    "All 196 contacts negative",
+    "No licensed vaccine or specific treatment",
+    "Reservoir: fruit bats; incubation 4-14 days; first identified 1999"
+   ],
+   "static": "Zoonoses; National Centre for Disease Control.",
+   "angle": "Assuming a vaccine exists.",
+   "remember": "Nipah: bats carry it, no licensed vaccine."
+  },
+  {
+   "n": 17,
+   "t": "Biotech & Health",
+   "headline": "Biomaterials: challenges and opportunities",
+   "when": "Jan 2026 (feature)",
+   "what": "Biomaterials are derived wholly or partly from biological sources or made by biological processes. They fall into drop-in, drop-out and novel types, and help India cut import dependence on fossil-based plastics.",
+   "key": [
+    "Drop-in: chemically identical to petroleum products, e.g. bio-PET",
+    "Drop-out: chemically different, e.g. polylactic acid (PLA)",
+    "Novel: new properties, e.g. self-healing materials",
+    "Bioplastics market about USD 500 million (2024)",
+    "Risks: feedstock competition with food, weak composting"
+   ],
+   "static": "Single-use plastic ban; bioeconomy (BioE3).",
+   "angle": "Swapping the examples of drop-in and drop-out.",
+   "remember": "Bio-PET drops in; PLA drops out."
+  },
+  {
+   "n": 18,
+   "t": "Biotech & Health",
+   "headline": "Marine and space biotechnology",
+   "when": "Jan 2026 (feature)",
+   "what": "A feature argued that India underuses its marine bioresources. Seaweed cultivation is about 70,000 tonnes a year and key products like agar and carrageenan are imported. ISRO runs a microgravity biology programme.",
+   "key": [
+    "Seaweed cultivation about 70,000 tonnes a year",
+    "Imports agar, carrageenan, alginates",
+    "Coastline over 11,000 km; EEZ about 2 million sq km",
+    "Initiatives: Deep Ocean Mission, BioE3, Blue Economy",
+    "ISRO microgravity biology programme"
+   ],
+   "static": "Blue economy; Deep Ocean Mission.",
+   "angle": "Overstating the size of the EEZ.",
+   "remember": "Two million sq km of sea to farm."
+  },
+  {
+   "n": 19,
+   "t": "Digital, AI & Telecom",
+   "headline": "Shrutlekh AI tool",
+   "when": "Jan 2026",
+   "what": "MeitY demonstrated Shrutlekh, an AI tool under BHASHINI for real-time multilingual speech-to-text translation of speeches.",
+   "key": [
+    "Tool: Shrutlekh, under BHASHINI",
+    "Real-time multilingual speech-to-text translation",
+    "BHASHINI: National Language Translation Mission",
+    "Over 22 scheduled languages",
+    "Bhashadaan crowdsourcing initiative"
+   ],
+   "static": "Digital India; language technology.",
+   "angle": "Confusing it with a document locker.",
+   "remember": "Shrutlekh writes what you hear."
+  },
+  {
+   "n": 20,
+   "t": "Digital, AI & Telecom",
+   "headline": "6 GHz lower band de-licensed",
+   "when": "Jan 2026",
+   "what": "The Department of Telecommunications de-licensed the lower half of the 6 GHz band, 5,925-6,425 MHz, for indoor use, enabling Wi-Fi 6E and Wi-Fi 7. Use on moving vehicles and oil rigs is prohibited.",
+   "key": [
+    "Lower 6 GHz: 5,925-6,425 MHz",
+    "Indoor use only",
+    "Enables Wi-Fi 6E and Wi-Fi 7",
+    "Prohibited on moving vehicles and oil rigs"
+   ],
+   "static": "Spectrum management; Wi-Fi standards.",
+   "angle": "Allowing outdoor mobile use.",
+   "remember": "Lower 6 GHz: indoor, de-licensed."
+  },
+  {
+   "n": 21,
+   "t": "Digital, AI & Telecom",
+   "headline": "Battery Pack Aadhaar draft guidelines",
+   "when": "Jan 2026",
+   "what": "The Union government released draft guidelines for a Battery Pack Aadhaar system giving each EV battery pack and industrial battery above 2 kWh a 21-character number and QR code.",
+   "key": [
+    "21-character BPAN plus QR code",
+    "EV batteries and industrial batteries above 2 kWh",
+    "Static data on BPAN: manufacturer, specifications, carbon footprint",
+    "Dynamic data on central server: health, charge cycles",
+    "Enables second-life use and recycling"
+   ],
+   "static": "Battery waste management rules; circular economy.",
+   "angle": "Applying the rule to all batteries.",
+   "remember": "BPAN above two kilowatt-hours."
+  },
+  {
+   "n": 22,
+   "t": "Digital, AI & Telecom",
+   "headline": "India to roll out V2V",
+   "when": "Jan 2026",
+   "what": "The Union Road Transport and Highways Minister announced that India will roll out Vehicle-to-Vehicle communication technology, which lets vehicles talk to each other directly.",
+   "key": [
+    "Announced by the Road Transport and Highways Minister",
+    "Direct inter-vehicle communication",
+    "Does not rely on cellular or other third-party networks",
+    "Strengthens ADAS by sharing hidden-hazard warnings"
+   ],
+   "static": "Intelligent transport; road safety.",
+   "angle": "Assuming it relies on cellular networks.",
+   "remember": "V2V: car talks to car, no tower."
+  },
+  {
+   "n": 23,
+   "t": "Digital, AI & Telecom",
+   "headline": "CDS releases Military Quantum Mission framework",
+   "when": "January 2026",
+   "what": "The Chief of Defence Staff released a policy framework and roadmap to bring quantum technology into the armed forces. It aligns with the National Quantum Mission.",
+   "key": [
+    "Aligned with National Quantum Mission, about Rs 6,000 crore, 2023-24 to 2030-31",
+    "Four pillars: communication, computing, sensing and metrology, materials and devices",
+    "QKD uses entanglement for theoretically unhackable keys",
+    "Quantum navigation can replace GPS-dependent guidance",
+    "Quantum magnetometers can detect submerged submarines"
+   ],
+   "static": "National Quantum Mission (2023); qubits, superposition, entanglement.",
+   "angle": "Saying QKD depends on mathematical complexity.",
+   "remember": "QKD = physics-secured keys, not maths-secured."
+  },
+  {
+   "n": 24,
+   "t": "Digital, AI & Telecom",
+   "headline": "Digital climate atlas for agriculture launched",
+   "when": "January 2026",
+   "what": "The Government launched ACASA-India as NICRA marked 15 years. It supports location-specific climate adaptation planning for farmers and planners.",
+   "key": [
+    "ACASA-India: Atlas of Climate Adaptation in Indian Agriculture",
+    "Built by ICAR-led NARES with BISA-CIMMYT",
+    "NICRA launched by ICAR in 2011",
+    "Aim: validate and demonstrate climate-resilient technologies",
+    "Guides government investment in climate-risk mitigation"
+   ],
+   "static": "Climate-resilient agriculture; ICAR; CIMMYT and Borlaug Institute for South Asia.",
+   "angle": "Confusing NICRA (ICAR) with a ministry mission.",
+   "remember": "NICRA 2011, ICAR; ACASA is its atlas."
+  },
+  {
+   "n": 25,
+   "t": "Digital, AI & Telecom",
+   "headline": "WEF 4IR Centre for Andhra Pradesh",
+   "when": "Jan 2026",
+   "what": "The World Economic Forum announced five new Fourth Industrial Revolution Centres globally. One will be in Andhra Pradesh, the third in India after Mumbai and Telangana.",
+   "key": [
+    "Five new 4IR Centres announced by the WEF",
+    "One in Andhra Pradesh",
+    "Third in India after Mumbai and Telangana",
+    "Term coined by Klaus Schwab (WEF founder), 2016",
+    "Convergence of AI, robotics, IoT, quantum computing"
+   ],
+   "static": "Technology revolutions; WEF initiatives.",
+   "angle": "Crediting the wrong person for the term.",
+   "remember": "Schwab coined 4IR; Andhra is India's third centre."
+  }
+ ]
+}

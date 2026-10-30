@@ -1,0 +1,474 @@
+{
+ "id": "CAM26-01-04",
+ "title": "January 2026: Environment & Ecology",
+ "category": "Environment & Ecology",
+ "index": [
+  {
+   "t": "Species in News",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Protected Areas",
+   "pages": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "t": "Policy, Reports & Personalities",
+   "pages": [
+    18,
+    19,
+    20,
+    21
+   ]
+  },
+  {
+   "t": "Waste, Climate & Energy",
+   "pages": [
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Species in News",
+   "headline": "Eastern Imperial Eagle at Mudumalai",
+   "when": "Winter 2025-26 (reported 3 Jan 2026)",
+   "what": "A rare Eastern Imperial Eagle was confirmed at Mudumalai Tiger Reserve in Tamil Nadu during the winter migratory season. The species is listed Vulnerable by the IUCN.",
+   "key": [
+    "Species: Eastern Imperial Eagle (Aquila heliaca), IUCN Vulnerable",
+    "Place: Mudumalai Tiger Reserve, Nilgiris district, Tamil Nadu",
+    "Area 321 sq km; tri-junction of Tamil Nadu, Karnataka, Kerala",
+    "Part of the Nilgiri Biosphere Reserve",
+    "Theppakadu Elephant Camp, where The Elephant Whisperers was filmed"
+   ],
+   "static": "Biosphere reserves; migratory raptors; IUCN Red List categories.",
+   "angle": "Placing Mudumalai in Kerala.",
+   "remember": "Mudumalai: Nilgiris, tri-junction, eagle spotted."
+  },
+  {
+   "n": 2,
+   "t": "Species in News",
+   "headline": "Bactrian camels at Republic Day parade",
+   "when": "26 January 2026",
+   "what": "Two Bactrian camels from Ladakh featured in the 77th Republic Day parade. The two-humped camel lives in cold deserts and, in India, only in the Nubra Valley.",
+   "key": [
+    "Camelus bactrianus: two humps, cold-desert adapted",
+    "Native to Central Asia (Gobi, Taklamakan)",
+    "About 300-400 in India, all in Nubra Valley, Ladakh",
+    "Thick winter fur; tolerates about -30 to 40 degrees C",
+    "Wild Bactrian camel (Camelus ferus) is a distinct species"
+   ],
+   "static": "Cold Desert Biosphere Reserve in Ladakh; dromedary vs Bactrian camels.",
+   "angle": "Placing Bactrian camels in Rajasthan's Thar.",
+   "remember": "Two humps, Nubra Valley, cold desert."
+  },
+  {
+   "n": 3,
+   "t": "Species in News",
+   "headline": "Gaur numbers rise in Debrigarh",
+   "when": "Jan 2026",
+   "what": "The Indian bison population in Debrigarh Wildlife Sanctuary in Bargarh district, Odisha, rose by 189 in a year to 848, about 28 per cent growth. The sanctuary lies near the Hirakud Dam on the Mahanadi.",
+   "key": [
+    "Population: 848, up by 189 (about 28%)",
+    "Debrigarh WLS, Bargarh district, Odisha",
+    "IUCN: Vulnerable",
+    "CITES Appendix I",
+    "Schedule I, Wild Life (Protection) Act, 1972"
+   ],
+   "static": "Wild Life (Protection) Act schedules; CITES appendices.",
+   "angle": "Mixing up the IUCN category with legal protection.",
+   "remember": "Gaur: IUCN Vulnerable, legally Schedule I."
+  },
+  {
+   "n": 4,
+   "t": "Species in News",
+   "headline": "Galaxy Frogs lost to photo tourism",
+   "when": "Jan 2026",
+   "what": "A study reported that seven rare Galaxy Frogs in the Western Ghats had disappeared and were presumed dead, blamed on unethical wildlife photography and photo tourism.",
+   "key": [
+    "Species: Galaxy Frog, Melanobatrachus indicus",
+    "Endemic to Western Ghats of Kerala and Tamil Nadu",
+    "Size 2-3.5 cm; IUCN Vulnerable",
+    "Flagship species of Mathikettan Shola National Park, Idukki",
+    "Cause blamed: photo tourism"
+   ],
+   "static": "Endemism in the Western Ghats; amphibian conservation.",
+   "angle": "Blaming disease rather than human disturbance.",
+   "remember": "Galaxy frog lost to cameras, not fungus."
+  },
+  {
+   "n": 5,
+   "t": "Species in News",
+   "headline": "Phayre's leaf monkey adapts to habitat loss",
+   "when": "Jan 2026",
+   "what": "Phayre's leaf monkey, listed Endangered by the IUCN, was reported to be changing its behaviour because of rapid habitat destruction in north-east India.",
+   "key": [
+    "Species: Phayre's leaf monkey, Trachypithecus phayrei",
+    "IUCN: Endangered; CITES Appendix II",
+    "Found mainly in Tripura, Assam, Mizoram",
+    "Also eastern Bangladesh and western Myanmar"
+   ],
+   "static": "Primates of north-east India; habitat fragmentation.",
+   "angle": "Placing the species in the Western Ghats.",
+   "remember": "Phayre's: north-east, Endangered."
+  },
+  {
+   "n": 6,
+   "t": "Species in News",
+   "headline": "New caecilian Gegeneophis valmiki",
+   "when": "Jan 2026",
+   "what": "Indian scientists described Gegeneophis valmiki, a new blind caecilian from the northern Western Ghats of Maharashtra, the first new addition to the genus Gegeneophis in over a decade.",
+   "key": [
+    "Species: Gegeneophis valmiki, blind caecilian",
+    "Northern Western Ghats, Maharashtra",
+    "First new Gegeneophis in over a decade",
+    "India: 42 caecilians among 457 amphibians",
+    "Western Ghats: 26 endemic caecilians, 11 in Gegeneophis"
+   ],
+   "static": "Amphibian classes: Anura, Urodela, Gymnophiona (caecilians).",
+   "angle": "Locating the new species in the Eastern Ghats.",
+   "remember": "Valmiki caecilian: northern Western Ghats."
+  },
+  {
+   "n": 7,
+   "t": "Species in News",
+   "headline": "Second dolphin estimation under Project Dolphin",
+   "when": "Jan 2026",
+   "what": "The Environment Ministry launched the second nationwide range-wide estimation of riverine and estuarine dolphins. For the first time it includes estimates of Irrawaddy dolphins in the Sundarbans and Odisha.",
+   "key": [
+    "Launched by MoEFCC under Project Dolphin",
+    "First inclusion of Irrawaddy dolphins in Sundarbans and Odisha",
+    "Irrawaddy dolphin: Orcaella brevirostris, euryhaline, IUCN Endangered",
+    "In India mainly in Chilika Lake",
+    "Project Dolphin Phase II among five national projects of 2025"
+   ],
+   "static": "Ganges river dolphin; Project Dolphin.",
+   "angle": "Calling the Irrawaddy dolphin obligate freshwater.",
+   "remember": "Irrawaddy dolphin tolerates salt: Chilika."
+  },
+  {
+   "n": 8,
+   "t": "Species in News",
+   "headline": "Indian Skimmer returns to the Ganga",
+   "when": "Jan 2026",
+   "what": "Endangered Indian Skimmers were sighted along a 60 km stretch of the Ganga within the Vikramshila Gangetic Dolphin Sanctuary in Bhagalpur, Bihar, for the first time in nearly 20 years.",
+   "key": [
+    "Species: Indian skimmer, Rynchops albicollis, IUCN Endangered",
+    "Site: Vikramshila Gangetic Dolphin Sanctuary, Bhagalpur, Bihar",
+    "60 km stretch of the Ganga",
+    "First sighting in nearly 20 years",
+    "Breeding colonies: Chambal, Ganga, Yamuna, Mahanadi, Son"
+   ],
+   "static": "River bird indicators; riverine sanctuaries.",
+   "angle": "Placing the sighting on the Chambal.",
+   "remember": "Skimmer back at Vikramshila, Bhagalpur."
+  },
+  {
+   "n": 9,
+   "t": "Species in News",
+   "headline": "Stingless bees get legal rights",
+   "when": "Jan 2026",
+   "what": "The Peruvian municipality of Satipo adopted the Declaration of Rights for Native Stingless Bees by ordinance, making them the first insect granted legal rights.",
+   "key": [
+    "First insect with legal rights",
+    "Granted by Satipo municipality, Peru, by ordinance",
+    "Rights: to exist and flourish; guardians can sue",
+    "Pollinate over 80% of Amazonian flora",
+    "In India mainly north-east, east and south"
+   ],
+   "static": "Rights of nature; pollinators.",
+   "angle": "Crediting a national law of Brazil.",
+   "remember": "Satipo, Peru: bees with rights."
+  },
+  {
+   "n": 10,
+   "t": "Protected Areas",
+   "headline": "Fire in the Valley of Flowers",
+   "when": "Jan 2026",
+   "what": "Uttarakhand sought Indian Air Force help to douse a forest fire that had burned for five days in the Valley of Flowers National Park in Chamoli.",
+   "key": [
+    "Valley of Flowers NP, Chamoli, Uttarakhand",
+    "National park: 1982; UNESCO World Heritage Site: 2005",
+    "Core zone of Nanda Devi Biosphere Reserve",
+    "Discovered in 1931 by Frank Smythe",
+    "Fire burned five days; IAF help sought"
+   ],
+   "static": "UNESCO natural heritage sites; biosphere reserves.",
+   "angle": "Swapping the national park and World Heritage dates.",
+   "remember": "National park 1982, World Heritage 2005."
+  },
+  {
+   "n": 11,
+   "t": "Protected Areas",
+   "headline": "Eviction in Burhachapori Sanctuary",
+   "when": "Jan 2026",
+   "what": "The Assam government completed an eviction drive clearing alleged encroachment from about 6,200 bighas (roughly 830 hectares) of Burhachapori Wildlife Sanctuary, displacing 710 families.",
+   "key": [
+    "About 6,200 bighas (roughly 830 ha) cleared",
+    "710 families displaced",
+    "Sonitpur district, south bank of the Brahmaputra",
+    "Forms the Laokhowa-Burhachapori ecosystem",
+    "Buffer zone of Kaziranga Tiger Reserve since 2007"
+   ],
+   "static": "Forest Rights Act tensions; buffer zones of tiger reserves.",
+   "angle": "Treating background facts as causal explanations.",
+   "remember": "Burhachapori: Sonitpur, Kaziranga's buffer."
+  },
+  {
+   "n": 12,
+   "t": "Protected Areas",
+   "headline": "Ratapani Tiger Reserve to be renamed",
+   "when": "Jan 2026",
+   "what": "Madhya Pradesh announced that the Ratapani Tiger Reserve will be named after archaeologist and Padma Shri awardee Dr Vishnu Shridhar Wakankar.",
+   "key": [
+    "Raisen and Sehore districts, Madhya Pradesh",
+    "About 1,271 sq km of the Vindhya ranges, north of the Narmada",
+    "Contains Bhimbetka rock shelters (UNESCO World Heritage Site)",
+    "To be named after Dr V.S. Wakankar",
+    "Madhav Tiger Reserve (2025) is the newest in India"
+   ],
+   "static": "Rock art and prehistory; tiger reserves.",
+   "angle": "Doubting that Bhimbetka lies inside the reserve.",
+   "remember": "Ratapani holds Bhimbetka."
+  },
+  {
+   "n": 13,
+   "t": "Protected Areas",
+   "headline": "Aralam becomes a butterfly sanctuary",
+   "when": "11 Jan 2026",
+   "what": "Kerala renamed the Aralam Wildlife Sanctuary as the Aralam Butterfly Sanctuary, the State's first butterfly sanctuary.",
+   "key": [
+    "Renamed 11 January 2026; Kerala's first butterfly sanctuary",
+    "Kannur district, Kerala",
+    "Borders Brahmagiri (Karnataka) and Kottiyoor sanctuaries",
+    "Over 266 butterfly species; more than 80% of Kerala's",
+    "Cheenkanni River; Schedule I slender loris"
+   ],
+   "static": "Western Ghats sanctuaries; Wild Life (Protection) Act.",
+   "angle": "Placing Aralam in Wayanad.",
+   "remember": "Aralam: Kannur, 266 butterflies."
+  },
+  {
+   "n": 14,
+   "t": "Protected Areas",
+   "headline": "Patna Bird Sanctuary and Chhari-Dhand join Ramsar list",
+   "when": "January 2026",
+   "what": "The Environment Minister announced two new Ramsar sites, bringing India's total to 98. One is in Uttar Pradesh and the other in Gujarat.",
+   "key": [
+    "India's Ramsar sites now 98",
+    "Patna Bird Sanctuary: Etah district, Uttar Pradesh; founded 1991",
+    "Smallest bird sanctuary in Uttar Pradesh",
+    "Chhari-Dhand: Banni grasslands edge, Kutch, Gujarat",
+    "Chhari means salty, Dhand means shallow wetland"
+   ],
+   "static": "Ramsar Convention (1971); Montreux Record; wetland rules 2017.",
+   "angle": "Placing Patna Bird Sanctuary in Bihar.",
+   "remember": "Patna sanctuary = Etah, UP; Chhari-Dhand = Kutch."
+  },
+  {
+   "n": 15,
+   "t": "Protected Areas",
+   "headline": "Kaziranga Elevated Corridor foundation",
+   "when": "Jan 2026",
+   "what": "Prime Minister Modi laid the foundation stone of the Kaziranga Elevated Corridor in Assam, a 34.5 km elevated wildlife-friendly section of the four-laning of the 86.675 km Kaliabor-Numaligarh stretch of NH-715.",
+   "key": [
+    "Elevated section: 34.5 km",
+    "Parent project: 86.675 km Kaliabor-Numaligarh, NH-715",
+    "Kaziranga: World Heritage Site since 1985",
+    "Largest population of one-horned rhinoceroses",
+    "Announced during a visit including Bagurumba Dwhou in Guwahati"
+   ],
+   "static": "Wildlife corridors; infrastructure vs conservation.",
+   "angle": "Swapping the corridor length and the parent stretch length.",
+   "remember": "34.5 km elevated of 86.675 km."
+  },
+  {
+   "n": 16,
+   "t": "Protected Areas",
+   "headline": "Dugong centre design questioned",
+   "when": "Jan 2026",
+   "what": "The Expert Appraisal Committee recommended a major design overhaul of the proposed International Dugong Conservation Centre at Manora, Thanjavur, because the site lies in a CRZ-III No Development Zone and overlaps mangroves and seagrass.",
+   "key": [
+    "Site: Manora, Thanjavur, Tamil Nadu",
+    "CRZ-III No Development Zone; mangroves and seagrass overlap",
+    "Dugong: IUCN Vulnerable",
+    "CITES Appendix I; Schedule I of Wildlife Act",
+    "Gulf of Mannar and Palk Bay seagrass: over 13 species"
+   ],
+   "static": "Coastal Regulation Zone categories; seagrass ecosystems.",
+   "angle": "Raising the dugong's IUCN status to Endangered.",
+   "remember": "Dugong: Vulnerable, Schedule I, seagrass grazer."
+  },
+  {
+   "n": 17,
+   "t": "Protected Areas",
+   "headline": "All-India Tiger Estimation 2026 begins",
+   "when": "Jan 2026",
+   "what": "The first phase of the All-India Tiger Estimation 2026, the sixth cycle, began at Thanthai Periyar Wildlife Sanctuary in Erode district, Tamil Nadu.",
+   "key": [
+    "Sixth cycle; conducted every four years",
+    "Earlier cycles: 2006, 2010, 2014, 2018, 2022",
+    "First phase at Thanthai Periyar WLS, Erode, Tamil Nadu",
+    "M-STrIPES app launched 2010 by NTCA and WII"
+   ],
+   "static": "National Tiger Conservation Authority; Project Tiger.",
+   "angle": "Stating a two-year interval.",
+   "remember": "Tiger count every four years."
+  },
+  {
+   "n": 18,
+   "t": "Policy, Reports & Personalities",
+   "headline": "2026: International Year of Rangelands and Pastoralists",
+   "when": "Jan 2026",
+   "what": "The UN General Assembly declared 2026 the International Year of Rangelands and Pastoralists, led by the FAO. Grasslands cover about 24 per cent of India but under 1 per cent is formally conserved.",
+   "key": [
+    "Declared by UNGA; led by FAO",
+    "Grasslands: about 24% of India's area",
+    "Under 1% formally conserved",
+    "Banni Grassland, Kutch, Gujarat: described as Asia's largest"
+   ],
+   "static": "Grassland ecosystems; pastoralism and the Forest Rights Act.",
+   "angle": "Naming UNEP as the lead agency.",
+   "remember": "Rangelands year: FAO leads."
+  },
+  {
+   "n": 19,
+   "t": "Policy, Reports & Personalities",
+   "headline": "Madhav Gadgil passes away",
+   "when": "Jan 2026",
+   "what": "Ecologist Madhav Gadgil, who chaired the Western Ghats Ecology Expert Panel set up in 2010, died in Pune at the age of 83.",
+   "key": [
+    "Chaired the WGEEP (set up 2010; report 2011)",
+    "Recommended whole Western Ghats as ESA in three zones",
+    "Govt followed Kasturirangan HLWG (2013): 56,825 sq km",
+    "Founded Centre for Ecological Sciences, IISc, 1982"
+   ],
+   "static": "Western Ghats conservation debate; ESA concept.",
+   "angle": "Believing the Gadgil report was adopted as is.",
+   "remember": "Gadgil wide, Kasturirangan narrow."
+  },
+  {
+   "n": 20,
+   "t": "Policy, Reports & Personalities",
+   "headline": "MoEFCC Year-End Review 2025",
+   "when": "Jan 2026",
+   "what": "The Environment Ministry's Year-End Review 2025 said India added 11 Ramsar Sites in 2025 to reach 96, the highest in Asia, and that Udaipur and Indore became the first Ramsar Wetland Cities.",
+   "key": [
+    "11 Ramsar Sites added; total 96, highest in Asia",
+    "First Ramsar Wetland Cities: Udaipur and Indore",
+    "30 cheetahs, 19 born in India",
+    "Project Cheetah expanding to Gandhisagar WLS",
+    "33 Elephant Reserves; 1,134 Protected Areas"
+   ],
+   "static": "Ramsar Convention; Project Cheetah.",
+   "angle": "Naming the wrong city among the first two.",
+   "remember": "Udaipur and Indore: Ramsar cities."
+  },
+  {
+   "n": 21,
+   "t": "Policy, Reports & Personalities",
+   "headline": "Kerala's State microbe",
+   "when": "Jan 2026",
+   "what": "Kerala officially declared the bacterium Bacillus subtilis its State microbe.",
+   "key": [
+    "Species: Bacillus subtilis",
+    "Spore-forming, Gram-positive",
+    "Found in soil and the human gut",
+    "Probiotic; used as a fungicide and crop-protection agent"
+   ],
+   "static": "State symbols; microbes in agriculture.",
+   "angle": "Mistaking it for a pathogen.",
+   "remember": "Kerala's microbe: soil probiotic Bacillus subtilis."
+  },
+  {
+   "n": 22,
+   "t": "Waste, Climate & Energy",
+   "headline": "Solid Waste Management Rules, 2026",
+   "when": "Notified Jan 2026; effective 1 Apr 2026",
+   "what": "The Environment Ministry notified the Solid Waste Management Rules, 2026 under the Environment (Protection) Act, 1986, superseding the 2016 Rules.",
+   "key": [
+    "Supersede the 2016 Rules; effective 1 April 2026",
+    "Four-stream segregation: wet, dry, sanitary, special care",
+    "Extended Bulk Waste Generator Responsibility",
+    "Environmental compensation for non-compliance",
+    "RDF use by cement and WtE plants: 5% to 15% over six years"
+   ],
+   "static": "Polluter pays; extended responsibility.",
+   "angle": "Reducing the segregation to three streams.",
+   "remember": "Four bins: wet, dry, sanitary, special."
+  },
+  {
+   "n": 23,
+   "t": "Waste, Climate & Energy",
+   "headline": "Growing glacial lakes raise GLOF risk",
+   "when": "January 2026",
+   "what": "An IIT Roorkee study found glacial lakes across the Himalaya-Karakoram growing, while risk assessment lags. GLOFs are sudden floods from lakes fed by glacier melt.",
+   "key": [
+    "More than 31,000 glacial lakes growing; area up 5.5%",
+    "Eastern Himalaya has the highest lake area",
+    "2023 South Lhonak GLOF destroyed Teesta III dam (Sikkim)",
+    "NGRMP covers Arunachal, Himachal, Sikkim, Uttarakhand",
+    "CWC monitors over 900 glacial lakes"
+   ],
+   "static": "NDMA guidelines on GLOF; Sendai Framework; ICIMOD.",
+   "angle": "Assuming glacial lakes are shrinking with melt.",
+   "remember": "Lakes growing, not shrinking: 5.5% more area."
+  },
+  {
+   "n": 24,
+   "t": "Waste, Climate & Energy",
+   "headline": "Carbon market obligation extended to four more sectors",
+   "when": "January 2026",
+   "what": "The Environment Ministry widened the emission-intensity targets under the Carbon Credit Trading Scheme to four new sectors. 208 units face mandatory targets from 2025-26.",
+   "key": [
+    "New sectors: petroleum refinery, petrochemicals, textiles, secondary aluminium",
+    "Earlier sectors: aluminium, cement, chlor-alkali, pulp and paper",
+    "208 industrial units; compliance from 2025-26",
+    "Targets 3-7% intensity cut by 2026-27 (baseline 2023-24)",
+    "Shortfall: buy Carbon Credit Certificates; penalty twice average CCC price"
+   ],
+   "static": "Energy Conservation (Amendment) Act, 2022; Bureau of Energy Efficiency; Article 6 carbon markets.",
+   "angle": "Confusing new sectors with the original four.",
+   "remember": "Four new: refinery, petchem, textiles, secondary aluminium."
+  },
+  {
+   "n": 25,
+   "t": "Waste, Climate & Energy",
+   "headline": "EU carbon border tax enters definitive phase",
+   "when": "1 January 2026",
+   "what": "The EU began charging a carbon-related levy on imports of carbon-intensive goods. It aims to stop carbon leakage and could raise costs for Indian exporters.",
+   "key": [
+    "Definitive phase from 1 January 2026; transition began 2023",
+    "Covers cement, aluminium, fertilisers, iron and steel, hydrogen, electricity",
+    "Objective: prevent carbon leakage",
+    "Indian steel, aluminium, cement exporters exposed",
+    "India sought safeguards in the India-EU FTA"
+   ],
+   "static": "Carbon leakage; common but differentiated responsibilities; WTO compatibility of carbon taxes.",
+   "angle": "Reading CBAM as an incentive to relocate production.",
+   "remember": "CBAM: levy to stop carbon leakage."
+  }
+ ]
+}

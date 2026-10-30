@@ -4,14 +4,17 @@
    2) Change the passphrase on the next line. Use the same passphrase in the app.
    3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.
    4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.
+   Your daily study log appears in the "Study log" tab.
    You can type your own questions in the "My questions" tab. Answer column takes A, B, C or D. Leave the id column empty. */
 var KEY = 'change-this-passphrase';
 
-var T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data';
+var T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data', T_LOG = 'Study log';
 var H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];
 var H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];
 var H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];
 var H_DATA = ['id','kind','ts','record'];
+var H_LOG = ['id','date','day','hours','subjects','covered','reasons','shankar test','notes','ts','deleted'];
+var LOG_ST = {full: 'Studied as planned', partial: 'Studied partly', none: 'Could not study'};
 
 function sheet_(name, h) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -36,6 +39,7 @@ function doPost(e) {
     var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);
     var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);
     var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);
+    var lg = sheet_(T_LOG, H_LOG), lRows = rows_(lg, H_LOG.length), lIdx = idx_(lRows);
     var newRes = [];
     (b.recs || []).forEach(function (r) {
       var ts = Number(r.ts) || 0;
@@ -54,6 +58,9 @@ function doPost(e) {
         var o = r.o || [];
         var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];
         upsert_(myq, qRows, qIdx, row2, 11);
+      } else if (r.kind === 'log') {
+        upsert_(lg, lRows, lIdx, [r.id, r.date || '', LOG_ST[r.status] || '', r.hours == null ? '' : r.hours, (r.subjects || []).join(', '), r.covered || '',
+          (r.reasons || []).join(', '), r.test === 'yes' ? 'taken' : (r.test === 'no' ? 'missed' : ''), r.note || '', ts, r.del ? 'yes' : ''], 9);
       } else {
         upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);
       }
@@ -88,6 +95,13 @@ function doGet(e) {
     }
     var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());
     out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});
+  });
+  var stBack = {}; Object.keys(LOG_ST).forEach(function (k) { stBack[LOG_ST[k]] = k; });
+  var split = function (v) { return String(v || '').split(',').map(function (x) { return x.trim(); }).filter(String); };
+  rows_(sheet_(T_LOG, H_LOG), H_LOG.length).forEach(function (r) {
+    if (r[0] === '') return;
+    out.push({id: String(r[0]), kind: 'log', date: d_(r[1]), status: stBack[r[2]] || 'partial', hours: n_(r[3]), subjects: split(r[4]), covered: String(r[5] || ''),
+      reasons: split(r[6]), test: r[7] === 'taken' ? 'yes' : (r[7] === 'missed' ? 'no' : null), note: String(r[8] || ''), ts: Number(r[9]) || 0, del: r[10] === 'yes'});
   });
   rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {
     try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}

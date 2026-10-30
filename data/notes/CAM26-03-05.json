@@ -1,0 +1,484 @@
+{
+ "id": "CAM26-03-05",
+ "title": "March 2026: Science & Technology",
+ "category": "Science & Technology",
+ "index": [
+  {
+   "t": "Space & Navigation",
+   "pages": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "t": "Physics, Quantum & Nuclear",
+   "pages": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Health & Biotech",
+   "pages": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "t": "Digital, AI & Transport Tech",
+   "pages": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ]
+  },
+  {
+   "t": "Ocean, Energy & Materials",
+   "pages": [
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Space & Navigation",
+   "headline": "NavIC loses another atomic clock",
+   "when": "13 March 2026",
+   "what": "The last working atomic clock on IRNSS-1F failed, leaving few satellites able to give position and timing. NVS-02 had also failed to reach its orbit after a pyro-valve failure.",
+   "key": [
+    "IRNSS-1F clock failed (reported 13 March 2026)",
+    "NVS-02 launched 29 January 2025; missed orbit",
+    "At least four working clocks needed",
+    "Coverage up to about 1,500 km beyond India",
+    "SPS on L5 and S bands, better than 20 m"
+   ],
+   "static": "NavIC was approved in 2006; it is complemented by GAGAN for aviation.",
+   "angle": "Trap: assigning L1 to the first-generation SPS.",
+   "remember": "NavIC: Kargil lesson, clock failures."
+  },
+  {
+   "n": 2,
+   "t": "Space & Navigation",
+   "headline": "ESA loses contact with a Proba-3 spacecraft",
+   "when": "March 2026",
+   "what": "One of the two Proba-3 spacecraft went silent. The mission creates artificial eclipses to image the corona.",
+   "key": [
+    "ESA's first precision formation-flying mission",
+    "Two craft: Coronagraph and Occulter",
+    "About 150 m apart",
+    "Purpose: image the Sun's corona",
+    "Contact lost with one craft"
+   ],
+   "static": "ISRO's Aditya-L1 studies the Sun from the Sun-Earth L1 point.",
+   "angle": "Trap: wrong agency.",
+   "remember": "Proba-3: two craft, one eclipse."
+  },
+  {
+   "n": 3,
+   "t": "Space & Navigation",
+   "headline": "DART changed the whole asteroid pair's orbit",
+   "when": "March 2026",
+   "what": "A study found DART altered the orbit of the Didymos pair around the Sun, not only Dimorphos' orbit.",
+   "key": [
+    "Impact on 26 September 2022",
+    "Target: Dimorphos, moonlet of Didymos",
+    "Orbit shortened by about 33 minutes",
+    "First kinetic-impact deflection",
+    "Study: whole pair's solar orbit changed"
+   ],
+   "static": "Planetary defence tests aim to deflect hazardous near-Earth objects.",
+   "angle": "Trap: naming the primary as the target.",
+   "remember": "DART hit the small one."
+  },
+  {
+   "n": 4,
+   "t": "Space & Navigation",
+   "headline": "MeerKAT finds brightest, most distant megamaser",
+   "when": "March 2026",
+   "what": "Using South Africa's MeerKAT telescope, astronomers found the brightest and most distant megamaser. It is a giant microwave beam from colliding galaxies, where compressed gas excites hydroxyl molecules. Such sources help study early galaxies.",
+   "key": [
+    "Telescope: MeerKAT, South Africa",
+    "Precursor to the Square Kilometre Array",
+    "Megamaser: microwave beam from merging galaxies",
+    "Gas clouds compressed, hydroxyl molecules excited",
+    "Masers amplify microwaves; lasers amplify visible light"
+   ],
+   "static": "MASER stands for microwave amplification by stimulated emission of radiation.",
+   "angle": "Trap: placing MeerKAT in Australia.",
+   "remember": "MeerKAT: South Africa, SKA precursor, megamaser."
+  },
+  {
+   "n": 5,
+   "t": "Physics, Quantum & Nuclear",
+   "headline": "LHC finds the Xi-cc-plus",
+   "when": "March 2026",
+   "what": "LHCb discovered the Xi-cc-plus, a heavy baryon with two charm quarks and a down quark.",
+   "key": [
+    "Two charm quarks plus one down quark",
+    "About four times a proton's mass",
+    "Second baryon with two heavy quarks",
+    "Earlier: Xi-cc-plus-plus (2017)",
+    "LHC ring: 27 km, CERN"
+   ],
+   "static": "Hadrons are baryons (three quarks) and mesons (quark-antiquark).",
+   "angle": "Trap: meson versus baryon.",
+   "remember": "Baryon: three quarks."
+  },
+  {
+   "n": 6,
+   "t": "Physics, Quantum & Nuclear",
+   "headline": "23 institutions get quantum teaching labs",
+   "when": "March 2026",
+   "what": "DST cleared 23 institutions for quantum teaching labs under the NQM, with over 100 more proposals under evaluation.",
+   "key": [
+    "23 institutions approved",
+    "Outlay Rs 6,003 crore, 2023-24 to 2030-31",
+    "Four domains",
+    "Over 100 proposals under evaluation",
+    "Run by DST"
+   ],
+   "static": "Quantum technologies include computing, communication, sensing and metrology.",
+   "angle": "Trap: wrong ministry.",
+   "remember": "NQM: DST."
+  },
+  {
+   "n": 7,
+   "t": "Physics, Quantum & Nuclear",
+   "headline": "Accelerator for thorium programme at Visakhapatnam",
+   "when": "March 2026",
+   "what": "RRCAT will build a high-energy proton accelerator at Visakhapatnam for Accelerator-Driven Systems.",
+   "key": [
+    "Site: Visakhapatnam",
+    "Developer: RRCAT, Indore (DAE)",
+    "Built Indus-1, Indus-2",
+    "ADS: thorium to U-233",
+    "India holds about 25 per cent of world thorium"
+   ],
+   "static": "Bhabha's three stages: PHWR, fast breeder, thorium-based.",
+   "angle": "Trap: reversing the conversion.",
+   "remember": "Thorium into U-233."
+  },
+  {
+   "n": 8,
+   "t": "Physics, Quantum & Nuclear",
+   "headline": "LIGO-India delayed to 2030",
+   "when": "March 2026",
+   "what": "Officials said LIGO-India at Hingoli will be completed by 2030.",
+   "key": [
+    "Site: Hingoli, Maharashtra",
+    "Fifth node of the network",
+    "Others: Hanford, Livingston, Virgo, KAGRA",
+    "Led by DAE and DST",
+    "IUCAA Pune partner"
+   ],
+   "static": "Gravitational waves were first detected by LIGO in 2015.",
+   "angle": "Trap: assuming Pune hosts the detector.",
+   "remember": "Hingoli hosts the detector."
+  },
+  {
+   "n": 9,
+   "t": "Physics, Quantum & Nuclear",
+   "headline": "Rare-earth magnet scheme and pilot plant",
+   "when": "March 2026",
+   "what": "MHI invited bids for 6,000 MTPA of integrated sintered REPM capacity, while ARCI Hyderabad set up an Nd-Fe-B pilot plant.",
+   "key": [
+    "6,000 MTPA target",
+    "Five beneficiaries, up to 1,200 MTPA each",
+    "Outlay Rs 7,280 crore",
+    "Capital subsidy Rs 750 crore",
+    "Sales-linked incentive Rs 6,450 crore"
+   ],
+   "static": "Rare earths are critical minerals; REPM is a strategic supply-chain item.",
+   "angle": "Trap: reversing the split.",
+   "remember": "Subsidy 750; incentive 6,450."
+  },
+  {
+   "n": 10,
+   "t": "Health & Biotech",
+   "headline": "Nationwide HPV vaccination drive",
+   "when": "Launched 28 Feb 2026; reported March",
+   "what": "Girls aged 14 get free HPV shots at government facilities to prevent cervical cancer. U-WIN and eVIN support the campaign.",
+   "key": [
+    "Target: 14-year-old girls",
+    "Gardasil-4, types 6, 11, 16, 18",
+    "Cervavac by Serum Institute",
+    "WHO 90-70-90 by 2030",
+    "U-WIN and eVIN used; Gavi supplying doses"
+   ],
+   "static": "Cervical cancer is the only cancer preventable by vaccine.",
+   "angle": "Trap: nonavalent versus quadrivalent.",
+   "remember": "Four strains: 6, 11, 16, 18."
+  },
+  {
+   "n": 11,
+   "t": "Health & Biotech",
+   "headline": "GARBH-INi aims at AI tools for preterm birth",
+   "when": "March 2026",
+   "what": "The 12,000-woman cohort supports indigenous AI solutions for preterm births.",
+   "key": [
+    "12,000 women",
+    "THSTI Faridabad",
+    "Supported by DBT",
+    "Atal Jai Anusandhan Biotech Mission",
+    "Biorepository; DRISHTI platform"
+   ],
+   "static": "THSTI is a DBT institute.",
+   "angle": "Trap: wrong funder.",
+   "remember": "GARBH-INi: pregnancy, DBT."
+  },
+  {
+   "n": 12,
+   "t": "Health & Biotech",
+   "headline": "CALM-Brain launched",
+   "when": "27 March 2026",
+   "what": "India's first open-source brain data repository for psychiatric disorders was launched in Bengaluru.",
+   "key": [
+    "Launched 27 March 2026",
+    "Five disorder groups",
+    "2,000+ individuals, 900 families",
+    "Funded by DBT and Pratiksha Trust",
+    "Linked to stem-cell biobank"
+   ],
+   "static": "NIMHANS is an Institute of National Importance.",
+   "angle": "Trap: other databases.",
+   "remember": "CALM-Brain: open psychiatric data."
+  },
+  {
+   "n": 13,
+   "t": "Health & Biotech",
+   "headline": "Fortified rice paused under PMGKAY",
+   "when": "March 2026",
+   "what": "After a study found nutrient losses in storage, the Centre paused fortified rice supply.",
+   "key": [
+    "IIT Kharagpur study",
+    "Iron, folic acid, B12",
+    "FSSAI: five fortified staples",
+    "Rollout from October 2021",
+    "PDS, ICDS, PM Poshan grains continue"
+   ],
+   "static": "FSSAI's 2018 fortification regulation covers rice, wheat flour, edible oil, milk and salt.",
+   "angle": "Trap: mixing biofortification with industrial fortification.",
+   "remember": "Bio-fortify the crop; industrial fortify the food."
+  },
+  {
+   "n": 14,
+   "t": "Health & Biotech",
+   "headline": "World Obesity Atlas puts India second",
+   "when": "4 March 2026",
+   "what": "India has about 41 million school-age children with high BMI, second after China.",
+   "key": [
+    "Released 4 March 2026",
+    "India second after China",
+    "About 41 million children",
+    "20.7 per cent of children 5-19 overweight or obese globally",
+    "Target extended to 2030"
+   ],
+   "static": "BMI is weight in kg divided by height in metres squared.",
+   "angle": "Trap: attributing to WHO.",
+   "remember": "Atlas: Federation."
+  },
+  {
+   "n": 15,
+   "t": "Health & Biotech",
+   "headline": "GLP-1 advertising barred",
+   "when": "March 2026",
+   "what": "CDSCO banned advertising of GLP-1 drugs due to misuse.",
+   "key": [
+    "Regulator: CDSCO",
+    "GLP-1 mimics natural hormone",
+    "Examples: Ozempic, Wegovy",
+    "Slows digestion",
+    "Originally for type 2 diabetes"
+   ],
+   "static": "CDSCO is India's national drug regulator under the Ministry of Health.",
+   "angle": "Trap: treating mechanism as the reason.",
+   "remember": "Mechanism is not the motive."
+  },
+  {
+   "n": 16,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "India's data centre boom and its limits",
+   "when": "March 2026",
+   "what": "Capacity quadrupled in five years, helped by Budget 2026-27 incentives.",
+   "key": [
+    "375 MW (2020) to about 1,500 MW (2025)",
+    "Tax holiday till 2047 for cloud exporters",
+    "Infrastructure status (2022) above 5 MW",
+    "Up to 2 million litres water a day per 100 MW",
+    "Over 70 per cent in four hubs"
+   ],
+   "static": "DPDP Act, 2023 and RBI data localisation shape data policy.",
+   "angle": "Trap: understated water use.",
+   "remember": "Two million litres a day."
+  },
+  {
+   "n": 17,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "Panel flags IndiaAI Mission underspend",
+   "when": "March 2026",
+   "what": "The Mission's underutilisation led to a halved Budget allocation.",
+   "key": [
+    "32 per cent of RE used by December 2025",
+    "BE 2026-27 halved",
+    "GPU cost and supply delays",
+    "Environmental cost of data centres",
+    "Funding concentrated in elite institutes"
+   ],
+   "static": "IndiaAI Mission is run by MeitY.",
+   "angle": "Trap: reversing concentration.",
+   "remember": "Underspent, halved."
+  },
+  {
+   "n": 18,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "IISc's brain co-processor Moonshot",
+   "when": "March 2026",
+   "what": "The project builds co-processors for stroke rehabilitation.",
+   "key": [
+    "IISc with Pratiksha Trust",
+    "Neuromorphic hardware plus AI",
+    "Bidirectional interface",
+    "Reach and grasp restoration",
+    "Pilot under Brain, Computation and Data Science initiative"
+   ],
+   "static": "BCIs read neural signals; co-processors also write back.",
+   "angle": "Trap: invasive versus non-invasive.",
+   "remember": "Co-processor reads and writes."
+  },
+  {
+   "n": 19,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "DHRUV64: indigenous 64-bit microprocessor launched",
+   "when": "March 2026",
+   "what": "C-DAC launched DHRUV64, a fully indigenous 64-bit microprocessor for 5G, IoT and industrial automation. It forms part of India's push for native processors, which also includes SHAKTI and VIKRAM under the Microprocessor Development Programme and DIR-V.",
+   "key": [
+    "Fully indigenous 64-bit microprocessor",
+    "Developed by C-DAC",
+    "Uses: 5G, IoT, industrial automation",
+    "Part of Microprocessor Development Programme and DIR-V",
+    "Sister processors: SHAKTI, VIKRAM"
+   ],
+   "static": "C-DAC, headquartered at Pune, is a scientific society under the Ministry of Electronics and IT.",
+   "angle": "Trap: crediting ISRO.",
+   "remember": "DHRUV64: C-DAC's 64-bit chip."
+  },
+  {
+   "n": 20,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "Dual-use technologies and the dual-use dilemma",
+   "when": "March 2026",
+   "what": "Advances in nuclear science, AI, biotechnology and space systems have widened dual-use technologies, which serve civilian needs but can be turned to military or malicious ends. Conflicts show GPS jamming, cyber-attacks and commercial satellites blurring the line.",
+   "key": [
+    "Civilian use with potential military or malicious use",
+    "Now spans AI, biotech, cyber, additive manufacturing, space",
+    "Dual-use dilemma: progress versus misuse",
+    "Non-kinetic tools: GPS jamming and spoofing, cyber-attacks",
+    "India joined the Wassenaar Arrangement in 2017"
+   ],
+   "static": "SCOMET stands for Special Chemicals, Organisms, Materials, Equipment and Technologies; DGFT notifies it.",
+   "angle": "Trap: crediting the Defence Ministry with SCOMET.",
+   "remember": "Dual-use: civil and military; SCOMET via DGFT."
+  },
+  {
+   "n": 21,
+   "t": "Digital, AI & Transport Tech",
+   "headline": "Indore EV fire and thermal runaway",
+   "when": "March 2026",
+   "what": "The Indore EV fire raised concern over lithium-ion batteries. A Battery Management System normally keeps them safe, but thermal runaway, where one hot cell sets off its neighbours, can cause intense fires that are hard to extinguish.",
+   "key": [
+    "Battery Management System regulates temperature, voltage, charging",
+    "Thermal runaway: chain overheating of cells",
+    "Triggers: damage, overcharging, defects, heat, flooding",
+    "EV battery fires burn hotter and are harder to put out",
+    "Indore toll worsened by LPG cylinders and door-lock failure"
+   ],
+   "static": "Solid-state batteries, which use solid electrolytes, are being developed to cut leakage and runaway risk.",
+   "angle": "Trap: calling EV fires easier to extinguish.",
+   "remember": "Thermal runaway: hotter, faster, harder to douse."
+  },
+  {
+   "n": 22,
+   "t": "Ocean, Energy & Materials",
+   "headline": "Indigenous floating LiDAR buoy tested",
+   "when": "March 2026",
+   "what": "Offshore wind resource measurement tool tested off Tamil Nadu.",
+   "key": [
+    "Tested off Muttom, Tamil Nadu",
+    "Indigenous",
+    "Measures to 300 m",
+    "Laser pulses",
+    "NIOT"
+   ],
+   "static": "Offshore wind needs resource data before project siting.",
+   "angle": "Trap: wrong ministry.",
+   "remember": "Buoy lasers read wind."
+  },
+  {
+   "n": 23,
+   "t": "Ocean, Energy & Materials",
+   "headline": "OTEC plant for Kavaratti",
+   "when": "March 2026",
+   "what": "Integrated OTEC plant planned in Lakshadweep.",
+   "key": [
+    "Kavaratti",
+    "Integrated plant",
+    "About 20 degrees difference",
+    "Tropics 30N-30S",
+    "Power and desalination"
+   ],
+   "static": "OTEC is a marine renewable.",
+   "angle": "Trap: assuming OTEC works only in daylight.",
+   "remember": "Warm top, cold deep."
+  },
+  {
+   "n": 24,
+   "t": "Ocean, Energy & Materials",
+   "headline": "Dark oxygen reported",
+   "when": "March 2026",
+   "what": "Deep-sea oxygen without light.",
+   "key": [
+    "About 4,000 m deep",
+    "Pacific Ocean",
+    "No sunlight",
+    "Polymetallic nodules",
+    "Challenges photosynthesis-only view"
+   ],
+   "static": "Polymetallic nodules are key deep-sea mining targets.",
+   "angle": "Trap: photosynthesis.",
+   "remember": "Nodules make oxygen."
+  },
+  {
+   "n": 25,
+   "t": "Ocean, Energy & Materials",
+   "headline": "CSIR-NCL develops DME production technology",
+   "when": "March 2026",
+   "what": "CSIR-National Chemical Laboratory developed a dimethyl ether production process. DME is a clean-burning second-generation fuel that can be blended with LPG up to about 20 per cent and made from Indian coal, methanol or captured CO2.",
+   "key": [
+    "Developed by CSIR-National Chemical Laboratory",
+    "Second-generation fuel, alternative to LPG",
+    "Can be blended with LPG up to about 20 per cent",
+    "Made from coal, methanol or captured CO2",
+    "Burns with minimal SOx, NOx, soot and particulates"
+   ],
+   "static": "CSIR-NCL is a Pune-based national laboratory under the Council of Scientific and Industrial Research.",
+   "angle": "Trap: assuming a crude-oil feedstock.",
+   "remember": "DME: LPG substitute from coal, methanol or CO2."
+  }
+ ]
+}
