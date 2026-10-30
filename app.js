@@ -5,7 +5,7 @@ var CFG={
   START:"2026-10-18", PRELIMS:"2027-05-23", IDEAL_END:"2027-05-16", GOAL:90, RIGHT:2, WRONG:0.66,
   SEC_PER_Q:72, PYQ_SHARE:0.3, PYQ_HOLD:[2024,2025,2026], CSAT_MK:[2.5,0.83], CSAT_PASS:33, STORE:"pa2-store", OLD:"prelims-arena-v3", OLD_SYNC:"prelims-arena-sync-v1",
   MOCK_WEIGHTS:{"Polity":15,"History":15,"Geography":12,"Economy":14,"Environment":14,"Science & Tech":12,"Current Affairs":18},
-  REVIEW_DAYS:[1,3,7,21]
+  REVIEW_DAYS:[1,3,7,21], CAM_FROM:"2026-10-31"
 };
 // Shankar IAS Prestorming Batch II schedule: key, name, date, subject, type
 var TESTS=[
@@ -30,9 +30,9 @@ var TESTS=[
   });
   TESTS.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)});
 })();
-var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
+var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
-function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
+function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
 function isPyq(qid){return String(qid).indexOf("PYQ-")===0}
 function pyqYear(qid){var m=/^PYQ-[A-Z]+-(\d{4})/.exec(qid);return m?+m[1]:null}
 
@@ -202,18 +202,34 @@ function unitTrend(o){ // accuracy last 30 days vs before
 function setDoneMap(){var m={},parts={};attempts().forEach(function(a){if(!a.setId)return;if(a.part){(parts[a.setId]=parts[a.setId]||{})[a.part]=1}else m[a.setId]=(m[a.setId]||0)+1});
   Object.keys(parts).forEach(function(id){if(Object.keys(parts[id]).length>=5&&!m[id])m[id]=1});return m}
 function partsDone(id){var d={};attempts().forEach(function(a){if(a.setId===id&&a.part)d[a.part]=1});return d}
+/* monthly current-affairs sets (CAM26-MM-NN) and the daily 25 */
+// the Jan-Mar test-week sets are replaced by the monthly Jan-Mar sets once those are all in the app
+function schedFor(ds){var cam=camSets().length>=18;return scheduledFor(ds).filter(function(s){return !(cam&&s.type==="ca"&&/^CA25-T4-/.test(s.id))})}
+function camSets(){return M.sets.filter(function(s){return s.type==="cam"&&s.ready}).sort(function(a,b){return a.id<b.id?-1:1})}
+function nextCamSet(){var done=setDoneMap();return camSets().filter(function(s){return !done[s.id]})[0]||null}
+function camDoneOn(ds){return attempts().some(function(a){return a.date===ds&&(a.type==="cam"||a.type==="ca")&&!a.part})}
+// the day has a 25-question current-affairs target from CAM_FROM on, or when a CA test-week set is scheduled
 function dayState(ds,done,td){
-  var sch=scheduledFor(ds).filter(function(s){return s.ready});
+  var sch=schedFor(ds).filter(function(s){return s.ready});
+  var s50=sch.filter(function(s){return s.type!=="ca"}),sCA=sch.filter(function(s){return s.type==="ca"});
+  var need25=sCA.length>0||(ds>=CFG.CAM_FROM&&ds<=CFG.PRELIMS);
+  var flags=[];
+  if(s50.length)flags.push(s50.every(function(s){return done[s.id]}));
+  if(need25)flags.push((sCA.length&&sCA.every(function(s){return done[s.id]}))||camDoneOn(ds));
   var st="none";
-  if(sch.length){
-    var allDone=sch.every(function(s){return done[s.id]});
-    var paused=sch.some(function(s){return Object.keys(DB.recs).some(function(k){var r=DB.recs[k];return r.kind==="run"&&!r.del&&(k==="run_"+s.id||k.indexOf("run_"+s.id+"~")===0)})});
-    st=allDone?"done":(paused?"paused":(ds<td?"missed":"todo"));
+  if(flags.length){
+    var nd=flags.filter(Boolean).length;
+    if(nd===flags.length)st="done";
+    else if(nd>0)st="part";
+    else{
+      var paused=sch.some(function(s){return Object.keys(DB.recs).some(function(k){var r=DB.recs[k];return r.kind==="run"&&!r.del&&(k==="run_"+s.id||k.indexOf("run_"+s.id+"~")===0)})});
+      st=paused?"paused":(ds<td?"missed":"todo");
+    }
   }
   var schIds={};sch.forEach(function(s){schIds[s.id]=1});
-  var extra=attempts().some(function(a){return a.date===ds&&!(a.setId&&schIds[a.setId])});
+  var extra=attempts().some(function(a){return a.date===ds&&a.type!=="cam"&&!(a.setId&&schIds[a.setId])});
   var chk=DB.recs["chk_"+ds];
-  return {st:st,star:extra,chk:chk&&!chk.del?chk.v:null,test:TESTBYDATE[ds]||null,sch:sch};
+  return {st:st,star:extra,chk:chk&&!chk.del?chk.v:null,test:TESTBYDATE[ds]||null,sch:sch,need25:need25,has50:s50.length>0,flags:flags};
 }
 function streak(){
   var n=0,d=today();
@@ -430,17 +446,18 @@ function renderResult(fresh){
     return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+(((x[8]||0)>>q.a)&1?'<span class="tag bad">Crossed out the right answer</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
       passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
-      '<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
+      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
     '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
-    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+
+    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+notesAfterTest(a,qs)+
     '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><button class="btn small" id="rs-listen">Listen to these</button><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
   $("rs-back").onclick=function(){VIEW.screen="tabs";render()};
   $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
   if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
+  bindNotesAfterTest();
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
 }
 function openAttempt(id){
@@ -676,13 +693,15 @@ function setRowHtml(s,done){
   return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+parts+'</li>';
 }
 function dayPanel(ds,td){
-  var sch=scheduledFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
+  var sch=schedFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
   var h='<section class="panel"><h2>'+(ds===td?"Today's work":fdw(ds))+'</h2>';
   if(sch.length){var s0=sch[0];h+='<p class="muted">'+esc(s0.testName)+', '+esc(s0.dayLabel)+'. Shankar test on '+fdw(s0.testDate)+'.</p>';}
   if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm'+(t.csat?(t.type==="mock"?', with a live discussion at 4:30 pm.':'. The recorded discussion is uploaded at 4:30 pm.'):', with a live discussion at 4:30 pm.')+' Enter your marks afterwards in the Scores tab.</p>';
-  if(sch.length){
+  var ds_=dayState(ds,done,td),show25=ds_.need25;
+  if(!sch.length&&show25){var nt=TESTS.filter(function(x){return x.subject==="Current Affairs"&&x.date>=ds})[0];if(nt)h+='<p class="muted">Next Shankar current affairs test: '+esc(nt.name)+', '+fdw(nt.date)+'.</p>'}
+  if(sch.length||show25){
     h+='<div class="row wrap tight"><span class="muted small">Timing</span><div class="seg small"><button data-timed="0" aria-pressed="'+!DB.meta.timed+'">Untimed</button><button data-timed="1" aria-pressed="'+!!DB.meta.timed+'">Timed, 1.2 min per question</button></div></div>';
-    h+='<ul class="list">'+sch.map(function(s){return setRowHtml(s,done)}).join("")+'</ul>';
+    h+='<ul class="list">'+sch.map(function(s){return setRowHtml(s,done)}).join("")+(show25?camRow(ds,td):"")+'</ul>';
     if(ds!==td)h+='<p class="muted small">You can take any day\'s set early or late. It is logged on the day you take it.</p>';
   }else if(!t)h+='<p class="muted">No set is scheduled for this day. Pick another date, or use Practice for a subject test.</p>';
   var taken=attempts().filter(function(a){return a.date===ds});
@@ -697,19 +716,21 @@ function calendarPanel(sel,td){
   for(var d=1;d<=n;d++){
     var ds=y+"-"+pad(m+1)+"-"+pad(d),s=dayState(ds,done,td);
     var cls="day "+s.st+(ds===td?" today":"")+(ds===sel?" sel":"")+(s.test?" tday":"");
-    var lab=fdw(ds)+({done:", scheduled set done",missed:", scheduled set missed",paused:", paused",todo:", set scheduled"}[s.st]||"")+(s.star?", extra test taken":"")+(s.test?", "+s.test.name:"")+(s.chk?", check-in "+s.chk:"");
+    var lab=fdw(ds)+({done:", all of the day's sets done",part:", one of the day's sets done",missed:", the day's sets missed",paused:", paused",todo:", sets scheduled"}[s.st]||"")+(s.star?", extra test taken":"")+(s.test?", "+s.test.name:"")+(s.chk?", check-in "+s.chk:"");
     g+='<button class="'+cls+'" data-d="'+ds+'" aria-label="'+esc(lab)+'"><span class="n">'+d+'</span>'+(s.star?'<span class="star" aria-hidden="true">★</span>':'')+(s.chk?'<span class="cdot '+s.chk+'" aria-hidden="true"></span>':'')+(s.test?'<span class="tmark'+(s.test.csat?" csat":"")+'" aria-hidden="true">'+(s.test.csat?"C":"T")+'</span>':'')+'</button>';
   }
   g+='</div>';
   var minM=[2026,9],maxM=[2027,4],cur=y*12+m;
   return '<section class="panel"><div class="row between"><h2>'+MONTHS[m]+' '+y+'</h2><div class="row tight"><button class="btn ghost small" id="cal-prev" aria-label="Previous month"'+(cur<=minM[0]*12+minM[1]?" disabled":"")+'>‹</button><button class="btn ghost small" id="cal-today">Today</button><button class="btn ghost small" id="cal-next" aria-label="Next month"'+(cur>=maxM[0]*12+maxM[1]?" disabled":"")+'>›</button></div></div>'+g+
-    '<div class="legend"><span><i class="lg done"></i>Set done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
+    '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
 }
 function bindToday(){
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
   qsa("[data-part]").forEach(function(b){b.onclick=function(){var p=b.dataset.part.split("|");startPart(p[0],+p[1])}});
   bindLog();
+  qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes,1,"tabs")}});
+  if($("cam-rev"))$("cam-rev").onclick=startCamRevision;
   qsa("[data-budget]").forEach(function(b){b.onclick=function(){budgetPlan(+b.dataset.budget)}});
   qsa("[data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   qsa("[data-discard]").forEach(function(b){b.onclick=function(){modal('<h2>Discard this paused test?</h2><p>Your answers so far will be lost.</p><div class="row"><button class="btn danger" data-m="y">Discard</button><button class="btn ghost" data-m="x">Keep it</button></div>',function(a){if(a==="y"){del(b.dataset.discard);render()}})}});
@@ -763,6 +784,7 @@ function viewPractice(){
   myqSet().questions.forEach(function(q){if(q.sub===subj)uc[q.u]=(uc[q.u]||0)+1});
   var nSel=Object.keys(chosen).filter(function(k){return chosen[k]}).length;
   var html='<div class="pagehead"><div><h1>Practice</h1><p class="muted">Test yourself on any subject, any time. Every test is logged with the date you take it.</p></div></div>';
+  html+=camPanel();
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
@@ -788,6 +810,9 @@ function viewPractice(){
   $("fm-go").onclick=startFullMock;
   bindPyq();
   bindListen();
+  bindCam();
+  qsa("#cam-panel [data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
+  qsa("#cam-panel [data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
   if($("mb-all"))$("mb-all").onclick=function(){startRevision(true)};
   $("myq-add").onclick=function(){myqDialog(null)};
@@ -1203,6 +1228,152 @@ function drawShankar(){
     if(rs.length>1)s+='<polyline class="ln '+(g==="gs"?"shankar":"csat")+'" points="'+rs.map(function(r){return X(r.date).toFixed(1)+","+Y(r.p).toFixed(1)}).join(" ")+'"/>';
     rs.forEach(function(r){s+='<circle class="pt '+(g==="gs"?"shankar":"csat")+'" cx="'+X(r.date).toFixed(1)+'" cy="'+Y(r.p).toFixed(1)+'" r="4.5" tabindex="0"><title>'+esc(fdy(r.date)+": "+r.title+", "+r.marks+" / "+r.max+" ("+r1(r.p)+"%)")+'</title></circle>'})});
   el.innerHTML=s+'</svg><div class="legend"><span><i class="lg shankar"></i>GS tests</span><span><i class="lg csat"></i>CSAT tests</span></div>';
+}
+
+/* Monthly current affairs: month cards, the daily 25, and the Read-the-notes viewer */
+var NOTES={},NV=null;
+var CAM_MONTHS=(function(){var o=[];for(var y=2026,m=0;y<2027||m<=3;){o.push(y+"-"+pad(m+1));m++;if(m>11){m=0;y++}if(y===2027&&m>3)break}return o})();
+function monthLabel(k){var p=k.split("-");return MONTHS[+p[1]-1]+" "+p[0]}
+function monthShort(k){var p=k.split("-");return MON[+p[1]-1]+" "+p[0].slice(2)}
+function camOfMonth(k){return camSets().filter(function(s){return s.month===k})}
+function loadNotes(id){
+  if(NOTES[id])return Promise.resolve(NOTES[id]);
+  return fetch("data/notes/"+encodeURIComponent(id)+".json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){NOTES[id]=d;return d});
+}
+function notesRead(id){return ((DB.meta.nr||{})[id])||0}
+function bestScore(id){var b=null;attempts().forEach(function(a){if(a.setId===id&&!a.part&&(b==null||a.pts>b.pts))b=a});return b}
+
+/* one row for a monthly set: notes button and test button */
+function camSetRow(s,showMonth){
+  var run=DB.recs["run_"+s.id];run=run&&!run.del?run:null;
+  var b=bestScore(s.id),nr=notesRead(s.id);
+  var act=run?'<button class="btn primary small" data-resume="run_'+s.id+'">Resume ('+run.done+'/'+run.n+')</button>':'<button class="btn '+(b?"":"primary ")+'small" data-start="'+s.id+'">'+(b?"Take again":"Start test")+'</button>';
+  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+(showMonth?monthLabel(s.month)+', ':'')+esc(s.dayLabel||"")+' · 25 questions</span><b>'+esc(s.category)+'</b>'+
+    '<span class="small '+(b?"good":"muted")+'">'+(b?'Best '+b.pts+' of '+(s.n*2)+'. ':'')+'Notes: '+(nr?nr+' of 25 pages read':'not read yet')+'</span></div>'+
+    '<div class="row wrap tight"><button class="btn small" data-notes="'+s.id+'">Read notes</button>'+act+'</div></div></li>';
+}
+/* Practice tab: current affairs by month */
+function camPanel(){
+  var sel=VIEW.camMonth;
+  if(!sel){var ready=CAM_MONTHS.filter(function(k){return camOfMonth(k).length});var open=ready.filter(function(k){var d=setDoneMap();return camOfMonth(k).some(function(s){return !d[s.id]})});sel=open[0]||ready[ready.length-1]||CAM_MONTHS[0]}
+  var done=setDoneMap();
+  var chips=CAM_MONTHS.map(function(k){var n=camOfMonth(k).length,d=camOfMonth(k).filter(function(s){return done[s.id]}).length;
+    return '<button class="chipbtn" data-cm="'+k+'" aria-pressed="'+(k===sel)+'"'+(n?'':' style="opacity:.7"')+'>'+monthShort(k)+'<span>'+(n?d+'/'+n:'soon')+'</span></button>'}).join("");
+  var sets=camOfMonth(sel),body;
+  if(sets.length){
+    body='<ul class="list">'+sets.map(function(s){return camSetRow(s,false)}).join("")+'</ul>'+
+      (sets.length>=6?'<div class="row wrap"><button class="btn" id="cm-full">Full '+MONTHS[+sel.split("-")[1]-1]+' test (100 questions, timed)</button><span class="muted small">100 questions drawn from all six sets.</span></div>':'');
+  }else{
+    var past=sel<"2026-11";
+    body='<p class="muted">'+(past?'The '+monthLabel(sel)+' questions and notes are being prepared and will appear here.':monthLabel(sel)+' will be added after the month ends, once its magazine is out. The space is kept ready.')+'</p>';
+  }
+  return '<section class="panel" id="cam-panel"><h2>Current affairs by month</h2><p class="muted small">Each month has six sets of 25 questions, one for each area (polity, economy, international relations and defence, environment, science and tech, schemes and reports). Every set has a Read-the-notes booklet: one page for each question. Read first, or test first and read after. The daily 25 on the Today tab takes the next set in month order.</p>'+
+    '<div class="chips mchips" role="group" aria-label="Month">'+chips+'</div>'+body+'</section>';
+}
+function bindCam(){
+  qsa("[data-cm]").forEach(function(b){b.onclick=function(){VIEW.camMonth=b.dataset.cm;render()}});
+  qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes,1,"tabs")}});
+  if($("cm-full"))$("cm-full").onclick=function(){
+    var k=VIEW.camMonth,qids=[];camOfMonth(k).forEach(function(s){for(var i=0;i<s.n;i++)qids.push(s.id+"#"+i)});
+    startCustom({type:"cam",title:monthLabel(k)+" full test (100 questions)",subject:"Current Affairs",qids:pickPart(qids,100),timed:true});
+  };
+}
+/* the daily 25 row, shown on the Today tab for each day from 31 Oct 2026 */
+function camRow(ds,td){
+  if(ds>td)return '<li><div><span class="muted small">Current affairs, 25 questions</span><b>The next set is chosen on the day</b></div></li>';
+  var nx=nextCamSet(),dn=camDoneOn(ds),lab='<span class="muted small">Daily current affairs, 25 questions</span>';
+  var notesBtn=nx?'<button class="btn small" data-notes="'+nx.id+'">Read notes</button>':'';
+  var act;
+  if(nx){var run=DB.recs["run_"+nx.id];run=run&&!run.del?run:null;
+    act=run?'<button class="btn primary small" data-resume="run_'+nx.id+'">Resume ('+run.done+'/'+run.n+')</button>':'<button class="btn '+(dn?"":"primary ")+'small" data-start="'+nx.id+'">'+(dn?"Do the next set":"Start")+'</button>';
+    return '<li class="setrow"><div class="setmain"><div>'+lab+'<b>'+esc(monthLabel(nx.month))+': '+esc(nx.category)+'</b>'+(dn?'<span class="good small">'+(ds===td?"Done for today":"Done on this day")+'</span>':'<span class="muted small">Next unused set in month order</span>')+'</div><div class="row wrap tight">'+notesBtn+act+'</div></div></li>';
+  }
+  return '<li class="setrow"><div class="setmain"><div>'+lab+'<b>Current affairs revision</b>'+(dn?'<span class="good small">Done for today</span>':'<span class="muted small">All new sets are done. This mixes your past mistakes with news you have not seen lately.</span>')+'</div><div class="row wrap tight"><button class="btn '+(dn?"":"primary ")+'small" id="cam-rev">'+(dn?"Another revision set":"Start")+'</button></div></div></li>';
+}
+function startCamRevision(){
+  var pool=poolFor("Current Affairs");if(pool.length<25){toast("Not enough current affairs questions yet.");return}
+  startCustom({type:"cam",title:"Current affairs revision, "+fd(today()),subject:"Current Affairs",qids:pickPart(pool,25),timed:!!DB.meta.timed});
+}
+
+/* ===== Read-the-notes viewer ===== */
+function openNotes(id,page,from){
+  stopPlayer(true);
+  $("app").innerHTML='<div class="page"><p class="muted">Loading the notes…</p></div>';
+  loadNotes(id).then(function(d){
+    VIEW.screen="notes";
+    NV={id:id,d:d,i:Math.max(0,Math.min(d.pages.length-1,(page||1)-1)),from:from||"tabs",tok:0,auto:false};
+    renderNotes();window.scrollTo(0,0);
+  }).catch(function(){VIEW.screen=from==="result"?"result":"tabs";if(from==="result")renderResult(false);else render();toast("Could not load the notes. Check your connection and try again.")});
+}
+function noteSpeechList(p){
+  var out=[p.headline+".",p.when?"When: "+p.when+".":""].concat(chunks(readable(p.what)));
+  out.push("Key points.");(p.key||[]).forEach(function(k){out=out.concat(chunks(readable(k)))});
+  if(p.static){out.push("Static link.");out=out.concat(chunks(readable(p.static)))}
+  if(p.angle){out.push("Prelims angle.");out=out.concat(chunks(readable(p.angle)))}
+  if(p.remember){out.push("Remember.");out=out.concat(chunks(readable(p.remember)))}
+  return out.filter(Boolean);
+}
+function noteStop(){if(!NV)return;NV.tok++;NV.auto=false;if(ttsOk())window.speechSynthesis.cancel()}
+function noteSpeak(){
+  if(!ttsOk()){toast("This device cannot read text aloud.");return}
+  var tok=++NV.tok;window.speechSynthesis.cancel();NV.auto=true;
+  var list=noteSpeechList(NV.d.pages[NV.i]),j=0;
+  var nx=function(){
+    if(!NV||tok!==NV.tok)return;
+    if(j>=list.length){setTimeout(function(){if(!NV||tok!==NV.tok)return;if(NV.i<NV.d.pages.length-1){NV.i++;renderNotes();noteSpeak()}else{NV.auto=false;renderNotes()}},900);return}
+    var u=new SpeechSynthesisUtterance(list[j++]);u.rate=DB.meta.ttsRate||1;var v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang="en-IN";
+    u.onend=nx;u.onerror=function(e){if(e.error==="interrupted"||e.error==="canceled")return;nx()};window.speechSynthesis.speak(u);
+  };
+  renderNotes();nx();
+}
+function noteGo(i){
+  if(!NV||i<0||i>=NV.d.pages.length)return;
+  var was=NV.auto;noteStop();NV.i=i;renderNotes();window.scrollTo(0,0);if(was)noteSpeak();
+}
+function renderNotes(){
+  var d=NV.d,p=d.pages[NV.i],n=d.pages.length,s=SET[NV.id]||{};
+  var nr=DB.meta.nr=DB.meta.nr||{};if((nr[NV.id]||0)<NV.i+1){nr[NV.id]=NV.i+1;saveStore()}
+  var idx=(d.index||[]).map(function(g){return '<button class="chipbtn" data-pg="'+g.pages[0]+'" aria-pressed="'+(g.pages.indexOf(p.n)>=0)+'">'+esc(g.t)+'<span>'+g.pages.length+'</span></button>'}).join("");
+  var dots='<div class="npbar" aria-hidden="true"><i style="width:'+Math.round((NV.i+1)/n*100)+'%"></i></div>';
+  var key=(p.key||[]).map(function(k){return '<li>'+esc(k)+'</li>'}).join("");
+  var last=NV.i===n-1;
+  $("app").innerHTML='<div class="page notes"><div class="pagehead"><button class="btn ghost" id="nt-back">Back</button><div><h1>'+esc(d.title||s.title||"Notes")+'</h1><p class="muted">Read the notes · page '+p.n+' of '+n+'</p></div></div>'+
+    '<div class="chips" role="group" aria-label="Topics in this set">'+idx+'</div>'+dots+
+    '<section class="panel notecard" id="nt-card" aria-live="polite"><div class="row between wrap"><span class="chip">'+esc(p.t)+'</span><span class="muted small">'+esc(p.when||"")+'</span></div>'+
+    '<h2 class="nh">'+esc(p.headline)+'</h2><p>'+esc(p.what)+'</p>'+(key?'<h3>Key points</h3><ul class="nkey">'+key+'</ul>':'')+
+    (p.static?'<h3>Static link</h3><p>'+esc(p.static)+'</p>':'')+(p.angle?'<h3>Prelims angle</h3><p>'+esc(p.angle)+'</p>':'')+
+    (p.remember?'<div class="nrem"><b>Remember</b> '+esc(p.remember)+'</div>':'')+'</section>'+
+    '<div class="notenav"><button class="btn" id="nt-prev"'+(NV.i===0?" disabled":"")+'>Previous</button><button class="btn" id="nt-listen">'+(NV.auto?"Stop reading":"Listen")+'</button>'+
+    (last?'<button class="btn primary" id="nt-test">Test this set</button>':'<button class="btn primary" id="nt-next">Next</button>')+'</div>'+
+    '<p class="muted small center">Swipe left or right, or use the buttons. Pages open where you left off.</p></div>';
+  $("nt-back").onclick=function(){noteStop();if(NV.from==="result"){VIEW.screen="result";renderResult(false);window.scrollTo(0,0)}else{VIEW.screen="tabs";render()}};
+  if($("nt-prev"))$("nt-prev").onclick=function(){noteGo(NV.i-1)};
+  if($("nt-next"))$("nt-next").onclick=function(){noteGo(NV.i+1)};
+  if($("nt-test"))$("nt-test").onclick=function(){noteStop();VIEW.screen="tabs";startSet(NV.id,!!DB.meta.timed)};
+  $("nt-listen").onclick=function(){if(NV.auto){noteStop();renderNotes()}else noteSpeak()};
+  qsa("[data-pg]").forEach(function(b){b.onclick=function(){noteGo(+b.dataset.pg-1)}});
+  var c=$("nt-card"),x0=null,y0=null;
+  c.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+  c.addEventListener("touchend",function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)noteGo(NV.i+(dx<0?1:-1))},{passive:true});
+}
+document.addEventListener("keydown",function(e){
+  if(VIEW.screen!=="notes"||!NV)return;
+  if(e.key==="ArrowRight")noteGo(NV.i+1);else if(e.key==="ArrowLeft")noteGo(NV.i-1);
+});
+/* result screen: pages to re-read for the questions that were missed */
+function notesAfterTest(a,qs){
+  var byQ={};qs.forEach(function(q){byQ[q.qid]=q});
+  var miss={},sets={};
+  (a.items||[]).forEach(function(x){var q=byQ[x[0]];if(!q||!q.pg||String(x[0]).indexOf("CAM26-")!==0)return;var sid=x[0].split("#")[0];sets[sid]=1;if(x[4]!==1&&x[4]!==2)(miss[sid]=miss[sid]||[]).push(q.pg)});
+  var ids=Object.keys(sets);if(!ids.length)return "";
+  return '<section class="panel"><h2>Read the notes</h2>'+ids.map(function(sid){
+    var st=SET[sid]||{},m=(miss[sid]||[]).sort(function(x,y){return x-y});
+    return '<div class="row between wrap" style="margin:8px 0"><div><b>'+esc(st.title||sid)+'</b><br><span class="muted small">'+(m.length?m.length+' to re-read: pages '+m.join(", "):'No missed questions in this set.')+'</span></div><div class="row wrap tight">'+
+      (m.length?'<button class="btn small" data-notes-pg="'+sid+'|'+m[0]+'">Open page '+m[0]+'</button>':'')+'<button class="btn small" data-notes-pg="'+sid+'|1">All pages</button></div></div>'}).join("")+'</section>';
+}
+function bindNotesAfterTest(){
+  qsa("[data-notes-pg]").forEach(function(b){b.onclick=function(){var p=b.dataset.notesPg.split("|");openNotes(p[0],+p[1],"result")}});
+  qsa("[data-note]").forEach(function(b){b.onclick=function(){var qid=b.dataset.note,q=(RES&&RES.qs||[]).filter(function(x){return x.qid===qid})[0];if(q)openNotes(qid.split("#")[0],q.pg||1,"result")}});
 }
 
 /* boot */

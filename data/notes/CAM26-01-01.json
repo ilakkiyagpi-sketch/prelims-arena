@@ -1,0 +1,486 @@
+{
+ "id": "CAM26-01-01",
+ "title": "January 2026: Polity & Governance",
+ "category": "Polity & Governance",
+ "index": [
+  {
+   "t": "Court Rulings",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "t": "Equity & Rights",
+   "pages": [
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Governors & States",
+   "pages": [
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "t": "Parliament & Elections",
+   "pages": [
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "t": "Statutory Bodies",
+   "pages": [
+    19,
+    20,
+    21
+   ]
+  },
+  {
+   "t": "Governance Initiatives",
+   "pages": [
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Court Rulings",
+   "headline": "SC splits on Section 17A of PC Act",
+   "when": "Late Jan 2026 (reported 30 Jan)",
+   "what": "A two-judge bench of Justices B.V. Nagarathna and K.V. Viswanathan delivered a split verdict on Section 17A, which needs prior approval before a public servant's official decisions are investigated. The matter now goes to CJI Surya Kant for a larger bench.",
+   "key": [
+    "Section 17A was inserted by the 2018 amendment to the PC Act, 1988",
+    "Nagarathna J struck it down: violates Article 14; Section 19 already protects officials",
+    "Viswanathan J upheld it, but approval must come from an independent authority (Lokpal/Lokayuktas)",
+    "Split verdict, so a larger bench will be constituted by the CJI"
+   ],
+   "static": "Article 14 (equality); Prevention of Corruption Act, 1988; Lokpal and Lokayuktas Act, 2013.",
+   "angle": "Swapping which judge struck down and which upheld the provision.",
+   "remember": "Nagarathna Negates, Viswanathan Validates (with conditions)."
+  },
+  {
+   "n": 2,
+   "t": "Court Rulings",
+   "headline": "States told to frame police briefing policy",
+   "when": "Late Jan 2026",
+   "what": "The Supreme Court directed every State to frame a policy on police media briefings within three months. It should follow a manual prepared by amicus curiae Gopal Sankaranarayanan. The proceedings arose from PUCL petitions. Briefings aim to prevent harm, correct rumours and release only verified information.",
+   "key": [
+    "Deadline: three months for all States",
+    "Model: manual by amicus curiae Gopal Sankaranarayanan",
+    "Arose from PUCL petitions",
+    "PUCL v. State of Maharashtra (2014) laid down 16 guidelines on police encounters",
+    "Purpose: prevent harm, correct rumours, release verified facts"
+   ],
+   "static": "Article 21 (fair trial and reputation); police is a State subject (List II, Entry 2).",
+   "angle": "Attributing the 16 encounter guidelines to a different police-reform case.",
+   "remember": "PUCL 2014: sixteen encounter guidelines; 2026: briefing policy in three months."
+  },
+  {
+   "n": 3,
+   "t": "Court Rulings",
+   "headline": "Is the ED a juristic person? SC to examine",
+   "when": "Jan 2026",
+   "what": "The Supreme Court agreed to hear petitions by Tamil Nadu and Kerala asking whether the Enforcement Directorate is a juristic person that can approach High Courts under Article 226. The States say a statutory body has only expressly granted powers, and the ED has no power to sue.",
+   "key": [
+    "Question: is ED a juristic person entitled to move High Courts (Art 226)?",
+    "Petitioners: Tamil Nadu and Kerala",
+    "States' argument: statutory bodies hold only expressly granted powers",
+    "Kerala: State inquiry commission in a gold smuggling matter",
+    "Tamil Nadu: illegal mining case"
+   ],
+   "static": "Article 226 (High Court writ jurisdiction); FEMA, 1999; PMLA, 2002.",
+   "angle": "Reversing the States' argument about the ED's power to sue.",
+   "remember": "States say ED may not sue: no express power in FEMA or PMLA."
+  },
+  {
+   "n": 4,
+   "t": "Court Rulings",
+   "headline": "SC seeks Centre's reply on Arbitration Council",
+   "when": "Late Jan 2026",
+   "what": "The Supreme Court asked the Union government to respond to a petition seeking constitution of the Arbitration Council of India. The statutory body was created on paper by the 2019 amendment but has not been set up nearly six years later.",
+   "key": [
+    "Statutory body under Part IA, Sections 43A to 43M, of the 1996 Act",
+    "Inserted by the Arbitration and Conciliation (Amendment) Act, 2019",
+    "Based on the Justice B.N. Srikrishna Committee (2017)",
+    "Still not constituted nearly six years on"
+   ],
+   "static": "Arbitration and Conciliation Act, 1996; Article 39A and access to justice.",
+   "angle": "Assuming a body created by statute has actually been set up.",
+   "remember": "Law made in 2019, Council still missing."
+  },
+  {
+   "n": 5,
+   "t": "Court Rulings",
+   "headline": "SC on POCSO and teenage relationships",
+   "when": "Jan 2026",
+   "what": "In State of Uttar Pradesh v. Anurudh (2026), the Supreme Court noted the increasing use of POCSO against consensual adolescent relationships and urged the Union government to consider corrective measures. The debate on a 'Romeo-Juliet' clause is linked.",
+   "key": [
+    "Case: State of Uttar Pradesh v. Anurudh (2026)",
+    "Age of consent: 18 under POCSO and BNS Section 63",
+    "Section 19 POCSO: mandatory reporting",
+    "Age of Consent Act, 1891 raised age from 10 to 12"
+   ],
+   "static": "POCSO Act, 2012; Bharatiya Nyaya Sanhita, 2023; Age of Consent Act, 1891.",
+   "angle": "Believing the age of consent is 16.",
+   "remember": "Eighteen everywhere: POCSO and BNS 63."
+  },
+  {
+   "n": 6,
+   "t": "Court Rulings",
+   "headline": "Allahabad HC: DMF is beneficial legislation",
+   "when": "Jan 2026",
+   "what": "The Allahabad High Court held that the creation of District Mineral Foundations is beneficial legislation, to be interpreted liberally in favour of those adversely affected by mining. DMFs are trusts funded by royalty contributions from mining lessees.",
+   "key": [
+    "DMF: statutory non-profit trust, Section 9B, MMDR Act, 1957 (inserted 2015)",
+    "Contribution: 30% of royalty for leases before 12 Jan 2015",
+    "Contribution: 10% of royalty for later leases",
+    "Spent under PM Khanij Kshetra Kalyan Yojana",
+    "At least 60% for high-priority areas"
+   ],
+   "static": "MMDR Act, 1957; Fifth and Sixth Schedule areas; PMKKKY.",
+   "angle": "Swapping the 30% and 10% royalty shares.",
+   "remember": "Old leases pay thirty, new leases pay ten."
+  },
+  {
+   "n": 7,
+   "t": "Equity & Rights",
+   "headline": "UGC notifies 2026 equity regulations",
+   "when": "Jan 2026",
+   "what": "The University Grants Commission notified the UGC (Promotion of Equity in Higher Education Institutions) Regulations, 2026. They replaced the 2012 rules, which had been framed after the Abeda Salim Tadvi case, and set strict deadlines for handling complaints of discrimination.",
+   "key": [
+    "Replace the 2012 equity framework",
+    "Every HEI: Equal Opportunity Centre plus Equity Committee",
+    "Committee meets within 24 hours; reports in 15 days",
+    "Head of institution acts within 7 days",
+    "Equity Squads, 24x7 helpline, Equity Ambassadors; penalty up to loss of recognition"
+   ],
+   "static": "UGC Act, 1956; Articles 14, 15 and 17; Abeda Salim Tadvi v. Union of India (2019).",
+   "angle": "Mixing up the 15-day report deadline and the 7-day action deadline.",
+   "remember": "Meet in one day, report in fifteen, act in seven."
+  },
+  {
+   "n": 8,
+   "t": "Equity & Rights",
+   "headline": "SC stays UGC equity rules",
+   "when": "29 Jan 2026",
+   "what": "A bench of CJI Surya Kant and Justice Joymalya Bagchi stayed the 2026 UGC equity regulations, calling them prima facie vague and capable of misuse. The 2012 Regulations continue until further orders, and notice was issued on three petitions alleging discrimination against the general category.",
+   "key": [
+    "Bench: CJI Surya Kant and Justice Joymalya Bagchi",
+    "Reason: prima facie vague, capable of misuse",
+    "2012 Regulations continue (Article 142 used)",
+    "Notice to Union and UGC; returnable on 19 March",
+    "Court suggested a committee of eminent jurists revisit the rules"
+   ],
+   "static": "Article 142 (complete justice); Article 14 and affirmative action in education.",
+   "angle": "Thinking a stay creates a vacuum rather than reviving the earlier rules.",
+   "remember": "Stay on 2026; 2012 lives on."
+  },
+  {
+   "n": 9,
+   "t": "Equity & Rights",
+   "headline": "Menstrual hygiene is part of Article 21",
+   "when": "Jan 2026",
+   "what": "The Supreme Court, hearing a petition by Dr. Jaya Thakur, held that menstrual health and hygiene management in schools are part of the right to life and dignity under Article 21. It directed States and UTs to provide facilities in every school.",
+   "key": [
+    "Right: Article 21 (life and dignity)",
+    "Petitioner: Dr. Jaya Thakur",
+    "Functional gender-segregated toilets in schools",
+    "Free sanitary napkins through vending machines",
+    "Menstrual hygiene management corners"
+   ],
+   "static": "Article 21; Article 21A; Article 47 (public health).",
+   "angle": "Calling the right a mere Directive Principle.",
+   "remember": "Dignity at school: Article 21, not just a policy wish."
+  },
+  {
+   "n": 10,
+   "t": "Governors & States",
+   "headline": "Governors' addresses in Tamil Nadu and Kerala",
+   "when": "Jan 2026",
+   "what": "Tamil Nadu's Governor walked out of the Assembly during the customary address, and Kerala's Governor omitted paragraphs of his address. The episodes revived debate on Article 176, which requires the Governor to address the legislature at the start of the first session each year.",
+   "key": [
+    "Article 176: mandatory address, first session each year and after general elections",
+    "Article 175: Governor may address; not mandatory",
+    "Speech is drafted by the Council of Ministers",
+    "Precedents: Shamsher Singh (1974), Nabam Rebia (2016)",
+    "Sarkaria (1988) and Punchhi (2007) Commissions"
+   ],
+   "static": "Articles 159, 175, 176; Governor as constitutional head.",
+   "angle": "Confusing optional Article 175 with mandatory Article 176.",
+   "remember": "Article 176 is a must; 175 is a may."
+  },
+  {
+   "n": 11,
+   "t": "Governors & States",
+   "headline": "Governor's Rule extended in Chakma ADC",
+   "when": "Jan 2026",
+   "what": "The Mizoram Governor extended Governor's Rule in the Chakma Autonomous District Council by six months, despite opposition from the State Cabinet. The rule was first imposed in July 2025. The council was constituted in 1972 under the Sixth Schedule.",
+   "key": [
+    "Extension: six months, over State Cabinet's objection",
+    "First imposed in July 2025",
+    "Chakma ADC created 1972 under the Sixth Schedule",
+    "ADC: up to 30 members (26 elected, up to 4 nominated), five-year term",
+    "Bodoland Territorial Council has 46 members"
+   ],
+   "static": "Sixth Schedule (Articles 244(2), 275(1)); Governor's role in tribal areas.",
+   "angle": "Taking the Cabinet to have backed the extension.",
+   "remember": "Sixth Schedule: 26 elected plus 4 nominated."
+  },
+  {
+   "n": 12,
+   "t": "Governors & States",
+   "headline": "Kerala passes Malayalam Language Bill, 2025",
+   "when": "Reported January 2026",
+   "what": "The Kerala Assembly passed a Bill to give Malayalam primacy in administration, schools and courts. It removes or modifies the provisions that sank the State's 2015 language Bill, which the President had refused assent after reservation.",
+   "key": [
+    "Malayalam compulsory first language in government and aided schools",
+    "Bills and Ordinances to be introduced in Malayalam; judgments translated in phases",
+    "Official Language department to be renamed Malayalam Language Development Department",
+    "2015 Bill reserved for the President; assent withheld",
+    "Objections then: Official Languages Act 1963, minorities, three-language formula, RTE Act"
+   ],
+   "static": "Article 345 (State official language), Articles 200-201 (reservation of Bills for the President).",
+   "angle": "Assuming the 2015 Bill was cleared; it was reserved and assent was withheld.",
+   "remember": "2015 Bill stalled at the President; 2025 Bill redrafted."
+  },
+  {
+   "n": 13,
+   "t": "Governors & States",
+   "headline": "Himachal Pradesh marks 56th Statehood Day",
+   "when": "25 Jan 2026",
+   "what": "Himachal Pradesh celebrated its 56th Statehood Day on 25 January 2026. It became the 18th State on 25 January 1971 under the State of Himachal Pradesh Act, 1970, after passing through several lower constitutional statuses.",
+   "key": [
+    "Chief Commissioner's Province: 15 April 1948",
+    "Part C State: 1950",
+    "Union Territory: 1 November 1956",
+    "18th State: 25 January 1971",
+    "Law: State of Himachal Pradesh Act, 1970"
+   ],
+   "static": "Article 3 and 4; States Reorganisation Act, 1956 (abolished Part C).",
+   "angle": "Placing UT status before Part C status.",
+   "remember": "Commissioner, Part C, UT, State: 1948 to 1971."
+  },
+  {
+   "n": 14,
+   "t": "Parliament & Elections",
+   "headline": "28th CSPOC inaugurated in New Delhi",
+   "when": "15 Jan 2026",
+   "what": "Prime Minister Narendra Modi inaugurated the 28th Conference of Speakers and Presiding Officers of the Commonwealth in the Central Hall of Samvidhan Sadan. Lok Sabha Speaker Om Birla was in the chair, and 61 presiding officers from 42 Commonwealth countries and 4 semi-autonomous parliaments attended.",
+   "key": [
+    "Date: 15 January 2026, Samvidhan Sadan Central Hall",
+    "Delegates: 61 presiding officers from 42 countries and 4 semi-autonomous parliaments",
+    "India hosted earlier in 1971, 1986 and 2010",
+    "CSPOC created 1969 on Canadian Speaker Lucien Lamoureux's initiative; Canada gives secretariat",
+    "Commonwealth has 56 members"
+   ],
+   "static": "Role of the Speaker (Articles 93-96); Commonwealth Parliamentary Association.",
+   "angle": "Crediting India with founding CSPOC or hosting its secretariat.",
+   "remember": "Founded by Canada in 1969; India hosts every few decades."
+  },
+  {
+   "n": 15,
+   "t": "Parliament & Elections",
+   "headline": "Budget Session 2026 begins",
+   "when": "28 Jan 2026 (session to 18 Apr 2026)",
+   "what": "The Budget Session of Parliament began on 28 January 2026 and ran until 18 April 2026. Nine Government Bills were passed, including the Finance Bill, 2026 and two Appropriation Bills.",
+   "key": [
+    "Began 28 January 2026; ended 18 April 2026",
+    "Nine Government Bills passed",
+    "Finance Bill, 2026 and two Appropriation Bills among them",
+    "Also passed: Transgender Persons Amendment Bill 2026",
+    "Also: CAPF (General Administration) Bill, Jan Vishwas Bill, Industrial Relations Code (Amendment) Bill"
+   ],
+   "static": "Articles 112-117 (budget, Appropriation and Finance Bills).",
+   "angle": "Forgetting that Appropriation Bills are passed alongside the Finance Bill.",
+   "remember": "Budget session: Finance Bill plus two Appropriation Bills."
+  },
+  {
+   "n": 16,
+   "t": "Parliament & Elections",
+   "headline": "ECI hosts IICDEM 2026; ECINET launched",
+   "when": "From 21 Jan 2026",
+   "what": "The Election Commission hosted the first India International Conference on Democracy and Election Management at Bharat Mandapam, New Delhi. ECINET was launched during it and the Delhi Declaration 2026 was adopted. Nearly 100 delegates from over 70 countries were expected.",
+   "key": [
+    "First IICDEM, Bharat Mandapam, from 21 January 2026",
+    "Organiser: IIIDEM (set up 2011, Dwarka)",
+    "ECINET integrates over 40 ECI apps in one platform",
+    "Delhi Declaration 2026 adopted",
+    "Nearly 100 delegates from over 70 countries expected"
+   ],
+   "static": "Article 324 (Election Commission); Representation of the People Acts.",
+   "angle": "Mistaking ECINET for a voting technology instead of an integrated app platform.",
+   "remember": "ECINET: forty apps, one platform."
+  },
+  {
+   "n": 17,
+   "t": "Parliament & Elections",
+   "headline": "Delimitation and Southern States' concerns",
+   "when": "January 2026",
+   "what": "Southern States said population-based delimitation of Lok Sabha seats and Finance Commission transfers penalise States that controlled population growth. The debate revived the rules and history of delimitation.",
+   "key": [
+    "Articles 82 and 170: readjustment; Articles 330 and 332: SC/ST seats",
+    "Commissions constituted in 1952, 1963, 1973 and 2002",
+    "J&K 2022: 90 Assembly seats (43 Jammu, 47 Kashmir), 5 Lok Sabha seats",
+    "Orders have force of law; cannot be modified by Parliament or Assemblies",
+    "SC (2024) can review manifestly arbitrary orders"
+   ],
+   "static": "Articles 81, 82, 170, 330, 332; Delimitation Commission Act, 2002.",
+   "angle": "Believing Parliament can amend a Commission's order.",
+   "remember": "Commission order = law; no House can edit it."
+  },
+  {
+   "n": 18,
+   "t": "Parliament & Elections",
+   "headline": "Nitin Nabin elected BJP national president",
+   "when": "20 Jan 2026",
+   "what": "Nitin Nabin, the BJP's working president and a Bihar minister representing Bankipur, was elected national president on 20 January 2026. He became the party's youngest national president. The result was announced by national returning officer Dr K. Laxman.",
+   "key": [
+    "Elected 20 January 2026",
+    "Youngest national president of BJP",
+    "Earlier working president; Bihar minister from Bankipur",
+    "Earlier headed BJYM in Bihar",
+    "Returning officer: Dr K. Laxman"
+   ],
+   "static": "Political parties and party organisation (Tenth Schedule context).",
+   "angle": "Mixing him up with a Chief Minister or a general secretary.",
+   "remember": "Nabin: youngest BJP chief."
+  },
+  {
+   "n": 19,
+   "t": "Statutory Bodies",
+   "headline": "Praveen Vashista appointed Vigilance Commissioner",
+   "when": "Jan 2026",
+   "what": "The President appointed Shri Praveen Vashista as Vigilance Commissioner in the Central Vigilance Commission under Section 4(1) of the CVC Act, 2003. The CVC was set up in 1964 and became statutory in 2003.",
+   "key": [
+    "Appointed under Section 4(1) of the CVC Act, 2003",
+    "CVC set up 1964 on Santhanam Committee recommendation",
+    "Statutory status: CVC Act, 2003",
+    "Selection committee: PM, Union Home Minister, Leader of Opposition (Lok Sabha)",
+    "Tenure: four years or age 65"
+   ],
+   "static": "CVC Act, 2003; Santhanam Committee on Prevention of Corruption (1962-64).",
+   "angle": "Assuming CVC has been statutory since its 1964 start.",
+   "remember": "Santhanam 1964, statute 2003."
+  },
+  {
+   "n": 20,
+   "t": "Statutory Bodies",
+   "headline": "Lokpal marks Foundation Day",
+   "when": "16 Jan 2026",
+   "what": "The Lokpal of India observed its Foundation Day on 16 January, marking the day Section 3 of the Lokpal and Lokayuktas Act, 2013 came into force in 2014. The Lokpal has a Chairperson and up to eight members.",
+   "key": [
+    "16 January 2014: Section 3 of the 2013 Act in force",
+    "Chairperson plus up to eight members",
+    "At least 50% judicial members",
+    "Selection Committee: PM, Speaker, Leader of Opposition, CJI or nominee, eminent jurist",
+    "First Lokayukta: Maharashtra, 1971"
+   ],
+   "static": "Lokpal and Lokayuktas Act, 2013; Administrative Reforms Commission (1966).",
+   "angle": "Saying all members must be judicial.",
+   "remember": "Half judicial, at least."
+  },
+  {
+   "n": 21,
+   "t": "Statutory Bodies",
+   "headline": "NDSA show-cause notice over Bargi Dam",
+   "when": "Jan 2026",
+   "what": "The National Dam Safety Authority issued a show-cause notice to the Narmada Valley Development Authority over safety concerns at the Bargi Dam on the Narmada River in Madhya Pradesh. The NDSA is a statutory body under the Dam Safety Act, 2021.",
+   "key": [
+    "Dam: Bargi Dam, Narmada River, Madhya Pradesh",
+    "Notice to Narmada Valley Development Authority",
+    "NDSA: statutory body under Dam Safety Act, 2021",
+    "NDSA headquarters: New Delhi",
+    "Bargi built 1974 to 1990 as a multipurpose dam"
+   ],
+   "static": "Dam Safety Act, 2021; water is a State subject (Entry 17, List II).",
+   "angle": "Placing Bargi on the wrong river or wrong State.",
+   "remember": "Bargi on Narmada, NDSA on notice."
+  },
+  {
+   "n": 22,
+   "t": "Governance Initiatives",
+   "headline": "Indore water contamination exposes urban water governance",
+   "when": "January 2026",
+   "what": "Contaminated municipal tap water in Indore caused infections and multi-organ failure among residents. The NHRC took suo motu cognizance after finding the supply main ran under a public toilet.",
+   "key": [
+    "NHRC suo motu cognizance; pipeline beneath a public toilet",
+    "Water supply: State subject; 74th Amendment widened municipal role",
+    "BIS standard: IS 10500 (drinking water)",
+    "AMRUT 2.0 (MoHUA) includes Pey Jal Survekshan",
+    "Non-revenue water about 38% of supply"
+   ],
+   "static": "Twelfth Schedule; AMRUT 2.0; Jal Jeevan Mission (Urban).",
+   "angle": "Crediting AMRUT to the Jal Shakti Ministry.",
+   "remember": "AMRUT = housing and urban ministry; IS 10500 = BIS."
+  },
+  {
+   "n": 23,
+   "t": "Governance Initiatives",
+   "headline": "50th PRAGATI meeting held",
+   "when": "January 2026",
+   "what": "The Prime Minister held the 50th PRAGATI review. The platform brings Union and State officials together to resolve stalled projects, and has unlocked long-pending ones.",
+   "key": [
+    "PRAGATI = Pro-Active Governance and Timely Implementation; launched 2015",
+    "Chaired by the Prime Minister",
+    "Hosts PM Gati Shakti, PARIVESH, PM Reference Portal",
+    "About 94% of issues resolved",
+    "Examples: Jammu-Udhampur-Srinagar-Baramulla rail link, Navi Mumbai airport, Bogibeel bridge"
+   ],
+   "static": "Cooperative federalism; PM Gati Shakti; PARIVESH single-window clearance.",
+   "angle": "Naming the Cabinet Secretary or NITI Aayog as chair.",
+   "remember": "PRAGATI: PM in the chair, since 2015."
+  },
+  {
+   "n": 24,
+   "t": "Governance Initiatives",
+   "headline": "Land Stack and Glossary of Revenue Terms launched",
+   "when": "Jan 2026",
+   "what": "The Ministry of Rural Development launched Land Stack, a GIS-based integrated digital platform for land records, in pilot locations Chandigarh and Tamil Nadu. It also released a Glossary of Revenue Terms to harmonise land-revenue vocabulary.",
+   "key": [
+    "Land Stack: GIS-based integrated platform for land records",
+    "Pilot sites: Chandigarh and Tamil Nadu",
+    "Runs under DILRMP",
+    "Inspired by models in Singapore, the UK and Finland",
+    "Glossary of Revenue Terms in vernacular, Hindi, English and Roman scripts"
+   ],
+   "static": "Land is a State subject (Entry 18, List II); DILRMP.",
+   "angle": "Attributing the launch to the Ministry of Housing and Urban Affairs.",
+   "remember": "Land Stack: Rural Development, GIS, DILRMP."
+  },
+  {
+   "n": 25,
+   "t": "Governance Initiatives",
+   "headline": "Census 2027 notified",
+   "when": "Notified Jan 2026",
+   "what": "The Ministry of Home Affairs notified the 16th Census. Phase I, house-listing, runs from 1 April to 30 September 2026, with a 30-day window per State or UT and a 15-day self-enumeration option beforehand. Phase II has a reference date of 1 March 2027. It is India's first digital census.",
+   "key": [
+    "Phase I: 1 April to 30 September 2026",
+    "30-day window per State/UT; 15-day self-enumeration first",
+    "Phase II reference date: 1 March 2027",
+    "Snow-bound areas: 1 October 2026",
+    "First digital census and first nationwide caste count since 1931"
+   ],
+   "static": "Census Act, 1948; Union List Entry 69.",
+   "angle": "Mixing the snow-bound reference date with the general one.",
+   "remember": "One March 2027; snow-bound areas one October 2026."
+  }
+ ]
+}

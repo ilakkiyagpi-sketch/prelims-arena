@@ -1,0 +1,484 @@
+{
+ "id": "CAM26-02-01",
+ "title": "February 2026: Polity & Governance",
+ "category": "Polity & Governance",
+ "index": [
+  {
+   "t": "Finance Commission",
+   "pages": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "t": "Parliament & Elections",
+   "pages": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "t": "Constitution & Federalism",
+   "pages": [
+    11,
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "t": "Supreme Court & Judiciary",
+   "pages": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ]
+  },
+  {
+   "t": "Governance & Administration",
+   "pages": [
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Finance Commission",
+   "headline": "16th Finance Commission keeps States' share at 41 per cent",
+   "when": "Report tabled 1 Feb 2026; covers 2026-27 to 2030-31",
+   "what": "The commission chaired by Arvind Panagariya retained the States' share of the divisible pool at 41 per cent. For sharing among States it dropped tax effort and added contribution to GDP. The Centre accepted the report just before the Budget speech.",
+   "key": [
+    "Chairman: Arvind Panagariya; award period 1 April 2026 to 31 March 2031.",
+    "Vertical share: 14th FC 42 per cent, 15th and 16th FC 41 per cent.",
+    "Weights: income distance 42.5, population (2011) 17.5, demographic performance 10.",
+    "Weights: area 10, forest 10, contribution to GDP 10 per cent.",
+    "Demographic performance now uses population growth 1971-2011, not fertility change."
+   ],
+   "static": "Article 280 creates the Finance Commission; Article 270 shares the divisible pool, which excludes cess and surcharge.",
+   "angle": "Trap: the biggest weight is income distance (42.5), not population (17.5).",
+   "remember": "Income distance is the biggest slice; GDP contribution is the new 10."
+  },
+  {
+   "n": 2,
+   "t": "Finance Commission",
+   "headline": "Finance Commission replaces special grants with local body and disaster funds",
+   "when": "Report tabled 1 Feb 2026",
+   "what": "The Commission shifted grants away from revenue deficit and sector-specific support. Money now flows mainly to rural and urban local bodies and to disaster funds. It also set fiscal ceilings for the Centre and States and asked both to end off-budget borrowing.",
+   "key": [
+    "Total grants-in-aid: about Rs 9.47 lakh crore.",
+    "Local bodies: Rs 4.4 lakh crore rural and Rs 3.6 lakh crore urban.",
+    "Disaster funds corpus: Rs 2,04,401 crore; cost sharing 90:10 for NE and Himalayan States, 75:25 others.",
+    "Centre's fiscal deficit target 3.5 per cent of GDP by 2030-31; States 3 per cent of GSDP.",
+    "Basic local body grants 80 per cent, performance grants 20 per cent."
+   ],
+   "static": "Article 275(1) grants-in-aid supplement State Consolidated Funds; the Commission also recommends measures for Panchayats and Municipalities.",
+   "angle": "Trap: do not swap the 3.5 (Centre, GDP) and 3 (States, GSDP) ceilings.",
+   "remember": "Centre 3.5 of GDP, States 3 of GSDP; revenue deficit grants ended."
+  },
+  {
+   "n": 3,
+   "t": "Finance Commission",
+   "headline": "16th Finance Commission: disaster funds and public finance reforms",
+   "when": "Report tabled 1 Feb 2026",
+   "what": "Beyond devolution, the 16th Finance Commission set a disaster-funding corpus and four public-finance reforms. It proposed a Rs 2.04 lakh crore corpus for SDRF/SDMF, with a higher Union share for the North-East and Himalayan States, and asked for off-budget borrowing to end and inactive State PSEs to be closed.",
+   "key": [
+    "SDRF/SDMF corpus: about Rs 2,04,401 crore.",
+    "Cost sharing 90:10 for North-Eastern and Himalayan States; 75:25 for others.",
+    "Halt all off-budget borrowings and fold existing ones into official budgets.",
+    "Review and close 308 inactive State public sector enterprises.",
+    "Centre to reach 3.5 per cent fiscal deficit by 2030-31; States 3 per cent of GSDP."
+   ],
+   "static": "SDRF is the State-level disaster response fund under the Disaster Management Act, 2005, financed largely by the Union and State shares recommended by each Finance Commission.",
+   "angle": "Trap: the Commission wants off-budget borrowing stopped, not tolerated.",
+   "remember": "Disaster corpus Rs 2.04 lakh crore; 90:10 hill States; 308 PSEs to close."
+  },
+  {
+   "n": 4,
+   "t": "Parliament & Elections",
+   "headline": "Opposition gives notice to remove Lok Sabha Speaker Om Birla",
+   "when": "Notice 10 Feb 2026; resolution taken up 10-11 March 2026",
+   "what": "Opposition MPs, including 118 from the Congress, DMK, SP, RJD and Left, gave notice to remove Speaker Om Birla, who recused himself from presiding. The resolution was moved on 10 March 2026 and rejected by voice vote on 11 March.",
+   "key": [
+    "Article 94(c): removal by majority of all then members of the House.",
+    "14 days' notice is required before moving the resolution.",
+    "Article 96: Speaker does not preside while his removal is under consideration.",
+    "Earlier removal motions against Speakers failed in 1954, 1966 and 1987.",
+    "Distinct from a no-confidence motion (Rule 198), which targets the Council of Ministers."
+   ],
+   "static": "Article 94 also makes the Speaker vacate office if he ceases to be a member of the House or resigns to the Deputy Speaker.",
+   "angle": "Trap: 'majority of all then members' is not 'majority present and voting'.",
+   "remember": "94(c) removes, 96 keeps him off the Chair, 14 days' notice."
+  },
+  {
+   "n": 5,
+   "t": "Parliament & Elections",
+   "headline": "President's Address and the Motion of Thanks",
+   "when": "Budget Session, Feb 2026",
+   "what": "The Budget Session opened with the President's Address, followed by the Motion of Thanks debate. Opposition protests in the Lok Sabha prevented the Prime Minister from delivering his reply to the motion.",
+   "key": [
+    "Article 87(1): Address at first session after a general election and first session of each year.",
+    "Both Houses are assembled together for the Address.",
+    "Rule 17 of the Lok Sabha rules governs the Motion of Thanks.",
+    "Motion is moved by one member and seconded by another.",
+    "Opposition amendments may express regret that issues were omitted."
+   ],
+   "static": "Defeat of the Motion of Thanks would signal loss of confidence in the government, so it is treated as a test of majority.",
+   "angle": "Trap: the Address occurs at two occasions only (first session after elections, first session of each year).",
+   "remember": "One Address a year, plus one after every general election."
+  },
+  {
+   "n": 6,
+   "t": "Parliament & Elections",
+   "headline": "Private member's Bill seeks diversity in higher judiciary appointments",
+   "when": "Introduced 6 Feb 2026 in the Rajya Sabha",
+   "what": "A private member's Constitution (Amendment) Bill moved by P. Wilson seeks proportional representation for SCs, STs, OBCs, minorities and women among judges, a 90-day deadline to notify Collegium names, and regional Supreme Court benches. Such bills almost never pass.",
+   "key": [
+    "Introduced on 6 February 2026; 36 private members' bills were listed that day.",
+    "Also proposes permanent regional benches of the Supreme Court.",
+    "Centre must notify Collegium recommendations within 90 days.",
+    "Only 14 private members' bills have become law; the last in 1970.",
+    "Private members' business is taken up mainly on Friday afternoons."
+   ],
+   "static": "Article 130 lets the Supreme Court sit in Delhi or other places chosen by the CJI with the President's approval.",
+   "angle": "Trap: a private member's bill needs notice (one month) and a Friday slot; it is not a government bill.",
+   "remember": "Ninety days to notify, regional benches, no private bill passed since 1970."
+  },
+  {
+   "n": 7,
+   "t": "Parliament & Elections",
+   "headline": "Questions on PM CARES, PMNRF and NDF ruled inadmissible",
+   "when": "Reported Feb 2026",
+   "what": "The Prime Minister's Office told the Lok Sabha Secretariat that questions on the PM CARES Fund, the PMNRF and the National Defence Fund cannot be admitted, citing Rule 41(2)(viii) and (xvii). The Speaker decides admissibility of questions.",
+   "key": [
+    "Cited rules: 41(2)(viii) and 41(2)(xvii) of the Lok Sabha rules.",
+    "Speaker decides admissibility under Rules 41 to 44 and Direction 10A.",
+    "Question types: starred, unstarred, short notice, to private members.",
+    "PMNRF was set up in 1948.",
+    "RTI status of PM CARES and PMNRF remains contested."
+   ],
+   "static": "Question Hour is a tool of executive accountability under collective responsibility (Article 75(3)).",
+   "angle": "Trap: the Speaker, not the Deputy Speaker or Secretary-General, decides admissibility.",
+   "remember": "Speaker admits, Rule 41 bars; four question types, not two."
+  },
+  {
+   "n": 8,
+   "t": "Parliament & Elections",
+   "headline": "Supreme Court notes NOTA has not changed party candidate choice",
+   "when": "Observation reported Feb 2026",
+   "what": "More than a decade after NOTA was introduced, the Supreme Court noted it has not influenced the candidates parties field. A NOTA win does not void the poll, and the option cannot be used where a candidate is elected unopposed.",
+   "key": [
+    "PUCL v. Union of India (2013) directed ECI to add NOTA to EVMs.",
+    "First used in 2013 in Chhattisgarh, Mizoram, Rajasthan, MP and Delhi.",
+    "Highest NOTA tally does not void the result; next highest candidate wins.",
+    "NOTA is unavailable where a candidate is elected unopposed.",
+    "Maharashtra and Haryana State Election Commissions order re-polls if NOTA leads in local polls."
+   ],
+   "static": "Article 324 gives the Election Commission superintendence, direction and control of elections.",
+   "angle": "Trap: NOTA is not a 'right to reject' that cancels an election.",
+   "remember": "NOTA votes are counted but never win."
+  },
+  {
+   "n": 9,
+   "t": "Parliament & Elections",
+   "headline": "No-confidence motion: Rule 198, 50 members, collective responsibility",
+   "when": "Explained, Feb 2026",
+   "what": "A no-confidence motion lets the Lok Sabha test whether the Council of Ministers still commands a majority. It is regulated by Rule 198, needs the support of at least 50 members to be admitted, and if passed forces the government to resign. It differs from a censure motion.",
+   "key": [
+    "Moved only in the Lok Sabha, against the whole Council of Ministers.",
+    "Rule 198 of the Lok Sabha rules; support of 50 members to admit.",
+    "Reasons must be stated; passage forces the ministry to resign.",
+    "Censure motion can target one minister and does not force resignation.",
+    "Anchored in Article 75(3): collective responsibility to the Lok Sabha."
+   ],
+   "static": "Article 75(3) makes the Council of Ministers collectively responsible to the Lok Sabha; the Constitution does not use the term no-confidence motion.",
+   "angle": "Trap: censure motions can name one minister; no-confidence motions cannot.",
+   "remember": "No-confidence: whole ministry, Lok Sabha only, Rule 198, 50 members, must resign."
+  },
+  {
+   "n": 10,
+   "t": "Parliament & Elections",
+   "headline": "Election Commission: 2023 Act, selection committee and CEC removal",
+   "when": "Explained, Feb 2026",
+   "what": "The 2023 Act replaced the 1991 law on the appointment and service of the CEC and Election Commissioners. The CEC serves six years or till 65, and the committee is the PM, a Union Minister and the Lok Sabha Opposition Leader, dropping the CJI that Anoop Baranwal had added. The Jaya Thakur challenge is pending.",
+   "key": [
+    "CEC tenure: six years or age 65, whichever is earlier.",
+    "Selection committee: PM, a Union Minister, Leader of Opposition in Lok Sabha.",
+    "Anoop Baranwal (2023) had added the CJI; the Act removed him.",
+    "Jaya Thakur v. Union of India challenges the Act; hearing set for March 2026.",
+    "CEC removal as for a Supreme Court judge (Article 324(5)); other ECs on CEC advice."
+   ],
+   "static": "Article 324 vests superintendence of elections in the Election Commission; Article 324(5) protects the CEC's tenure and service conditions.",
+   "angle": "Trap: the CJI was on the Baranwal panel but is not on the 2023 Act panel.",
+   "remember": "2023 Act: six years or 65; PM, Minister, LoP; CJI dropped."
+  },
+  {
+   "n": 11,
+   "t": "Constitution & Federalism",
+   "headline": "Cabinet approves renaming Kerala as Keralam under Article 3",
+   "when": "Cabinet approval 24 Feb 2026",
+   "what": "The Union Cabinet approved the Kerala (Alteration of Name) Bill, 2026 to rename the State as Keralam. The First Schedule will be amended once Parliament passes it by simple majority after the Kerala Legislature has given its views.",
+   "key": [
+    "Process: President's recommendation, reference to State Legislature, simple majority in Parliament.",
+    "State Legislature's views are not binding.",
+    "First Schedule is amended after passage.",
+    "Kerala Assembly resolution of 2024 sought the change.",
+    "Earlier renamings: Uttaranchal to Uttarakhand (2007), Orissa to Odisha (2011)."
+   ],
+   "static": "Article 4 provides that laws under Articles 2 and 3 are not amendments of the Constitution for Article 368.",
+   "angle": "Trap: the State Legislature's view is sought but never binding.",
+   "remember": "Article 3: ask the State, but Parliament decides by simple majority."
+  },
+  {
+   "n": 12,
+   "t": "Constitution & Federalism",
+   "headline": "Tripartite agreement creates Frontier Nagaland Territorial Authority",
+   "when": "Signed Feb 2026",
+   "what": "The Centre, Nagaland and ENPO signed an agreement creating the FNTA for six eastern districts instead of the separate state ENPO had sought since 2010. The Authority will have executive and legislative powers over 46 subjects.",
+   "key": [
+    "Districts: Tuensang, Mon, Kiphire, Longleng, Noklak and Shamator.",
+    "Powers over 46 subjects; mini-secretariat headed by an Additional Chief Secretary or Principal Secretary.",
+    "ENPO demanded 'Frontier Nagaland' state since 2010.",
+    "Article 371A remains unaffected.",
+    "Seen as a 'middle path' between statehood and district administration."
+   ],
+   "static": "Article 371A gives Nagaland special protection over Naga customary law, religious practices and land; Article 371C covers Manipur's hill areas.",
+   "angle": "Trap: it is a territorial authority within Nagaland, not a new State, UT or Sixth Schedule council.",
+   "remember": "Six districts, 46 subjects, Article 371A intact."
+  },
+  {
+   "n": 13,
+   "t": "Constitution & Federalism",
+   "headline": "Centre says Registrar General did not back Jhodia ST status for Odisha",
+   "when": "Lok Sabha reply, Feb 2026",
+   "what": "The Centre told the Lok Sabha that the Registrar General of India did not support Odisha's proposal to list the Jhodia community as a Scheduled Tribe and returned it to the State. Jhodia had been treated as a synonym of Paroja until 1997.",
+   "key": [
+    "Jhodia live in Koraput, Rayagada and parts of Kalahandi.",
+    "Treated as a synonym of Paroja and given ST benefits until 1997.",
+    "Inclusion needs a Presidential notification, then an Act of Parliament for change.",
+    "Registrar General of India examines such proposals.",
+    "Odisha's ST population was 95,90,756 (Census 2011)."
+   ],
+   "static": "Article 342 governs Scheduled Tribes; Article 341 governs Scheduled Castes.",
+   "angle": "Trap: the Governor is consulted, but the President notifies the ST list.",
+   "remember": "President notifies, Parliament amends, Registrar General vets."
+  },
+  {
+   "n": 14,
+   "t": "Constitution & Federalism",
+   "headline": "NCST celebrates 23rd Foundation Day",
+   "when": "19 Feb 2026",
+   "what": "The National Commission for Scheduled Tribes marked its 23rd Foundation Day in New Delhi. It was carved out of the combined SC/ST Commission in 2004 after the 89th Amendment inserted Article 338A.",
+   "key": [
+    "Article 338A inserted by the 89th Amendment Act, 2003.",
+    "Separated from the joint SC/ST Commission on 19 February 2004.",
+    "Chairperson: Cabinet Minister rank; Vice-Chairperson: Minister of State rank.",
+    "Three other members; three-year terms.",
+    "Has civil-court powers while inquiring into complaints; reports to the President."
+   ],
+   "static": "Article 338 covers the National Commission for Scheduled Castes; Article 342 deals with specification of Scheduled Tribes.",
+   "angle": "Trap: 65th Amendment (1990) created the joint commission; the 89th (2003) split it.",
+   "remember": "65th joined SC and ST; 89th split them."
+  },
+  {
+   "n": 15,
+   "t": "Constitution & Federalism",
+   "headline": "SC asks Centre for action taken on SC sub-classification",
+   "when": "Reported Feb 2026",
+   "what": "The Supreme Court asked the Centre for an action-taken report on its 2024 judgment allowing sub-classification of Scheduled Castes and extension of the creamy-layer principle. The 2024 ruling in Davinder Singh overruled the 2004 Chinnaiah view that Scheduled Castes are a homogeneous group.",
+   "key": [
+    "Chinnaiah (2004): SCs homogeneous under Article 341; no sub-classification.",
+    "Davinder Singh (2024): overruled Chinnaiah; sub-classification within SCs/STs valid.",
+    "The 2024 bench also said the creamy-layer principle be extended to SCs.",
+    "Feb 2026: Court sought the Centre's action-taken report.",
+    "Article 341: SC list specified by the President; Parliament alone can amend."
+   ],
+   "static": "Article 341 lets the President specify Scheduled Castes by notification; only Parliament may add or remove castes from that list.",
+   "angle": "Trap: the Governor does not notify the SC list; the President does.",
+   "remember": "Chinnaiah 2004 barred it; Davinder Singh 2024 allowed it."
+  },
+  {
+   "n": 16,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Nine-judge bench to hear Sabarimala reference from 7 April",
+   "when": "Listed 16 Feb 2026; hearing from 7 Apr 2026",
+   "what": "A bench of CJI Surya Kant and Justices Joymalya Bagchi and Vipul Pancholi listed the Sabarimala reference for final hearing before a nine-judge Constitution Bench. The questions concern religious freedom, essential religious practices and the role of courts.",
+   "key": [
+    "Bench listing it: CJI Surya Kant, Justices Joymalya Bagchi and Vipul Pancholi.",
+    "Hearing before nine judges from 7 April 2026.",
+    "Questions: Articles 25 and 26, constitutional morality, essential religious practices.",
+    "Meaning of 'sections of Hindus' in Article 25(2)(b).",
+    "Arises from review of the 2018 Indian Young Lawyers Association judgment."
+   ],
+   "static": "Article 25(2)(b) allows laws throwing open Hindu religious institutions of a public character to all classes and sections of Hindus.",
+   "angle": "Trap: the matter is a reference on Articles 25 and 26, not only on Article 21.",
+   "remember": "Nine judges, 7 April, Articles 25 and 26."
+  },
+  {
+   "n": 17,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Supreme Court gives Telangana Speaker three weeks on defection petitions",
+   "when": "Feb 2026",
+   "what": "The Supreme Court gave the Telangana Assembly Speaker a final three-week deadline to decide Tenth Schedule disqualification petitions against BRS MLAs who defected, warning of contempt if the deadline is missed.",
+   "key": [
+    "Tenth Schedule added by the 52nd Amendment (1985).",
+    "91st Amendment (2003) removed the 'split' exception.",
+    "Kihoto Hollohan (1992): Speaker's decision is judicially reviewable.",
+    "Keisham Meghachandra Singh (2020): Speakers should decide within three months.",
+    "February 2026: final three-week deadline for the Telangana Speaker."
+   ],
+   "static": "A legislator is disqualified for voluntarily giving up party membership or defying the party whip; merger needs two-thirds of the legislature party.",
+   "angle": "Trap: Speaker's decision is reviewable, not final and immune.",
+   "remember": "52nd made it, 91st shut the split door, Kihoto opened review."
+  },
+  {
+   "n": 18,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Tribal women's inheritance: Ram Charan and Nawang judgments",
+   "when": "Explained, Feb 2026",
+   "what": "Customary laws of most tribes deny women absolute property rights, and the Hindu Succession Act keeps tribes out. In July 2025 the Supreme Court in Ram Charan v. Sukhram backed equal inheritance for tribal women. In October 2025 Nawang v. Bahadur held the Act cannot be applied to Scheduled Tribes by courts.",
+   "key": [
+    "Ram Charan v. Sukhram (July 2025): exclusion of tribal women is discriminatory (Article 14).",
+    "Burden lies on parties to prove that custom forbids female inheritance.",
+    "Nawang v. Bahadur (October 2025): Hindu Succession Act cannot apply to STs.",
+    "Section 2(2) of the Act excludes STs unless the Centre notifies otherwise.",
+    "Only Parliament or the Centre can extend the Act; High Court had overstepped."
+   ],
+   "static": "Section 2(2) of the Hindu Succession Act, 1956 excludes members of Scheduled Tribes unless the Central Government directs otherwise by notification.",
+   "angle": "Trap: the Court did not extend the Act to tribes; it left that to Parliament.",
+   "remember": "Ram Charan: equality for tribal daughters; Nawang: Act cannot apply, Section 2(2)."
+  },
+  {
+   "n": 19,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Supreme Court: IBC cannot govern telecom spectrum",
+   "when": "13 Feb 2026",
+   "what": "A bench of Justices P.S. Narasimha and Atul S. Chandurkar held that spectrum is a public resource owned by the Union and cannot be dealt with under the insolvency code like private assets. Telecom operators hold only a conditional, revocable licence to use it.",
+   "key": [
+    "Bench: Justices P.S. Narasimha and Atul S. Chandurkar.",
+    "Appeals concerned Aircel and Reliance Communications insolvencies.",
+    "Spectrum is a public resource owned by the Union.",
+    "Operators hold a conditional, revocable licence to use spectrum.",
+    "Governed by the Telecommunications Act 2023 and the TRAI Act 1997."
+   ],
+   "static": "The Telecommunications Act, 2023 replaced the Indian Telegraph Act, 1885 as the main telecom law.",
+   "angle": "Trap: licence to use is not ownership; lenders cannot treat spectrum as security.",
+   "remember": "Spectrum belongs to the Union; IBC cannot auction it."
+  },
+  {
+   "n": 20,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Supreme Court bans NCERT Class 8 book over judiciary chapter",
+   "when": "26 Feb 2026",
+   "what": "Acting suo motu, a bench headed by CJI Surya Kant banned a Class 8 Social Science textbook with a chapter on corruption in the judiciary and ordered copies seized. NCERT called the error unintentional.",
+   "key": [
+    "Bench headed by CJI Surya Kant acting suo motu.",
+    "Ban on circulation; seizure of copies and removal of digital versions.",
+    "Show-cause notices to NCERT director and school education secretary.",
+    "Solicitor General apologised unconditionally for the Education Ministry.",
+    "NCERT described the inclusion of the chapter as unintentional."
+   ],
+   "static": "NCERT is an autonomous body under the Ministry of Education, set up in 1961 to prepare model school textbooks.",
+   "angle": "Trap: the Court acted suo motu and issued show-cause notices; no CBI probe was ordered.",
+   "remember": "CJI acts suo motu: ban, seize, show-cause."
+  },
+  {
+   "n": 21,
+   "t": "Supreme Court & Judiciary",
+   "headline": "Collegium clears five retired judges for Allahabad High Court",
+   "when": "Feb 2026",
+   "what": "To tackle pendency, the Supreme Court Collegium approved five retired judges as ad hoc judges of the Allahabad High Court under Article 224A. The Supreme Court had relaxed the conditions for using the provision through guidelines in 2021.",
+   "key": [
+    "Article 224A: Chief Justice of a High Court may request a retired judge, with President's consent.",
+    "Five retired judges approved for the Allahabad High Court.",
+    "Guidelines easing the use of Article 224A were issued in 2021.",
+    "Article 127: ad hoc judges of the Supreme Court.",
+    "Article 128: retired judges may sit and act in the Supreme Court."
+   ],
+   "static": "Appointment of High Court judges falls under Article 217; ad hoc appointments are a supplement for pendency.",
+   "angle": "Trap: Governor appoints no judges; Chief Justice requests, President consents.",
+   "remember": "224A High Court, 127 and 128 Supreme Court."
+  },
+  {
+   "n": 22,
+   "t": "Governance & Administration",
+   "headline": "IT Rules amended: AI labels, faster takedowns",
+   "when": "Notified 10 Feb 2026; in force 20 Feb 2026",
+   "what": "MeitY amended the IT Rules, 2021 to force prominent labelling of synthetically generated (AI) content and cut the takedown time for government- or court-flagged illegal content to 3 hours from 36. Large platforms must collect and verify user declarations.",
+   "key": [
+    "Notified 10 February 2026; effective 20 February 2026.",
+    "Prominent labelling of synthetically generated content.",
+    "Takedown time cut to 3 hours from 36 hours.",
+    "Significant social media intermediaries: over 50 lakh registered users in India.",
+    "Non-compliance risks losing Section 79 safe harbour."
+   ],
+   "static": "Section 79 of the IT Act, 2000 gives intermediaries conditional safe harbour for third-party content.",
+   "angle": "Trap: the parent law is the IT Act, 2000 and the Rules are the IT Rules, 2021, not the DPDP Act.",
+   "remember": "Label the AI, take down in three hours, or lose Section 79."
+  },
+  {
+   "n": 23,
+   "t": "Governance & Administration",
+   "headline": "PM RAHAT scheme launched for cashless care of road accident victims",
+   "when": "Approved and signed at Seva Teerth, 13 Feb 2026",
+   "what": "PM RAHAT guarantees cashless treatment of up to Rs 1.5 lakh for any road accident victim for seven days after the accident. It links with the 112 emergency number and the National Health Authority's systems so that victims and Good Samaritans can reach the nearest hospital quickly.",
+   "key": [
+    "Ministry: Road Transport and Highways.",
+    "Cashless cover up to Rs 1.5 lakh for 7 days from the accident.",
+    "Funded through the Motor Vehicle Accident Fund; uninsured and hit-and-run from the Union budget.",
+    "Claims paid within 10 days by the State Health Agency.",
+    "Integrated with 112 ERSS and eDAR with NHA's TMS 2.0."
+   ],
+   "static": "Section 162 of the Motor Vehicles Act, 1988 (as amended in 2019) provides for the Motor Vehicle Accident Fund and golden hour treatment.",
+   "angle": "Trap: hit-and-run and uninsured cases are paid from the Union budget, not insurers.",
+   "remember": "Rs 1.5 lakh, 7 days, 112 and Good Samaritans."
+  },
+  {
+   "n": 24,
+   "t": "Governance & Administration",
+   "headline": "DPDP Act's RTI amendment challenged in Supreme Court",
+   "when": "Explained, Feb 2026",
+   "what": "Section 44(3) of the DPDP Act, 2023 rewrote Section 8(1)(j) of the RTI Act to exempt personal information, without the earlier public-interest override. Petitioners say it removes proportionality and can hide procurement or audit records. The government says privacy is a fundamental right.",
+   "key": [
+    "Section 44(3) of DPDP Act amends Section 8(1)(j) of the RTI Act.",
+    "Earlier text allowed disclosure if larger public interest justified it.",
+    "Government: privacy is a fundamental right; Section 8(2) still allows public-interest disclosure.",
+    "Petitioners: the change removes proportionality and may block anti-corruption disclosures.",
+    "Test after Puttaswamy: legality, legitimate aim, necessity, proportionality."
+   ],
+   "static": "Puttaswamy (2017) recognised privacy as a fundamental right under Article 21 and set the proportionality test for restrictions.",
+   "angle": "Trap: Section 8(2) public-interest disclosure remains in the RTI Act.",
+   "remember": "DPDP s.44(3) edits RTI s.8(1)(j); s.8(2) survives."
+  },
+  {
+   "n": 25,
+   "t": "Governance & Administration",
+   "headline": "Cabinet approves Rs 1 lakh crore Urban Challenge Fund",
+   "when": "Feb 2026; covers FY2025-26 to FY2030-31",
+   "what": "The Union Cabinet approved the Urban Challenge Fund, a Centrally Sponsored Scheme under which cities compete for central funds in challenge mode. It has three verticals and a guarantee corpus to help small cities borrow.",
+   "key": [
+    "Central assistance Rs 1 lakh crore, FY2025-26 to FY2030-31.",
+    "Centre pays 25 per cent of project cost; cities raise at least 50 per cent from the market.",
+    "Verticals: Cities as Growth Hubs, Creative Redevelopment, Water and Sanitation.",
+    "Rs 5,000 crore Credit Repayment Guarantee corpus for small cities.",
+    "Projects funded under AMRUT 2.0 or SBM-U 2.0 are excluded."
+   ],
+   "static": "The 74th Amendment (Part IXA, Twelfth Schedule) empowers municipalities; Budget 2026-27 also proposed City Economic Regions with Rs 5,000 crore each.",
+   "angle": "Trap: Centre 25, market 50 (not the reverse).",
+   "remember": "Centre 25, market 50, challenge mode."
+  }
+ ]
+}
