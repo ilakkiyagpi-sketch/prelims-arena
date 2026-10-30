@@ -1,0 +1,493 @@
+{
+ "id": "CAM26-02-03",
+ "title": "February 2026: International Relations & Defence",
+ "category": "International Relations & Defence",
+ "index": [
+  {
+   "t": "Trade & Economic Diplomacy",
+   "pages": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "t": "Bilateral Visits",
+   "pages": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Global Order & West Asia",
+   "pages": [
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "t": "Summits & Groupings",
+   "pages": [
+    14,
+    15
+   ]
+  },
+  {
+   "t": "Missiles & Air Defence",
+   "pages": [
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "t": "Procurement & Security Policy",
+   "pages": [
+    19,
+    20,
+    21
+   ]
+  },
+  {
+   "t": "Exercises & Naval Developments",
+   "pages": [
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Trade & Economic Diplomacy",
+   "headline": "India and US agree interim trade framework with 18 per cent tariff",
+   "when": "Joint statement 7 Feb 2026",
+   "what": "India and the United States issued a joint statement on a framework for an interim trade agreement. The US lowered its tariff on Indian goods to 18 per cent, replacing the 50 per cent total imposed in August 2025, and India signalled purchases of USD 500 billion of US goods over five years.",
+   "key": [
+    "US tariff on Indian goods cut to 18 per cent.",
+    "Earlier 50 per cent: 25 per cent reciprocal plus 25 per cent over Russian oil.",
+    "India's intent: USD 500 billion of US goods over five years.",
+    "Purchases include energy, aircraft, precious metals, technology products and coking coal.",
+    "Framework for an interim agreement, not the final trade deal."
+   ],
+   "static": "A reciprocal tariff is a duty set to match the barriers another country is said to impose on one's exports.",
+   "angle": "Trap: USD 500 billion is over five years, not ten.",
+   "remember": "18 per cent tariff; 50 earlier; 500 billion over five years."
+  },
+  {
+   "n": 2,
+   "t": "Trade & Economic Diplomacy",
+   "headline": "India and GCC sign Terms of Reference for FTA",
+   "when": "5 Feb 2026, New Delhi",
+   "what": "India and the six-member Gulf Cooperation Council signed Terms of Reference for a free trade agreement in New Delhi, with Commerce Minister Piyush Goyal presiding. India-GCC trade was USD 178.56 billion in FY2024-25, and about 10 million Indians live in GCC states.",
+   "key": [
+    "Terms of Reference signed 5 February 2026 in New Delhi.",
+    "Members: Saudi Arabia, UAE, Bahrain, Qatar, Kuwait, Oman.",
+    "Secretariat in Riyadh; GCC founded 1981.",
+    "FY2024-25 trade USD 178.56 billion: exports 56.87, imports 121.68.",
+    "About 10 million Indians live in GCC states."
+   ],
+   "static": "A Terms of Reference document sets the scope and agenda of negotiations before the actual FTA text is drafted.",
+   "angle": "Trap: the GCC Secretariat is in Riyadh.",
+   "remember": "Six members, Riyadh, 1981, imports exceed exports."
+  },
+  {
+   "n": 3,
+   "t": "Trade & Economic Diplomacy",
+   "headline": "Bangladesh-US trade deal narrows India's tariff advantage",
+   "when": "13 Feb 2026",
+   "what": "Bangladesh and the United States signed a reciprocal trade agreement with a 19 per cent US tariff and a duty-free textile quota for goods made with US cotton and man-made fibre. Bangladesh also committed to buy USD 3.5 billion of US farm goods and USD 15 billion of energy over 15 years.",
+   "key": [
+    "Bangladesh's US tariff: 19 per cent; India faces 18 per cent.",
+    "Duty-free textile quota with US cotton and man-made-fibre inputs.",
+    "Commitments: USD 3.5 billion of farm goods and USD 15 billion of energy over 15 years.",
+    "Bangladesh is the second-largest apparel exporter after China."
+   ],
+   "static": "Man-made fibres such as polyester are petroleum-based, unlike natural fibres such as cotton.",
+   "angle": "Trap: China, not Bangladesh, leads in apparel exports.",
+   "remember": "Bangladesh 19, India 18; Bangladesh is second to China."
+  },
+  {
+   "n": 4,
+   "t": "Trade & Economic Diplomacy",
+   "headline": "India chairs the Kimberley Process in 2026 for third time",
+   "when": "Reported Feb 2026",
+   "what": "India took over the chair of the Kimberley Process for 2026, its third time. The Process governs trade in conflict diamonds through a certification scheme formalised in 2003 and has 60 participants covering 80 countries. India imports about 40 per cent of global rough diamonds and polishes most of them.",
+   "key": [
+    "Tripartite: governments, diamond industry and civil society; started in 2000.",
+    "KPCS formalised in 2003; 60 participants representing 80 countries.",
+    "Covers about 99.8 per cent of global rough diamond production.",
+    "India chairs for the third time; nodal agency is GJEPC.",
+    "India imports about 40 per cent of rough diamonds; cutting hub in Surat and Mumbai."
+   ],
+   "static": "Conflict diamonds are rough diamonds sold by rebel groups to fund wars against legitimate governments, as defined in UN Security Council resolutions.",
+   "angle": "Trap: India is an importer and processor, not a producer of rough diamonds.",
+   "remember": "Kimberley Process: conflict diamonds, KPCS 2003, India third-time chair."
+  },
+  {
+   "n": 5,
+   "t": "Bilateral Visits",
+   "headline": "Macron's visit lifts India-France ties to Special Global Strategic Partnership",
+   "when": "17-19 Feb 2026",
+   "what": "President Emmanuel Macron visited India from 17 to 19 February 2026. The countries upgraded to a Special Global Strategic Partnership, jointly launched the Year of Innovation in Mumbai, discussed small modular reactors and the Jaitapur project, and France backed India's 100 GW nuclear goal for 2047.",
+   "key": [
+    "Ties elevated to a 'Special Global Strategic Partnership'.",
+    "Year of Innovation 2026 jointly inaugurated in Mumbai on 17 February.",
+    "Cooperation is guided by the Horizon 2047 Roadmap (2023).",
+    "France backed India's 100 GW nuclear target for 2047.",
+    "Leaders commended the contract for 26 Rafale-Marine jets."
+   ],
+   "static": "Jaitapur in Maharashtra is the site proposed for six EPR reactors with French collaboration.",
+   "angle": "Trap: the nuclear target is 100 GW by 2047, not 2030.",
+   "remember": "France: Special Global Strategic Partnership; 100 GW by 2047."
+  },
+  {
+   "n": 6,
+   "t": "Bilateral Visits",
+   "headline": "Lula's state visit: critical minerals MoU and USD 30 billion trade goal",
+   "when": "21 Feb 2026",
+   "what": "President Luiz Inacio Lula da Silva made a state visit to India. India and Brazil signed a non-binding MoU on rare earths and critical minerals and set a USD 30 billion trade target. Lula was invited to the 18th BRICS Summit hosted by India in 2026.",
+   "key": [
+    "Non-binding MoU on rare earths and critical minerals signed 21 February 2026.",
+    "Bilateral trade target: USD 30 billion.",
+    "Trade rose 25.5 per cent in 2025 to USD 15.21 billion.",
+    "Lula invited to the 18th BRICS Summit hosted by India in 2026.",
+    "Strategic Partnership dates to 2006; both coordinate in the G4."
+   ],
+   "static": "The National Critical Mineral Mission was approved by the Union Cabinet in January 2025.",
+   "angle": "Trap: trade rose by 25.5 per cent; it did not fall.",
+   "remember": "Brazil: critical minerals MoU, 30 billion goal, trade up 25.5."
+  },
+  {
+   "n": 7,
+   "t": "Bilateral Visits",
+   "headline": "Seychelles President's state visit brings USD 175 million package",
+   "when": "5-10 Feb 2026",
+   "what": "President Patrick Herminie of Seychelles paid his first state visit to India. Prime Minister Modi announced a USD 175 million Special Economic Package and the sides adopted the vision SESEL. India will help set up a Seychelles Hydrographic Unit.",
+   "key": [
+    "First state visit of Patrick Herminie, 5 to 10 February 2026.",
+    "USD 175 million Special Economic Package.",
+    "Joint vision SESEL.",
+    "Seven MoUs: health and pharma, marine science, food security, culture, capacity building, digital transformation.",
+    "India to help set up a Seychelles Hydrographic Unit."
+   ],
+   "static": "Seychelles joined the Colombo Security Conclave in 2025; the grouping includes India, Sri Lanka, Mauritius, Maldives and Bangladesh.",
+   "angle": "Trap: none of the seven MoUs was on defence procurement.",
+   "remember": "Seychelles: 175 million, SESEL, seven civil MoUs."
+  },
+  {
+   "n": 8,
+   "t": "Bilateral Visits",
+   "headline": "Modi in Malaysia: MoUs on anti-corruption, semiconductors and security",
+   "when": "7-8 Feb 2026",
+   "what": "Prime Minister Modi visited Malaysia at the invitation of PM Anwar Ibrahim and reaffirmed the Comprehensive Strategic Partnership. MoUs covered disaster management, anti-corruption, UN peacekeeping, semiconductors, insurance, education, security and health.",
+   "key": [
+    "First foreign trip of 2026; invited by PM Anwar Ibrahim.",
+    "Comprehensive Strategic Partnership reaffirmed.",
+    "MoUs include CBI and MACC cooperation on anti-corruption.",
+    "Thiruvalluvar Centre to be set up in Malaysia.",
+    "Malaysia acceded to the International Big Cat Alliance."
+   ],
+   "static": "The Thiruvalluvar Chair already exists at the University of Malaya, and Tamil classics are a theme in India-Malaysia cultural ties.",
+   "angle": "Trap: Malaysia's partnership is Comprehensive Strategic; Special Global applies to France.",
+   "remember": "Malaysia: first trip of 2026; Comprehensive Strategic."
+  },
+  {
+   "n": 9,
+   "t": "Bilateral Visits",
+   "headline": "Modi's two-day Israel visit: Knesset address and 16 agreements",
+   "when": "25-26 Feb 2026",
+   "what": "Prime Minister Modi made a two-day visit to Israel on 25-26 February 2026, addressing the Knesset and signing 16 agreements. The visit came shortly before US-Israeli strikes on Iran on 28 February.",
+   "key": [
+    "Visit dates: 25 to 26 February 2026.",
+    "Address to the Knesset.",
+    "Sixteen agreements signed.",
+    "Strikes on Iran followed on 28 February 2026.",
+    "India-Israel UPI payment linkage was among areas explored."
+   ],
+   "static": "India and Israel established full diplomatic relations in 1992.",
+   "angle": "Trap: the strikes came after, not before, the visit.",
+   "remember": "Israel visit 25-26 Feb; 16 agreements; strikes on 28 Feb."
+  },
+  {
+   "n": 10,
+   "t": "Global Order & West Asia",
+   "headline": "US and Israel strike Tehran; Iran hits US-linked bases",
+   "when": "28 Feb 2026",
+   "what": "Israel and the US struck Tehran on 28 February 2026 after nuclear talks stalled, with the US naming its operation Operation Epic Fury. Iran retaliated against US-linked bases in Qatar, Kuwait, the UAE and Bahrain. About 60 per cent of India's energy imports are linked to the region.",
+   "key": [
+    "Strikes on 28 February 2026; US operation named Operation Epic Fury.",
+    "Retaliation: Al Udeid (Qatar), Al-Salem (Kuwait), Al-Dhafra (UAE), Fifth Fleet HQ (Bahrain).",
+    "About 60 per cent of India's energy imports are linked to the region.",
+    "Strait of Hormuz concerns for India.",
+    "Modi's Israel visit ended two days earlier."
+   ],
+   "static": "The US Fifth Fleet, headquartered in Bahrain, covers the Persian Gulf, Red Sea and parts of the Arabian Sea.",
+   "angle": "Trap: Al-Dhafra is in the UAE; Al-Salem is in Kuwait.",
+   "remember": "Epic Fury; Qatar, Kuwait, UAE, Bahrain bases hit."
+  },
+  {
+   "n": 11,
+   "t": "Global Order & West Asia",
+   "headline": "Iran closes parts of Hormuz for live-fire naval drills",
+   "when": "February 2026",
+   "what": "Iran temporarily closed parts of the Strait of Hormuz for live-fire drills while indirect nuclear talks were held in Geneva, and Iran, Russia and China were set to hold a joint naval exercise there. About half of India's crude imports and 60 per cent of its natural gas imports transit the strait.",
+   "key": [
+    "Drills named 'Smart Control of the Strait of Hormuz'.",
+    "Roughly one-fifth of the world's oil passes through the strait.",
+    "Half of India's crude and about 60 per cent of its natural gas imports transit it.",
+    "Iran, Russia and China planned a joint naval exercise.",
+    "It links the Persian Gulf with the Gulf of Oman."
+   ],
+   "static": "The Strait of Hormuz links the Persian Gulf and the Gulf of Oman; the Bab-el-Mandeb links the Red Sea and the Gulf of Aden.",
+   "angle": "Trap: Hormuz lies between the Persian Gulf and the Gulf of Oman.",
+   "remember": "Hormuz: about one-fifth of world oil; Persian Gulf to Gulf of Oman."
+  },
+  {
+   "n": 12,
+   "t": "Global Order & West Asia",
+   "headline": "New START, the last US-Russia nuclear arms treaty, expires",
+   "when": "5 Feb 2026",
+   "what": "The New START treaty between the United States and Russia expired on 5 February 2026. It was the bilateral treaty that capped strategic nuclear arms, and its lapse leaves no binding limits on the two largest arsenals.",
+   "key": [
+    "Expired 5 February 2026.",
+    "Bilateral US-Russia treaty on strategic nuclear arms.",
+    "Not a multilateral agreement; China and others are not parties.",
+    "Different from the INF Treaty on intermediate-range missiles.",
+    "Last remaining treaty limiting the two largest arsenals."
+   ],
+   "static": "The Nuclear Non-Proliferation Treaty (1968) is separate and multilateral; India is not a party to it.",
+   "angle": "Trap: New START is bilateral, not the NPT or a test-ban treaty.",
+   "remember": "New START: US-Russia, strategic arms, expired 5 February."
+  },
+  {
+   "n": 13,
+   "t": "Global Order & West Asia",
+   "headline": "India attends Trump's Board of Peace meeting only as observer",
+   "when": "19 Feb 2026",
+   "what": "India attended the inaugural meeting of the US-led Board of Peace on Gaza in Washington as an observer, represented by its Chargé d'affaires, and did not join the Board. The Board was unveiled by President Trump at Davos on 22 January 2026 and the US pledged USD 10 billion.",
+   "key": [
+    "Inaugural meeting in Washington on 19 February 2026.",
+    "India an observer, represented by Chargé d'affaires Namgya Khampa; not a Board member.",
+    "Unveiled at Davos on 22 January 2026 under phase two of the ceasefire.",
+    "US pledged USD 10 billion.",
+    "India backs a two-state solution and UNSC Resolution 2803."
+   ],
+   "static": "UNSC Resolution 2803 endorsed the framework for ending the Gaza war; India supports a two-state solution with Israel and Palestine living in peace.",
+   "angle": "Trap: India observes but has not joined, and has not dropped the two-state position.",
+   "remember": "Board of Peace: Trump's Gaza body; India observer only."
+  },
+  {
+   "n": 14,
+   "t": "Summits & Groupings",
+   "headline": "India AI Impact Summit ends with New Delhi Declaration",
+   "when": "Concluded 20 Feb 2026",
+   "what": "The India AI Impact Summit 2026 in New Delhi ended on 20 February with the New Delhi Declaration on AI Impact. It is non-binding, built on three Sutras (People, Planet, Progress) and seven Chakras, and was endorsed by a wide group of countries and organisations.",
+   "key": [
+    "Summit concluded 20 February 2026 in New Delhi.",
+    "Three Sutras: People, Planet, Progress; seven Chakras.",
+    "Non-binding; guided by 'Sarvajan Hitaya, Sarvajan Sukhaya'.",
+    "Endorsed by dozens of countries and organisations, including major AI powers.",
+    "Notes the voluntary Charter for the Democratic Diffusion of AI."
+   ],
+   "static": "A declaration is a political commitment; a treaty or convention creates legally binding obligations.",
+   "angle": "Trap: the declaration is non-binding.",
+   "remember": "Three Sutras, seven Chakras, non-binding declaration."
+  },
+  {
+   "n": 15,
+   "t": "Summits & Groupings",
+   "headline": "India joins US-led Pax Silica supply chain initiative",
+   "when": "20 Feb 2026",
+   "what": "India signed the Pax Silica declaration on the sidelines of the AI Impact Summit in New Delhi. The US-led initiative, launched in December 2025, aims to secure supply chains for semiconductors, AI and critical minerals.",
+   "key": [
+    "India joined on 20 February 2026.",
+    "Launched by the US in December 2025.",
+    "Focus: semiconductors, AI, critical minerals supply chains.",
+    "Earlier members include Japan, Australia, Netherlands, South Korea, Singapore, Israel, UK, Qatar, UAE.",
+    "Signed on the sidelines of the India AI Impact Summit."
+   ],
+   "static": "Pax Silica sits alongside the Minerals Security Partnership as a trusted-supplier grouping for critical technologies.",
+   "angle": "Trap: Russia is not a member; the grouping is US-aligned.",
+   "remember": "Pax Silica: US-led chips, AI, minerals; India joined 20 Feb."
+  },
+  {
+   "n": 16,
+   "t": "Missiles & Air Defence",
+   "headline": "DRDO flight-tests Solid Fuel Ducted Ramjet",
+   "when": "3 Feb 2026",
+   "what": "DRDO successfully demonstrated Solid Fuel Ducted Ramjet technology from Chandipur, placing India among a small group of countries with the capability. The air-breathing system burns boron-based solid fuel and powers the Astra Mk-3 missile.",
+   "key": [
+    "Tested 3 February 2026 at ITR Chandipur, Odisha.",
+    "Air-breathing: burns boron-based solid fuel with atmospheric oxygen.",
+    "Sustained speeds of Mach 2 to 3.8; range 50-340 km.",
+    "Core propulsion for the Astra Mk-3 missile.",
+    "Meant to rival the Meteor and PL-15."
+   ],
+   "static": "A ramjet needs forward speed to compress incoming air, so it works only after a booster accelerates the missile.",
+   "angle": "Trap: a ramjet takes oxygen from the air; a rocket carries oxidiser.",
+   "remember": "SFDR: air-breathing, boron fuel, Astra Mk-3."
+  },
+  {
+   "n": 17,
+   "t": "Missiles & Air Defence",
+   "headline": "India test-fires nuclear-capable Agni-III from Chandipur",
+   "when": "6 Feb 2026",
+   "what": "India test-fired the nuclear-capable Agni-III intermediate-range ballistic missile from Chandipur, Odisha, under the supervision of the Strategic Forces Command. The missile is two-stage and solid-fuelled with a range above 3,000 km.",
+   "key": [
+    "Test-fired 6 February 2026 from ITR Chandipur.",
+    "Supervised by the Strategic Forces Command.",
+    "Two-stage, solid-fuelled, range above 3,000 km, payload 1,500 kg.",
+    "Part of the Strategic Forces Command since 2011.",
+    "Classified as an intermediate-range ballistic missile."
+   ],
+   "static": "The Agni series began under the Integrated Guided Missile Development Programme (IGMDP).",
+   "angle": "Trap: Agni-III is an IRBM, not an ICBM.",
+   "remember": "Agni-III: IRBM, 3,000 km, SFC."
+  },
+  {
+   "n": 18,
+   "t": "Missiles & Air Defence",
+   "headline": "DRDO tests VSHORADS three times in succession",
+   "when": "28 Feb 2026",
+   "what": "DRDO conducted three successive flight trials of the man-portable VSHORADS from Chandipur. Designed by Research Centre Imarat, the missile has a maximum range of 8 km and a miniaturised Reaction Control System with integrated avionics.",
+   "key": [
+    "Three flight trials at ITR Chandipur, Odisha.",
+    "Man-portable air defence missile designed by Research Centre Imarat.",
+    "Maximum range 8 km; altitude up to 4.5 km.",
+    "Features a miniaturised Reaction Control System.",
+    "Developed with other DRDO labs and industry."
+   ],
+   "static": "MANPADS are shoulder-fired missiles for low-altitude air defence against helicopters, drones and aircraft.",
+   "angle": "Trap: range is 8 km, not 25 km.",
+   "remember": "VSHORADS: man-portable, 8 km, 4.5 km altitude."
+  },
+  {
+   "n": 19,
+   "t": "Procurement & Security Policy",
+   "headline": "Defence Ministry buys eight Dornier 228 aircraft from HAL",
+   "when": "Contract signed Feb 2026",
+   "what": "The Defence Ministry signed a Rs 2,312 crore contract with HAL's Transport Aircraft Division, Kanpur, for eight Dornier 228 aircraft under the Buy (Indian) category. The Dornier 228 is a twin-turboprop STOL light transport that HAL has built under licence since 1985.",
+   "key": [
+    "Eight Dornier 228 aircraft; contract value Rs 2,312 crore.",
+    "Supplier: HAL Transport Aircraft Division, Kanpur.",
+    "Procurement category: Buy (Indian).",
+    "Twin-turboprop short take-off and landing light transport aircraft.",
+    "Used for utility transport, Coast Guard and maritime surveillance."
+   ],
+   "static": "Buy (Indian) is the top-priority category of the Defence Acquisition Procedure, requiring a minimum indigenous content for domestically designed or manufactured platforms.",
+   "angle": "Trap: the Dornier 228 is a light transport turboprop, not a combat jet.",
+   "remember": "Dornier 228: eight aircraft, HAL Kanpur, Rs 2,312 crore, Buy (Indian)."
+  },
+  {
+   "n": 20,
+   "t": "Procurement & Security Policy",
+   "headline": "Budget gives Defence the largest allocation",
+   "when": "Budget 2026-27",
+   "what": "Union Budget 2026-27 allotted about Rs 7.85 lakh crore to the Ministry of Defence, the highest of any ministry. Capital outlay is above Rs 2.19 lakh crore with Rs 1.39 lakh crore reserved for domestic industry, and ECHS received Rs 12,100 crore.",
+   "key": [
+    "Defence allocation about Rs 7.85 lakh crore, highest of any ministry.",
+    "Capital outlay above Rs 2.19 lakh crore.",
+    "Rs 1.39 lakh crore earmarked for domestic industry.",
+    "ECHS allocation Rs 12,100 crore, up 45.49 per cent.",
+    "Defence spending about 2 per cent of GDP; DRDO allocation up about 8.5 per cent."
+   ],
+   "static": "Capital outlay buys long-term assets such as aircraft and ships, while revenue expenditure covers salaries, pensions and operations.",
+   "angle": "Trap: spending is about 2 per cent of GDP, not 3.",
+   "remember": "Defence 7.85 lakh crore; domestic 1.39; GDP share 2."
+  },
+  {
+   "n": 21,
+   "t": "Procurement & Security Policy",
+   "headline": "MHA releases PRAHAAR counter-terrorism policy",
+   "when": "23 Feb 2026",
+   "what": "The Ministry of Home Affairs released PRAHAAR, an eight-page national counter-terrorism policy and strategy. It prioritises intelligence-led prevention, covers drones, terror financing and CBRNED threats and calls for a whole-of-government and whole-of-society approach.",
+   "key": [
+    "Released 23 February 2026; India's first comprehensive CT policy.",
+    "Intelligence-led prevention via the Multi Agency Centre and the Joint Task Force on Intelligence.",
+    "Covers drones, terror financing and CBRNED materials.",
+    "National Security Guard is the nodal response agency; NIA investigates.",
+    "Whole-of-government and whole-of-society approach respecting human rights."
+   ],
+   "static": "The Multi Agency Centre is the intelligence-sharing hub that functions under the Intelligence Bureau.",
+   "angle": "Trap: NSG responds; NIA investigates.",
+   "remember": "PRAHAAR: NSG responds, NIA investigates."
+  },
+  {
+   "n": 22,
+   "t": "Exercises & Naval Developments",
+   "headline": "Exercise Vajra Prahar begins at Bakloh",
+   "when": "23 Feb to 15 Mar 2026",
+   "what": "The 16th edition of Exercise Vajra Prahar began at the Special Forces Training School in Bakloh. The exercise, first held in 2010, brings together Indian Army Special Forces and US Army Green Berets and alternates between the two countries.",
+   "key": [
+    "16th edition: 23 February to 15 March 2026.",
+    "Venue: Special Forces Training School, Bakloh, Himachal Pradesh.",
+    "Indian Army Special Forces with US Army Green Berets.",
+    "First held in 2010; alternates between the two countries.",
+    "Earlier edition in Idaho, United States."
+   ],
+   "static": "Other India-US exercises are Yudh Abhyas (Army), Cope India (Air Force) and Malabar (Navy).",
+   "angle": "Trap: the previous edition was in Idaho, USA.",
+   "remember": "Vajra Prahar: India-US special forces; last in Idaho."
+  },
+  {
+   "n": 23,
+   "t": "Exercises & Naval Developments",
+   "headline": "Exercises in news: Khanjar, Dharma Guardian, MILAN and Vayu Shakti",
+   "when": "Feb 2026",
+   "what": "Exercises in the month's news included the annual India-Kyrgyzstan Khanjar, the seventh India-Japan Army exercise Dharma Guardian at Chaubattia, Uttarakhand, the biennial multilateral naval exercise MILAN hosted by the Indian Navy, and the Air Force's Vayu Shakti firepower demonstration.",
+   "key": [
+    "Khanjar: annual bilateral exercise between India and Kyrgyzstan.",
+    "Dharma Guardian: India-Japan Army exercise; seventh edition at Chaubattia.",
+    "MILAN: biennial multilateral naval exercise hosted by the Indian Navy.",
+    "Vayu Shakti: Indian Air Force's flagship firepower demonstration.",
+    "Fleet review off Visakhapatnam on 18 February ran alongside MILAN."
+   ],
+   "static": "Other India-Japan exercises include Malabar, JIMEX (naval) and SHINYUU Maitri (air force).",
+   "angle": "Trap: Vayu Shakti belongs to the Air Force, not the Army.",
+   "remember": "Khanjar Kyrgyzstan; Dharma Guardian Japan; MILAN naval; Vayu Shakti IAF."
+  },
+  {
+   "n": 24,
+   "t": "Exercises & Naval Developments",
+   "headline": "Indian Navy takes command of Combined Task Force 154",
+   "when": "14 Feb 2026",
+   "what": "For the first time the Indian Navy assumed command of Combined Task Force 154, the training task force of the 47-nation Combined Maritime Forces. CTF-154 focuses on maritime security training and was set up in May 2023.",
+   "key": [
+    "Indian Navy took command for the first time.",
+    "CTF-154 is the training task force, set up May 2023.",
+    "CMF has 47 nations and is headquartered in Bahrain.",
+    "CTF-150: maritime security; CTF-151: counter-piracy.",
+    "CTF-152: Arabian Gulf; CTF-153: Red Sea."
+   ],
+   "static": "The Combined Maritime Forces is a multinational naval partnership for maritime security, counter-piracy and training.",
+   "angle": "Trap: counter-piracy is CTF-151; CTF-154 trains.",
+   "remember": "CTF-154 trains; 151 fights piracy."
+  },
+  {
+   "n": 25,
+   "t": "Exercises & Naval Developments",
+   "headline": "Navy commissions INS Anjadip, a GRSE-built shallow water craft",
+   "when": "27 Feb 2026",
+   "what": "The Navy commissioned INS Anjadip at Chennai on 27 February 2026 in the presence of Chief of the Naval Staff Admiral Dinesh K. Tripathi. Built by GRSE Kolkata, the 77-metre craft has a hull-mounted sonar, light torpedoes and anti-submarine rockets.",
+   "key": [
+    "ASW shallow water craft built by GRSE Kolkata; commissioned at Chennai on 27 February 2026.",
+    "Commissioned in the presence of Admiral Dinesh K. Tripathi, Chief of the Naval Staff.",
+    "77 metres long; over 80 per cent indigenous content.",
+    "Hull-mounted sonar, light torpedoes, anti-submarine rockets, water-jet propulsion.",
+    "First of class INS Arnala commissioned 18 June 2025; eight craft are being built."
+   ],
+   "static": "Shallow water craft are built for anti-submarine warfare close to the coast and in ports.",
+   "angle": "Trap: the Chief of the Naval Staff, not the Army chief, attended.",
+   "remember": "Anjadip: GRSE-built, 77 m, over 80 per cent indigenous; Naval chief attended."
+  }
+ ]
+}

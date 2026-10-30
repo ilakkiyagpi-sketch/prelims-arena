@@ -1,11 +1,11 @@
-var GAS_SCRIPT="/* Prelims Arena v2: Google Sheet sync script.\n   Setup:\n   1) In a new Google Sheet: Extensions > Apps Script. Delete the sample code and paste this whole script.\n   2) Change the passphrase on the next line. Use the same passphrase in the app.\n   3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.\n   4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.\n   You can type your own questions in the \"My questions\" tab. Answer column takes A, B, C or D. Leave the id column empty. */\nvar KEY = 'change-this-passphrase';\n\nvar T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data';\nvar H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];\nvar H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];\nvar H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];\nvar H_DATA = ['id','kind','ts','record'];\n\nfunction sheet_(name, h) {\n  var ss = SpreadsheetApp.getActiveSpreadsheet();\n  var s = ss.getSheetByName(name);\n  if (!s) { s = ss.insertSheet(name); s.appendRow(h); s.setFrozenRows(1); s.getRange(1, 1, 1, h.length).setFontWeight('bold'); }\n  return s;\n}\nfunction rows_(s, w) { var n = s.getLastRow(); return n > 1 ? s.getRange(2, 1, n - 1, w).getValues() : []; }\nfunction idx_(rows) { var m = {}; rows.forEach(function (r, i) { if (r[0] !== '') m[String(r[0])] = i; }); return m; }\nfunction out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }\nfunction d_(v) { return v instanceof Date ? Utilities.formatDate(v, Session.getScriptTimeZone(), 'yyyy-MM-dd') : String(v); }\nfunction n_(v) { return v === '' || v == null ? null : Number(v); }\nfunction L_(i) { return ['A', 'B', 'C', 'D'][i] || ''; }\n\nfunction doPost(e) {\n  var lock = LockService.getScriptLock(); lock.waitLock(25000);\n  try {\n    var b = JSON.parse(e.postData.contents);\n    if (b.key !== KEY) return out_({error: 'wrong passphrase'});\n    var res = sheet_(T_RES, H_RES), tst = sheet_(T_TEST, H_TEST), myq = sheet_(T_MYQ, H_MYQ), dat = sheet_(T_DATA, H_DATA);\n    var resIdx = idx_(rows_(res, 1));\n    var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);\n    var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);\n    var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);\n    var newRes = [];\n    (b.recs || []).forEach(function (r) {\n      var ts = Number(r.ts) || 0;\n      if (r.kind === 'att') {\n        if (r.id in resIdx) return;\n        resIdx[r.id] = -1;\n        var att = r.r + r.w;\n        newRes.push([r.id, r.date, r.type, r.title, r.subject, r.n, r.r, r.w, r.sk, r.pts, r.max,\n          r.max ? Math.round(r.pts / r.max * 1000) / 10 : '', att ? Math.round(r.r / att * 1000) / 10 : '',\n          Math.round((r.sec || 0) / 6) / 10, r.sched || '', r.setId || '', ts, JSON.stringify(r)]);\n      } else if (r.kind === 'test') {\n        var row = [r.id, r.name || '', r.type || '', r.subject || '', r.date || '', r.marks == null ? '' : r.marks, r.max == null ? '' : r.max,\n          (r.marks != null && r.max) ? Math.round(r.marks / r.max * 1000) / 10 : '', r.r == null ? '' : r.r, r.w == null ? '' : r.w, r.rank == null ? '' : r.rank, ts, r.del ? 'yes' : ''];\n        upsert_(tst, tRows, tIdx, row, 11);\n      } else if (r.kind === 'myq') {\n        var o = r.o || [];\n        var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];\n        upsert_(myq, qRows, qIdx, row2, 11);\n      } else {\n        upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);\n      }\n    });\n    if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);\n    if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);\n    return out_({ok: true});\n  } finally { lock.releaseLock(); }\n}\nfunction upsert_(s, rows, idx, row, tsCol) {\n  var id = String(row[0]);\n  if (id in idx) {\n    var i = idx[id];\n    if ((Number(row[tsCol]) || 0) >= (Number(rows[i][tsCol]) || 0)) { s.getRange(i + 2, 1, 1, row.length).setValues([row]); rows[i] = row; }\n  } else { s.appendRow(row); rows.push(row); idx[id] = rows.length - 1; }\n}\nfunction doGet(e) {\n  if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});\n  var out = [];\n  rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {\n    try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}\n  });\n  rows_(sheet_(T_TEST, H_TEST), H_TEST.length).forEach(function (r) {\n    out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});\n  });\n  var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);\n  qRows.forEach(function (r, i) {\n    if (r[3] === '') return;\n    if (r[0] === '') { // typed by hand in the Sheet: give it an id\n      r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();\n      q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);\n    }\n    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());\n    out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});\n  });\n  rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {\n    try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}\n  });\n  return out_({recs: out});\n}\n";
+var GAS_SCRIPT="/* Prelims Arena v2: Google Sheet sync script.\n   Setup:\n   1) In a new Google Sheet: Extensions > Apps Script. Delete the sample code and paste this whole script.\n   2) Change the passphrase on the next line. Use the same passphrase in the app.\n   3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.\n   4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.\n   Your daily study log appears in the \"Study log\" tab.\n   You can type your own questions in the \"My questions\" tab. Answer column takes A, B, C or D. Leave the id column empty. */\nvar KEY = 'change-this-passphrase';\n\nvar T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data', T_LOG = 'Study log';\nvar H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];\nvar H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];\nvar H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];\nvar H_DATA = ['id','kind','ts','record'];\nvar H_LOG = ['id','date','day','hours','subjects','covered','reasons','shankar test','notes','ts','deleted'];\nvar LOG_ST = {full: 'Studied as planned', partial: 'Studied partly', none: 'Could not study'};\n\nfunction sheet_(name, h) {\n  var ss = SpreadsheetApp.getActiveSpreadsheet();\n  var s = ss.getSheetByName(name);\n  if (!s) { s = ss.insertSheet(name); s.appendRow(h); s.setFrozenRows(1); s.getRange(1, 1, 1, h.length).setFontWeight('bold'); }\n  return s;\n}\nfunction rows_(s, w) { var n = s.getLastRow(); return n > 1 ? s.getRange(2, 1, n - 1, w).getValues() : []; }\nfunction idx_(rows) { var m = {}; rows.forEach(function (r, i) { if (r[0] !== '') m[String(r[0])] = i; }); return m; }\nfunction out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }\nfunction d_(v) { return v instanceof Date ? Utilities.formatDate(v, Session.getScriptTimeZone(), 'yyyy-MM-dd') : String(v); }\nfunction n_(v) { return v === '' || v == null ? null : Number(v); }\nfunction L_(i) { return ['A', 'B', 'C', 'D'][i] || ''; }\n\nfunction doPost(e) {\n  var lock = LockService.getScriptLock(); lock.waitLock(25000);\n  try {\n    var b = JSON.parse(e.postData.contents);\n    if (b.key !== KEY) return out_({error: 'wrong passphrase'});\n    var res = sheet_(T_RES, H_RES), tst = sheet_(T_TEST, H_TEST), myq = sheet_(T_MYQ, H_MYQ), dat = sheet_(T_DATA, H_DATA);\n    var resIdx = idx_(rows_(res, 1));\n    var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);\n    var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);\n    var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);\n    var lg = sheet_(T_LOG, H_LOG), lRows = rows_(lg, H_LOG.length), lIdx = idx_(lRows);\n    var newRes = [];\n    (b.recs || []).forEach(function (r) {\n      var ts = Number(r.ts) || 0;\n      if (r.kind === 'att') {\n        if (r.id in resIdx) return;\n        resIdx[r.id] = -1;\n        var att = r.r + r.w;\n        newRes.push([r.id, r.date, r.type, r.title, r.subject, r.n, r.r, r.w, r.sk, r.pts, r.max,\n          r.max ? Math.round(r.pts / r.max * 1000) / 10 : '', att ? Math.round(r.r / att * 1000) / 10 : '',\n          Math.round((r.sec || 0) / 6) / 10, r.sched || '', r.setId || '', ts, JSON.stringify(r)]);\n      } else if (r.kind === 'test') {\n        var row = [r.id, r.name || '', r.type || '', r.subject || '', r.date || '', r.marks == null ? '' : r.marks, r.max == null ? '' : r.max,\n          (r.marks != null && r.max) ? Math.round(r.marks / r.max * 1000) / 10 : '', r.r == null ? '' : r.r, r.w == null ? '' : r.w, r.rank == null ? '' : r.rank, ts, r.del ? 'yes' : ''];\n        upsert_(tst, tRows, tIdx, row, 11);\n      } else if (r.kind === 'myq') {\n        var o = r.o || [];\n        var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];\n        upsert_(myq, qRows, qIdx, row2, 11);\n      } else if (r.kind === 'log') {\n        upsert_(lg, lRows, lIdx, [r.id, r.date || '', LOG_ST[r.status] || '', r.hours == null ? '' : r.hours, (r.subjects || []).join(', '), r.covered || '',\n          (r.reasons || []).join(', '), r.test === 'yes' ? 'taken' : (r.test === 'no' ? 'missed' : ''), r.note || '', ts, r.del ? 'yes' : ''], 9);\n      } else {\n        upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);\n      }\n    });\n    if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);\n    if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);\n    return out_({ok: true});\n  } finally { lock.releaseLock(); }\n}\nfunction upsert_(s, rows, idx, row, tsCol) {\n  var id = String(row[0]);\n  if (id in idx) {\n    var i = idx[id];\n    if ((Number(row[tsCol]) || 0) >= (Number(rows[i][tsCol]) || 0)) { s.getRange(i + 2, 1, 1, row.length).setValues([row]); rows[i] = row; }\n  } else { s.appendRow(row); rows.push(row); idx[id] = rows.length - 1; }\n}\nfunction doGet(e) {\n  if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});\n  var out = [];\n  rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {\n    try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}\n  });\n  rows_(sheet_(T_TEST, H_TEST), H_TEST.length).forEach(function (r) {\n    out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});\n  });\n  var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);\n  qRows.forEach(function (r, i) {\n    if (r[3] === '') return;\n    if (r[0] === '') { // typed by hand in the Sheet: give it an id\n      r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();\n      q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);\n    }\n    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());\n    out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});\n  });\n  var stBack = {}; Object.keys(LOG_ST).forEach(function (k) { stBack[LOG_ST[k]] = k; });\n  var split = function (v) { return String(v || '').split(',').map(function (x) { return x.trim(); }).filter(String); };\n  rows_(sheet_(T_LOG, H_LOG), H_LOG.length).forEach(function (r) {\n    if (r[0] === '') return;\n    out.push({id: String(r[0]), kind: 'log', date: d_(r[1]), status: stBack[r[2]] || 'partial', hours: n_(r[3]), subjects: split(r[4]), covered: String(r[5] || ''),\n      reasons: split(r[6]), test: r[7] === 'taken' ? 'yes' : (r[7] === 'missed' ? 'no' : null), note: String(r[8] || ''), ts: Number(r[9]) || 0, del: r[10] === 'yes'});\n  });\n  rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {\n    try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}\n  });\n  return out_({recs: out});\n}\n";
 /* Prelims Arena v2 — core: config, helpers, store */
 "use strict";
 var CFG={
   START:"2026-10-18", PRELIMS:"2027-05-23", IDEAL_END:"2027-05-16", GOAL:90, RIGHT:2, WRONG:0.66,
   SEC_PER_Q:72, PYQ_SHARE:0.3, PYQ_HOLD:[2024,2025,2026], CSAT_MK:[2.5,0.83], CSAT_PASS:33, STORE:"pa2-store", OLD:"prelims-arena-v3", OLD_SYNC:"prelims-arena-sync-v1",
   MOCK_WEIGHTS:{"Polity":15,"History":15,"Geography":12,"Economy":14,"Environment":14,"Science & Tech":12,"Current Affairs":18},
-  REVIEW_DAYS:[1,3,7,21]
+  REVIEW_DAYS:[1,3,7,21], CAM_FROM:"2026-10-30"
 };
 // Shankar IAS Prestorming Batch II schedule: key, name, date, subject, type
 var TESTS=[
@@ -20,10 +20,19 @@ var TESTS=[
 ["T25","Test 25: History Complete","2027-04-10","History"],["T26","Test 26: Science & Tech Complete","2027-04-17","Science & Tech"],["T27","Test 27: Current Affairs Full","2027-04-21","Current Affairs"],
 ["T28","Test 28: Environment Complete","2027-04-24","Environment"],["MK1","Mock Test I (online)","2027-04-27","Mixed"],["MK2","Mock Test II (online)","2027-04-29","Mixed"],
 ["AM1","All India Mock Test I","2027-05-02","Mixed"],["AM2","All India Mock Test II","2027-05-09","Mixed"],["AM3","All India Mock Test III","2027-05-16","Mixed"]
-].map(function(t){return {k:t[0],name:t[1],date:t[2],subject:t[3],type:/^(MK|AM)/.test(t[0])?"mock":"weekly"}});
-var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
+].map(function(t){return {k:t[0],name:t[1],date:t[2],subject:t[3],type:/^(MK|AM)/.test(t[0])?"mock":"weekly",kind:/^(MK|AM)/.test(t[0])?"GS mock":"GS weekly test"}});
+// Shankar CSAT schedule (Sundays, 2 to 4 pm; recorded discussion at 4:30 pm; live discussion for complete-syllabus tests)
+(function(){
+  var R=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
+  ["2026-10-25","2026-11-01","2026-11-15","2026-11-22","2026-11-29","2026-12-06","2026-12-13","2026-12-20","2026-12-27","2027-01-03","2027-01-10","2027-01-24","2027-01-31","2027-02-07","2027-02-14"].forEach(function(d,i){
+    var full=i>=12;
+    TESTS.push({k:"C"+(i+1),name:"CSAT "+(full?"Complete Syllabus":"Sectional")+" Test "+R[i],date:d,subject:"CSAT",type:full?"mock":"weekly",kind:full?"CSAT complete syllabus":"CSAT sectional",csat:true});
+  });
+  TESTS.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)});
+})();
+var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
-function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
+function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
 function isPyq(qid){return String(qid).indexOf("PYQ-")===0}
 function pyqYear(qid){var m=/^PYQ-[A-Z]+-(\d{4})/.exec(qid);return m?+m[1]:null}
 
@@ -193,18 +202,34 @@ function unitTrend(o){ // accuracy last 30 days vs before
 function setDoneMap(){var m={},parts={};attempts().forEach(function(a){if(!a.setId)return;if(a.part){(parts[a.setId]=parts[a.setId]||{})[a.part]=1}else m[a.setId]=(m[a.setId]||0)+1});
   Object.keys(parts).forEach(function(id){if(Object.keys(parts[id]).length>=5&&!m[id])m[id]=1});return m}
 function partsDone(id){var d={};attempts().forEach(function(a){if(a.setId===id&&a.part)d[a.part]=1});return d}
+/* monthly current-affairs sets (CAM26-MM-NN) and the daily 25 */
+// the Jan-Mar test-week sets are replaced by the monthly Jan-Mar sets once those are all in the app
+function schedFor(ds){var cam=camSets().length>=18;return scheduledFor(ds).filter(function(s){return !(cam&&s.type==="ca"&&/^CA25-T4-/.test(s.id))})}
+function camSets(){return M.sets.filter(function(s){return s.type==="cam"&&s.ready}).sort(function(a,b){return a.id<b.id?-1:1})}
+function nextCamSet(){var done=setDoneMap();return camSets().filter(function(s){return !done[s.id]})[0]||null}
+function camDoneOn(ds){return attempts().some(function(a){return a.date===ds&&(a.type==="cam"||a.type==="ca")&&!a.part})}
+// the day has a 25-question current-affairs target from CAM_FROM on, or when a CA test-week set is scheduled
 function dayState(ds,done,td){
-  var sch=scheduledFor(ds).filter(function(s){return s.ready});
+  var sch=schedFor(ds).filter(function(s){return s.ready});
+  var s50=sch.filter(function(s){return s.type!=="ca"}),sCA=sch.filter(function(s){return s.type==="ca"});
+  var need25=sCA.length>0||(ds>=CFG.CAM_FROM&&ds<=CFG.PRELIMS);
+  var flags=[];
+  if(s50.length)flags.push(s50.every(function(s){return done[s.id]}));
+  if(need25)flags.push((sCA.length&&sCA.every(function(s){return done[s.id]}))||camDoneOn(ds));
   var st="none";
-  if(sch.length){
-    var allDone=sch.every(function(s){return done[s.id]});
-    var paused=sch.some(function(s){return Object.keys(DB.recs).some(function(k){var r=DB.recs[k];return r.kind==="run"&&!r.del&&(k==="run_"+s.id||k.indexOf("run_"+s.id+"~")===0)})});
-    st=allDone?"done":(paused?"paused":(ds<td?"missed":"todo"));
+  if(flags.length){
+    var nd=flags.filter(Boolean).length;
+    if(nd===flags.length)st="done";
+    else if(nd>0)st="part";
+    else{
+      var paused=sch.some(function(s){return Object.keys(DB.recs).some(function(k){var r=DB.recs[k];return r.kind==="run"&&!r.del&&(k==="run_"+s.id||k.indexOf("run_"+s.id+"~")===0)})});
+      st=paused?"paused":(ds<td?"missed":"todo");
+    }
   }
   var schIds={};sch.forEach(function(s){schIds[s.id]=1});
-  var extra=attempts().some(function(a){return a.date===ds&&!(a.setId&&schIds[a.setId])});
+  var extra=attempts().some(function(a){return a.date===ds&&a.type!=="cam"&&!(a.setId&&schIds[a.setId])});
   var chk=DB.recs["chk_"+ds];
-  return {st:st,star:extra,chk:chk&&!chk.del?chk.v:null,test:TESTBYDATE[ds]||null,sch:sch};
+  return {st:st,star:extra,chk:chk&&!chk.del?chk.v:null,test:TESTBYDATE[ds]||null,sch:sch,need25:need25,has50:s50.length>0,flags:flags};
 }
 function streak(){
   var n=0,d=today();
@@ -421,17 +446,18 @@ function renderResult(fresh){
     return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+(((x[8]||0)>>q.a)&1?'<span class="tag bad">Crossed out the right answer</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
       passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
-      '<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
+      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
     '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
-    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+
+    '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+notesAfterTest(a,qs)+
     '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><button class="btn small" id="rs-listen">Listen to these</button><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
   $("rs-back").onclick=function(){VIEW.screen="tabs";render()};
   $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
   if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
+  bindNotesAfterTest();
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
 }
 function openAttempt(id){
@@ -631,6 +657,7 @@ function viewToday(){
   if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
   var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
   html+=checkinCard(td);
+  html+=logCard(td,"Today's study log");
   html+='<section class="panel budget"><div><h2>Got a few minutes?</h2><p class="muted small">Tap the time you have. The app picks the most useful thing to do with it.</p></div><div class="row wrap">'+[10,20,40].map(function(m){return '<button class="btn" data-budget="'+m+'">'+m+' minutes</button>'}).join("")+'</div></section>';
   var runs=pausedRuns();
   if(runs.length)html+='<section class="panel"><h2>Paused tests</h2><ul class="list">'+runs.map(function(r){return '<li><div><b>'+esc(r.title)+'</b><span class="muted">'+r.done+' of '+r.n+' answered'+(r.timed?', '+fmtMin(Math.max(0,r.limit-r.el))+' left':'')+'</span></div><div class="row"><button class="btn primary small" data-resume="'+esc(r.id)+'">Resume</button><button class="btn ghost small" data-discard="'+esc(r.id)+'">Discard</button></div></li>'}).join("")+'</ul></section>';
@@ -667,16 +694,19 @@ function setRowHtml(s,done){
   return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+nt+parts+'</li>';
 }
 function dayPanel(ds,td){
-  var sch=scheduledFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
+  var sch=schedFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
   var h='<section class="panel"><h2>'+(ds===td?"Today's work":fdw(ds))+'</h2>';
   if(sch.length){var s0=sch[0];h+='<p class="muted">'+esc(s0.testName)+', '+esc(s0.dayLabel)+'. Shankar test on '+fdw(s0.testDate)+'.</p>';}
-  if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm.</p>';
-  if(sch.length){
+  if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm'+(t.csat?(t.type==="mock"?', with a live discussion at 4:30 pm.':'. The recorded discussion is uploaded at 4:30 pm.'):', with a live discussion at 4:30 pm.')+' Enter your marks afterwards in the Scores tab.</p>';
+  var ds_=dayState(ds,done,td),show25=ds_.need25;
+  if(!sch.length&&show25){var nt=TESTS.filter(function(x){return x.subject==="Current Affairs"&&x.date>=ds})[0];if(nt)h+='<p class="muted">Next Shankar current affairs test: '+esc(nt.name)+', '+fdw(nt.date)+'.</p>'}
+  if(sch.length||show25){
     h+='<div class="row wrap tight"><span class="muted small">Timing</span><div class="seg small"><button data-timed="0" aria-pressed="'+!DB.meta.timed+'">Untimed</button><button data-timed="1" aria-pressed="'+!!DB.meta.timed+'">Timed, 1.2 min per question</button></div></div>';
-    h+='<ul class="list">'+sch.map(function(s){return setRowHtml(s,done)}).join("")+'</ul>';
+    h+='<ul class="list">'+sch.map(function(s){return setRowHtml(s,done)}).join("")+(show25?camRow(ds,td):"")+'</ul>';
     if(ds!==td)h+='<p class="muted small">You can take any day\'s set early or late. It is logged on the day you take it.</p>';
   }else if(!t)h+='<p class="muted">No set is scheduled for this day. Pick another date, or use Practice for a subject test.</p>';
   var taken=attempts().filter(function(a){return a.date===ds});
+  if(ds<td){var lr=logRec(ds);h+='<h3>Study log</h3>'+(lr?'<p class="small">'+logLine(lr)+'</p><button class="btn ghost small" data-log="'+ds+'">Edit log</button>':'<button class="btn small" data-log="'+ds+'">Add a log for this day</button>')}
   if(taken.length)h+='<h3>Taken on this day</h3><ul class="list">'+taken.map(function(a){return '<li><div><b>'+esc(a.title)+'</b><span class="muted small">'+esc(TYPE_LABEL[a.type]||"")+'</span></div><button class="btn ghost small" data-att="'+a.id+'">'+a.pts+' / '+a.max+'</button></li>'}).join("")+'</ul>';
   return h+'</section>';
 }
@@ -687,19 +717,22 @@ function calendarPanel(sel,td){
   for(var d=1;d<=n;d++){
     var ds=y+"-"+pad(m+1)+"-"+pad(d),s=dayState(ds,done,td);
     var cls="day "+s.st+(ds===td?" today":"")+(ds===sel?" sel":"")+(s.test?" tday":"");
-    var lab=fdw(ds)+({done:", scheduled set done",missed:", scheduled set missed",paused:", paused",todo:", set scheduled"}[s.st]||"")+(s.star?", extra test taken":"")+(s.test?", "+s.test.name:"")+(s.chk?", check-in "+s.chk:"");
-    g+='<button class="'+cls+'" data-d="'+ds+'" aria-label="'+esc(lab)+'"><span class="n">'+d+'</span>'+(s.star?'<span class="star" aria-hidden="true">★</span>':'')+(s.chk?'<span class="cdot '+s.chk+'" aria-hidden="true"></span>':'')+(s.test?'<span class="tmark" aria-hidden="true">T</span>':'')+'</button>';
+    var lab=fdw(ds)+({done:", all of the day's sets done",part:", one of the day's sets done",missed:", the day's sets missed",paused:", paused",todo:", sets scheduled"}[s.st]||"")+(s.star?", extra test taken":"")+(s.test?", "+s.test.name:"")+(s.chk?", check-in "+s.chk:"");
+    g+='<button class="'+cls+'" data-d="'+ds+'" aria-label="'+esc(lab)+'"><span class="n">'+d+'</span>'+(s.star?'<span class="star" aria-hidden="true">★</span>':'')+(s.chk?'<span class="cdot '+s.chk+'" aria-hidden="true"></span>':'')+(s.test?'<span class="tmark'+(s.test.csat?" csat":"")+'" aria-hidden="true">'+(s.test.csat?"C":"T")+'</span>':'')+'</button>';
   }
   g+='</div>';
   var minM=[2026,9],maxM=[2027,4],cur=y*12+m;
   return '<section class="panel"><div class="row between"><h2>'+MONTHS[m]+' '+y+'</h2><div class="row tight"><button class="btn ghost small" id="cal-prev" aria-label="Previous month"'+(cur<=minM[0]*12+minM[1]?" disabled":"")+'>‹</button><button class="btn ghost small" id="cal-today">Today</button><button class="btn ghost small" id="cal-next" aria-label="Next month"'+(cur>=maxM[0]*12+maxM[1]?" disabled":"")+'>›</button></div></div>'+g+
-    '<div class="legend"><span><i class="lg done"></i>Set done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar test</span></div></section>';
+    '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
 }
 function bindToday(){
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
   qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
   qsa("[data-part]").forEach(function(b){b.onclick=function(){var p=b.dataset.part.split("|");startPart(p[0],+p[1])}});
+  bindLog();
+  qsa("[data-camnotes]").forEach(function(b){b.onclick=function(){openCamNotes(b.dataset.camnotes,1,"tabs")}});
+  if($("cam-rev"))$("cam-rev").onclick=startCamRevision;
   qsa("[data-budget]").forEach(function(b){b.onclick=function(){budgetPlan(+b.dataset.budget)}});
   qsa("[data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   qsa("[data-discard]").forEach(function(b){b.onclick=function(){modal('<h2>Discard this paused test?</h2><p>Your answers so far will be lost.</p><div class="row"><button class="btn danger" data-m="y">Discard</button><button class="btn ghost" data-m="x">Keep it</button></div>',function(a){if(a==="y"){del(b.dataset.discard);render()}})}});
@@ -753,6 +786,7 @@ function viewPractice(){
   myqSet().questions.forEach(function(q){if(q.sub===subj)uc[q.u]=(uc[q.u]||0)+1});
   var nSel=Object.keys(chosen).filter(function(k){return chosen[k]}).length;
   var html='<div class="pagehead"><div><h1>Practice</h1><p class="muted">Test yourself on any subject, any time. Every test is logged with the date you take it.</p></div></div>';
+  html+=camPanel();
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
@@ -778,6 +812,9 @@ function viewPractice(){
   $("fm-go").onclick=startFullMock;
   bindPyq();
   bindListen();
+  bindCam();
+  qsa("#cam-panel [data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
+  qsa("#cam-panel [data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
   if($("mb-all"))$("mb-all").onclick=function(){startRevision(true)};
   $("myq-add").onclick=function(){myqDialog(null)};
@@ -873,13 +910,17 @@ function viewDash(){
       shown.map(function(r){return '<tr'+(r.kind==="att"?' class="click" data-att="'+r.id+'" tabindex="0"':'')+'><td>'+fd(r.date)+'</td><td>'+esc(r.title)+'</td><td>'+esc(r.type)+'</td><td class="num">'+r.marks+' / '+r.max+'</td><td class="num">'+r1(r.p)+'</td><td class="num hide-sm">'+(r.r==null?"–":r.r)+'</td><td class="num hide-sm">'+(r.w==null?"–":r.w)+'</td><td class="num hide-sm">'+(r.sk==null?"–":r.sk)+'</td><td class="num hide-sm">'+(r.sec?fmtMin(r.sec):(r.rank?"Rank "+r.rank:"–"))+'</td></tr>'}).join("")+'</tbody></table></div><p class="muted small">Tap a row to see every question with your answer and the explanation.</p>';
     html+='</section>';
   }
+  html+=shankarSection();
   html+=subjectSection();
+  html+=logSection();
   v.innerHTML=html;
   if(rows.length)drawPerf($("perfchart"),rows,type);
   qsa("[data-dt]").forEach(function(b){b.onclick=function(){VIEW.dashType=b.dataset.dt;render()}});
   if($("dm"))$("dm").onchange=function(){VIEW.dashMonth=this.value;render()};
   qsa("tr[data-att]").forEach(function(tr){tr.onclick=function(){openAttempt(tr.dataset.att)};tr.onkeydown=function(e){if(e.key==="Enter")openAttempt(tr.dataset.att)}});
   bindSubjects();
+  bindLog();
+  drawShankar();
 }
 
 /* performance line chart (SVG) */
@@ -948,12 +989,12 @@ function bindSubjects(){
 /* Scores tab: Shankar marks, added results, sync settings, backup */
 function viewScores(){
   var v=$("view"),td=today();
-  var html='<div class="pagehead"><div><h1>Scores</h1><p class="muted">Enter your Shankar test marks after each test. They feed the Weekly and Mock views of the dashboard and each subject\'s progress.</p></div></div>';
-  html+='<section class="panel"><h2>Shankar Prestorming tests</h2><div class="scroll"><table class="tbl entry"><thead><tr><th>Test</th><th>Marks</th><th>Out of</th><th>Right</th><th>Wrong</th><th>Rank</th><th>%</th></tr></thead><tbody>'+
+  var html='<div class="pagehead"><div><h1>Scores</h1><p class="muted">Enter your Shankar test marks after each test. They feed the Weekly and Mock views of the dashboard and each subject\'s progress. CSAT is out of 200 and qualifying at 33%.</p></div></div>';
+  html+='<section class="panel"><h2>Shankar Prestorming tests (GS and CSAT)</h2><div class="scroll"><table class="tbl entry"><thead><tr><th>Test</th><th>Marks</th><th>Out of</th><th>Right</th><th>Wrong</th><th>Rank</th><th>%</th></tr></thead><tbody>'+
     TESTS.filter(function(t,i){var nxt=TESTS.findIndex(function(x){return x.date>=td});return VIEW.allTests||nxt<0||i<=nxt+1||DB.recs["test_"+t.k]}).map(function(t){var e=DB.recs["test_"+t.k]||{};var p=(e.marks!=null&&e.marks!=="")?pct(e.marks,e.max||200):null;
-      return '<tr class="'+(t.date<=td?"past":"")+'"><td><b>'+esc(t.name)+'</b><span class="muted small">'+fdw(t.date)+', '+(t.type==="mock"?"mock":"weekly")+(t.subject&&t.subject!=="Mixed"?", "+esc(t.subject):"")+'</span></td>'+
+      return '<tr class="'+(t.date<=td?"past":"")+'"><td><b>'+esc(t.name)+'</b><span class="muted small">'+fdw(t.date)+', '+esc(t.kind)+(t.subject&&t.subject!=="Mixed"&&!t.csat?", "+esc(t.subject):"")+'</span></td>'+
       ["marks","max","r","w","rank"].map(function(f){var val=f==="max"?(e.max==null?200:e.max):e[f];return '<td><input type="number" inputmode="decimal" step="any" data-k="'+t.k+'" data-f="'+f+'" value="'+(val==null?"":esc(val))+'" aria-label="'+esc(t.name)+' '+f+'"></td>'}).join("")+
-      '<td class="num" id="pc-'+t.k+'">'+(p==null?"–":r1(p))+'</td></tr>'}).join("")+'</tbody></table></div><button class="link" id="t-all">'+(VIEW.allTests?"Show only past and next tests":"Show all "+TESTS.length+" tests")+'</button></section>';
+      '<td class="num" id="pc-'+t.k+'">'+(p==null?"–":r1(p)+(t.csat?(p>=33?' <span class="good small">qualifies</span>':' <span class="bad-t small">below 33%</span>'):''))+'</td></tr>'}).join("")+'</tbody></table></div><button class="link" id="t-all">'+(VIEW.allTests?"Show only past and next tests":"Show all "+TESTS.length+" tests")+'</button></section>';
   var extra=testMarks().filter(function(t){return !TESTBYKEY[t.k]}).sort(function(a,b){return a.date<b.date?1:-1});
   html+='<section class="panel"><div class="row between wrap"><h2>Other test results</h2><button class="btn" id="xt-add">Add a test result</button></div><p class="muted small">For CSAT tests, other mocks or any test outside the timetable.</p>'+
     (extra.length?'<ul class="list">'+extra.map(function(t){return '<li><div><b>'+esc(t.name)+'</b><span class="muted small">'+fdy(t.date)+', '+(t.type==="mock"?"mock":"weekly")+', '+esc(t.subject||"")+(t.rank?', rank '+t.rank:'')+'</span></div><div class="row tight"><span class="num">'+t.marks+' / '+t.max+'</span><button class="btn ghost small" data-xedit="'+t.id+'">Edit</button><button class="btn ghost small" data-xdel="'+t.id+'">Delete</button></div></li>'}).join("")+'</ul>':'')+'</section>';
@@ -974,7 +1015,7 @@ function viewScores(){
     var k=inp.dataset.k,f=inp.dataset.f,t=TESTBYKEY[k],id="test_"+k;
     var e=Object.assign({kind:"test",k:k,name:t.name,type:t.type,subject:t.subject,date:t.date,max:200},DB.recs[id]||{});
     e[f]=inp.value===""?null:Number(inp.value);
-    var p=(e.marks!=null)?pct(e.marks,e.max||200):null;$("pc-"+k).textContent=p==null?"–":r1(p);
+    var p=(e.marks!=null)?pct(e.marks,e.max||200):null;$("pc-"+k).innerHTML=p==null?"–":r1(p)+(t.csat?(p>=33?' <span class="good small">qualifies</span>':' <span class="bad-t small">below 33%</span>'):'');
     clearTimeout(timers[k]);timers[k]=setTimeout(function(){put(id,e)},700);
   })});
   $("xt-add").onclick=function(){xtestDialog(null)};
@@ -1095,6 +1136,246 @@ function bindListen(){
   if($("ls-mist"))$("ls-mist").onclick=function(){var mb=mistakeBook().slice(0,30);go(mb.map(function(m){return m.qid}),"My mistakes")};
   if($("ls-set"))$("ls-set").onclick=function(){var s=todaysOpenSet()||scheduledFor(today()).filter(function(x){return x.ready})[0];loadSet(s.id).then(function(d){playList(d.questions.filter(function(q){return !q.x}).map(function(q){return {q:q}}),s.title)})};
   if($("ls-subj-go"))$("ls-subj-go").onclick=function(){var s=$("ls-subj").value;go(shuffle(poolFor(s)).slice(0,20),s+": 20 questions")};
+}
+
+/* Daily study log: how the day went, hours, what was covered, and why study or a test was missed */
+var LOG_STATUS=[["full","Studied as planned"],["partial","Studied partly"],["none","Could not study"]];
+var LOG_REASONS=["Child care","Baby unwell","My health","Police duty / work","Household work","Family event","Travel","Tired / low energy","Distracted / phone","Other"];
+function logRec(ds){var r=DB.recs["log_"+ds];return r&&!r.del?r:null}
+function logs(){return recs("log").sort(function(a,b){return a.date<b.date?1:-1})}
+function logLine(r){
+  var st=(LOG_STATUS.filter(function(x){return x[0]===r.status})[0]||["",""])[1];
+  return esc(st)+(r.hours!=null&&r.hours!==""?", "+r.hours+" h":"")+((r.subjects||[]).length?", "+esc(r.subjects.join(", ")):"")+((r.reasons||[]).length?". Reason: "+esc(r.reasons.join(", ")):"");
+}
+function logCard(ds,heading){
+  var r=logRec(ds),t=TESTBYDATE[ds];
+  if(!r)return '<section class="panel logcard"><div><h2>'+esc(heading)+'</h2><p class="muted small">Note how the day went: hours, what you covered, and what got in the way. Over weeks this shows your real pattern.</p></div><button class="btn" data-log="'+ds+'">'+(ds===today()?"Add today's log":"Add a log for this day")+'</button></section>';
+  return '<section class="panel logcard done"><div><h2>'+esc(heading)+'</h2><p>'+logLine(r)+'</p>'+(r.covered?'<p class="muted small">Covered: '+esc(r.covered)+'</p>':'')+(t&&r.test?'<p class="muted small">'+esc(t.name)+': '+(r.test==="yes"?"taken":"missed")+'</p>':'')+(r.note?'<p class="muted small">'+esc(r.note)+'</p>':'')+'</div><button class="btn ghost small" data-log="'+ds+'">Edit</button></section>';
+}
+function logDialog(ds){
+  var r=logRec(ds)||{status:null,hours:null,subjects:[],covered:"",reasons:[],note:"",test:null};
+  var t=TESTBYDATE[ds],sch=scheduledFor(ds).filter(function(s){return s.ready});
+  var chips=function(name,list,sel){return '<div class="chips" data-group="'+name+'">'+list.map(function(x){return '<button type="button" class="chipbtn" data-v="'+esc(x)+'" aria-pressed="'+(sel.indexOf(x)>=0)+'">'+esc(x)+'</button>'}).join("")+'</div>'};
+  modal('<h2>Study log, '+fdw(ds)+'</h2>'+
+    '<div class="fld"><span>How did the day go?</span><div class="seg wide" id="lg-st">'+LOG_STATUS.map(function(s){return '<button type="button" data-st="'+s[0]+'" aria-pressed="'+(r.status===s[0])+'">'+s[1]+'</button>'}).join("")+'</div></div>'+
+    '<div class="formgrid"><label class="fld">Hours studied<input id="lg-h" type="number" inputmode="decimal" step="0.5" min="0" max="16" value="'+(r.hours==null?"":r.hours)+'"></label></div>'+
+    '<div class="fld"><span>Subjects</span>'+chips("sub",M.subjects,r.subjects||[])+'</div>'+
+    '<label class="fld">What I covered<textarea id="lg-cov" rows="2" placeholder="For example: Laxmikanth Ch 7 to 9, NCERT Class 11 Geography Ch 2">'+esc(r.covered||"")+'</textarea></label>'+
+    (t?'<div class="fld"><span>'+esc(t.name)+'</span><div class="seg" id="lg-test"><button type="button" data-t="yes" aria-pressed="'+(r.test==="yes")+'">Took it</button><button type="button" data-t="no" aria-pressed="'+(r.test==="no")+'">Missed it</button></div></div>':'')+
+    '<div class="fld" id="lg-rs-wrap"><span>What got in the way? (choose any)</span>'+chips("rs",LOG_REASONS,r.reasons||[])+'</div>'+
+    '<label class="fld">Notes, or plan for tomorrow<textarea id="lg-note" rows="2">'+esc(r.note||"")+'</textarea></label>'+
+    (sch.length?'<p class="muted small">Scheduled set: '+esc(sch.map(function(s){return s.title}).join(", "))+(setDoneMap()[sch[0].id]?' (done)':' (not done yet)')+'</p>':'')+
+    '<p class="err" id="lg-err" hidden></p><div class="row wrap"><button class="btn primary" id="lg-save">Save log</button>'+(logRec(ds)?'<button class="btn ghost" id="lg-del">Delete</button>':'')+'<button class="btn ghost" data-m="x">Cancel</button></div>');
+  var st=r.status,tst=r.test;
+  qsa("#lg-st button").forEach(function(b){b.onclick=function(){st=b.dataset.st;qsa("#lg-st button").forEach(function(x){x.setAttribute("aria-pressed",x===b)})}});
+  qsa("#lg-test button").forEach(function(b){b.onclick=function(){tst=b.dataset.t;qsa("#lg-test button").forEach(function(x){x.setAttribute("aria-pressed",x===b)})}});
+  qsa("#modal .chips .chipbtn").forEach(function(b){b.onclick=function(){b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true")}});
+  var picked=function(g){return qsa('#modal .chips[data-group="'+g+'"] .chipbtn').filter(function(b){return b.getAttribute("aria-pressed")==="true"}).map(function(b){return b.dataset.v})};
+  $("lg-save").onclick=function(){
+    if(!st){var e=$("lg-err");e.textContent="Choose how the day went.";e.hidden=false;return}
+    var h=$("lg-h").value;
+    put("log_"+ds,{kind:"log",date:ds,status:st,hours:h===""?null:Number(h),subjects:picked("sub"),covered:$("lg-cov").value.trim(),reasons:picked("rs"),test:tst||null,note:$("lg-note").value.trim()});
+    closeModal();render();toast("Log saved.");
+  };
+  if($("lg-del"))$("lg-del").onclick=function(){del("log_"+ds);closeModal();render()};
+}
+/* dashboard section */
+function logSection(){
+  var range=VIEW.logRange||30,from=range==="all"?"0000":addDays(today(),-(range-1));
+  var L=logs().filter(function(r){return r.date>=from});
+  var h='<section class="panel" id="log-sec"><div class="row between wrap"><h2>Study log</h2><div class="seg small" role="group" aria-label="Period">'+[[7,"7 days"],[30,"30 days"],["all","All"]].map(function(x){return '<button data-lr="'+x[0]+'" aria-pressed="'+(String(range)===String(x[0]))+'">'+x[1]+'</button>'}).join("")+'</div></div>';
+  if(!L.length)return h+'<p class="empty">Add a daily log from the Today tab to see your study pattern here.</p></section>';
+  var days=range==="all"?L.length:range,hrs=0,cnt={full:0,partial:0,none:0},rs={},sub={};
+  L.forEach(function(r){hrs+=+r.hours||0;cnt[r.status]=(cnt[r.status]||0)+1;(r.reasons||[]).forEach(function(x){rs[x]=(rs[x]||0)+1});(r.subjects||[]).forEach(function(s){sub[s]=(sub[s]||0)+(+r.hours||0)/Math.max(1,(r.subjects||[]).length)})});
+  var tests=L.filter(function(r){return r.test==="no"}).length;
+  h+='<dl class="kpis"><div><dt>Days logged</dt><dd>'+L.length+(range!=="all"?'<small> of '+range+'</small>':'')+'</dd></div><div><dt>Hours studied</dt><dd>'+r1(hrs)+'</dd><dd class="sub">'+r1(hrs/Math.max(1,L.length))+' h per logged day</dd></div><div><dt>Full days</dt><dd>'+cnt.full+'</dd><dd class="sub">'+cnt.partial+' partly, '+cnt.none+' could not</dd></div><div><dt>Shankar tests missed</dt><dd>'+tests+'</dd></div></dl>';
+  var rk=Object.keys(rs).sort(function(a,b){return rs[b]-rs[a]}),mx=rk.length?rs[rk[0]]:1;
+  var sk=Object.keys(sub).sort(function(a,b){return sub[b]-sub[a]}),ms=sk.length?sub[sk[0]]:1;
+  h+='<div class="cols"><div><h3>What got in the way</h3>'+(rk.length?'<ul class="hbars">'+rk.map(function(k){return '<li><span>'+esc(k)+'</span><i style="width:'+Math.round(rs[k]/mx*100)+'%"></i><b>'+rs[k]+'</b></li>'}).join("")+'</ul>':'<p class="muted small">No reasons logged in this period.</p>')+'</div>'+
+    '<div><h3>Hours by subject</h3>'+(sk.length?'<ul class="hbars s">'+sk.map(function(k){return '<li><span>'+esc(k)+'</span><i style="width:'+Math.round(sub[k]/ms*100)+'%"></i><b>'+r1(sub[k])+' h</b></li>'}).join("")+'</ul><p class="muted small">Hours are split evenly across the subjects ticked that day.</p>':'<p class="muted small">Tick subjects in your log to see this.</p>')+'</div></div>';
+  h+='<details><summary>All entries in this period ('+L.length+')</summary><div class="scroll"><table class="tbl"><thead><tr><th>Date</th><th>Day</th><th>Hours</th><th class="hide-sm">Subjects</th><th>Reason</th><th class="hide-sm">Notes</th></tr></thead><tbody>'+
+    L.map(function(r){var st=(LOG_STATUS.filter(function(x){return x[0]===r.status})[0]||["",""])[1];return '<tr class="click" data-log="'+r.date+'" tabindex="0"><td>'+fd(r.date)+'</td><td><span class="tag '+({full:"good",partial:"warn",none:"bad"})[r.status]+'">'+esc(st)+'</span></td><td class="num">'+(r.hours==null?"–":r.hours)+'</td><td class="hide-sm">'+esc((r.subjects||[]).join(", "))+'</td><td>'+esc((r.reasons||[]).join(", "))+'</td><td class="hide-sm">'+esc(r.note||r.covered||"")+'</td></tr>'}).join("")+'</tbody></table></div><p class="muted small">Tap a row to edit it.</p></details>';
+  return h+'</section>';
+}
+function bindLog(){
+  qsa("[data-log]").forEach(function(b){b.onclick=function(){logDialog(b.dataset.log)}});
+  qsa("[data-lr]").forEach(function(b){b.onclick=function(){VIEW.logRange=b.dataset.lr==="all"?"all":+b.dataset.lr;render()}});
+}
+
+/* Shankar Prestorming results (GS and CSAT together) for the dashboard */
+function shankarSection(){
+  var T=testMarks().filter(function(t){return t.marks!=null&&t.marks!==""}).map(function(t){var d=TESTBYKEY[t.k]||{};return Object.assign({},t,{csat:d.csat||t.subject==="CSAT",kind:d.kind||((t.subject==="CSAT"?"CSAT ":"")+(t.type==="mock"?"mock":"weekly")),p:pct(+t.marks,+t.max||200)})}).sort(function(a,b){return a.date<b.date?-1:1});
+  var h='<section class="panel" id="shankar-sec"><h2>Shankar Prestorming tests</h2>';
+  if(!T.length)return h+'<p class="empty">Enter your Shankar GS and CSAT marks in the Scores tab to see them here.</p></section>';
+  var gs=T.filter(function(t){return !t.csat}),cs=T.filter(function(t){return t.csat});
+  var avg=function(a){return a.length?r1(a.reduce(function(s,t){return s+t.p},0)/a.length)+"%":"–"};
+  h+='<dl class="kpis"><div><dt>GS tests entered</dt><dd>'+gs.length+'</dd><dd class="sub">Average '+avg(gs)+'</dd></div><div><dt>CSAT tests entered</dt><dd>'+cs.length+'</dd><dd class="sub">Average '+avg(cs)+'</dd></div><div><dt>Latest GS</dt><dd>'+(gs.length?r1(gs[gs.length-1].p)+"%":"–")+'</dd></div><div><dt>Latest CSAT</dt><dd>'+(cs.length?r1(cs[cs.length-1].p)+"%":"–")+'</dd>'+(cs.length?'<dd class="sub">'+(cs[cs.length-1].p>=33?"Qualifies":"Below 33%")+'</dd>':'')+'</div></dl>';
+  h+='<div class="chartwrap" id="shankarchart"></div>';
+  h+='<div class="scroll"><table class="tbl"><thead><tr><th>Date</th><th>Test</th><th>Paper</th><th>Marks</th><th>%</th><th class="hide-sm">Right</th><th class="hide-sm">Wrong</th><th class="hide-sm">Rank</th></tr></thead><tbody>'+
+    T.slice().reverse().map(function(t){return '<tr><td>'+fd(t.date)+'</td><td>'+esc(t.name)+'</td><td>'+(t.csat?"CSAT":"GS")+'</td><td class="num">'+t.marks+' / '+(t.max||200)+'</td><td class="num">'+r1(t.p)+(t.csat?(t.p>=33?' <span class="good small">qualifies</span>':' <span class="bad-t small">below 33%</span>'):'')+'</td><td class="num hide-sm">'+(t.r==null?"–":t.r)+'</td><td class="num hide-sm">'+(t.w==null?"–":t.w)+'</td><td class="num hide-sm">'+(t.rank==null?"–":t.rank)+'</td></tr>'}).join("")+'</tbody></table></div></section>';
+  VIEW._shankar=T;
+  return h;
+}
+function drawShankar(){
+  var el=$("shankarchart"),T=VIEW._shankar;if(!el||!T||!T.length)return;
+  var rows=T.map(function(t){return {date:t.date,p:t.p,marks:t.marks,max:t.max||200,title:t.name,src:t.csat?"csat":"gs",r:t.r,w:t.w}});
+  var W=Math.max(300,el.clientWidth||640),H=W<520?210:240,pl=38,pr=14,pt=14,pb=26;
+  var d0=dayNum(CFG.START)-8,d1=dayNum(CFG.PRELIMS);
+  var X=function(ds){return pl+(dayNum(ds)-d0)/(d1-d0)*(W-pl-pr)},Y=function(p){return pt+(1-Math.max(0,Math.min(100,p))/100)*(H-pt-pb)};
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="Shankar test scores over time">';
+  [0,25,50,75,100].forEach(function(p){s+='<line class="grid" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(p)+'" y2="'+Y(p)+'"/><text class="axis" x="'+(pl-6)+'" y="'+(Y(p)+4)+'" text-anchor="end">'+p+'</text>'});
+  for(var m=0;m<8;m++){var y=2026+Math.floor((9+m)/12),mm=(9+m)%12,ds=y+"-"+pad(mm+1)+"-01";if(dayNum(ds)<d0)continue;s+='<text class="axis" x="'+X(ds)+'" y="'+(H-7)+'" text-anchor="middle">'+MON[mm]+'</text>'}
+  s+='<line class="qual" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(33)+'" y2="'+Y(33)+'"/><text class="qualtxt" x="'+(W-pr)+'" y="'+(Y(33)-5)+'" text-anchor="end">CSAT qualifying 33%</text>';
+  ["gs","csat"].forEach(function(g){var rs=rows.filter(function(r){return r.src===g});if(!rs.length)return;
+    if(rs.length>1)s+='<polyline class="ln '+(g==="gs"?"shankar":"csat")+'" points="'+rs.map(function(r){return X(r.date).toFixed(1)+","+Y(r.p).toFixed(1)}).join(" ")+'"/>';
+    rs.forEach(function(r){s+='<circle class="pt '+(g==="gs"?"shankar":"csat")+'" cx="'+X(r.date).toFixed(1)+'" cy="'+Y(r.p).toFixed(1)+'" r="4.5" tabindex="0"><title>'+esc(fdy(r.date)+": "+r.title+", "+r.marks+" / "+r.max+" ("+r1(r.p)+"%)")+'</title></circle>'})});
+  el.innerHTML=s+'</svg><div class="legend"><span><i class="lg shankar"></i>GS tests</span><span><i class="lg csat"></i>CSAT tests</span></div>';
+}
+
+/* Monthly current affairs: month cards, the daily 25, and the Read-the-notes viewer */
+var NOTES={},NV=null;
+var CAM_MONTHS=(function(){var o=[];for(var y=2026,m=0;y<2027||m<=3;){o.push(y+"-"+pad(m+1));m++;if(m>11){m=0;y++}if(y===2027&&m>3)break}return o})();
+function monthLabel(k){var p=k.split("-");return MONTHS[+p[1]-1]+" "+p[0]}
+function monthShort(k){var p=k.split("-");return MON[+p[1]-1]+" "+p[0].slice(2)}
+function camOfMonth(k){return camSets().filter(function(s){return s.month===k})}
+function loadNotes(id){
+  if(NOTES[id])return Promise.resolve(NOTES[id]);
+  return fetch("data/notes/"+encodeURIComponent(id)+".json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){NOTES[id]=d;return d});
+}
+function notesRead(id){return ((DB.meta.nr||{})[id])||0}
+function bestScore(id){var b=null;attempts().forEach(function(a){if(a.setId===id&&!a.part&&(b==null||a.pts>b.pts))b=a});return b}
+
+/* one row for a monthly set: notes button and test button */
+function camSetRow(s,showMonth){
+  var run=DB.recs["run_"+s.id];run=run&&!run.del?run:null;
+  var b=bestScore(s.id),nr=notesRead(s.id);
+  var act=run?'<button class="btn primary small" data-resume="run_'+s.id+'">Resume ('+run.done+'/'+run.n+')</button>':'<button class="btn '+(b?"":"primary ")+'small" data-start="'+s.id+'">'+(b?"Take again":"Start test")+'</button>';
+  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+(showMonth?monthLabel(s.month)+', ':'')+esc(s.dayLabel||"")+' · 25 questions</span><b>'+esc(s.category)+'</b>'+
+    '<span class="small '+(b?"good":"muted")+'">'+(b?'Best '+b.pts+' of '+(s.n*2)+'. ':'')+'Notes: '+(nr?nr+' of 25 pages read':'not read yet')+'</span></div>'+
+    '<div class="row wrap tight"><button class="btn small" data-camnotes="'+s.id+'">Read notes</button>'+act+'</div></div></li>';
+}
+/* Practice tab: current affairs by month */
+function camPanel(){
+  var sel=VIEW.camMonth;
+  if(!sel){var ready=CAM_MONTHS.filter(function(k){return camOfMonth(k).length});var open=ready.filter(function(k){var d=setDoneMap();return camOfMonth(k).some(function(s){return !d[s.id]})});sel=open[0]||ready[ready.length-1]||CAM_MONTHS[0]}
+  var done=setDoneMap();
+  var chips=CAM_MONTHS.map(function(k){var n=camOfMonth(k).length,d=camOfMonth(k).filter(function(s){return done[s.id]}).length;
+    return '<button class="chipbtn" data-cm="'+k+'" aria-pressed="'+(k===sel)+'"'+(n?'':' style="opacity:.7"')+'>'+monthShort(k)+'<span>'+(n?d+'/'+n:'soon')+'</span></button>'}).join("");
+  var sets=camOfMonth(sel),body;
+  if(sets.length){
+    body='<ul class="list">'+sets.map(function(s){return camSetRow(s,false)}).join("")+'</ul>'+
+      (sets.length>=6?'<div class="row wrap"><button class="btn" id="cm-full">Full '+MONTHS[+sel.split("-")[1]-1]+' test (100 questions, timed)</button><span class="muted small">100 questions drawn from all six sets.</span></div>':'');
+  }else{
+    var past=sel<"2026-11";
+    body='<p class="muted">'+(past?'The '+monthLabel(sel)+' questions and notes are being prepared and will appear here.':monthLabel(sel)+' will be added after the month ends, once its magazine is out. The space is kept ready.')+'</p>';
+  }
+  return '<section class="panel" id="cam-panel"><h2>Current affairs by month</h2><p class="muted small">Each month has six sets of 25 questions, one for each area (polity, economy, international relations and defence, environment, science and tech, schemes and reports). Every set has a Read-the-notes booklet: one page for each question. Read first, or test first and read after. The daily 25 on the Today tab takes the next set in month order.</p>'+
+    '<div class="chips mchips" role="group" aria-label="Month">'+chips+'</div>'+body+'</section>';
+}
+function bindCam(){
+  qsa("[data-cm]").forEach(function(b){b.onclick=function(){VIEW.camMonth=b.dataset.cm;render()}});
+  qsa("[data-camnotes]").forEach(function(b){b.onclick=function(){openCamNotes(b.dataset.camnotes,1,"tabs")}});
+  if($("cm-full"))$("cm-full").onclick=function(){
+    var k=VIEW.camMonth,qids=[];camOfMonth(k).forEach(function(s){for(var i=0;i<s.n;i++)qids.push(s.id+"#"+i)});
+    startCustom({type:"cam",title:monthLabel(k)+" full test (100 questions)",subject:"Current Affairs",qids:pickPart(qids,100),timed:true});
+  };
+}
+/* the daily 25 row, shown on the Today tab for each day from 31 Oct 2026 */
+function camRow(ds,td){
+  if(ds>td)return '<li><div><span class="muted small">Current affairs, 25 questions</span><b>The next set is chosen on the day</b></div></li>';
+  var nx=nextCamSet(),dn=camDoneOn(ds),lab='<span class="muted small">Daily current affairs, 25 questions</span>';
+  var notesBtn=nx?'<button class="btn small" data-camnotes="'+nx.id+'">Read notes</button>':'';
+  var act;
+  if(nx){var run=DB.recs["run_"+nx.id];run=run&&!run.del?run:null;
+    act=run?'<button class="btn primary small" data-resume="run_'+nx.id+'">Resume ('+run.done+'/'+run.n+')</button>':'<button class="btn '+(dn?"":"primary ")+'small" data-start="'+nx.id+'">'+(dn?"Do the next set":"Start")+'</button>';
+    return '<li class="setrow"><div class="setmain"><div>'+lab+'<b>'+esc(monthLabel(nx.month))+': '+esc(nx.category)+'</b>'+(dn?'<span class="good small">'+(ds===td?"Done for today":"Done on this day")+'</span>':'<span class="muted small">Next unused set in month order</span>')+'</div><div class="row wrap tight">'+notesBtn+act+'</div></div></li>';
+  }
+  return '<li class="setrow"><div class="setmain"><div>'+lab+'<b>Current affairs revision</b>'+(dn?'<span class="good small">Done for today</span>':'<span class="muted small">All new sets are done. This mixes your past mistakes with news you have not seen lately.</span>')+'</div><div class="row wrap tight"><button class="btn '+(dn?"":"primary ")+'small" id="cam-rev">'+(dn?"Another revision set":"Start")+'</button></div></div></li>';
+}
+function startCamRevision(){
+  var pool=poolFor("Current Affairs");if(pool.length<25){toast("Not enough current affairs questions yet.");return}
+  startCustom({type:"cam",title:"Current affairs revision, "+fd(today()),subject:"Current Affairs",qids:pickPart(pool,25),timed:!!DB.meta.timed});
+}
+
+/* ===== Read-the-notes viewer ===== */
+function openCamNotes(id,page,from){
+  stopPlayer(true);
+  $("app").innerHTML='<div class="page"><p class="muted">Loading the notes…</p></div>';
+  loadNotes(id).then(function(d){
+    VIEW.screen="notes";
+    NV={id:id,d:d,i:Math.max(0,Math.min(d.pages.length-1,(page||1)-1)),from:from||"tabs",tok:0,auto:false};
+    renderNotes();window.scrollTo(0,0);
+  }).catch(function(){VIEW.screen=from==="result"?"result":"tabs";if(from==="result")renderResult(false);else render();toast("Could not load the notes. Check your connection and try again.")});
+}
+function noteSpeechList(p){
+  var out=[p.headline+".",p.when?"When: "+p.when+".":""].concat(chunks(readable(p.what)));
+  out.push("Key points.");(p.key||[]).forEach(function(k){out=out.concat(chunks(readable(k)))});
+  if(p.static){out.push("Static link.");out=out.concat(chunks(readable(p.static)))}
+  if(p.angle){out.push("Prelims angle.");out=out.concat(chunks(readable(p.angle)))}
+  if(p.remember){out.push("Remember.");out=out.concat(chunks(readable(p.remember)))}
+  return out.filter(Boolean);
+}
+function noteStop(){if(!NV)return;NV.tok++;NV.auto=false;if(ttsOk())window.speechSynthesis.cancel()}
+function noteSpeak(){
+  if(!ttsOk()){toast("This device cannot read text aloud.");return}
+  var tok=++NV.tok;window.speechSynthesis.cancel();NV.auto=true;
+  var list=noteSpeechList(NV.d.pages[NV.i]),j=0;
+  var nx=function(){
+    if(!NV||tok!==NV.tok)return;
+    if(j>=list.length){setTimeout(function(){if(!NV||tok!==NV.tok)return;if(NV.i<NV.d.pages.length-1){NV.i++;renderNotes();noteSpeak()}else{NV.auto=false;renderNotes()}},900);return}
+    var u=new SpeechSynthesisUtterance(list[j++]);u.rate=DB.meta.ttsRate||1;var v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang="en-IN";
+    u.onend=nx;u.onerror=function(e){if(e.error==="interrupted"||e.error==="canceled")return;nx()};window.speechSynthesis.speak(u);
+  };
+  renderNotes();nx();
+}
+function noteGo(i){
+  if(!NV||i<0||i>=NV.d.pages.length)return;
+  var was=NV.auto;noteStop();NV.i=i;renderNotes();window.scrollTo(0,0);if(was)noteSpeak();
+}
+function renderNotes(){
+  var d=NV.d,p=d.pages[NV.i],n=d.pages.length,s=SET[NV.id]||{};
+  var nr=DB.meta.nr=DB.meta.nr||{};if((nr[NV.id]||0)<NV.i+1){nr[NV.id]=NV.i+1;saveStore()}
+  var idx=(d.index||[]).map(function(g){return '<button class="chipbtn" data-pg="'+g.pages[0]+'" aria-pressed="'+(g.pages.indexOf(p.n)>=0)+'">'+esc(g.t)+'<span>'+g.pages.length+'</span></button>'}).join("");
+  var dots='<div class="npbar" aria-hidden="true"><i style="width:'+Math.round((NV.i+1)/n*100)+'%"></i></div>';
+  var key=(p.key||[]).map(function(k){return '<li>'+esc(k)+'</li>'}).join("");
+  var last=NV.i===n-1;
+  $("app").innerHTML='<div class="page notes"><div class="pagehead"><button class="btn ghost" id="nt-back">Back</button><div><h1>'+esc(d.title||s.title||"Notes")+'</h1><p class="muted">Read the notes · page '+p.n+' of '+n+'</p></div></div>'+
+    '<div class="chips" role="group" aria-label="Topics in this set">'+idx+'</div>'+dots+
+    '<section class="panel notecard" id="nt-card" aria-live="polite"><div class="row between wrap"><span class="chip">'+esc(p.t)+'</span><span class="muted small">'+esc(p.when||"")+'</span></div>'+
+    '<h2 class="nh">'+esc(p.headline)+'</h2><p>'+esc(p.what)+'</p>'+(key?'<h3>Key points</h3><ul class="nkey">'+key+'</ul>':'')+
+    (p.static?'<h3>Static link</h3><p>'+esc(p.static)+'</p>':'')+(p.angle?'<h3>Prelims angle</h3><p>'+esc(p.angle)+'</p>':'')+
+    (p.remember?'<div class="nrem"><b>Remember</b> '+esc(p.remember)+'</div>':'')+'</section>'+
+    '<div class="notenav"><button class="btn" id="nt-prev"'+(NV.i===0?" disabled":"")+'>Previous</button><button class="btn" id="nt-listen">'+(NV.auto?"Stop reading":"Listen")+'</button>'+
+    (last?'<button class="btn primary" id="nt-test">Test this set</button>':'<button class="btn primary" id="nt-next">Next</button>')+'</div>'+
+    '<p class="muted small center">Swipe left or right, or use the buttons. Pages open where you left off.</p></div>';
+  $("nt-back").onclick=function(){noteStop();if(NV.from==="result"){VIEW.screen="result";renderResult(false);window.scrollTo(0,0)}else{VIEW.screen="tabs";render()}};
+  if($("nt-prev"))$("nt-prev").onclick=function(){noteGo(NV.i-1)};
+  if($("nt-next"))$("nt-next").onclick=function(){noteGo(NV.i+1)};
+  if($("nt-test"))$("nt-test").onclick=function(){noteStop();VIEW.screen="tabs";startSet(NV.id,!!DB.meta.timed)};
+  $("nt-listen").onclick=function(){if(NV.auto){noteStop();renderNotes()}else noteSpeak()};
+  qsa("[data-pg]").forEach(function(b){b.onclick=function(){noteGo(+b.dataset.pg-1)}});
+  var c=$("nt-card"),x0=null,y0=null;
+  c.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+  c.addEventListener("touchend",function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)noteGo(NV.i+(dx<0?1:-1))},{passive:true});
+}
+document.addEventListener("keydown",function(e){
+  if(VIEW.screen!=="notes"||!NV)return;
+  if(e.key==="ArrowRight")noteGo(NV.i+1);else if(e.key==="ArrowLeft")noteGo(NV.i-1);
+});
+/* result screen: pages to re-read for the questions that were missed */
+function notesAfterTest(a,qs){
+  var byQ={};qs.forEach(function(q){byQ[q.qid]=q});
+  var miss={},sets={};
+  (a.items||[]).forEach(function(x){var q=byQ[x[0]];if(!q||!q.pg||String(x[0]).indexOf("CAM26-")!==0)return;var sid=x[0].split("#")[0];sets[sid]=1;if(x[4]!==1&&x[4]!==2)(miss[sid]=miss[sid]||[]).push(q.pg)});
+  var ids=Object.keys(sets);if(!ids.length)return "";
+  return '<section class="panel"><h2>Read the notes</h2>'+ids.map(function(sid){
+    var st=SET[sid]||{},m=(miss[sid]||[]).sort(function(x,y){return x-y});
+    return '<div class="row between wrap" style="margin:8px 0"><div><b>'+esc(st.title||sid)+'</b><br><span class="muted small">'+(m.length?m.length+' to re-read: pages '+m.join(", "):'No missed questions in this set.')+'</span></div><div class="row wrap tight">'+
+      (m.length?'<button class="btn small" data-camnotes-pg="'+sid+'|'+m[0]+'">Open page '+m[0]+'</button>':'')+'<button class="btn small" data-camnotes-pg="'+sid+'|1">All pages</button></div></div>'}).join("")+'</section>';
+}
+function bindNotesAfterTest(){
+  qsa("[data-camnotes-pg]").forEach(function(b){b.onclick=function(){var p=b.dataset.camnotesPg.split("|");openCamNotes(p[0],+p[1],"result")}});
+  qsa("[data-note]").forEach(function(b){b.onclick=function(){var qid=b.dataset.note,q=(RES&&RES.qs||[]).filter(function(x){return x.qid===qid})[0];if(q)openCamNotes(qid.split("#")[0],q.pg||1,"result")}});
 }
 
 /* boot */

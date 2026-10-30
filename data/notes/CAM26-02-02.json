@@ -1,0 +1,484 @@
+{
+ "id": "CAM26-02-02",
+ "title": "February 2026: Economy",
+ "category": "Economy",
+ "index": [
+  {
+   "t": "Union Budget 2026-27",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "t": "Monetary Policy & Banking",
+   "pages": [
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "t": "Statistics & Data",
+   "pages": [
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "t": "Industry & Trade",
+   "pages": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  {
+   "t": "Investment & Reforms",
+   "pages": [
+    21,
+    22,
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Union Budget 2026-27",
+   "headline": "Budget 2026-27 fiscal numbers and the debt anchor",
+   "when": "Presented 1 Feb 2026",
+   "what": "Finance Minister Nirmala Sitharaman presented the Budget on 1 February 2026. It proposed capital spending of Rs 12.2 lakh crore and a fiscal deficit of 4.3 per cent of GDP, and shifted the medium-term anchor from yearly deficit goals to a debt-to-GDP target.",
+   "key": [
+    "Public capex FY2026-27: Rs 12.2 lakh crore.",
+    "Fiscal deficit FY2026-27: 4.3 per cent of GDP.",
+    "Revised estimate FY2025-26 fiscal deficit: 4.4 per cent of GDP.",
+    "Debt-to-GDP target: 50 per cent plus or minus 1 by 2030-31.",
+    "Budget also accepted the 41 per cent States' share recommended by the 16th Finance Commission."
+   ],
+   "static": "The FRBM Act, 2003 sets the legal framework for fiscal deficit and debt targets.",
+   "angle": "Trap: the revised estimate for FY2025-26 is 4.4, not 4.8 per cent.",
+   "remember": "Capex 12.2, deficit 4.3, debt anchor 50 by 2030-31."
+  },
+  {
+   "n": 2,
+   "t": "Union Budget 2026-27",
+   "headline": "Budget tax changes: new Act, lower TCS, lower personal import duty",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget confirmed that the Income Tax Act, 2025 begins on 1 April 2026. It lowered TCS on remittances for education, medical needs and overseas tours to 2 per cent, halved the duty on dutiable goods imported for personal use, and exempted 17 cancer medicines from customs duty.",
+   "key": [
+    "Income Tax Act, 2025 effective 1 April 2026.",
+    "TCS under LRS: 2 per cent for education, medical and overseas tour packages.",
+    "Customs duty on personal imports: cut from 20 to 10 per cent.",
+    "Customs duty exemption for 17 cancer medicines.",
+    "Applies to dutiable goods imported for personal use."
+   ],
+   "static": "TCS is a form of advance tax collected by the seller; LRS lets resident individuals remit money abroad up to a yearly limit.",
+   "angle": "Trap: the exemption covers 17 named cancer medicines, not all drugs.",
+   "remember": "New Act on 1 April; TCS 2; personal import duty 10; 17 cancer drugs."
+  },
+  {
+   "n": 3,
+   "t": "Union Budget 2026-27",
+   "headline": "Budget backs Orange Economy: AVGC labs and new NID in the east",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget turned to the creative economy, proposing AVGC content creator labs in 15,000 secondary schools and 500 colleges through IICT Mumbai, and a new National Institute of Design in eastern India. The AVGC sector is projected to need 2 million professionals by 2030.",
+   "key": [
+    "AVGC labs in 15,000 secondary schools and 500 colleges via IICT, Mumbai.",
+    "AVGC sector projected to need 2 million professionals by 2030.",
+    "New National Institute of Design in the eastern region; seven NIDs exist.",
+    "Term 'Orange Economy' coined by Ivan Duque and Felipe Buitrago (2013).",
+    "Creative exports grew 20 per cent in 2023-24 to over USD 11 billion."
+   ],
+   "static": "The Orange Economy covers activities that turn ideas into cultural goods and services whose value rests mainly on intellectual property.",
+   "angle": "Trap: the concept comes from Colombia, not India.",
+   "remember": "Orange Economy: 15,000 school labs, 500 colleges, eighth NID in the east."
+  },
+  {
+   "n": 4,
+   "t": "Union Budget 2026-27",
+   "headline": "City Economic Regions, container scheme and rare earth corridors",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget created City Economic Regions with Rs 5,000 crore each over five years and a Rs 10,000 crore Container Manufacturing Scheme. It also proposed rare earth corridors in four coastal States and three challenge-based chemical parks backed by Rs 600 crore.",
+   "key": [
+    "City Economic Regions: Rs 5,000 crore each over five years.",
+    "Container Manufacturing Scheme: Rs 10,000 crore.",
+    "Rare earth corridors: Odisha, Kerala, Andhra Pradesh, Tamil Nadu.",
+    "Three challenge-based chemical parks with Rs 600 crore.",
+    "Rare Earth Permanent Magnet initiative supports EV and renewable supply chains."
+   ],
+   "static": "Rare earth elements are used in permanent magnets for electric vehicles and wind turbines; India holds large monazite sands on its coasts.",
+   "angle": "Trap: the four corridor States are on the east and west coasts, not in Rajasthan and Gujarat.",
+   "remember": "Corridors in Odisha, Kerala, AP and TN; CERs Rs 5,000 crore each."
+  },
+  {
+   "n": 5,
+   "t": "Union Budget 2026-27",
+   "headline": "Budget announces seven high-speed rail corridors and new freight corridor",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget treated seven high-speed rail corridors as growth connectors, announced a Dedicated Freight Corridor from Dankuni to Surat, 20 new national waterways over five years and a target to double the inland and coastal shipping share to 12 per cent by 2047.",
+   "key": [
+    "Seven high-speed rail corridors, including Delhi-Varanasi and Varanasi-Siliguri.",
+    "New Dedicated Freight Corridor: Dankuni to Surat.",
+    "20 new national waterways over five years.",
+    "Inland and coastal shipping share: 6 per cent to 12 per cent by 2047.",
+    "Railways capital allocation Rs 2.78 lakh crore; Seaplane VGF Scheme and Infrastructure Risk Guarantee Fund."
+   ],
+   "static": "National Waterway-1 on the Ganga from Prayagraj to Haldia was India's first declared national waterway.",
+   "angle": "Trap: the shipping share target is a doubling (6 to 12), not a fall.",
+   "remember": "Seven HSR, Dankuni-Surat DFC, 20 waterways, shipping 6 to 12."
+  },
+  {
+   "n": 6,
+   "t": "Union Budget 2026-27",
+   "headline": "Budget creates SME Growth Fund and mandates TReDS for CPSE purchases",
+   "when": "Budget 1 Feb 2026",
+   "what": "To ease MSME finance, the Budget created a Rs 10,000 crore SME Growth Fund, topped up the Self-Reliant India Fund for micro-enterprises by Rs 2,000 crore and mandated TReDS as the settlement platform for all central public sector enterprise purchases from MSMEs.",
+   "key": [
+    "SME Growth Fund: Rs 10,000 crore.",
+    "Self-Reliant India Fund top-up: Rs 2,000 crore for micro-enterprises.",
+    "TReDS mandatory for all CPSE purchases from MSMEs.",
+    "TReDS is an electronic platform for discounting MSME trade receivables.",
+    "Compliance support completes the equity, liquidity and compliance approach."
+   ],
+   "static": "MSMEs are defined under the MSMED Act, 2006 and registered through the Udyam portal.",
+   "angle": "Trap: the TReDS mandate covers CPSE buyers, not all private buyers.",
+   "remember": "SME fund 10,000; SRI top-up 2,000; TReDS for CPSE buyers."
+  },
+  {
+   "n": 7,
+   "t": "Monetary Policy & Banking",
+   "headline": "RBI keeps repo rate at 5.25 per cent with neutral stance",
+   "when": "MPC decision 6 Feb 2026",
+   "what": "The RBI Monetary Policy Committee, chaired by Governor Sanjay Malhotra, left the repo rate at 5.25 per cent with a neutral stance. The last 25 basis point cut came in December 2025, and the FY26 GDP growth projection was raised to 7.4 per cent from 7.3 per cent.",
+   "key": [
+    "Repo rate unchanged at 5.25 per cent; stance neutral.",
+    "Previous change: 25 basis point cut in December 2025.",
+    "FY26 GDP growth projection raised to 7.4 per cent from 7.3.",
+    "Inflation mandate: 4 per cent with a band of 2 to 6 per cent.",
+    "Governor: Sanjay Malhotra."
+   ],
+   "static": "The MPC is a statutory six-member body under the RBI Act, 1934 (amended 2016), with the Governor as Chair.",
+   "angle": "Trap: the stance stayed neutral; it was not changed to accommodative.",
+   "remember": "Hold at 5.25, neutral stance, growth 7.4."
+  },
+  {
+   "n": 8,
+   "t": "Monetary Policy & Banking",
+   "headline": "RBI doubles collateral-free MSME loan limit to Rs 20 lakh",
+   "when": "February 2026; effective 1 April 2026",
+   "what": "The RBI amended its MSME lending directions to double the collateral-free limit for micro and small enterprises to Rs 20 lakh. Banks may go up to Rs 25 lakh based on track record and credit guarantee cover. A draft also proposed letting banks lend to REITs.",
+   "key": [
+    "Collateral-free limit: Rs 10 lakh raised to Rs 20 lakh.",
+    "Effective for loans sanctioned or renewed on or after 1 April 2026.",
+    "Up to Rs 25 lakh possible with track record and credit guarantee cover.",
+    "Also applies to PMEGP units; PMEGP is implemented by KVIC.",
+    "Draft allowing banks to lend to REITs proposed the same month."
+   ],
+   "static": "CGTMSE provides credit guarantee cover for collateral-free loans to micro and small enterprises.",
+   "angle": "Trap: PMEGP units are covered, not excluded.",
+   "remember": "Rs 20 lakh collateral-free from 1 April 2026."
+  },
+  {
+   "n": 9,
+   "t": "Monetary Policy & Banking",
+   "headline": "Budget plan to deepen India's corporate bond market",
+   "when": "Budget 1 Feb 2026; RBI drafts Feb 2026",
+   "what": "The Budget proposed a market-making framework, total return swaps and bond-index derivatives, plus an Infrastructure Risk Guarantee Fund giving partial credit guarantees during construction. The RBI followed with draft rules for total return swaps and credit default swaps on corporate bonds.",
+   "key": [
+    "Market-making framework, total return swaps and bond-index derivatives proposed.",
+    "Infrastructure Risk Guarantee Fund for partial guarantees during construction.",
+    "Corporate bond market: about 15-16 per cent of GDP; US over 80 per cent.",
+    "Banks hold roughly 60-65 per cent of non-financial corporate debt.",
+    "RBI draft: total return swaps and credit default swaps on corporate bonds."
+   ],
+   "static": "SEBI regulates the corporate bond market while the RBI regulates bank-related derivatives and money market instruments.",
+   "angle": "Trap: the bond market is shallow, so the stated reform is not about shrinking bank lending.",
+   "remember": "Shallow bond market, bank-heavy credit, hence derivatives push."
+  },
+  {
+   "n": 10,
+   "t": "Statistics & Data",
+   "headline": "MoSPI releases GDP series with base year 2022-23",
+   "when": "27 Feb 2026",
+   "what": "MoSPI released the rebased GDP series with 2022-23 replacing 2011-12. Real GDP growth for FY2025-26 was put at 7.6 per cent, nominal growth at 8.6 per cent and real GVA growth at 7.7 per cent, with growth of 7.8 per cent in Q3 (October-December 2025).",
+   "key": [
+    "Base year: 2022-23 replacing 2011-12.",
+    "FY2025-26 real GDP growth 7.6 per cent (Second Advance Estimates); nominal 8.6 per cent.",
+    "Real GVA growth FY2025-26: 7.7 per cent; Q3 growth: 7.8 per cent.",
+    "Real growth in FY2023-24 and FY2024-25: 7.2 and 7.1 per cent.",
+    "Nominal GDP FY2025-26: Rs 345.47 lakh crore."
+   ],
+   "static": "The Indian financial year runs April to March, so Q1 is April-June and Q3 is October-December.",
+   "angle": "Trap: Q3 is October-December, not January-March.",
+   "remember": "Base 2022-23; FY26 growth 7.6; Q3 is Oct-Dec."
+  },
+  {
+   "n": 11,
+   "t": "Statistics & Data",
+   "headline": "New CPI series on base year 2024 released",
+   "when": "12 Feb 2026",
+   "what": "MoSPI released the Consumer Price Index on base year 2024, replacing 2012. The first reading under the new series showed provisional all-India CPI inflation of 2.75 per cent for January 2026.",
+   "key": [
+    "New base year: 2024, replacing 2012.",
+    "Released by MoSPI on 12 February 2026.",
+    "Provisional January 2026 inflation: 2.75 per cent.",
+    "Series follows COICOP 2018.",
+    "RBI targets CPI inflation but does not compile the index."
+   ],
+   "static": "CPI (combined) is the anchor for the RBI's flexible inflation targeting framework.",
+   "angle": "Trap: MoSPI compiles CPI; the RBI only targets it.",
+   "remember": "New CPI base 2024; January 2.75 per cent."
+  },
+  {
+   "n": 12,
+   "t": "Statistics & Data",
+   "headline": "New CPI basket: smaller food weight and wider coverage",
+   "when": "12 Feb 2026",
+   "what": "The new CPI series reduces the weight of food and beverages to 36.75 per cent from 45.86 per cent and widens the basket from 299 to 358 items. Weights come from the Household Consumption Expenditure Survey 2023-24, and new items include rural housing, OTT subscriptions and value-added dairy.",
+   "key": [
+    "Food and beverages weight: 45.86 per cent cut to 36.75 per cent.",
+    "Basket widened from 299 to 358 items.",
+    "Weights from Household Consumption Expenditure Survey 2023-24.",
+    "New items: rural housing, OTT subscriptions, value-added dairy.",
+    "Base year moved to 2024."
+   ],
+   "static": "A base-year revision re-weights the CPI basket to match current household spending, so that inflation reflects present consumption patterns.",
+   "angle": "Trap: food weight falls to 36.75 per cent while the basket grows to 358 items.",
+   "remember": "Food weight 36.75; basket 299 to 358; HCES 2023-24 weights."
+  },
+  {
+   "n": 13,
+   "t": "Statistics & Data",
+   "headline": "DGCI&S rebases trade indices to FY2022-23",
+   "when": "Revision reported 22 Feb 2026",
+   "what": "DGCI&S revised the base year of India's merchandise trade unit value indices from FY2012-13 to FY2022-23. The new series covers principal commodities, SITC and Broad Economic Categories, bilateral indices for the top 20 partners and terms of trade measures.",
+   "key": [
+    "Base year: FY2012-13 revised to FY2022-23.",
+    "Compiler: DGCI&S, not MoSPI.",
+    "Includes SITC and Broad Economic Categories indices.",
+    "Bilateral indices for top 20 trading partners.",
+    "Gross, net and income terms of trade included."
+   ],
+   "static": "Terms of trade is the ratio of export prices to import prices; DGCI&S is the nodal source of trade data in the Commerce Ministry.",
+   "angle": "Trap: do not assign trade indices to MoSPI; GDP and CPI were MoSPI's rebasing.",
+   "remember": "GDP 2022-23, CPI 2024, trade FY2022-23 base."
+  },
+  {
+   "n": 14,
+   "t": "Industry & Trade",
+   "headline": "Budget lifts ECMS outlay to Rs 40,000 crore",
+   "when": "Budget 1 Feb 2026",
+   "what": "Budget 2026-27 raised the outlay of the Electronics Components Manufacturing Scheme to Rs 40,000 crore. Investment commitments of Rs 1.15 lakh crore against an initial target of Rs 59,350 crore showed strong industry response, with a goal of a USD 500 billion electronics ecosystem by 2030-31.",
+   "key": [
+    "Outlay raised from Rs 22,919 crore to Rs 40,000 crore.",
+    "Implemented by MeitY; launched April 2025.",
+    "Commitments: Rs 1.15 lakh crore by December 2025.",
+    "Initial investment target: Rs 59,350 crore.",
+    "Goal: USD 500 billion electronics ecosystem by 2030-31."
+   ],
+   "static": "ECMS targets sub-assemblies, bare components and capital equipment, complementing PLI schemes and the India Semiconductor Mission.",
+   "angle": "Trap: commitments exceeded, not fell short of, the target.",
+   "remember": "ECMS: 40,000 crore outlay; commitments beat the target."
+  },
+  {
+   "n": 15,
+   "t": "Industry & Trade",
+   "headline": "Biopharma SHAKTI aims to make India a biomanufacturing hub",
+   "when": "Budget 1 Feb 2026",
+   "what": "Biopharma SHAKTI (Strategy for Healthcare Advancement through Knowledge, Technology and Innovation) aims to make India a global biomanufacturing hub. It combines NIPER expansion, over 1,000 accredited clinical trial sites and a stronger CDSCO with a dedicated scientific review cadre.",
+   "key": [
+    "Outlay: Rs 10,000 crore over five years.",
+    "Three new NIPERs and upgrading of seven existing ones.",
+    "Network of over 1,000 accredited clinical trial sites.",
+    "Dedicated scientific review cadre for the CDSCO.",
+    "Targets biologics and biosimilars."
+   ],
+   "static": "Biologics are made from living cells such as vaccines and proteins; biosimilars are highly similar copies with no clinically meaningful difference.",
+   "angle": "Trap: the review cadre strengthens CDSCO, the drug regulator.",
+   "remember": "Biopharma SHAKTI: 10,000 crore, NIPERs, trials, CDSCO."
+  },
+  {
+   "n": 16,
+   "t": "Industry & Trade",
+   "headline": "Rs 7,280 crore REPM scheme and three new chemical parks",
+   "when": "Budget 1 Feb 2026",
+   "what": "To cut dependence on China for strong magnets used in EV motors and wind turbines, the Budget backed a Rs 7,280 crore REPM Manufacturing Scheme with 6,000 MTPA capacity across the value chain. It also proposed three new chemical parks with a Rs 600 crore allocation.",
+   "key": [
+    "REPM scheme: Rs 7,280 crore; 6,000 MTPA; oxides to finished magnets.",
+    "India imported 60-80 per cent of REPMs by value from China in 2022-25.",
+    "REPM demand expected to double by 2030.",
+    "Three new chemical parks, Rs 600 crore, cluster-based approach.",
+    "Chemicals: 7 per cent of GDP; India is the sixth largest producer."
+   ],
+   "static": "Rare earth magnets are among the strongest permanent magnets and are used in EV motors, wind turbines and defence sensors.",
+   "angle": "Trap: chemical parks get Rs 600 crore, not Rs 6,000 crore.",
+   "remember": "REPM: Rs 7,280 crore, 6,000 MTPA; chemical parks Rs 600 crore."
+  },
+  {
+   "n": 17,
+   "t": "Industry & Trade",
+   "headline": "Budget backs frontier and labour-intensive manufacturing together",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget follows a two-track manufacturing plan: tech-intensive areas such as semiconductors, biologics and rare earth magnets, and labour-intensive sectors such as textiles and sports goods. It also revives 200 legacy industrial clusters and adds a new scheme for construction and infrastructure equipment.",
+   "key": [
+    "Two-track strategy: frontier technology plus labour-intensive industry.",
+    "Scheme to revive 200 legacy industrial clusters.",
+    "India Semiconductor Mission 2.0: fabrication, packaging, equipment.",
+    "New Construction and Infrastructure Equipment scheme for domestic manufacturing.",
+    "Textiles programme: Mega Textile Parks in challenge mode."
+   ],
+   "static": "The smiling curve shows that design and branding earn more value than assembly in global value chains.",
+   "angle": "Trap: the CIE scheme builds domestic capacity, it does not raise imports.",
+   "remember": "200 clusters, ISM 2.0, domestic equipment."
+  },
+  {
+   "n": 18,
+   "t": "Industry & Trade",
+   "headline": "Ten of eleven Export Promotion Mission interventions operationalised",
+   "when": "21 Feb 2026",
+   "what": "The Commerce Ministry operationalised ten of the eleven proposed interventions under the Export Promotion Mission. New schemes include export factoring support, e-commerce export credit, TRACE, FLOW, LIFT and INSIGHT, under a Rs 25,060 crore mission running to FY2030-31.",
+   "key": [
+    "Outlay: Rs 25,060 crore, FY2025-26 to FY2030-31.",
+    "Implemented through DGFT; 10 of 11 interventions operationalised.",
+    "Financial pillar: Niryat Protsahan; non-financial: Niryat Disha.",
+    "Export factoring: 2.75 per cent subvention, cap Rs 50 lakh per MSME a year.",
+    "Schemes added: e-commerce export credit, TRACE, FLOW, LIFT, INSIGHT."
+   ],
+   "static": "DGFT, under the Commerce Ministry, administers the Foreign Trade (Development and Regulation) Act, 1992.",
+   "angle": "Trap: Protsahan is financial; Disha is non-financial.",
+   "remember": "Protsahan funds; Disha guides."
+  },
+  {
+   "n": 19,
+   "t": "Industry & Trade",
+   "headline": "Coking coal declared a Critical and Strategic Mineral",
+   "when": "2 Feb 2026",
+   "what": "Coking coal was declared a Critical and Strategic Mineral under the MMDR Act, 1957. India is the second-largest crude steel producer, imported 57.58 million tonnes of coking coal in 2024-25 and holds about 37.37 billion tonnes of reserves, mostly in Jharkhand.",
+   "key": [
+    "Declared under Section 11C of the MMDR Act, 1957.",
+    "Imports in 2024-25: 57.58 million tonnes, mostly from Australia.",
+    "Reserves: about 37.37 billion tonnes, mainly Jharkhand.",
+    "India is the second-largest crude steel producer.",
+    "About 780 kg of coking coal is needed per tonne of steel."
+   ],
+   "static": "Coking coal is used in blast furnace steelmaking and is distinct from thermal coal used in power plants.",
+   "angle": "Trap: India ranks second in crude steel production.",
+   "remember": "Coking coal: Section 11C, 57.58 Mt imports, second in steel."
+  },
+  {
+   "n": 20,
+   "t": "Industry & Trade",
+   "headline": "SECI green ammonia auction sets new price benchmarks",
+   "when": "24 Feb 2026",
+   "what": "SECI held a green ammonia auction under the SIGHT programme of the National Green Hydrogen Mission, setting new global price benchmarks. Component I supports electrolyser manufacturing, while Component II backs green hydrogen and derivatives with long offtake agreements.",
+   "key": [
+    "SIGHT: Strategic Interventions for Green Hydrogen Transition.",
+    "Implemented by MNRE through SECI.",
+    "Component I: electrolyser manufacturing; Component II: hydrogen and derivatives.",
+    "Offtake agreements of 7 to 10 years.",
+    "Ammonia liquefies at about minus 33 degrees Celsius."
+   ],
+   "static": "Green hydrogen is produced by electrolysing water with renewable electricity; ammonia is a hydrogen carrier.",
+   "angle": "Trap: ammonia (minus 33) is far easier to liquefy than hydrogen (below minus 253).",
+   "remember": "SIGHT: electrolysers plus offtakes; ammonia at minus 33."
+  },
+  {
+   "n": 21,
+   "t": "Investment & Reforms",
+   "headline": "National Monetisation Pipeline 2.0 targets Rs 16.72 lakh crore",
+   "when": "24 Feb 2026",
+   "what": "Finance Minister Nirmala Sitharaman launched NMP 2.0 with a monetisation potential of Rs 16.72 lakh crore over FY2025-26 to FY2029-30, including Rs 5.8 lakh crore of private investment. Sectors include roads, railways, power, oil and gas, aviation, ports, telecom, coal and mines.",
+   "key": [
+    "Potential: Rs 16.72 lakh crore, FY2025-26 to FY2029-30.",
+    "Private investment: Rs 5.8 lakh crore.",
+    "Developed by NITI Aayog under the Asset Monetisation Plan 2025-30.",
+    "NMP 1.0 met nearly 90 per cent of its Rs 6 lakh crore target.",
+    "Sectors: roads, railways, power, oil and gas, aviation, ports, telecom, coal, mines."
+   ],
+   "static": "Asset monetisation leases or transfers operating public assets to private operators while ownership stays with the government.",
+   "angle": "Trap: NMP 1.0 reached nearly 90 per cent, not under half.",
+   "remember": "NMP 2.0: 16.72 lakh crore; 5.8 private; NMP 1.0 hit 90 per cent."
+  },
+  {
+   "n": 22,
+   "t": "Investment & Reforms",
+   "headline": "Cabinet approves Startup India Fund of Funds 2.0",
+   "when": "Highlighted 13 Feb 2026",
+   "what": "The Union Cabinet approved Startup India Fund of Funds 2.0 with a corpus of Rs 10,000 crore to support early-stage startups, deep tech and tech-driven manufacturing. DPIIT also revised startup recognition rules in February 2026, adding a deep-tech sub-category.",
+   "key": [
+    "Corpus: Rs 10,000 crore.",
+    "Supports early-stage startups, deep tech and tech-driven manufacturing.",
+    "Fund of Funds 1.0 (Rs 10,000 crore) was managed by SIDBI.",
+    "Startup India implemented by DPIIT; launched 16 January 2016.",
+    "DPIIT added a deep-tech sub-category in recognition rules."
+   ],
+   "static": "A Fund of Funds invests in venture funds rather than directly in startups.",
+   "angle": "Trap: DPIIT, not the MSME Ministry, runs Startup India.",
+   "remember": "FoF 2.0: 10,000 crore; SIDBI managed FoF 1.0; DPIIT runs it."
+  },
+  {
+   "n": 23,
+   "t": "Investment & Reforms",
+   "headline": "Budget cuts TCS on education and medical remittances under LRS",
+   "when": "Budget 1 Feb 2026",
+   "what": "The Budget lowered the tax collected at source on education and medical remittances abroad under the Liberalised Remittance Scheme. The scheme, introduced by the RBI in 2004, lets resident individuals send up to USD 2,50,000 a year, but excludes corporates, firms, HUFs and trusts.",
+   "key": [
+    "Limit: USD 2,50,000 per financial year per resident individual, minors included.",
+    "Introduced by the RBI in 2004.",
+    "Not available to corporates, partnership firms, HUFs and trusts.",
+    "Gambling, lottery, trading and speculation are prohibited uses.",
+    "Budget cut TCS (Section 206C) on education and medical remittances."
+   ],
+   "static": "TCS is tax collected by the seller at the time of sale under Section 206C of the Income Tax Act, 1961, and can be claimed as credit.",
+   "angle": "Trap: LRS is only for resident individuals, not corporates or HUFs.",
+   "remember": "LRS: RBI 2004, USD 2.5 lakh, individuals only, TCS cut."
+  },
+  {
+   "n": 24,
+   "t": "Investment & Reforms",
+   "headline": "Startup recognition revised: higher turnover cap and deep tech category",
+   "when": "Reported Feb 2026",
+   "what": "The government revised the Startup Recognition Framework to include scaling and innovation-led businesses. Turnover cap doubles to Rs 200 crore with a 10-year age limit, a deep tech sub-category gets 20 years and Rs 300 crore, and cooperative societies are newly eligible.",
+   "key": [
+    "Age limit 10 years; turnover limit Rs 200 crore, doubled from Rs 100 crore.",
+    "Deep tech startup: age limit 20 years, turnover limit Rs 300 crore.",
+    "Multi-State Cooperative Societies and State cooperative societies newly included.",
+    "Must not be formed by splitting or reconstructing an existing business.",
+    "Startup India FoF 2.0 corpus of Rs 10,000 crore supports deep tech."
+   ],
+   "static": "Startup recognition by DPIIT unlocks tax benefits, easier compliance and access to funding schemes such as the Fund of Funds.",
+   "angle": "Trap: cooperatives are newly included, not excluded.",
+   "remember": "Startup: 10 years, Rs 200 crore; deep tech 20 years, Rs 300 crore."
+  },
+  {
+   "n": 25,
+   "t": "Investment & Reforms",
+   "headline": "DISCOMs post first profit, but State subsidies prop it up",
+   "when": "Reported Feb 2026",
+   "what": "DISCOMs earned Rs 2,701 crore profit after tax in 2024-25, a swing from a Rs 67,962 crore loss in 2013-14, as AT&C losses fell to 15.04 per cent. The gain rests on RDSS and Late Payment Surcharge Rules, and largely on State tariff subsidies and loss takeovers.",
+   "key": [
+    "PAT Rs 2,701 crore in 2024-25; loss Rs 67,962 crore in 2013-14.",
+    "AT&C losses cut from 22.62 to 15.04 per cent.",
+    "LPS Rules 2022: legacy dues payable in up to 48 equated instalments.",
+    "Legacy dues fell from Rs 1,39,947 crore (June 2022) to Rs 4,927 crore (Jan 2026).",
+    "Profits depend heavily on State tariff subsidies and loss takeovers."
+   ],
+   "static": "AT&C loss measures technical losses plus theft, billing inefficiency and non-collection; the ACS-ARR gap measures cost of supply versus revenue realised.",
+   "angle": "Trap: the profit is real but subsidy-supported, so sustainability is still doubtful.",
+   "remember": "DISCOM PAT Rs 2,701 crore; AT&C 15.04; LPS 48 instalments."
+  }
+ ]
+}

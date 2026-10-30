@@ -1,0 +1,481 @@
+{
+ "id": "CAM26-01-02",
+ "title": "January 2026: Economy",
+ "category": "Economy",
+ "index": [
+  {
+   "t": "Growth & Economic Survey",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "t": "Banking, Pensions & Regulation",
+   "pages": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  {
+   "t": "Investment & Trade",
+   "pages": [
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "t": "MSMEs & Industrial Policy",
+   "pages": [
+    18,
+    19,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "t": "Agriculture & Infrastructure",
+   "pages": [
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Growth & Economic Survey",
+   "headline": "India fourth-largest economy",
+   "when": "Cited 8 Jan 2026 (for calendar 2025)",
+   "what": "India overtook Japan to become the world's fourth-largest economy by nominal GDP in 2025, at USD 4.18 trillion. India was projected to overtake Germany in about 2.5 to 3 years. In PPP terms it is the third largest economy.",
+   "key": [
+    "Nominal GDP 2025: USD 4.18 trillion, rank four, ahead of Japan",
+    "PPP rank: third",
+    "Per-capita GDP 2024: India USD 2,694, Japan USD 32,487",
+    "Projected to pass Germany in about 2.5 to 3 years"
+   ],
+   "static": "Nominal GDP vs PPP; per-capita income as a development measure.",
+   "angle": "Equating a bigger economy with higher per-capita income.",
+   "remember": "Big economy, small per-capita: India fourth, Japan richer per head."
+  },
+  {
+   "n": 2,
+   "t": "Growth & Economic Survey",
+   "headline": "First Advance Estimates: 7.4% growth",
+   "when": "7 Jan 2026",
+   "what": "The National Statistics Office under MoSPI projected real GDP growth of 7.4 per cent for FY2025-26, against 6.5 per cent in FY2024-25. Real GVA is expected to grow 7.3 per cent and nominal GDP 8.0 per cent. A new GDP series is coming.",
+   "key": [
+    "Real GDP growth 2025-26: 7.4% (2024-25: 6.5%)",
+    "Real GVA growth: 7.3%; nominal GDP growth: 8.0%",
+    "Agriculture and allied: 3.1%; manufacturing and construction: 7.0%",
+    "Base year changing from 2011-12 to 2022-23",
+    "New series due February 2027"
+   ],
+   "static": "National income accounting; GDP vs GVA; MoSPI and NSO.",
+   "angle": "Reversing the current-year and previous-year growth rates.",
+   "remember": "Seven-point-four now, six-point-five before."
+  },
+  {
+   "n": 3,
+   "t": "Growth & Economic Survey",
+   "headline": "Economic Survey 2025-26: growth outlook",
+   "when": "Released late Jan 2026",
+   "what": "The Economic Survey 2025-26 estimated real GDP growth of 7.4 per cent for FY2025-26 and projected 6.8 to 7.2 per cent for FY2026-27. It called India the fastest-growing major economy for the fourth consecutive year.",
+   "key": [
+    "FY2025-26 estimate: 7.4% (First Advance Estimate)",
+    "FY2026-27 projection: 6.8% to 7.2%",
+    "Medium-term potential growth: about 7%",
+    "Prepared by the Economic Division, DEA, under the Chief Economic Adviser",
+    "Fastest-growing major economy for the fourth year running"
+   ],
+   "static": "Economic Survey as a pre-Budget document; role of the Chief Economic Adviser.",
+   "angle": "Taking the current-year estimate to be the next-year projection.",
+   "remember": "Survey: seven-point-four this year, 6.8 to 7.2 next."
+  },
+  {
+   "n": 4,
+   "t": "Growth & Economic Survey",
+   "headline": "Survey: record-low inflation, strong consumption",
+   "when": "Jan 2026",
+   "what": "The Economic Survey 2025-26 reported average CPI inflation of 1.7 per cent for April-December 2025, the lowest on record, against 4.6 per cent in 2024-25. Private final consumption was 61.5 per cent of GDP, the highest since 2011-12.",
+   "key": [
+    "CPI inflation April-December 2025: 1.7%, lowest on record",
+    "Retail inflation 2024-25: 4.6%",
+    "Private final consumption: 61.5% of GDP, highest since 2011-12",
+    "Forex reserves: about USD 701.4 billion",
+    "Import cover: roughly 11 months"
+   ],
+   "static": "CPI and inflation measurement; forex reserves and import cover.",
+   "angle": "Applying this year's low inflation figure to the earlier year.",
+   "remember": "Inflation 1.7 now, 4.6 before."
+  },
+  {
+   "n": 5,
+   "t": "Growth & Economic Survey",
+   "headline": "CAG publishes State Finances 2023-24",
+   "when": "Reported January 2026",
+   "what": "The CAG released the second edition of its audited overview of State finances with a ten-year trend from 2014-15. It also flags unconditional cash transfers and rising guarantees as risks to State budgets.",
+   "key": [
+    "Covers all 28 States; trend 2014-15 to 2023-24",
+    "Own tax revenue about 47% of revenue receipts; share in Union taxes 21.34% to 29.77%",
+    "16 States revenue surplus, 12 revenue deficit in 2023-24",
+    "18 States above 3% of GSDP fiscal deficit",
+    "Committed spending above half of revenue expenditure"
+   ],
+   "static": "CAG (Article 148); Finance Commission devolution; FRBM limits.",
+   "angle": "Assuming States largely met the 3% limit.",
+   "remember": "CAG audit: 18 of 28 States over the 3% line."
+  },
+  {
+   "n": 6,
+   "t": "Growth & Economic Survey",
+   "headline": "New CPI series with base year 2024",
+   "when": "Feb 2026 release (January 2026 data)",
+   "what": "MoSPI released the Consumer Price Index on a new base year of 2024. January 2026 headline inflation was 2.75 per cent, and weights now come from the 2023-24 household expenditure survey.",
+   "key": [
+    "Base 2024 replaces 2012; MoSPI compiles it",
+    "Weights: HCES 2023-24; basket 358 items; COICOP 2018",
+    "Rural housing index included for the first time",
+    "Food and beverages weight 36.75% (was 45.86%)",
+    "January 2026 inflation 2.75%; RBI target 4% plus or minus 2%"
+   ],
+   "static": "Laspeyres index; RBI inflation targeting; CPI (Combined) as headline.",
+   "angle": "Attributing CPI to the RBI or Labour Bureau.",
+   "remember": "CPI 2024: MoSPI, 358 items, rural housing in."
+  },
+  {
+   "n": 7,
+   "t": "Growth & Economic Survey",
+   "headline": "PLFS December 2025: unemployment 4.8%",
+   "when": "Jan 2026 release (December 2025 data)",
+   "what": "The Periodic Labour Force Survey for December 2025 put India's labour force participation rate (15+) at 56.1 per cent and unemployment at 4.8 per cent. The worker population ratio was 53.4 per cent. Urban unemployment was far above rural.",
+   "key": [
+    "LFPR (15+): 56.1%",
+    "Unemployment rate: 4.8%",
+    "Worker population ratio: 53.4%",
+    "Rural unemployment 3.9%; urban 6.7%",
+    "Urban female unemployment: 9.1%"
+   ],
+   "static": "PLFS by MoSPI; LFPR, WPR and unemployment definitions.",
+   "angle": "Assuming rural unemployment is higher than urban.",
+   "remember": "Urban women face the highest jobless rate: 9.1%."
+  },
+  {
+   "n": 8,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "Tiger Global-Flipkart gains taxable",
+   "when": "Jan 2026",
+   "what": "The Supreme Court held that Tiger Global's 2018 sale of its Flipkart stake to Walmart, about USD 1.6 billion, is taxable in India. It denied India-Mauritius treaty benefits and set aside the Delhi High Court's 2024 judgment. The tax demand was nearly Rs 14,500 crore.",
+   "key": [
+    "Deal: 2018 sale of Flipkart stake to Walmart (about USD 1.6 billion)",
+    "Treaty benefit under India-Mauritius DTAA denied",
+    "A Tax Residency Certificate alone does not guarantee treaty benefits",
+    "Reason: 'head and brain' outside Mauritius",
+    "Restored the 2020 Authority for Advance Rulings order; Delhi HC 2024 judgment set aside"
+   ],
+   "static": "DTAA; General Anti-Avoidance Rule (GAAR, effective 1 April 2017); treaty shopping.",
+   "angle": "Believing a Tax Residency Certificate is conclusive proof of treaty eligibility.",
+   "remember": "Paper residency fails if the brain sits elsewhere."
+  },
+  {
+   "n": 9,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "RBI Integrated Ombudsman Scheme, 2026",
+   "when": "Announced Jan 2026; effective 1 Jul 2026",
+   "what": "The RBI unveiled the Reserve Bank Integrated Ombudsman Scheme, 2026, replacing the 2021 scheme from 1 July 2026. It raises the compensation a customer can claim and covers banks, RRBs, urban cooperative banks, deposit-taking NBFCs and prepaid payment issuers.",
+   "key": [
+    "In force from 1 July 2026; replaces 2021 scheme",
+    "Compensation: up to Rs 30 lakh for consequential financial loss",
+    "Up to Rs 3 lakh for non-financial loss",
+    "Approach regulated entity first; Ombudsman after 30 days",
+    "Appeal to RBI Executive Director within 30 days"
+   ],
+   "static": "RBI's consumer protection role; Banking Ombudsman schemes.",
+   "angle": "Swapping the Rs 30 lakh and Rs 3 lakh limits.",
+   "remember": "Thirty lakh for money lost, three lakh for distress."
+  },
+  {
+   "n": 10,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "RBI proposes reopening UCB licensing",
+   "when": "Jan 2026",
+   "what": "The RBI proposed resuming the licensing of new Urban Cooperative Banks after nearly two decades, with fresh eligibility norms. UCBs are regulated by the RBI for banking functions, while State Governments or the Central Registrar handle registration and management.",
+   "key": [
+    "Proposal: resume new UCB licences after nearly two decades",
+    "Banking Regulation Act, 1949: Sections 22 and 23 on licensing",
+    "Dual regulation: RBI (banking) and Registrar (management)",
+    "First urban credit society: Anyonya Sahakari Mandali, Baroda, 1889"
+   ],
+   "static": "Cooperative banking; dual control; Banking Regulation Act (as applicable to cooperatives).",
+   "angle": "Forgetting the dual control of UCBs.",
+   "remember": "UCBs: RBI for banking, Registrar for management."
+  },
+  {
+   "n": 11,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "PFRDA forms Sahoo and SAARG committees",
+   "when": "Jan 2026",
+   "what": "PFRDA set up a 15-member committee headed by M.S. Sahoo to design a framework for assured payouts under the NPS. It also constituted the nine-member SAARG Committee chaired by Narayan Ramachandran to modernise NPS investment guidelines.",
+   "key": [
+    "Sahoo committee: 15 members; assured-payout framework",
+    "Sahoo is a former IBBI chairperson",
+    "Remit: lock-in, pricing, risk, capital norms, tax treatment",
+    "SAARG Committee: nine members, chaired by Narayan Ramachandran",
+    "SAARG: investment framework review; nine months to report"
+   ],
+   "static": "National Pension System; PFRDA Act, 2013.",
+   "angle": "Mixing up which committee handles payouts and which handles investments.",
+   "remember": "Sahoo for payouts; SAARG for portfolios."
+  },
+  {
+   "n": 12,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "PFRDA issues NPS Vatsalya guidelines",
+   "when": "Jan 2026",
+   "what": "PFRDA issued the NPS Vatsalya Scheme Guidelines 2025 for a contributory pension scheme for minors. The account is held in the minor's name and run by a guardian, with a minimum yearly contribution of Rs 250.",
+   "key": [
+    "Minimum Rs 250 per year; no maximum",
+    "Account in minor's name, operated by guardian",
+    "Partial withdrawal: up to 25% of own contributions after three years",
+    "Purposes: education, medical treatment, specified disabilities",
+    "NRIs and OCIs below 18 are eligible"
+   ],
+   "static": "Pension reforms; role of PFRDA.",
+   "angle": "Assuming NRI and OCI minors are excluded.",
+   "remember": "Rs 250 a year starts a child's pension."
+  },
+  {
+   "n": 13,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "LRS remittances hit two-year low",
+   "when": "Nov 2025 data, reported Jan 2026",
+   "what": "Outward remittances under the Liberalised Remittance Scheme fell to a two-year low of USD 1.94 billion in November 2025, driven by lower spending on foreign education. The scheme lets resident individuals send money abroad within a yearly limit.",
+   "key": [
+    "Remittances: USD 1.94 billion in November 2025, two-year low",
+    "Driver: lower foreign-education spending",
+    "LRS introduced 4 February 2004 under FEMA, 1999",
+    "Limit: USD 250,000 per financial year",
+    "TCS applies on remittances above Rs 7 lakh"
+   ],
+   "static": "FEMA, 1999 (current vs capital account transactions).",
+   "angle": "Linking LRS to the Banking Regulation Act instead of FEMA.",
+   "remember": "LRS is a FEMA scheme with a USD 250,000 cap."
+  },
+  {
+   "n": 14,
+   "t": "Banking, Pensions & Regulation",
+   "headline": "RBI overhauls priority sector lending norms",
+   "when": "Reported January 2026",
+   "what": "The RBI's 2025 Directions revised PSL targets and classification. Small Finance Banks get a lower target, NCDC on-lending is recognised, and external auditors must certify PSL claims.",
+   "key": [
+    "SFB target: 75% down to 60% of ANBC",
+    "Domestic commercial banks: 40% of ANBC or CEOBE, whichever is higher",
+    "Regional Rural Banks: 75% of ANBC",
+    "Bank loans to NCDC for on-lending qualify as PSL",
+    "External audit certification to avoid double counting"
+   ],
+   "static": "Priority sector lending; Adjusted Net Bank Credit; co-lending.",
+   "angle": "Mixing up the 40% bank target with the 75% RRB target.",
+   "remember": "PSL: banks 40, RRBs 75, SFBs now 60."
+  },
+  {
+   "n": 15,
+   "t": "Investment & Trade",
+   "headline": "FDI up 18% in H1 FY26",
+   "when": "Data for Apr-Sep 2025, reported 10 Jan 2026",
+   "what": "DPIIT data showed FDI inflows of USD 35.2 billion in April-September 2025, up 18 per cent from USD 29.8 billion a year before. Singapore, the US and Mauritius were the top sources, and Maharashtra took about 30 per cent of inflows.",
+   "key": [
+    "H1 FY26 FDI: USD 35.2 billion (up 18%)",
+    "Year-earlier: USD 29.8 billion",
+    "Cumulative since April 2000: USD 1.12 trillion",
+    "Top sources: Singapore (about USD 12 billion), US, Mauritius",
+    "Top States: Maharashtra (about 30%), Karnataka, Tamil Nadu"
+   ],
+   "static": "FDI routes and sectors; DPIIT as nodal body for FDI data.",
+   "angle": "Naming Mauritius as the top source.",
+   "remember": "Singapore leads, Maharashtra gets a third."
+  },
+  {
+   "n": 16,
+   "t": "Investment & Trade",
+   "headline": "NITI Aayog releases EPI 2024",
+   "when": "14 Jan 2026",
+   "what": "NITI Aayog released the fourth edition of the Export Preparedness Index (EPI 2024). Maharashtra, Tamil Nadu, Gujarat, Uttar Pradesh and Andhra Pradesh topped the Large States. Uttarakhand, Jammu and Kashmir, Nagaland, Dadra and Nagar Haveli and Daman and Diu, and Goa led other categories.",
+   "key": [
+    "Top Large States: Maharashtra, Tamil Nadu, Gujarat, UP, Andhra Pradesh",
+    "Small States, NE States and UTs top: Uttarakhand, J&K, Nagaland, DNH&DD, Goa",
+    "Four pillars, 13 sub-pillars, 70 indicators",
+    "Business Ecosystem 40%; other three pillars 20% each",
+    "First edition published in 2020"
+   ],
+   "static": "NITI Aayog indices; export promotion.",
+   "angle": "Placing Karnataka in the top Large States.",
+   "remember": "Business Ecosystem gets forty; the rest twenty each."
+  },
+  {
+   "n": 17,
+   "t": "Investment & Trade",
+   "headline": "A decade of Startup India",
+   "when": "16 January 2026",
+   "what": "National Startup Day marked ten years since Startup India was launched on 16 January 2016. January 16 was declared National Startup Day in 2022. The initiative offers funding, mentoring and tax support.",
+   "key": [
+    "Launched 16 Jan 2016; National Startup Day since 2022",
+    "Startup: up to 10 years old, turnover up to Rs 200 crore",
+    "Deep tech: up to 20 years, turnover up to Rs 300 crore",
+    "Fund of Funds Rs 10,000 crore via SIDBI; Seed Fund Scheme Rs 945 crore",
+    "Credit Guarantee Scheme through NCGTC; MAARG mentorship portal"
+   ],
+   "static": "DPIIT recognition; Atal Innovation Mission; NIDHI.",
+   "angle": "Using the 10-year and Rs 200 crore limits for deep tech.",
+   "remember": "Startup 10/200; deep tech 20/300."
+  },
+  {
+   "n": 18,
+   "t": "MSMEs & Industrial Policy",
+   "headline": "NITI Aayog report on MSME scheme convergence",
+   "when": "Jan 2026",
+   "what": "NITI Aayog's report proposes converging more than 18 MSME schemes through information convergence and process convergence. It suggests merging SFURTI with MSE-CDP. The Udyam portal has 3.94 crore registered MSMEs.",
+   "key": [
+    "Author: NITI Aayog",
+    "More than 18 MSME schemes to be converged",
+    "Two routes: information convergence and process convergence",
+    "Merge SFURTI with MSE-CDP",
+    "Udyam registrations: 3.94 crore; MSMEs 27-30% of GDP"
+   ],
+   "static": "MSME classification; Udyam registration.",
+   "angle": "Crediting the report to the Ministry of MSME.",
+   "remember": "NITI Aayog merges SFURTI with MSE-CDP."
+  },
+  {
+   "n": 19,
+   "t": "MSMEs & Industrial Policy",
+   "headline": "Cabinet approves Rs 5,000 crore for SIDBI",
+   "when": "29 Jan 2026",
+   "what": "The Union Cabinet approved equity infusion of Rs 5,000 crore into SIDBI over three years to expand MSME credit. SIDBI is the apex MSME financing institution. MSME beneficiaries are projected to rise from 76.26 lakh in FY25 to about 102 lakh by FY28.",
+   "key": [
+    "Equity infusion: Rs 5,000 crore over three years",
+    "SIDBI Act, 1989",
+    "Headquarters: Lucknow",
+    "Beneficiaries: 76.26 lakh (FY25) to about 102 lakh (FY28)",
+    "Also manages the Rs 10,000 crore Fund of Funds for Startups"
+   ],
+   "static": "Development financial institutions; MSME credit.",
+   "angle": "Placing SIDBI's headquarters in Mumbai.",
+   "remember": "SIDBI sits in Lucknow."
+  },
+  {
+   "n": 20,
+   "t": "MSMEs & Industrial Policy",
+   "headline": "Design Linked Incentive scheme for chips",
+   "when": "Jan 2026",
+   "what": "MeitY's Design Linked Incentive scheme under the Semicon India Programme offers up to 50 per cent of eligible design expenditure and a sales-linked incentive. It had sanctioned 24 chip-design projects. C-DAC is the nodal agency and runs the ChipIN Centre.",
+   "key": [
+    "Design support: up to 50%, capped at Rs 15 crore per application",
+    "Sales incentive: 4-6% of net sales for five years, capped at Rs 30 crore",
+    "24 chip-design projects sanctioned",
+    "Semicon India Programme outlay: Rs 76,000 crore",
+    "Nodal agency: C-DAC; ChipIN Centre serves about 1 lakh engineers"
+   ],
+   "static": "Semiconductor mission; MeitY.",
+   "angle": "Swapping the Rs 15 crore and Rs 30 crore caps.",
+   "remember": "Fifteen crore for design, thirty crore for sales."
+  },
+  {
+   "n": 21,
+   "t": "MSMEs & Industrial Policy",
+   "headline": "Five firms selected under PLI for white goods",
+   "when": "Jan 2026",
+   "what": "Five companies were selected under the Production Linked Incentive Scheme for White Goods, which covers air conditioners and LED lights. The incentive is 4 to 6 per cent of incremental sales for five years.",
+   "key": [
+    "Products: air conditioners and LED lights",
+    "Incentive: 4-6% on incremental sales for five years",
+    "Period: FY2021-22 to FY2028-29",
+    "Nodal body: DPIIT",
+    "Base year for incremental turnover: 2019-20"
+   ],
+   "static": "PLI schemes and Atmanirbhar Bharat.",
+   "angle": "Adding refrigerators or washing machines to the covered products.",
+   "remember": "White-goods PLI covers ACs and LEDs only."
+  },
+  {
+   "n": 22,
+   "t": "MSMEs & Industrial Policy",
+   "headline": "Tex-RAMPS MoUs signed with 15 States",
+   "when": "Jan 2026",
+   "what": "At the National Textile Ministers' Conference in Guwahati, the Ministry of Textiles signed MoUs with 15 States for Tex-RAMPS. The scheme is fully centrally funded and runs from FY2025-26 to FY2030-31, aiming at a USD 350 billion textile industry.",
+   "key": [
+    "MoUs with 15 States at Guwahati",
+    "Fully centrally funded",
+    "Period: FY2025-26 to FY2030-31",
+    "Rs 12 lakh per State/UT per year",
+    "Rs 1 lakh per district per year"
+   ],
+   "static": "Centrally sponsored vs Central Sector schemes; textile policy.",
+   "angle": "Swapping the State and district amounts.",
+   "remember": "Twelve lakh a State, one lakh a district."
+  },
+  {
+   "n": 23,
+   "t": "Agriculture & Infrastructure",
+   "headline": "India is world's largest rice producer",
+   "when": "Jan 2026",
+   "what": "Union Agriculture Minister Shivraj Singh Chouhan said India's rice production reached 150.18 million tonnes, ahead of China's 145.28 million tonnes. India supplies about 40 per cent of global rice exports, with shipments above 20 million tonnes.",
+   "key": [
+    "India 150.18 mt vs China 145.28 mt",
+    "About 40% of global rice exports; above 20 million tonnes",
+    "Primarily a Kharif crop",
+    "Needs about 150 cm rainfall and 25-35 degrees Celsius"
+   ],
+   "static": "Cropping seasons; rice in the Indian agriculture syllabus.",
+   "angle": "Calling rice a rabi crop.",
+   "remember": "Rice is Kharif; India now tops China."
+  },
+  {
+   "n": 24,
+   "t": "Agriculture & Infrastructure",
+   "headline": "Milk output at 247.87 million tonnes",
+   "when": "Data for 2024-25, reported Jan 2026",
+   "what": "India's milk production reached 247.87 million tonnes in 2024-25, up 3.58 per cent from 239.30 million tonnes in 2023-24. Uttar Pradesh was the largest producer with 15.66 per cent. India has been the world's largest milk producer since 1998.",
+   "key": [
+    "247.87 million tonnes in 2024-25 (up 3.58%)",
+    "Top State: Uttar Pradesh, 15.66%",
+    "World's largest producer since 1998",
+    "Operation Flood: 13 January 1970, NDDB, Verghese Kurien",
+    "White Revolution 2.0: Ministry of Cooperation, 19 September 2024"
+   ],
+   "static": "Operation Flood; cooperative dairying (Amul).",
+   "angle": "Giving the wrong ministry for White Revolution 2.0.",
+   "remember": "White Revolution 2.0 belongs to Cooperation."
+  },
+  {
+   "n": 25,
+   "t": "Agriculture & Infrastructure",
+   "headline": "Coking coal added to critical and strategic minerals",
+   "when": "January 2026",
+   "what": "The Government added coking coal to Part D of the First Schedule of the MMDR Act. The move recognises its role in blast-furnace steelmaking and aims to cut import dependence.",
+   "key": [
+    "Part D of First Schedule, MMDR Act 1957: critical and strategic minerals",
+    "About 95% of the steel sector's coking coal is imported",
+    "Reserves about 37.37 billion tonnes, mainly Jharkhand",
+    "Used in steel (blast furnace), cement, chemicals",
+    "MMDR Act also created District Mineral Foundations and NMET"
+   ],
+   "static": "MMDR Act, 1957 and 2023 amendment on critical minerals; National Critical Mineral Mission.",
+   "angle": "Placing coking coal reserves in the west.",
+   "remember": "Coking coal: critical mineral now, Jharkhand-heavy."
+  }
+ ]
+}

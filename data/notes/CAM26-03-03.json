@@ -1,0 +1,484 @@
+{
+ "id": "CAM26-03-03",
+ "title": "March 2026: International Relations & Defence",
+ "category": "International Relations & Defence",
+ "index": [
+  {
+   "t": "India Bilateral Relations",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "t": "West Asia Conflict",
+   "pages": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "t": "Neighbourhood & Multilateral",
+   "pages": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  {
+   "t": "Defence Acquisitions & Exercises",
+   "pages": [
+    19,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "t": "Security Reports & Doctrine",
+   "pages": [
+    23,
+    24,
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "India Bilateral Relations",
+   "headline": "India-Canada launch CEPA talks; uranium deal signed",
+   "when": "2 March 2026",
+   "what": "During Prime Minister Mark Carney's visit, India and Canada signed Terms of Reference to start CEPA negotiations, aiming at USD 50 billion of trade by 2030. India's Department of Atomic Energy signed a long-term uranium supply contract with Cameco.",
+   "key": [
+    "Terms of Reference for CEPA signed on 2 March 2026",
+    "Target: USD 50 billion bilateral trade by 2030",
+    "Long-term Cameco uranium contract signed by the DAE",
+    "Critical-minerals MoU aligned with G7 Critical Minerals Action Plan",
+    "India-Canada trade in 2024-25: USD 8.7 billion"
+   ],
+   "static": "A CEPA covers goods, services and investment, going beyond a basic FTA; India's nuclear fuel sourcing depends on safeguarded supply contracts.",
+   "angle": "Trap: shifting the trade target by a zero.",
+   "remember": "Canada: CEPA, Cameco, USD 50 billion."
+  },
+  {
+   "n": 2,
+   "t": "India Bilateral Relations",
+   "headline": "Finland's President on state visit; strategic partnership",
+   "when": "4-7 March 2026",
+   "what": "President Alexander Stubb's state visit elevated ties to a Strategic Partnership in Digitalisation and Sustainability. MoUs covered migration and mobility, environment and statistics, with a Joint Task Force on 6G and a Startup Corridor.",
+   "key": [
+    "State visit 4-7 March 2026",
+    "Strategic Partnership in Digitalisation and Sustainability",
+    "Joint Task Force on 6G; Indo-Finland Startup Corridor",
+    "MoUs on migration and mobility, environment, statistics",
+    "Stubb was chief guest at the 11th Raisina Dialogue"
+   ],
+   "static": "Finland joined the EU in 1995 and NATO in 2023; it is not in EFTA.",
+   "angle": "Trap: placing Finland in EFTA.",
+   "remember": "Finland: EU member, 6G task force."
+  },
+  {
+   "n": 3,
+   "t": "India Bilateral Relations",
+   "headline": "11th Raisina Dialogue held in New Delhi",
+   "when": "March 2026",
+   "what": "The 11th Raisina Dialogue, inaugurated by the Prime Minister, ran under the theme 'Samskara - Assertion, Accommodation, Advancement'. It launched a Raisina Science Diplomacy Initiative. Finnish President Alexander Stubb was chief guest.",
+   "key": [
+    "Theme: Samskara - Assertion, Accommodation, Advancement",
+    "Organisers: MEA and Observer Research Foundation",
+    "Held annually since 2016",
+    "About 2,700 participants from 110 countries expected",
+    "Raisina Science Diplomacy Initiative launched"
+   ],
+   "static": "Think-tank-led dialogues such as Shangri-La (IISS) and Raisina (ORF) are Track 1.5 platforms.",
+   "angle": "Trap: naming another Indian think-tank as co-host.",
+   "remember": "Raisina: MEA and ORF."
+  },
+  {
+   "n": 4,
+   "t": "India Bilateral Relations",
+   "headline": "Modi visits Malaysia; ties deepen",
+   "when": "7-8 February 2026",
+   "what": "Prime Minister Modi visited Malaysia on 7 and 8 February 2026, building on the Comprehensive Strategic Partnership of August 2024. Outcomes stressed rules-based maritime order, defence exchanges, digital economy, trade facilitation and semiconductor cooperation.",
+   "key": [
+    "Visit on 7-8 February 2026",
+    "Comprehensive Strategic Partnership since August 2024",
+    "Malaysia sits near the Strait of Malacca",
+    "Focus: maritime order, digital economy, semiconductors",
+    "Part of India's Act East Policy"
+   ],
+   "static": "The Look East Policy of 1992 was recast as the Act East Policy in 2014.",
+   "angle": "Trap: dating Act East to 1992.",
+   "remember": "Malaysia: CSP 2024, Act East 2014."
+  },
+  {
+   "n": 5,
+   "t": "India Bilateral Relations",
+   "headline": "US opens Section 301 probes covering India",
+   "when": "11-12 March 2026",
+   "what": "The USTR started two Section 301 investigations, one on excess industrial capacity (16 partners) and one on forced-labour goods (60 economies). India is named in both and said it stays engaged with Washington.",
+   "key": [
+    "Two probes on 11 and 12 March 2026",
+    "Excess capacity: 16 partners including India",
+    "Forced labour: 60 economies including India",
+    "Trade Act, 1974, Section 301",
+    "India continues talks on a framework trade agreement"
+   ],
+   "static": "Section 301 lets the US impose tariffs on countries found to have unfair trade practices.",
+   "angle": "Trap: attributing a walkout to India.",
+   "remember": "301: capacity 16, forced labour 60."
+  },
+  {
+   "n": 6,
+   "t": "West Asia Conflict",
+   "headline": "US submarine sinks IRIS Dena off Sri Lanka",
+   "when": "4 March 2026",
+   "what": "A US Navy submarine sank Iranian frigate IRIS Dena in the Indian Ocean off Galle. The ship had been at the International Fleet Review 2026 in Visakhapatnam, and Sri Lanka's navy carried out rescue operations.",
+   "key": [
+    "Date: 4 March 2026",
+    "Ship: IRIS Dena, Iranian frigate",
+    "Location: off Galle, Sri Lanka",
+    "Returning from International Fleet Review 2026, Visakhapatnam",
+    "Legal angles: UNCLOS and 1979 SAR Convention (India ratified 2001)"
+   ],
+   "static": "UNCLOS 1982 governs rights in maritime zones; the SAR Convention obliges states to assist ships in distress.",
+   "angle": "Trap: placing the sinking in Indian or Gulf waters.",
+   "remember": "Dena sank off Galle."
+  },
+  {
+   "n": 7,
+   "t": "West Asia Conflict",
+   "headline": "Force majeure declared as Hormuz shipping stalls",
+   "when": "March 2026",
+   "what": "Gulf producers declared force majeure after the US-Israel war with Iran disrupted shipping through Hormuz. Around 2.5 to 2.7 million barrels a day of India's oil passes through the strait, and India imports 85-88 per cent of its crude.",
+   "key": [
+    "About 2.5 to 2.7 million barrels a day of India's oil transits Hormuz",
+    "Hormuz links the Persian Gulf with the Gulf of Oman",
+    "India imports 85-88 per cent of its crude",
+    "Several Gulf producers declared force majeure",
+    "Force majeure: contractual relief for suppliers"
+   ],
+   "static": "The Habshan-Fujairah pipeline lets some UAE crude reach the Gulf of Oman without passing through Hormuz.",
+   "angle": "Trap: understating India's import dependence.",
+   "remember": "Hormuz: India's import jugular."
+  },
+  {
+   "n": 8,
+   "t": "West Asia Conflict",
+   "headline": "IEA record stock release; India hesitates",
+   "when": "10-11 March 2026",
+   "what": "The IEA agreed a record 400 million barrel release. India first declined to join, then said it stands ready to act. India holds about 5.33 million tonnes of underground reserves, around 80 per cent full.",
+   "key": [
+    "IEA release: 400 million barrels, a record",
+    "India is an associate member",
+    "SPR sites: Visakhapatnam, Mangaluru, Padur",
+    "Capacity about 5.33 million tonnes, about 80 per cent full",
+    "India last joined a coordinated release in 2021"
+   ],
+   "static": "The IEA, headquartered in Paris, was set up after the 1973 oil crisis; its members must hold 90 days of net imports.",
+   "angle": "Trap: calling India a full member.",
+   "remember": "India: associate, not full, IEA member."
+  },
+  {
+   "n": 9,
+   "t": "West Asia Conflict",
+   "headline": "Israel proposes 'Hexagon of Alliances'",
+   "when": "March 2026",
+   "what": "Israel proposed a 'Hexagon of Alliances' of moderate powers across the Indo-Pacific, Eastern Mediterranean, Gulf and Africa, with Israel, Greece, Cyprus and India as core pillars. It aims to counter Iran's Axis of Resistance, and the Pakistani Senate condemned it.",
+   "key": [
+    "Core pillars: Israel, Greece, Cyprus, India",
+    "Spans Indo-Pacific, Eastern Mediterranean, Gulf, Africa",
+    "Aims to counter the Iran-led Axis of Resistance",
+    "Ethiopia and UAE expected to join",
+    "Pakistani Senate passed a resolution condemning it"
+   ],
+   "static": "India's I2U2 and IMEC groupings also link India with West Asian partners.",
+   "angle": "Trap: reversing Pakistan's reaction.",
+   "remember": "Hexagon: Israel, Greece, Cyprus, India; Pakistan objects."
+  },
+  {
+   "n": 10,
+   "t": "West Asia Conflict",
+   "headline": "Kharg Island and Fujairah hit",
+   "when": "March 2026",
+   "what": "Strikes hit Kharg Island, which handles roughly 90 per cent of Iran's crude exports, and Iran struck oil facilities at Fujairah, the UAE terminal reached by the Habshan-Fujairah pipeline.",
+   "key": [
+    "Kharg Island: about 90 per cent of Iran's crude exports",
+    "Iran hit oil facilities at Fujairah, UAE",
+    "Habshan-Fujairah pipeline bypasses Hormuz",
+    "Fujairah is the second-largest bunkering hub after Singapore",
+    "Fujairah lies on the Gulf of Oman"
+   ],
+   "static": "Pipelines like East-West (Saudi) and Habshan-Fujairah are the main bypass for Hormuz.",
+   "angle": "Trap: locating Fujairah inside the Persian Gulf.",
+   "remember": "Fujairah: outside the strait."
+  },
+  {
+   "n": 11,
+   "t": "West Asia Conflict",
+   "headline": "Israel destroys Litani bridge in Lebanon",
+   "when": "March 2026",
+   "what": "Israeli airstrikes destroyed the Qasmiyeh Bridge over the Litani as Israel sought a security zone up to the river. Resolution 1701 sets the area south of the Litani as free of other armed groups.",
+   "key": [
+    "Qasmiyeh Bridge destroyed",
+    "Litani River, southern Lebanon",
+    "UNSCR 1701 (2006): area free of other armed personnel",
+    "UNIFIL is the UN force",
+    "Tyre: UNESCO site (1984) near the river mouth"
+   ],
+   "static": "UNIFIL was created in 1978 to confirm Israeli withdrawal from Lebanon.",
+   "angle": "Trap: the Blue Line's parties.",
+   "remember": "Blue Line: Israel and Lebanon."
+  },
+  {
+   "n": 12,
+   "t": "West Asia Conflict",
+   "headline": "Iran weighs NPT exit; IAEA meets",
+   "when": "March 2026",
+   "what": "Iran's parliament reviewed NPT withdrawal after strikes on its nuclear sites. The IAEA held an emergency Board meeting at the request of Russia and Iran and reported no damage to sites like Bushehr.",
+   "key": [
+    "Iran's parliament reviewed NPT exit",
+    "Article X: three months' notice",
+    "IAEA: Vienna, set up 1957, 181 members (Dec 2025)",
+    "IAEA saw no damage at Bushehr; normal radiation",
+    "India, Pakistan, Israel, South Sudan never signed the NPT"
+   ],
+   "static": "The NPT (1968) recognises five nuclear-weapon states; India rejects it as discriminatory.",
+   "angle": "Trap: assuming India is an NPT party.",
+   "remember": "Never signed: India, Pakistan, Israel, South Sudan."
+  },
+  {
+   "n": 13,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "RSP sweeps Nepal elections; Balendra Shah PM",
+   "when": "5 and 27 March 2026",
+   "what": "The Rastriya Swatantra Party won 182 of 275 seats. Balendra Shah, 35, was sworn in on 27 March as Nepal's youngest and 47th prime minister.",
+   "key": [
+    "Election on 5 March 2026",
+    "RSP: 182 of 275 seats",
+    "Nepali Congress 38; CPN (UML) 25",
+    "Shah sworn in 27 March by President Ram Chandra Paudel",
+    "Youngest prime minister; 47th"
+   ],
+   "static": "Nepal's House of Representatives has 275 members; Nepal became a federal republic in 2008.",
+   "angle": "Trap: swapping the second and third parties.",
+   "remember": "RSP 182, NC 38, UML 25."
+  },
+  {
+   "n": 14,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "Pakistan strikes Afghan Taliban over Durand Line",
+   "when": "March 2026",
+   "what": "Pakistan launched Operation Ghazab Lil Haq against Afghan Taliban positions as border clashes over fencing and the TTP escalated along the Durand Line.",
+   "key": [
+    "Operation Ghazab Lil Haq",
+    "Durand Line: about 2,640 km",
+    "Agreed 1893: Mortimer Durand and Abdur Rahman Khan",
+    "Pakistan began fencing in 2017",
+    "Issue: TTP militancy"
+   ],
+   "static": "The McMahon Line (1914) is the India-Tibet boundary; do not confuse it with the Durand Line.",
+   "angle": "Trap: McMahon or Radcliffe lines.",
+   "remember": "Durand 1893 with Abdur Rahman."
+  },
+  {
+   "n": 15,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "India holds the BRICS presidency",
+   "when": "2026 (reported March)",
+   "what": "India's 2026 BRICS presidency runs under the theme 'Building for Resilience, Innovation, Cooperation and Sustainability'. BRICS+ includes Egypt, the UAE, Ethiopia, Indonesia and Iran.",
+   "key": [
+    "India chairs BRICS in 2026",
+    "Theme: Building for Resilience, Innovation, Cooperation and Sustainability",
+    "BRICS+: Egypt, UAE, Ethiopia, Indonesia, Iran",
+    "About 49.5 per cent of world population",
+    "About 40 per cent of global GDP"
+   ],
+   "static": "BRICS began as BRIC in 2006 and added South Africa in 2010.",
+   "angle": "Trap: calling this India's first chairmanship.",
+   "remember": "India chaired before: 2012, 2016, 2021."
+  },
+  {
+   "n": 16,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "WTO MC14 ends without consensus",
+   "when": "26-30 March 2026",
+   "what": "The conference in Yaounde ended in the early hours of 30 March without consensus. The e-commerce duty moratorium lapsed after 26 years. India opposed incorporating the IFD Agreement.",
+   "key": [
+    "Venue: Yaounde, Cameroon",
+    "Ended 30 March without consensus",
+    "E-commerce duty moratorium (since 1998) lapsed",
+    "India opposed IFD with about 37 other members",
+    "India wants permanent solution on public stockholding"
+   ],
+   "static": "Plurilateral agreements within the WTO need consensus to join the framework; India opposes this route.",
+   "angle": "Trap: saying India backed the IFD.",
+   "remember": "MC14: moratorium gone; India opposes IFD."
+  },
+  {
+   "n": 17,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "Border trade via Lipulekh set to resume",
+   "when": "June 2026 (announced March)",
+   "what": "India and China agreed in August 2025 to reopen border trade through Lipulekh, Shipki La and Nathu La. Trade is set to resume in June 2026 after six years. Nepal objects over Lipulekh.",
+   "key": [
+    "Three passes: Lipulekh, Shipki La, Nathu La",
+    "Lipulekh: Pithoragarh, Uttarakhand",
+    "Shipki La: Himachal Pradesh",
+    "Nathu La: Sikkim",
+    "Nepal claim rests on Treaty of Sugauli (1816)"
+   ],
+   "static": "Border trade marts operate under bilateral agreements; Shipki La was earlier called Pema La.",
+   "angle": "Trap: swapping passes and States.",
+   "remember": "U-H-S: Uttarakhand, Himachal, Sikkim."
+  },
+  {
+   "n": 18,
+   "t": "Neighbourhood & Multilateral",
+   "headline": "Sri Lanka revives Trincomalee oil tank farm project",
+   "when": "March 2026",
+   "what": "Facing an energy crisis, Sri Lanka is looking to develop the India-backed Trincomalee project. India and Sri Lanka signed a 2022 agreement for joint development of the Trincomalee Oil Tank Farm, built by the British in the 1930s, to raise storage and energy security.",
+   "key": [
+    "Trincomalee: natural harbour on Sri Lanka's north-east coast",
+    "2022 India-Sri Lanka agreement on joint development",
+    "Oil tank farm built by the British in the 1930s",
+    "Goal: more petroleum storage, energy security",
+    "Fits MAHASAGAR and Neighbourhood First"
+   ],
+   "static": "MAHASAGAR is India's vision for security and growth across the Indian Ocean region.",
+   "angle": "Trap: crediting Japan for the tank farm.",
+   "remember": "Trincomalee: British farm, India-Sri Lanka 2022 deal."
+  },
+  {
+   "n": 19,
+   "t": "Defence Acquisitions & Exercises",
+   "headline": "Army fields Shaurya drone squadrons",
+   "when": "March 2026",
+   "what": "The Indian Army began fielding Shaurya Squadrons, dedicated drone sub-units embedded in armoured regiments. Each has 20 to 30 personnel operating surveillance, attack, swarm and FPV drones and loitering munitions, and the plan covers all 67 armoured regiments.",
+   "key": [
+    "Drone sub-units inside armoured regiments",
+    "20-30 personnel per squadron",
+    "Surveillance, attack, swarm, FPV drones, loitering munitions",
+    "Five Army commands have inducted them",
+    "Plan: all 67 armoured regiments"
+   ],
+   "static": "FPV stands for first-person view, where the operator steers the drone through a live camera feed.",
+   "angle": "Trap: placing them under Army Aviation.",
+   "remember": "Shaurya: drones in tank regiments."
+  },
+  {
+   "n": 20,
+   "t": "Defence Acquisitions & Exercises",
+   "headline": "DAC clears Rs 2.38 lakh crore including five more S-400",
+   "when": "27 March 2026",
+   "what": "The DAC chaired by Rajnath Singh cleared about Rs 2.38 lakh crore of proposals. These include a fresh batch of five S-400 systems, transport aircraft, remotely piloted strike aircraft and Dhanush guns.",
+   "key": [
+    "Chair: Defence Minister Rajnath Singh",
+    "AoN for about Rs 2.38 lakh crore",
+    "Five more S-400 systems",
+    "Three of five squadrons operational",
+    "Contract of USD 5.43 billion signed in 2018"
+   ],
+   "static": "The DAC is the apex body for capital acquisition; AoN is the first step in the Defence Acquisition Procedure.",
+   "angle": "Trap: wrong signing year.",
+   "remember": "S-400: signed 2018; three squadrons live."
+  },
+  {
+   "n": 21,
+   "t": "Defence Acquisitions & Exercises",
+   "headline": "INS Dunagiri joins Navy",
+   "when": "March 2026",
+   "what": "INS Dunagiri is the fifth Project 17A stealth frigate and the second built by GRSE Kolkata, designed by the Warship Design Bureau with about 75 per cent indigenous content.",
+   "key": [
+    "Fifth Project 17A (Nilgiri-class) frigate",
+    "Second built by GRSE, Kolkata",
+    "About 75 per cent indigenous",
+    "Carries BrahMos, MFSTAR radar, MRSAM",
+    "P17A: seven frigates, four Mazagon Dock, three GRSE"
+   ],
+   "static": "Warship Design Bureau is the Navy's in-house design organisation.",
+   "angle": "Trap: yard or class confusion.",
+   "remember": "P17A: 4 MDL plus 3 GRSE."
+  },
+  {
+   "n": 22,
+   "t": "Defence Acquisitions & Exercises",
+   "headline": "Exercises in news: LAMITIYE, Sea Dragon, IMEX",
+   "when": "March 2026",
+   "what": "LAMITIYE-2026 was India-Seychelles, Sea Dragon a US-led ASW exercise at Guam and IMEX an IONS table-top at Kochi.",
+   "key": [
+    "LAMITIYE: 9-20 March, 11th edition, first tri-service",
+    "Contingent: Assam Regiment, INS Trikand, IAF C-130",
+    "Sea Dragon: ASW, Andersen AFB, Guam",
+    "IMEX: Kochi, 12 countries",
+    "IOS SAGAR second edition with 16 IONS nations"
+   ],
+   "static": "Exercise names are favourite match-the-following material.",
+   "angle": "Trap: mixing partners.",
+   "remember": "Lamitiye-Seychelles; Sea Dragon-Guam."
+  },
+  {
+   "n": 23,
+   "t": "Security Reports & Doctrine",
+   "headline": "SIPRI: India second-largest arms importer",
+   "when": "March 2026",
+   "what": "SIPRI's 2021-25 data show India as the second-largest arms importer with 8.2 per cent, behind Ukraine. Russia supplies about 40 per cent.",
+   "key": [
+    "Period: 2021-25",
+    "India's share: 8.2 per cent",
+    "Rank: second behind Ukraine",
+    "Russia supplies about 40 per cent",
+    "SIPRI is Stockholm-based"
+   ],
+   "static": "India's defence import dependence drives Atmanirbhar Bharat in defence.",
+   "angle": "Trap: naming Saudi Arabia as the top importer.",
+   "remember": "Ukraine first, India second."
+  },
+  {
+   "n": 24,
+   "t": "Security Reports & Doctrine",
+   "headline": "GTI 2026 puts Pakistan first",
+   "when": "March 2026",
+   "what": "The Institute for Economics and Peace ranked Pakistan first for the first time and India 13th among 163 countries. Terror deaths fell 28 per cent.",
+   "key": [
+    "Publisher: Institute for Economics and Peace",
+    "Pakistan first for first time",
+    "India 13th of 163",
+    "Deaths down 28 per cent; incidents down 22 per cent",
+    "Deadliest: IS, JNIM, TTP, al-Shabaab"
+   ],
+   "static": "Report publishers are a common Prelims target.",
+   "angle": "Trap: SIPRI versus IEP.",
+   "remember": "GTI: IEP, Pakistan first."
+  },
+  {
+   "n": 25,
+   "t": "Security Reports & Doctrine",
+   "headline": "Defence Forces Vision 2047 unveiled",
+   "when": "16 March 2026",
+   "what": "The roadmap, prepared by HQ IDS, proposes Space and Cyber Commands and Data, Drone and Cognitive Warfare forces in three phases to 2047.",
+   "key": [
+    "Unveiled by Rajnath Singh, 16 March 2026",
+    "Prepared by HQ Integrated Defence Staff",
+    "Space Command, Cyber Command, Data Force, Drone Force",
+    "Cognitive Warfare Action Force",
+    "Phases: Transition (till 2030), Consolidation (2030-40), Excellence (2040-47)"
+   ],
+   "static": "The Chief of Defence Staff heads the Department of Military Affairs and is permanent chairman of the Chiefs of Staff Committee; HQ IDS supports it.",
+   "angle": "Trap: wrong phase end-year.",
+   "remember": "Three eras: 2030, 2040, 2047."
+  }
+ ]
+}

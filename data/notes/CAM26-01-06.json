@@ -1,0 +1,483 @@
+{
+ "id": "CAM26-01-06",
+ "title": "January 2026: Schemes, Reports, Culture & Sports",
+ "category": "Schemes, Reports, Culture & Sports",
+ "index": [
+  {
+   "t": "Reports & Indices",
+   "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "t": "Schemes & Missions",
+   "pages": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "t": "Awards & Honours",
+   "pages": [
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "t": "Heritage & Archaeology",
+   "pages": [
+    18,
+    19,
+    20
+   ]
+  },
+  {
+   "t": "Festivals, Languages & Personalities",
+   "pages": [
+    21,
+    22,
+    23,
+    24
+   ]
+  },
+  {
+   "t": "Sports",
+   "pages": [
+    25
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "n": 1,
+   "t": "Reports & Indices",
+   "headline": "WEF Global Risks Report 2026",
+   "when": "Jan 2026",
+   "what": "The World Economic Forum's Global Risks Report 2026 ranked geoeconomic confrontation as the top short-term global risk, ahead of state-based armed conflict. Adverse outcomes of AI entered the top ten.",
+   "key": [
+    "Top short-term risk: geoeconomic confrontation",
+    "Then state-based armed conflict; AI adverse outcomes enter top ten",
+    "Misinformation and disinformation: fifth; cyber insecurity: ninth",
+    "Ten-year horizon: environmental risks dominate",
+    "India: cybersecurity first, inequality second"
+   ],
+   "static": "Global risk indices; WEF reports.",
+   "angle": "Placing misinformation at the top of the short-term list.",
+   "remember": "Geoeconomic confrontation tops 2026 risks."
+  },
+  {
+   "n": 2,
+   "t": "Reports & Indices",
+   "headline": "NITI report on internationalising higher education",
+   "when": "Jan 2026",
+   "what": "NITI Aayog's report found an inbound-to-outbound student ratio of 1:28 and proposed Vishwa Bandhu Scholarships and a USD 10 billion Bharat Vidya Kosh research fund.",
+   "key": [
+    "Inbound-to-outbound student ratio: 1:28",
+    "Proposes Vishwa Bandhu Scholarships",
+    "Proposes USD 10 billion Bharat Vidya Kosh",
+    "About 47,000 international students in India (2022)",
+    "No Indian university in QS Asia 2026 top 50"
+   ],
+   "static": "NEP 2020 and internationalisation; NITI Aayog reports.",
+   "angle": "Crediting the report to the UGC.",
+   "remember": "One student in, twenty-eight out."
+  },
+  {
+   "n": 3,
+   "t": "Reports & Indices",
+   "headline": "India's passport climbs to 80th",
+   "when": "Jan 2026",
+   "what": "In the Henley Passport Index 2026, India's passport ranked 80th, up five places from 85th in 2025, with visa-free or visa-on-arrival access to 55 destinations.",
+   "key": [
+    "India: 80th, up from 85th; 55 destinations",
+    "Shares rank with Niger and Algeria",
+    "Singapore first: 192 destinations",
+    "Japan and South Korea: 188 each",
+    "Based on IATA data: 199 passports, 227 destinations"
+   ],
+   "static": "Soft-power and mobility indices.",
+   "angle": "Naming UNWTO as the data source.",
+   "remember": "Henley uses IATA; India 80th."
+  },
+  {
+   "n": 4,
+   "t": "Reports & Indices",
+   "headline": "Responsible Nations Index launched",
+   "when": "Jan 2026",
+   "what": "The Responsible Nations Index, covering 154 countries, was launched in New Delhi by the World Intellectual Foundation with JNU, IIM Mumbai and the Dr. Ambedkar International Centre.",
+   "key": [
+    "154 countries ranked",
+    "Three dimensions: internal, environmental, external responsibility",
+    "Singapore first, Switzerland second, Denmark third",
+    "58 indicators, 13 sub-themes, 7 themes",
+    "Developed by World Intellectual Foundation, JNU, IIM Mumbai"
+   ],
+   "static": "Global indices; soft power.",
+   "angle": "Swapping the first two ranks.",
+   "remember": "Singapore leads the responsibility rankings."
+  },
+  {
+   "n": 5,
+   "t": "Reports & Indices",
+   "headline": "ILO Employment and Social Trends 2026",
+   "when": "Jan 2026",
+   "what": "The ILO's report said global unemployment was 4.9 per cent in 2025, forecasting 186 million unemployed in 2026 and a global jobs gap of 408 million.",
+   "key": [
+    "Global unemployment 2025: 4.9%",
+    "Forecast: 186 million unemployed in 2026",
+    "Global jobs gap: 408 million",
+    "Youth unemployment 12.4%; 257 million NEET",
+    "ILO: founded 1919, 187 members"
+   ],
+   "static": "International Labour Organization; unemployment measures.",
+   "angle": "Giving 1945 as the ILO's founding year.",
+   "remember": "ILO born 1919."
+  },
+  {
+   "n": 6,
+   "t": "Reports & Indices",
+   "headline": "Lancet roadmap for Indian health system",
+   "when": "Jan 2026",
+   "what": "The Lancet report 'A Citizen-Centred Health System for India' proposed a roadmap for universal health coverage aligned with Viksit Bharat @2047, noting public health spending below 2 per cent of GDP.",
+   "key": [
+    "Public health spending under 2% of GDP",
+    "NHP 2017 target: 2.5% of GDP",
+    "Out-of-pocket spending nearly 50% of total",
+    "Recommends district global budgets",
+    "ASHAs as core health staff"
+   ],
+   "static": "National Health Policy 2017; Ayushman Bharat.",
+   "angle": "Quoting the wrong NHP target.",
+   "remember": "NHP target 2.5%; reality below 2%."
+  },
+  {
+   "n": 7,
+   "t": "Schemes & Missions",
+   "headline": "One year of Bal Vivah Mukt Bharat",
+   "when": "Jan 2026",
+   "what": "The Union government marked one year of the Bal Vivah Mukt Bharat Abhiyan with a nationwide 100-day campaign, reaffirming the goal of ending child marriage by 2030.",
+   "key": [
+    "Launched 2024 by Ministry of Women and Child Development",
+    "Goal: end child marriage by 2030",
+    "Target: cut prevalence by 10% by 2026",
+    "Balod, Chhattisgarh: first child-marriage-free district",
+    "NFHS-5 prevalence: 23.3%"
+   ],
+   "static": "Prohibition of Child Marriage Act; NFHS.",
+   "angle": "Naming the wrong ministry.",
+   "remember": "WCD runs Bal Vivah Mukt Bharat."
+  },
+  {
+   "n": 8,
+   "t": "Schemes & Missions",
+   "headline": "Three schemes to merge into PM-RKVY",
+   "when": "Jan 2026",
+   "what": "The Ministry of Agriculture and Farmers Welfare proposed merging three ongoing schemes into PM-RKVY, a Centrally Sponsored Scheme, targeting about 4 per cent annual growth in agriculture and allied sectors.",
+   "key": [
+    "Three ongoing schemes merged into PM-RKVY",
+    "Centrally Sponsored Scheme",
+    "60:40 Centre-State for general States",
+    "90:10 for North-Eastern and hilly States",
+    "UTs funded fully by the Centre; target 4% growth"
+   ],
+   "static": "Centrally sponsored vs central sector schemes.",
+   "angle": "Applying 60:40 to the North-East.",
+   "remember": "Sixty-forty plain, ninety-ten hills."
+  },
+  {
+   "n": 9,
+   "t": "Schemes & Missions",
+   "headline": "PM Internship Scheme: slow spending",
+   "when": "Jan 2026",
+   "what": "The Prime Minister's Internship Scheme had spent only about 4 per cent of the Ministry of Corporate Affairs' FY26 budget by November 2025.",
+   "key": [
+    "Announced in Budget 2024-25",
+    "One crore internships over five years; top 500 companies",
+    "Ages 21-24; 12-month internship",
+    "Stipend Rs 5,000 a month plus Rs 6,000 one-time grant",
+    "Insurance under PMJJBY and PMSBY"
+   ],
+   "static": "Skilling and employability schemes.",
+   "angle": "Quoting the wrong stipend.",
+   "remember": "Five thousand a month, 4% spent."
+  },
+  {
+   "n": 10,
+   "t": "Schemes & Missions",
+   "headline": "Atal Pension Yojana extended to 2030-31",
+   "when": "January 2026",
+   "what": "The Cabinet approved continuing the Atal Pension Yojana till 2030-31. It gives guaranteed pensions to unorganised workers, and over 8.66 crore people had enrolled by 19 January 2026.",
+   "key": [
+    "Launched 2015; Finance Ministry scheme run by PFRDA under NPS",
+    "Eligible: bank account holders 18-40 years, not income tax payers",
+    "Guaranteed pension Rs 1,000 to Rs 5,000 a month from age 60",
+    "Spouse gets pension on death; nominee gets corpus",
+    "8.66 crore subscribers by 19 January 2026"
+   ],
+   "static": "National Pension System; PMJJBY and PMSBY are sister social security schemes of 2015.",
+   "angle": "Attributing APY to the EPFO or allowing taxpayers.",
+   "remember": "APY: PFRDA, 18-40, pension Rs 1,000-5,000."
+  },
+  {
+   "n": 11,
+   "t": "Schemes & Missions",
+   "headline": "Beti Bachao Beti Padhao completes 11 years",
+   "when": "Jan 2026",
+   "what": "The Beti Bachao Beti Padhao campaign completed 11 years. Sex ratio at birth rose from about 918 in 2014-15 to 930 in 2023-24.",
+   "key": [
+    "Launched 2015",
+    "Sex ratio at birth: 918 (2014-15) to 930 (2023-24)",
+    "Component of SAMBAL under Mission Shakti",
+    "National Girl Child Day: 24 January, since 2008"
+   ],
+   "static": "Mission Shakti; sex ratio at birth.",
+   "angle": "Placing BBBP under Mission Vatsalya.",
+   "remember": "BBBP now lives in SAMBAL."
+  },
+  {
+   "n": 12,
+   "t": "Schemes & Missions",
+   "headline": "India Skills Accelerator with WEF",
+   "when": "Jan 2026",
+   "what": "The Ministry of Skill Development and Entrepreneurship signed an MoU with the World Economic Forum to set up the India Skills Accelerator, a multistakeholder platform to strengthen the skills and TVET ecosystem.",
+   "key": [
+    "MoU between MSDE and the World Economic Forum",
+    "Multistakeholder platform for skills and TVET",
+    "Complements NEP 2020",
+    "PMKVY 4.0 (2022-26): 27.08 lakh trained by December 2025"
+   ],
+   "static": "Skill India; TVET.",
+   "angle": "Naming the ILO as partner.",
+   "remember": "MSDE plus WEF equals India Skills Accelerator."
+  },
+  {
+   "n": 13,
+   "t": "Schemes & Missions",
+   "headline": "PM SVANidhi gets higher loans and a credit card",
+   "when": "January 2026",
+   "what": "Street vendors can now access higher tranches and a dedicated credit card under PM SVANidhi. Coverage is extended to census towns and peri-urban areas.",
+   "key": [
+    "Central Sector Scheme of MoHUA, launched 2020",
+    "Tranches: first Rs 15,000, second Rs 25,000, third Rs 50,000",
+    "7% interest subsidy; graded guarantee via CGTMSE",
+    "Digital cashback up to Rs 1,600",
+    "State eligibility: notified Rules under the 2014 Street Vendors Act"
+   ],
+   "static": "Street Vendors Act, 2014; Certificate of Vending; CGTMSE.",
+   "angle": "Believing the third tranche was raised.",
+   "remember": "SVANidhi: 15k, 25k, 50k tranches."
+  },
+  {
+   "n": 14,
+   "t": "Awards & Honours",
+   "headline": "Graca Machel wins Indira Gandhi Prize",
+   "when": "Jan 2026",
+   "what": "Mozambican rights activist and humanitarian Graca Machel was selected for the Indira Gandhi Prize for Peace, Disarmament and Development for 2025.",
+   "key": [
+    "Winner: Graca Machel of Mozambique",
+    "Prize instituted 1986",
+    "Awarded annually by the Indira Gandhi Memorial Trust"
+   ],
+   "static": "Awards and prizes list.",
+   "angle": "Treating it as a government award.",
+   "remember": "Machel wins the Indira Gandhi peace prize."
+  },
+  {
+   "n": 15,
+   "t": "Awards & Honours",
+   "headline": "Bose Aapda Prabandhan Puraskar 2026",
+   "when": "23 Jan 2026",
+   "what": "The Sikkim State Disaster Management Authority won the Institutional Category and Lt Col Seeta Ashok Shelke the Individual Category of the Subhash Chandra Bose Aapda Prabandhan Puraskar 2026.",
+   "key": [
+    "Announced on 23 January, Netaji's birth anniversary",
+    "Institutional winner: Sikkim SDMA; prize Rs 51 lakh",
+    "Individual winner: Lt Col Seeta Ashok Shelke; prize Rs 5 lakh",
+    "Administered by NDMA"
+   ],
+   "static": "Disaster Management Act, 2005; NDMA.",
+   "angle": "Swapping the cash amounts.",
+   "remember": "Fifty-one lakh for institutions, five for individuals."
+  },
+  {
+   "n": 16,
+   "t": "Awards & Honours",
+   "headline": "Padma Awards 2026 announced",
+   "when": "25 Jan 2026",
+   "what": "The Padma Awards 2026 comprise 131 awardees: 5 Padma Vibhushan, 13 Padma Bhushan and 113 Padma Shri. The Padma Vibhushan list included two posthumous awardees.",
+   "key": [
+    "131 awards: 5 Padma Vibhushan, 13 Padma Bhushan, 113 Padma Shri",
+    "Padma Vibhushan: K.T. Thomas, P. Narayanan; posthumously V.S. Achuthanandan, Dharmendra",
+    "Mammootty and Vellappally Natesan among Padma Bhushan",
+    "Instituted 1954",
+    "Not a title under Article 18(1); no prefix or suffix"
+   ],
+   "static": "Article 18; civilian honours.",
+   "angle": "Believing awardees may use the award as a title.",
+   "remember": "Padma is an honour, not a title."
+  },
+  {
+   "n": 17,
+   "t": "Awards & Honours",
+   "headline": "Shubhanshu Shukla gets Ashoka Chakra",
+   "when": "25 Jan 2026",
+   "what": "Group Captain Shubhanshu Shukla of the Indian Air Force, pilot of the Axiom-4 mission to the International Space Station in June 2025, was awarded the Ashoka Chakra in the Republic Day 2026 gallantry awards.",
+   "key": [
+    "Awardee: Group Captain Shubhanshu Shukla, IAF",
+    "Axiom-4 to the ISS, June 2025",
+    "Ashoka Chakra: highest peacetime gallantry award",
+    "2026 list: 1 Ashoka Chakra, 3 Kirti Chakras, 13 Shaurya Chakras, 44 Sena Medals",
+    "Ashoka Chakra classes instituted 4 January 1952; renamed 1967"
+   ],
+   "static": "Gallantry awards precedence.",
+   "angle": "Confusing peacetime and wartime awards.",
+   "remember": "Ashoka Chakra tops the peacetime list."
+  },
+  {
+   "n": 18,
+   "t": "Heritage & Archaeology",
+   "headline": "Somnath Swabhiman Parv and Bhadrakali inscription",
+   "when": "Jan 2026",
+   "what": "The Prime Minister marked Somnath Swabhiman Parv (1026-2026), celebrating 1,000 years of the Somnath temple's survival since Mahmud of Ghazni's first attack. The 1169 CE Bhadrakali inscription records the temple's history.",
+   "key": [
+    "Parv: 1,000 years since the 1026 CE attack",
+    "Bhadrakali inscription, 1169 CE, Prabhas Patan, Gujarat",
+    "Eulogy of Bhavabrihaspati, preceptor of Kumarapala",
+    "Bhimdev Solanki built the temple in stone",
+    "Reconstruction: Patel (1947); Pran-Pratistha by Rajendra Prasad, 11 May 1951"
+   ],
+   "static": "Solanki (Chaulukya) dynasty; temple architecture.",
+   "angle": "Crediting Kumarapala with the stone temple.",
+   "remember": "Bhimdev built it in stone."
+  },
+  {
+   "n": 19,
+   "t": "Heritage & Archaeology",
+   "headline": "Kushan-era stupa at Zehanpora",
+   "when": "Jan 2026",
+   "what": "Archaeologists excavating at Zehanpora in Baramulla uncovered a Kushan-era Buddhist stupa over 2,000 years old on a 10-acre site, described as Kashmir's largest known Buddhist site.",
+   "key": [
+    "Location: Zehanpora, Baramulla, north Kashmir",
+    "Kushan-era Buddhist stupa, over 2,000 years old",
+    "10-acre site; Kashmir's largest known Buddhist site",
+    "Wooden superstructure",
+    "Historic photograph found in a French museum archive"
+   ],
+   "static": "Kushan period; Buddhism in Kashmir.",
+   "angle": "Placing the site in south Kashmir.",
+   "remember": "Zehanpora in Baramulla: a Kushan stupa."
+  },
+  {
+   "n": 20,
+   "t": "Heritage & Archaeology",
+   "headline": "Living root bridges nominated to UNESCO",
+   "when": "Jan 2026",
+   "what": "India submitted Meghalaya's living root bridges (Jingkieng Jri) to UNESCO for World Heritage status.",
+   "key": [
+    "Meghalaya's Jingkieng Jri",
+    "Grown by the Khasi and Jaintia communities",
+    "Aerial roots of the rubber fig (Ficus elastica)",
+    "Take 15 to 30 years to form"
+   ],
+   "static": "UNESCO World Heritage nominations; Meghalaya's tribes.",
+   "angle": "Thinking they are made of bamboo.",
+   "remember": "Rubber fig roots grown over decades."
+  },
+  {
+   "n": 21,
+   "t": "Festivals, Languages & Personalities",
+   "headline": "Bagurumba Dwhou in Guwahati",
+   "when": "Jan 2026",
+   "what": "The Prime Minister watched a Bagurumba Dwhou performance by more than 10,000 artistes in Guwahati. Bagurumba is a folk dance of the Bodo community associated with Bwisagu.",
+   "key": [
+    "Folk dance of the Bodo community",
+    "Linked to Bwisagu, the Bodo New Year",
+    "Performed traditionally by women",
+    "Men play kham drum and sifung flute",
+    "Over 10,000 artistes in Guwahati"
+   ],
+   "static": "Folk dances of Assam (Bihu, Bagurumba).",
+   "angle": "Reversing the roles of dancers and musicians.",
+   "remember": "Bodo women dance, men play kham and sifung."
+  },
+  {
+   "n": 22,
+   "t": "Festivals, Languages & Personalities",
+   "headline": "Medaram Jatara begins",
+   "when": "28 Jan 2026",
+   "what": "The Sammakka-Saralamma (Medaram) Jatara, a biennial three-day tribal festival of the Koya community, began at Medaram in Mulugu district, Telangana.",
+   "key": [
+    "Biennial, three days, Koya community",
+    "Medaram, Mulugu district, Telangana",
+    "Eturnagaram Wildlife Sanctuary; Jampanna Vagu, a Godavari tributary",
+    "Offering: bangaram (jaggery equal to body weight)",
+    "State Festival since 1996"
+   ],
+   "static": "Tribal festivals; Godavari tributaries.",
+   "angle": "Naming the Krishna instead of the Godavari.",
+   "remember": "Medaram: Koya, Jampanna Vagu, Godavari."
+  },
+  {
+   "n": 23,
+   "t": "Festivals, Languages & Personalities",
+   "headline": "55 classical-language works released",
+   "when": "31 Jan 2026",
+   "what": "Education Minister Dharmendra Pradhan released 55 literary works developed by the classical language centres, along with a sign-language version of the Tirukkural.",
+   "key": [
+    "Tamil: 2004; Sanskrit: 2005",
+    "Kannada and Telugu: 2008",
+    "Malayalam: 2013; Odia: 2014",
+    "Marathi, Pali, Prakrit, Assamese, Bengali: 2024",
+    "Tirukkural has 1,330 couplets; 11 classical languages"
+   ],
+   "static": "Classical language status; Eighth Schedule.",
+   "angle": "Shifting Malayalam or Odia by a year.",
+   "remember": "Malayalam 2013, Odia 2014."
+  },
+  {
+   "n": 24,
+   "t": "Festivals, Languages & Personalities",
+   "headline": "Harvest festivals across India in January",
+   "when": "Mid-January 2026",
+   "what": "Harvest festivals were celebrated across India around the Sun's northward journey. They carry different names and customs by region.",
+   "key": [
+    "Makar Sankranti: Sun enters Capricorn (Maharashtra)",
+    "Uttarayana: Gujarat and Rajasthan, kite flying",
+    "Pongal: Tamil Nadu, four days",
+    "Lohri: Punjab, a day before Sankranti, rabi harvest",
+    "Magh Bihu: Assam; Kanuma: Telangana"
+   ],
+   "static": "Uttarayana (northward movement of the Sun); rabi harvest; regional festivals.",
+   "angle": "Swapping the States of Lohri and Uttarayana.",
+   "remember": "Lohri Punjab, Bihu Assam, Kanuma Telangana."
+  },
+  {
+   "n": 25,
+   "t": "Sports",
+   "headline": "Bindra task force on sports administrators",
+   "when": "January 2026",
+   "what": "A task force chaired by Abhinav Bindra submitted its report on building a professional cadre of sports administrators. It supports India's bid to host the 2036 Olympics.",
+   "key": [
+    "Chaired by Olympic gold medallist Abhinav Bindra",
+    "Under Khelo Bharat NITI 2025",
+    "Proposes a statutory National Council for Sports Education and Capacity Building",
+    "Unique Administrator ID (UAID) and five-level capability model",
+    "Goal: top-10 sporting nation by 2036, host the 2036 Olympics"
+   ],
+   "static": "National Sports Governance Act, 2025; Khelo India; Sports as a State subject (Entry 33, List II).",
+   "angle": "Quoting a top-five target.",
+   "remember": "Bindra panel: top 10 by 2036."
+  }
+ ]
+}
