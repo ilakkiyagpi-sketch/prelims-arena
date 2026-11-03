@@ -30,9 +30,9 @@ var TESTS=[
   });
   TESTS.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)});
 })();
-var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
+var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",capool:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
-function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
+function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",capool:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
 function isPyq(qid){return String(qid).indexOf("PYQ-")===0}
 function pyqYear(qid){var m=/^PYQ-[A-Z]+-(\d{4})/.exec(qid);return m?+m[1]:null}
 
@@ -207,7 +207,7 @@ function partsDone(id){var d={};attempts().forEach(function(a){if(a.setId===id&&
 function schedFor(ds){var cam=camSets().length>=18;return scheduledFor(ds).filter(function(s){return !(cam&&s.type==="ca"&&/^CA25-T4-/.test(s.id))})}
 function camSets(){return M.sets.filter(function(s){return s.type==="cam"&&s.ready}).sort(function(a,b){return a.id<b.id?-1:1})}
 function nextCamSet(){var done=setDoneMap();return camSets().filter(function(s){return !done[s.id]})[0]||null}
-function camDoneOn(ds){return attempts().some(function(a){return a.date===ds&&(a.type==="cam"||a.type==="ca")&&!a.part})}
+function camDoneOn(ds){return attempts().some(function(a){return a.date===ds&&(a.type==="cam"||a.type==="ca"||(a.type==="capool"&&a.n>=25))&&!a.part})}
 // the day has a 25-question current-affairs target from CAM_FROM on, or when a CA test-week set is scheduled
 function dayState(ds,done,td){
   var sch=schedFor(ds).filter(function(s){return s.ready});
@@ -227,7 +227,7 @@ function dayState(ds,done,td){
     }
   }
   var schIds={};sch.forEach(function(s){schIds[s.id]=1});
-  var extra=attempts().some(function(a){return a.date===ds&&a.type!=="cam"&&!(a.setId&&schIds[a.setId])});
+  var extra=attempts().some(function(a){return a.date===ds&&a.type!=="cam"&&!(a.type==="capool"&&a.n>=25)&&!(a.setId&&schIds[a.setId])});
   var chk=DB.recs["chk_"+ds];
   return {st:st,star:extra,chk:chk&&!chk.del?chk.v:null,test:TESTBYDATE[ds]||null,sch:sch,need25:need25,has50:s50.length>0,flags:flags};
 }
@@ -446,7 +446,7 @@ function renderResult(fresh){
     return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+(((x[8]||0)>>q.a)&1?'<span class="tag bad">Crossed out the right answer</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
       passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
-      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button></div>';
+      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+(q.rp?'<button class="link" data-rp="'+esc(q.rp)+'">See how UPSC asked this topic</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button><div class="rpbox"></div></div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
     '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
@@ -457,6 +457,7 @@ function renderResult(fresh){
   $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
   if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
+  qsa("[data-rp]").forEach(function(b){b.onclick=function(){showLinkedPyq(b)}});
   bindNotesAfterTest();
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
 }
@@ -566,6 +567,7 @@ function startCustom(o){
   $("app").innerHTML='<div class="page"><p class="muted">Preparing your test…</p></div>';
   loadQids(o.qids).then(function(qs){
     if(!qs.length){VIEW.screen="tabs";render();toast("No questions available for this selection.");return}
+    if(o.arrange)qs=cbArrange(qs);
     startQuiz({key:uid("q"),type:o.type,setId:null,title:o.title,subject:o.subject,qs:qs,timed:o.timed,limit:o.limit||Math.round(qs.length*CFG.SEC_PER_Q),mk:o.mk||null});
   }).catch(function(){VIEW.screen="tabs";render();toast("Could not load the questions. Check your connection and try again.")});
 }
@@ -787,6 +789,7 @@ function viewPractice(){
   var nSel=Object.keys(chosen).filter(function(k){return chosen[k]}).length;
   var html='<div class="pagehead"><div><h1>Practice</h1><p class="muted">Test yourself on any subject, any time. Every test is logged with the date you take it.</p></div></div>';
   html+=camPanel();
+  html+=cbPanel();
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
@@ -813,6 +816,7 @@ function viewPractice(){
   bindPyq();
   bindListen();
   bindCam();
+  bindCb();
   qsa("#cam-panel [data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
   qsa("#cam-panel [data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
@@ -1264,7 +1268,7 @@ function camPanel(){
   var sets=camOfMonth(sel),body;
   if(sets.length){
     body='<ul class="list">'+sets.map(function(s){return camSetRow(s,false)}).join("")+'</ul>'+
-      (sets.length>=6?'<div class="row wrap"><button class="btn" id="cm-full">Full '+MONTHS[+sel.split("-")[1]-1]+' test (100 questions, timed)</button><span class="muted small">100 questions drawn from all six sets.</span></div>':'');
+      (sets.length>=6?'<div class="row wrap"><button class="btn" id="cm-full">Full '+MONTHS[+sel.split("-")[1]-1]+' test (100 questions, timed)</button><span class="muted small">100 questions weighted by topic from the whole month.</span></div>':'');
   }else{
     var past=sel<"2026-11";
     body='<p class="muted">'+(past?'The '+monthLabel(sel)+' questions and notes are being prepared and will appear here.':monthLabel(sel)+' will be added after the month ends, once its magazine is out. The space is kept ready.')+'</p>';
@@ -1276,8 +1280,9 @@ function bindCam(){
   qsa("[data-cm]").forEach(function(b){b.onclick=function(){VIEW.camMonth=b.dataset.cm;render()}});
   qsa("[data-camnotes]").forEach(function(b){b.onclick=function(){openCamNotes(b.dataset.camnotes,1,"tabs")}});
   if($("cm-full"))$("cm-full").onclick=function(){
-    var k=VIEW.camMonth,qids=[];camOfMonth(k).forEach(function(s){for(var i=0;i<s.n;i++)qids.push(s.id+"#"+i)});
-    startCustom({type:"cam",title:monthLabel(k)+" full test (100 questions)",subject:"Current Affairs",qids:pickPart(qids,100),timed:true});
+    var k=VIEW.camMonth,rows=cbRows({months:[k]}),qids=[];
+    if(rows.length)qids=cbPick(rows,100,"unseen");else camOfMonth(k).forEach(function(s){for(var i=0;i<s.n;i++)qids.push(s.id+"#"+i)});
+    startCustom({type:rows.length?"capool":"cam",title:monthLabel(k)+" full test ("+Math.min(100,qids.length)+" questions)",subject:"Current Affairs",qids:rows.length?qids:pickPart(qids,100),timed:true,arrange:true});
   };
 }
 /* the daily 25 row, shown on the Today tab for each day from 31 Oct 2026 */
@@ -1407,3 +1412,96 @@ function showUpdate(worker){
 }
 boot();
 
+/* Current affairs question pools: test builder (rows are [qid, month, topic, core, kind]) */
+var CB_FOCUS=[["all","All questions"],["News to static","News to static"],["Confusable","Confusable pairs"],["Map","Map"],["Publisher","Who publishes it"]];
+var CB_SIZES=[10,20,25,50,100];
+var CB_PICK=[["unseen","Unseen first"],["wrong","My wrong answers"],["any","Any"]];
+var CB_TOPIC_FOR={"Polity":["Polity & Governance"],"Economy":["Economy"],"Environment":["Environment"],"Science & Tech":["Science & Tech"],"History":["Culture, Sports & Awards"],"Geography":["Places in News","Environment"]};
+function cbIndex(){return M.capool||{topics:[],kinds:[],q:[]}}
+function cbState(){return VIEW.cb||(VIEW.cb={months:{},topics:{},focus:"all",size:25,pick:"unseen"})}
+function cbRows(f){var I=cbIndex(),m=null,t=null;
+  if(f.months&&f.months.length){m={};f.months.forEach(function(x){m[x]=1})}
+  if(f.topics&&f.topics.length){t={};f.topics.forEach(function(x){t[x]=1})}
+  return I.q.filter(function(r){return (!m||m[r[1]])&&(!t||t[I.topics[r[2]]])&&(!f.focus||f.focus==="all"||I.kinds[r[4]]===f.focus)});
+}
+function cbMistakes(){var o={};mistakeBook().forEach(function(m){o[m.qid]=1});return o}
+function cbAvailable(rows,pick){if(pick!=="wrong")return rows.length;var mb=cbMistakes();return rows.filter(function(r){return mb[r[0]]}).length}
+/* choose questions: topic shares follow the pool, then rank by the chosen rule */
+function cbPick(rows,size,pick){
+  var h=qHistory(),mb=cbMistakes();
+  if(pick==="wrong")rows=rows.filter(function(r){return mb[r[0]]});
+  size=Math.min(size,rows.length);
+  var rank=function(r){if(pick==="any"||pick==="wrong")return 0;return h[r[0]]?(mb[r[0]]?2:3):(r[3]?0:1)};
+  var groups={};shuffle(rows.slice()).sort(function(a,b){return rank(a)-rank(b)}).forEach(function(r){(groups[r[2]]=groups[r[2]]||[]).push(r)});
+  var keys=Object.keys(groups),out=[],rem=[];
+  keys.forEach(function(k){var ex=size*groups[k].length/rows.length,n=Math.floor(ex);out=out.concat(groups[k].slice(0,n));groups[k]=groups[k].slice(n);rem.push([ex-n,k])});
+  rem.sort(function(a,b){return b[0]-a[0]});
+  for(var i=0;out.length<size&&i<rem.length*size+1;i++){var g=groups[rem[i%rem.length][1]];if(g.length)out.push(g.shift())}
+  return out.map(function(r){return r[0]});
+}
+/* order questions so no answer position runs more than twice and one news item is not asked back to back */
+function cbArrange(qs){
+  var left=shuffle(qs.slice()),out=[];
+  while(left.length){
+    var n=out.length,l1=out[n-1],l2=out[n-2],best=-1,bs=1e9;
+    for(var i=0;i<left.length;i++){var q=left[i],sc=0;
+      if(l1&&l2&&l1.a===q.a&&l2.a===q.a)sc+=2;
+      if(l1&&l1.it&&l1.it===q.it)sc+=3;
+      if(l1&&l1.fmt&&l1.fmt===q.fmt&&l2&&l2.fmt===q.fmt)sc+=1;
+      if(sc<bs){bs=sc;best=i;if(!sc)break}}
+    out.push(left.splice(best,1)[0]);
+  }
+  return out;
+}
+function cbNextTest(){var td=today();return TESTS.filter(function(t){return !t.csat&&t.date>=td&&t.type==="weekly"}).sort(function(a,b){return a.date<b.date?-1:1})[0]||null}
+function cbGo(title,rows,size,pick){
+  var qids=cbPick(rows,size,pick||"unseen");
+  if(!qids.length){toast(pick==="wrong"?"You have no wrong answers in this selection yet.":"There are no questions for this choice yet.");return}
+  startCustom({type:"capool",title:title+" ("+qids.length+" questions)",subject:"Current Affairs",qids:qids,timed:true,arrange:true});
+}
+function cbPanel(){
+  var I=cbIndex();if(!I.q.length)return "";
+  var c=cbState(),months={},topics={};I.q.forEach(function(r){months[r[1]]=(months[r[1]]||0)+1});
+  var mk=Object.keys(months).sort(),sm=Object.keys(c.months).filter(function(k){return c.months[k]}),st=Object.keys(c.topics).filter(function(k){return c.topics[k]});
+  cbRows({months:sm,focus:c.focus}).forEach(function(r){var t=I.topics[r[2]];topics[t]=(topics[t]||0)+1});
+  var rows=cbRows({months:sm,topics:st,focus:c.focus}),av=cbAvailable(rows,c.pick);
+  var chip=function(attr,v,on,lab,n){return '<button class="chipbtn" '+attr+'="'+esc(v)+'" aria-pressed="'+!!on+'">'+esc(lab)+(n!=null?' <span>'+n+'</span>':'')+'</button>'};
+  var seg=function(attr,list,cur){return '<div class="chips" role="group">'+list.map(function(x){return chip(attr,x[0],x[0]===cur,x[1])}).join("")+'</div>'};
+  var nt=cbNextTest(),ntHtml="";
+  if(nt)ntHtml='<button class="btn" id="cb-next">News for '+esc(nt.name.split(":")[0])+'</button>';
+  return '<section class="panel" id="cb-panel"><h2>Build a current affairs test</h2><p class="muted small">'+I.q.length+' questions from the whole of each month. Choose any months and topics, then a size for the time you have. Timed at 1.2 minutes per question. Unseen first gives you Core questions before Extra.</p>'+
+    '<h3 class="small">Months</h3><div class="chips" role="group">'+chip("data-cbm","all",!sm.length,"All months",I.q.length)+mk.map(function(k){return chip("data-cbm",k,c.months[k],monthShort(k),months[k])}).join("")+'</div>'+
+    '<h3 class="small">Topics</h3><div class="chips" role="group">'+chip("data-cbt","all",!st.length,"All topics")+I.topics.filter(function(t){return topics[t]}).map(function(t){return chip("data-cbt",t,c.topics[t],t,topics[t])}).join("")+'</div>'+
+    '<h3 class="small">Question type</h3>'+seg("data-cbf",CB_FOCUS,c.focus)+
+    '<h3 class="small">Which questions</h3>'+seg("data-cbp",CB_PICK,c.pick)+
+    '<h3 class="small">Size</h3><div class="chips" role="group">'+CB_SIZES.map(function(n){return '<button class="chipbtn" data-cbs="'+n+'" aria-pressed="'+(n===c.size)+'"'+(av>=n?'':' disabled')+'>'+n+' <span>'+fmtMin(n*CFG.SEC_PER_Q)+'</span></button>'}).join("")+'</div>'+
+    '<div class="row wrap"><button class="btn primary" id="cb-go"'+(av?'':' disabled')+'>Start '+Math.min(c.size,av)+' questions</button><span class="muted small">'+av+' available for this choice.</span></div>'+
+    '<h3 class="small">Quick tests</h3><div class="row wrap">'+ntHtml+'<button class="btn" id="cb-mock">All-months mock (100)</button><button class="btn" id="cb-static">News to static (20)</button><button class="btn" id="cb-conf">Confusable pairs (10)</button><button class="btn" id="cb-map">Map round (10)</button><button class="btn" id="cb-pub">Who publishes it (10)</button></div></section>';
+}
+function bindCb(){
+  if(!$("cb-panel"))return;
+  var c=cbState(),tog=function(obj,v){if(v==="all"){Object.keys(obj).forEach(function(k){delete obj[k]})}else{obj[v]=!obj[v]}render()};
+  qsa("[data-cbm]").forEach(function(b){b.onclick=function(){tog(c.months,b.dataset.cbm)}});
+  qsa("[data-cbt]").forEach(function(b){b.onclick=function(){tog(c.topics,b.dataset.cbt)}});
+  qsa("[data-cbf]").forEach(function(b){b.onclick=function(){c.focus=b.dataset.cbf;render()}});
+  qsa("[data-cbp]").forEach(function(b){b.onclick=function(){c.pick=b.dataset.cbp;render()}});
+  qsa("[data-cbs]").forEach(function(b){b.onclick=function(){c.size=+b.dataset.cbs;render()}});
+  $("cb-go").onclick=function(){
+    var sm=Object.keys(c.months).filter(function(k){return c.months[k]}),st=Object.keys(c.topics).filter(function(k){return c.topics[k]});
+    var f=CB_FOCUS.filter(function(x){return x[0]===c.focus})[0][1];
+    cbGo("Current affairs"+(sm.length===1?", "+monthLabel(sm[0]):"")+(st.length===1?": "+st[0]:"")+(c.focus!=="all"?", "+f:""),cbRows({months:sm,topics:st,focus:c.focus}),c.size,c.pick);
+  };
+  var nb=$("cb-next");if(nb)nb.onclick=function(){var t=cbNextTest(),tp=CB_TOPIC_FOR[t.subject]||[];cbGo("News for "+t.name.split(":")[0],cbRows({topics:tp}),25,"unseen")};
+  $("cb-mock").onclick=function(){cbGo("Current affairs mock",cbRows({}),100,"unseen")};
+  $("cb-static").onclick=function(){cbGo("News to static",cbRows({focus:"News to static"}),20,"unseen")};
+  $("cb-conf").onclick=function(){cbGo("Confusable pairs",cbRows({focus:"Confusable"}),10,"unseen")};
+  $("cb-map").onclick=function(){cbGo("Map round",cbRows({focus:"Map"}),10,"unseen")};
+  $("cb-pub").onclick=function(){cbGo("Who publishes it",cbRows({focus:"Publisher"}),10,"unseen")};
+}
+function showLinkedPyq(b){
+  var box=b.parentNode.querySelector(".rpbox");
+  if(box.innerHTML){box.innerHTML="";return}
+  loadQids([b.dataset.rp]).then(function(l){var q=l[0];if(!q){box.textContent="This question could not be loaded.";return}
+    box.innerHTML='<div class="expl"><b>UPSC '+esc(String(q.y||""))+'</b><div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+q.o.map(function(t,k){return '<li class="'+(k===q.a?"right":"")+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+'</span></li>'}).join("")+'</ul></div>'
+  }).catch(function(){box.textContent="This question could not be loaded."});
+}
