@@ -449,17 +449,31 @@ function renderResult(fresh){
       (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+(q.rp?'<button class="link" data-rp="'+esc(q.rp)+'">See how UPSC asked this topic</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button><div class="rpbox"></div></div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
-    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+
+    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+retakeHtml(a)+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
     '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+notesAfterTest(a,qs)+
     '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><button class="btn small" id="rs-listen">Listen to these</button><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
   $("rs-back").onclick=function(){VIEW.screen="tabs";render()};
   $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
+  if($("rs-retake"))$("rs-retake").onclick=function(){retakeAttempt(a)};
   if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
   qsa("[data-rp]").forEach(function(b){b.onclick=function(){showLinkedPyq(b)}});
   bindNotesAfterTest();
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
+}
+/* take any finished test again: the same questions, as a new attempt; earlier attempts stay in the record */
+function canRetake(a){return !!(a&&((a.setId&&SET[a.setId]&&SET[a.setId].ready)||(a.items&&a.items.length)))}
+function retakeHtml(a){
+  if(!canRetake(a))return "";
+  return '<section class="panel row between wrap"><p>Take the same questions again. This score stays in your record.</p><button class="btn primary" id="rs-retake">Take this '+(a.part?"part":"test")+' again</button></section>';
+}
+function retakeAttempt(a){
+  if(!canRetake(a))return;
+  stopPlayer(true);
+  if(a.setId&&SET[a.setId]&&SET[a.setId].ready){if(a.part)return startPart(a.setId,a.part);return startSet(a.setId,!!a.timed)}
+  var csat=a.mk&&a.mk[0]===CFG.CSAT_MK[0];
+  startCustom({type:a.type,title:a.title,subject:a.subject,qids:a.items.map(function(x){return x[0]}),timed:!!a.timed,mk:a.mk||null,limit:csat?Math.round(a.items.length*90):null});
 }
 function openAttempt(id){
   var a=DB.recs[id];if(!a)return;a=Object.assign({id:id},a);
@@ -693,7 +707,7 @@ function setRowHtml(s,done){
     parts='<div class="parts"><span class="muted small">Or in 5 parts of 10'+(nd&&nd<5?', '+nd+' done':'')+':</span>'+[1,2,3,4,5].map(function(k){var r=DB.recs["run_"+s.id+"~p"+k],pa=r&&!r.del;return '<button class="pchip'+(pd_[k]?" done":(pa?" paused":""))+'" data-part="'+s.id+'|'+k+'" aria-label="Part '+k+(pd_[k]?', done':(pa?', paused':''))+'">'+(pd_[k]?"✓ ":"")+k+'</button>'}).join("")+'</div>';
   }
   var nt=(M&&M.notes&&M.notes[s.id])?'<div class="notesrow"><button class="btn small'+(n?"":" primary")+'" data-notes="'+s.id+'">Read the notes'+(n?'':' first')+'</button><span class="muted small">'+M.notes[s.id].pages+' pages, works offline</span></div>':'';
-  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+nt+parts+'</li>';
+  return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(n>1?', taken '+n+' times':'')+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+nt+parts+'</li>';
 }
 function dayPanel(ds,td){
   var sch=schedFor(ds),t=TESTBYDATE[ds],done=setDoneMap();
@@ -709,7 +723,7 @@ function dayPanel(ds,td){
   }else if(!t)h+='<p class="muted">No set is scheduled for this day. Pick another date, or use Practice for a subject test.</p>';
   var taken=attempts().filter(function(a){return a.date===ds});
   if(ds<td){var lr=logRec(ds);h+='<h3>Study log</h3>'+(lr?'<p class="small">'+logLine(lr)+'</p><button class="btn ghost small" data-log="'+ds+'">Edit log</button>':'<button class="btn small" data-log="'+ds+'">Add a log for this day</button>')}
-  if(taken.length)h+='<h3>Taken on this day</h3><ul class="list">'+taken.map(function(a){return '<li><div><b>'+esc(a.title)+'</b><span class="muted small">'+esc(TYPE_LABEL[a.type]||"")+'</span></div><button class="btn ghost small" data-att="'+a.id+'">'+a.pts+' / '+a.max+'</button></li>'}).join("")+'</ul>';
+  if(taken.length)h+='<h3>Taken on this day</h3><ul class="list">'+taken.map(function(a){return '<li><div><b>'+esc(a.title)+'</b><span class="muted small">'+esc(TYPE_LABEL[a.type]||"")+'</span></div><div class="row tight"><button class="btn ghost small" data-att="'+a.id+'">'+a.pts+' / '+a.max+'</button>'+(canRetake(a)?'<button class="btn small" data-retake="'+a.id+'">Take again</button>':'')+'</div></li>'}).join("")+'</ul>';
   return h+'</section>';
 }
 function calendarPanel(sel,td){
@@ -739,6 +753,7 @@ function bindToday(){
   qsa("[data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   qsa("[data-discard]").forEach(function(b){b.onclick=function(){modal('<h2>Discard this paused test?</h2><p>Your answers so far will be lost.</p><div class="row"><button class="btn danger" data-m="y">Discard</button><button class="btn ghost" data-m="x">Keep it</button></div>',function(a){if(a==="y"){del(b.dataset.discard);render()}})}});
   qsa("[data-att]").forEach(function(b){b.onclick=function(){openAttempt(b.dataset.att)}});
+  qsa("[data-retake]").forEach(function(b){b.onclick=function(){var a=DB.recs[b.dataset.retake];if(a)retakeAttempt(a)}});
   qsa("[data-timed]").forEach(function(b){b.onclick=function(){DB.meta.timed=b.dataset.timed==="1";saveStore();render()}});
   qsa(".cal [data-d]").forEach(function(b){b.onclick=function(){VIEW.sel=b.dataset.d;render()}});
   var mv=function(k){var y=VIEW.month[0],m=VIEW.month[1]+k;if(m<0){m=11;y--}if(m>11){m=0;y++}VIEW.month=[y,m];render()};
