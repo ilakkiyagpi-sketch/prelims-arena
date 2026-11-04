@@ -1451,6 +1451,12 @@ function cbArrange(qs){
       if(sc<bs){bs=sc;best=i;if(!sc)break}}
     out.push(left.splice(best,1)[0]);
   }
+  // the last few can still clash, so move each clash to the first place where it fits
+  var clash=function(l,i){var q=l[i];return (i>1&&l[i-1].a===q.a&&l[i-2].a===q.a)||(i>0&&q.it&&l[i-1].it===q.it)};
+  for(var i=out.length-1;i>0;i--){if(!clash(out,i))continue;
+    var q=out.splice(i,1)[0];
+    for(var j=0;j<=out.length;j++){out.splice(j,0,q);var bad=false;for(var k=Math.max(0,j-2);k<=Math.min(out.length-1,j+2);k++)if(clash(out,k))bad=true;if(!bad)break;out.splice(j,1);if(j===out.length){out.push(q);break}}
+  }
   return out;
 }
 function cbNextTest(){var td=today();return TESTS.filter(function(t){return !t.csat&&t.date>=td&&t.type==="weekly"}).sort(function(a,b){return a.date<b.date?-1:1})[0]||null}
