@@ -354,3 +354,4 @@ body.in-notes .player{display:none}
 @media print{#app{display:none!important}}
 #ls-set{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
 .rpbox:empty{display:none}
+main.page,.panel{min-width:0}
