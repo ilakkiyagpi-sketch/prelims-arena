@@ -48,12 +48,13 @@ const isToday = st.date === today, isYest = st.date === yesterday;
 // streak still alive: counted today, or yesterday's goal was met
 const streak = isToday ? st.streak || 0 : (isYest && st.done ? st.streak || 0 : 0);
 // what to do today: status written today, or yesterday's look-ahead to today
-const plan = isToday ? { set: st.set, ca: st.ca, due: st.due, backlog: st.backlog }
-  : isYest ? { set: st.tset, ca: st.ca, due: st.due, backlog: st.done ? st.backlog : (st.backlog || 0) + (st.set && st.setDate === yesterday ? 5 : 0) } : {};
+const plan = isToday ? { set: st.set, notes: st.nt, ca: st.ca, due: st.due, backlog: st.backlog }
+  : isYest ? { set: st.tset, notes: st.tnt, ca: st.ca, due: st.due, backlog: st.done ? st.backlog : (st.backlog || 0) + (st.set && st.setDate === yesterday ? 5 : 0) } : {};
 let msg = null;
 if (slot === "morning") {
   const parts = [];
   if (plan.set) parts.push(`Subject: ${plan.set}.`);
+  if (plan.notes) parts.push(`Read the notes first (${plan.notes}).`);
   if (plan.ca) parts.push(`Current affairs: ${plan.ca}.`);
   if (plan.due) parts.push(`${plan.due} mistake${plan.due > 1 ? "s" : ""} due for revision.`);
   if (plan.backlog) parts.push(`Catch-up: ${plan.backlog * 10} questions behind – today's catch-up part is ready.`);

@@ -673,7 +673,7 @@ function viewToday(){
   var sel=VIEW.sel||(BYDATE[td]?td:(dates.filter(function(d){return d>td})[0]||td));
   if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
   var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
-  html+=goalCard(td)+remindCard(true)+catchupCard(td);
+  html+=goalCard(td)+testPack(td)+remindCard(true)+catchupCard(td)+quickCard(td)+weekCard(td);
   html+=checkinCard(td);
   html+=logCard(td,"Today's study log");
   html+='<section class="panel budget"><div><h2>Got a few minutes?</h2><p class="muted small">Tap the time you have. The app picks the most useful thing to do with it.</p></div><div class="row wrap">'+[10,20,40].map(function(m){return '<button class="btn" data-budget="'+m+'">'+m+' minutes</button>'}).join("")+'</div></section>';
@@ -708,7 +708,7 @@ function setRowHtml(s,done){
     var pd_=partsDone(s.id),nd=Object.keys(pd_).length;
     parts='<div class="parts"><span class="muted small">Or in 5 parts of 10'+(nd&&nd<5?', '+nd+' done':'')+':</span>'+[1,2,3,4,5].map(function(k){var r=DB.recs["run_"+s.id+"~p"+k],pa=r&&!r.del;return '<button class="pchip'+(pd_[k]?" done":(pa?" paused":""))+'" data-part="'+s.id+'|'+k+'" aria-label="Part '+k+(pd_[k]?', done':(pa?', paused':''))+'">'+(pd_[k]?"✓ ":"")+k+'</button>'}).join("")+'</div>';
   }
-  var nt=(M&&M.notes&&M.notes[s.id])?'<div class="notesrow"><button class="btn small'+(n?"":" primary")+'" data-notes="'+s.id+'">Read the notes'+(n?'':' first')+'</button><span class="muted small">'+M.notes[s.id].pages+' pages, works offline</span></div>':'';
+  var nt=(M&&M.notes&&M.notes[s.id])?'<div class="notesrow"><button class="btn small'+(n?"":" primary")+'" data-notes="'+s.id+'">Read the notes'+(n?'':' first')+'</button><span class="muted small">'+M.notes[s.id].pages+' pages, works offline</span>'+notesBadge(s.id)+'</div>':'';
   return '<li class="setrow"><div class="setmain"><div><span class="muted small">'+label+'</span><b>'+esc(s.title)+'</b>'+(n?'<span class="good small">Done'+(n>1?', taken '+n+' times':'')+(best!=null?', best '+best+' of '+(s.n*2):'')+'</span>':'')+'</div>'+act+'</div>'+nt+parts+'</li>';
 }
 function dayPanel(ds,td){
@@ -744,7 +744,7 @@ function calendarPanel(sel,td){
     '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
 }
 function bindToday(){
-  bindNudges();
+  bindNudges();bindBatch2();
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
   qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
@@ -817,7 +817,7 @@ function viewPractice(){
   var bySub={},meta=qMeta();mb.forEach(function(m){var s=(meta[m.qid]||["Other"])[0];bySub[s]=(bySub[s]||0)+1});
   html+='<div class="cols">';
   html+='<section class="panel"><h2>Full UPSC-style mock</h2><p class="muted">100 questions from every subject, weighted like recent papers. 2 hours, with negative marking.</p><button class="btn primary" id="fm-go">Start a full mock</button></section>';
-  html+='<section class="panel"><h2>Mistake book</h2>'+(mb.length?'<p><b>'+due+'</b> question'+(due===1?"":"s")+' due for revision today, '+mb.length+' in the book.</p><p class="muted small">Every question you get wrong or skip comes back after 1, 3, 7 and 21 days until you answer it right twice in a row.</p><p class="muted small">'+Object.keys(bySub).map(function(s){return esc(s)+': '+bySub[s]}).join(", ")+'</p><div class="row wrap"><button class="btn primary" id="mb-go"'+(due?"":" disabled")+'>Revise '+Math.min(due,25)+' due question'+(due===1?"":"s")+'</button>'+(mb.length>due?'<button class="btn" id="mb-all">Revise early</button>':'')+'</div>':'<p class="muted">Questions you get wrong or skip will appear here for spaced revision.</p>')+'</section>';
+  html+='<section class="panel"><h2>Mistake book</h2>'+(mb.length?'<p><b>'+due+'</b> question'+(due===1?"":"s")+' due for revision today, '+mb.length+' in the book.</p><p class="muted small">Every question you get wrong or skip comes back after 1, 3, 7 and 21 days until you answer it right twice in a row.</p><p class="muted small">'+Object.keys(bySub).map(function(s){return esc(s)+': '+bySub[s]}).join(", ")+'</p><div class="row wrap"><button class="btn primary" id="mb-go"'+(due?"":" disabled")+'>Revise '+Math.min(due,25)+' due question'+(due===1?"":"s")+'</button>'+(mb.length>due?'<button class="btn" id="mb-all">Revise early</button>'+'<button class="btn" data-quick="flash">Flashcards</button>':'')+'</div>':'<p class="muted">Questions you get wrong or skip will appear here for spaced revision.</p>')+'</section>';
   html+='</div>';
   var my=recs("myq").sort(function(a,b){return (b.created||b.ts)-(a.created||a.ts)});
   html+='<section class="panel" id="myq-panel"><div class="row between wrap"><h2>My questions</h2><div class="row wrap"><button class="btn" id="myq-add">Add a question</button><button class="btn primary" id="myq-mock"'+(my.length>=10?"":" disabled")+'>Mock from my questions</button></div></div>'+
@@ -839,6 +839,7 @@ function viewPractice(){
   qsa("#cam-panel [data-resume]").forEach(function(b){b.onclick=function(){resumeRun(b.dataset.resume)}});
   if($("mb-go"))$("mb-go").onclick=function(){startRevision(false)};
   if($("mb-all"))$("mb-all").onclick=function(){startRevision(true)};
+  bindBatch2();
   $("myq-add").onclick=function(){myqDialog(null)};
   $("myq-mock").onclick=function(){var q=shuffle(myqSet().questions.map(function(x){return x.qid})).slice(0,100);startCustom({type:"myq",title:"Mock from my questions, "+fd(today()),subject:"Mixed",qids:q,timed:true})};
   qsa("[data-myedit]").forEach(function(b){b.onclick=function(){myqDialog(b.dataset.myedit)}});
@@ -932,8 +933,10 @@ function viewDash(){
       shown.map(function(r){return '<tr'+(r.kind==="att"?' class="click" data-att="'+r.id+'" tabindex="0"':'')+'><td>'+fd(r.date)+'</td><td>'+esc(r.title)+'</td><td>'+esc(r.type)+'</td><td class="num">'+r.marks+' / '+r.max+'</td><td class="num">'+r1(r.p)+'</td><td class="num hide-sm">'+(r.r==null?"–":r.r)+'</td><td class="num hide-sm">'+(r.w==null?"–":r.w)+'</td><td class="num hide-sm">'+(r.sk==null?"–":r.sk)+'</td><td class="num hide-sm">'+(r.sec?fmtMin(r.sec):(r.rank?"Rank "+r.rank:"–"))+'</td></tr>'}).join("")+'</tbody></table></div><p class="muted small">Tap a row to see every question with your answer and the explanation.</p>';
     html+='</section>';
   }
+  html+=paceSection()+weekSection();
   html+=shankarSection();
   html+=subjectSection();
+  html+=coachSection();
   html+=logSection();
   v.innerHTML=html;
   if(rows.length)drawPerf($("perfchart"),rows,type);
@@ -942,6 +945,7 @@ function viewDash(){
   qsa("tr[data-att]").forEach(function(tr){tr.onclick=function(){openAttempt(tr.dataset.att)};tr.onkeydown=function(e){if(e.key==="Enter")openAttempt(tr.dataset.att)}});
   bindSubjects();
   bindLog();
+  bindBatch2();
   drawShankar();
 }
 
@@ -1537,9 +1541,9 @@ function showLinkedPyq(b){
 var GOAL_S=50,GOAL_C=25,PUSH_PUB="BHICrNnSrv5AcP9me2EP1yIQ1SQU3Zu_4NmwoEfN0jujSRfSo0pMZIqPg0y4-OCJTDvl6i8RKdRdXLj7XmA3Yqg";
 var REMIND_TIMES=[["5:30 am","Morning plan: today's 50 + 25 and mistakes due"],["2:00 pm","Only if nothing is done yet"],["10:00 pm","Only if the day is not complete: the smallest next step"]];
 function isCaType(t){return t==="cam"||t==="ca"||t==="capool"}
-// questions answered per day: s = subject side (goal 50), c = current affairs (goal 25)
+// questions answered per day: s = subject side (goal 50), c = current affairs (goal 25); CSAT 10 is extra
 function dayCounts(){
-  var m={};attempts().forEach(function(a){if(!a.date)return;var o=m[a.date]||(m[a.date]={s:0,c:0});if(isCaType(a.type))o.c+=a.n||0;else o.s+=a.n||0});
+  var m={};attempts().forEach(function(a){if(!a.date||a.type==="csat10")return;var o=m[a.date]||(m[a.date]={s:0,c:0});if(isCaType(a.type))o.c+=a.n||0;else o.s+=a.n||0});
   return m;
 }
 function goalOf(o){o=o||{s:0,c:0};var s=Math.min(GOAL_S,o.s),c=Math.min(GOAL_C,o.c);return {s:s,c:c,tot:s+c,done:s>=GOAL_S&&c>=GOAL_C,any:o.s+o.c>0}}
@@ -1612,7 +1616,8 @@ function nudgeStatus(){
   var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}
   var cam=null;try{cam=nextCamSet()}catch(e){}
   var tm=addDays(td,1),ts_=schedFor(tm).filter(function(x){return x.ready&&!x.pending&&x.type!=="ca"})[0];
-  var o={kind:"nudge",tset:ts_?ts_.title:"",date:td,s:g.s,c:g.c,done:g.done,streak:st.cur,best:st.best,due:due,set:set?set.title:"",setDate:set?set.date:"",ca:cam?cam.title:"",backlog:bl.parts,test:nt?nt.name:"",testDate:nt?nt.date:""};
+  var unr=function(x){return x&&M.notes&&M.notes[x.id]&&!notesDone(x.id)?(M.notes[x.id].title||x.title):""};
+  var o={kind:"nudge",nt:unr(set),tnt:unr(ts_),c10:csat10Done(td),tset:ts_?ts_.title:"",date:td,s:g.s,c:g.c,done:g.done,streak:st.cur,best:st.best,due:due,set:set?set.title:"",setDate:set?set.date:"",ca:cam?cam.title:"",backlog:bl.parts,test:nt?nt.name:"",testDate:nt?nt.date:""};
   var key=JSON.stringify(o),old=DB.recs.nudge_status;
   if(!old||old.key!==key){o.key=key;put("nudge_status",o)}
 }
@@ -1664,4 +1669,223 @@ function handleGo(){
   history.replaceState(null,"",location.pathname+"#today");VIEW.tab="today";render();
   if(m[1]==="b10")setTimeout(function(){budgetPlan(10)},300);
   else if(m[1]==="b20")setTimeout(function(){budgetPlan(20)},300);
+}
+
+/* ===== Batch 2: flashcards, CSAT 10, before-test pack, weekly review, pace, strategy coach, notes read-tracking ===== */
+TYPE_LABEL.csat10="CSAT 10";
+(function(){var tg=typeGroup;typeGroup=function(t){return t==="csat10"?"subject":tg(t)}})();
+/* --- notes read-tracking (PDF notes): furthest page reached, synced as nread_<id> --- */
+function notesPagesRead(id){var r=DB.recs["nread_"+id];return r&&!r.del?r.p||0:0}
+function notesDone(id){var n=M&&M.notes&&M.notes[id];return !!n&&notesPagesRead(id)>=Math.max(1,n.pages-1)}
+function markNotesPage(id,p){var n=M&&M.notes&&M.notes[id];if(!n)return;if(p>notesPagesRead(id)){put("nread_"+id,{kind:"nread",set:id,p:p,pages:n.pages})}}
+function notesBadge(id){var n=M&&M.notes&&M.notes[id];if(!n)return "";var p=notesPagesRead(id);return p?(notesDone(id)?'<span class="good small">Notes read</span>':'<span class="muted small">Notes: page '+p+' of '+n.pages+'</span>'):''}
+
+/* --- flashcards from the mistake book --- */
+var FC=null;
+function fcRec(qid){var r=DB.recs["fc_"+qid.replace(/[^A-Za-z0-9_-]/g,"_")];return r&&!r.del?r:null}
+function fcPick(subject,max){
+  var mb=mistakeBook(),meta=qMeta();
+  if(subject)mb=mb.filter(function(m){return (meta[m.qid]||[])[0]===subject});
+  var now=Date.now();
+  mb.forEach(function(m){var f=fcRec(m.qid);m.fcLast=f?f.last:0;m.fcKnew=f?f.knew:0});
+  // due first, then not flashed recently; skip cards marked known in the last 2 days
+  mb=mb.filter(function(m){return !(m.fcKnew&&now-m.fcLast<2*86400000)});
+  mb.sort(function(a,b){return (b.isDue-a.isDue)||(a.fcLast-b.fcLast)||(a.due-b.due)});
+  return mb.slice(0,max||20).map(function(m){return m.qid});
+}
+function startFlash(subject){
+  var qids=fcPick(subject,20);
+  if(!qids.length){toast(subject?"No "+subject+" mistakes to flash right now.":"Your mistake book is empty, or all cards were known recently.");return}
+  $("app").innerHTML='<div class="page"><p class="muted">Shuffling your cards…</p></div>';
+  loadQids(qids).then(function(qs){
+    qs=qs.filter(function(q){return !q.x});
+    if(!qs.length){VIEW.screen="tabs";render();toast("Could not load the cards.");return}
+    FC={qs:qs,i:0,flip:false,knew:[],missed:[],subject:subject||""};
+    VIEW.screen="flash";document.body.classList.add("in-quiz");window.scrollTo(0,0);drawFlash();
+  }).catch(function(){VIEW.screen="tabs";render();toast("Could not load the cards. Check your connection.")});
+}
+function drawFlash(){
+  if(!FC)return;
+  if(FC.i>=FC.qs.length)return flashDone();
+  var q=FC.qs[FC.i],L="abcd";
+  var h='<div class="fc"><header class="fc-bar"><button class="btn small" id="fc-exit">Close</button><span class="muted small">Card '+(FC.i+1)+' of '+FC.qs.length+'</span><span class="small"><span class="good">'+FC.knew.length+' ✓</span> · <span class="bad-t">'+FC.missed.length+' ✗</span></span></header>'+
+    '<div class="fc-prog"><i style="width:'+(FC.i/FC.qs.length*100)+'%"></i></div>'+
+    '<article class="fc-card'+(FC.flip?" flipped":"")+'" id="fc-card"><p class="muted small">'+esc((q.sub||"")+(q.u?" · "+q.u:""))+'</p>'+
+    (q.p?'<details class="fc-pass"><summary class="small">Show the passage</summary>'+passageHtml(q,false)+'</details>':'')+
+    '<div class="qtext">'+esc(q.q)+'</div><ol class="fc-opts">'+q.o.map(function(o,k){return '<li class="'+(FC.flip?(String(k)===String(q.a)?"right":"dim"):"")+'"><b>'+L[k]+'</b> '+esc(o)+'</li>'}).join("")+'</ol>';
+  if(FC.flip)h+='<div class="fc-ans"><p><b>Answer: '+L[+q.a]+'</b></p>'+(q.e?'<div class="small">'+paras(q.e)+'</div>':'')+(q.h?'<p class="hook small"><b>Memory hook:</b> '+esc(q.h)+'</p>':'')+'</div>';
+  h+='</article><div class="fc-actions">'+(FC.flip?'<button class="btn big" id="fc-no">✗ Didn\'t know</button><button class="btn big primary" id="fc-yes">✓ Knew it</button>':'<button class="btn big primary wide" id="fc-show">Show answer</button>')+'</div>'+
+    '<p class="muted small center">Think of the answer first. Swipe right if you knew it, left if you did not.</p></div>';
+  $("app").innerHTML=h;
+  $("fc-exit").onclick=flashDone;
+  if($("fc-show"))$("fc-show").onclick=function(){FC.flip=true;drawFlash()};
+  if($("fc-yes"))$("fc-yes").onclick=function(){flashMark(true)};
+  if($("fc-no"))$("fc-no").onclick=function(){flashMark(false)};
+  var card=$("fc-card"),x0=null;
+  card.addEventListener("click",function(e){if(!FC.flip&&!e.target.closest("details")){FC.flip=true;drawFlash()}});
+  card.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  card.addEventListener("touchend",function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)<70)return;if(!FC.flip){FC.flip=true;drawFlash();return}flashMark(dx>0)});
+}
+function flashMark(knew){
+  var q=FC.qs[FC.i],id="fc_"+q.qid.replace(/[^A-Za-z0-9_-]/g,"_"),f=fcRec(q.qid)||{};
+  put(id,{kind:"fc",qid:q.qid,last:Date.now(),knew:knew?1:0,seen:(f.seen||0)+1,right:(f.right||0)+(knew?1:0)});
+  (knew?FC.knew:FC.missed).push(q.qid);FC.i++;FC.flip=false;drawFlash();
+}
+function flashDone(){
+  if(!FC)return;var k=FC.knew.length,m=FC.missed.slice(),n=k+m.length;
+  if(!n){FC=null;document.body.classList.remove("in-quiz");VIEW.screen="tabs";render();return}
+  $("app").innerHTML='<div class="page fc-end"><h1>Flashcards done</h1><p class="lead">You knew <b>'+k+'</b> of '+n+'.</p>'+
+    (m.length?'<p class="muted">Flashcards do not change your scores. To clear the ones you missed from the mistake book, answer them in a short quiz: two right answers in a row removes a question.</p><div class="row wrap"><button class="btn primary" id="fc-quiz">Quiz me on the '+m.length+' I missed</button><button class="btn" id="fc-more">More cards</button><button class="btn ghost" id="fc-close">Done</button></div>':
+     '<div class="row wrap"><button class="btn primary" id="fc-more">More cards</button><button class="btn ghost" id="fc-close">Done</button></div>')+'</div>';
+  var subj=FC.subject;FC=null;
+  var back=function(){document.body.classList.remove("in-quiz");VIEW.screen="tabs";render()};
+  $("fc-close").onclick=back;
+  $("fc-more").onclick=function(){document.body.classList.remove("in-quiz");startFlash(subj)};
+  if($("fc-quiz"))$("fc-quiz").onclick=function(){document.body.classList.remove("in-quiz");startCustom({type:"revision",title:"Flashcard misses, "+fd(today()),subject:"Mixed",qids:m,timed:false})};
+}
+
+/* --- CSAT 10 a day: 3 comprehension (one passage), 4 numeracy/DI, 3 reasoning; unseen first; same set on every device --- */
+function csat10Done(ds){return attempts().some(function(a){return a.type==="csat10"&&a.date===ds})}
+function csat10Qids(ds){
+  var r=DB.recs["csat10_"+ds];if(r&&!r.del&&r.qids)return r.qids;
+  var seen={};attempts().forEach(function(a){(a.items||[]).forEach(function(x){seen[x[0]]=1})});
+  Object.keys(DB.recs).forEach(function(k){if(k.indexOf("csat10_")===0&&DB.recs[k].qids)DB.recs[k].qids.forEach(function(q){seen[q]=1})});
+  var bank=(M.bank.CSAT||[]).filter(function(x){return !seen[x[0]]});
+  if(bank.length<30)bank=(M.bank.CSAT||[]).slice();
+  var seed=dayNum(ds);function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  function take(units,n){var pool=bank.filter(function(x){return units.indexOf(x[1])>=0});var out=[];while(out.length<n&&pool.length){out.push(pool.splice(Math.floor(rnd()*pool.length),1)[0][0])}return out}
+  // comprehension: pick one passage and take up to 3 of its questions (consecutive qids in the same paper)
+  var comp=bank.filter(function(x){return x[1]==="Comprehension"}),cq=[];
+  if(comp.length){var start=comp[Math.floor(rnd()*comp.length)][0],sid=start.split("#")[0],k=+start.split("#")[1];
+    comp.forEach(function(x){var p=x[0].split("#");if(p[0]===sid&&Math.abs(+p[1]-k)<=2&&cq.length<3)cq.push(x[0])})}
+  var q=cq.concat(take(["Basic Numeracy","Data Interpretation"],4),take(["Logical Reasoning","Analytical Ability"],10-cq.length-4));
+  put("csat10_"+ds,{kind:"csat10",date:ds,qids:q});
+  return q;
+}
+function startCsat10(){var ds=today();startCustom({type:"csat10",title:"CSAT 10, "+fd(ds),subject:"CSAT",qids:csat10Qids(ds),timed:true,limit:10*90,mk:CFG.CSAT_MK,arrange:true})}
+
+/* --- before the Shankar test: notes, mistakes and linked current affairs for the coming test --- */
+var CA_LINK={"Polity":["Polity & Governance"],"Economy":["Economy","Schemes, Reports & Indices","Financial & Trade Organisations"],"Environment":["Environment"],"Science & Tech":["Science & Tech","Defence & Security"],
+  "Geography":["Places in News","Environment"],"History":["Culture, Sports & Awards"],"Current Affairs":["International Affairs","International Relations","Regional Organisations","United Nations"],"Mixed":["Polity & Governance","Economy"]};
+function nextGsTest(td){return TESTS.filter(function(t){return !t.csat&&t.date>=td})[0]}
+function testPack(td){
+  var t=nextGsTest(td);if(!t)return "";var dl=dayNum(t.date)-dayNum(td);if(dl>2)return "";
+  var sets=(M.sets||[]).filter(function(s){return s.testDate===t.date&&s.type==="daily"});
+  var meta=qMeta(),mb=mistakeBook().filter(function(m){return (meta[m.qid]||[])[0]===t.subject||t.subject==="Mixed"});
+  var noted=sets.filter(function(s){return M.notes&&M.notes[s.id]}),unread=noted.filter(function(s){return !notesDone(s.id)});
+  var h='<section class="panel pack"><div class="row between wrap"><h2>'+(dl===0?"Shankar test today":dl===1?"Shankar test tomorrow":"Shankar test in 2 days")+'</h2><span class="muted small">'+fdw(t.date)+(dl===0?", 2 pm":"")+'</span></div><p><b>'+esc(t.name)+'</b></p><ol class="steps">';
+  if(noted.length)h+='<li><b>Read the notes</b> <span class="muted small">'+(noted.length-unread.length)+' of '+noted.length+' read</span><div class="row wrap tight">'+noted.map(function(s){return '<button class="btn small'+(notesDone(s.id)?"":" primary")+'" data-notes="'+s.id+'">'+esc(s.dayLabel?s.dayLabel.replace(/ of \d+/,""):s.title)+(notesDone(s.id)?" ✓":"")+'</button>'}).join("")+'</div></li>';
+  h+='<li><b>Revise your '+esc(t.subject)+' mistakes</b> <span class="muted small">'+mb.length+' in the book</span><div class="row wrap tight">'+(mb.length?'<button class="btn small primary" data-pack="mist">Quiz ('+Math.min(25,mb.length)+')</button><button class="btn small" data-pack="flash">Flashcards</button>':'<span class="muted small">None – well done.</span>')+'</div></li>';
+  if(CA_LINK[t.subject])h+='<li><b>Linked current affairs</b> <span class="muted small">'+esc(CA_LINK[t.subject].join(", "))+'</span><div class="row wrap tight"><button class="btn small" data-pack="ca">20 questions</button></div></li>';
+  h+='<li><b>Warm up</b> <span class="muted small">a timed 25 from this test\'s sets</span><div class="row wrap tight"><button class="btn small" data-pack="warm">Start</button></div></li></ol></section>';
+  return h;
+}
+function packAction(a){
+  var td=today(),t=nextGsTest(td);if(!t)return;
+  var meta=qMeta();
+  if(a==="mist"){var mb=mistakeBook().filter(function(m){return (meta[m.qid]||[])[0]===t.subject||t.subject==="Mixed"}).slice(0,25);startCustom({type:"revision",title:t.subject+" mistakes before "+t.name,subject:t.subject,qids:mb.map(function(m){return m.qid}),timed:false});return}
+  if(a==="flash"){startFlash(t.subject==="Mixed"?"":t.subject);return}
+  if(a==="ca"){var u=CA_LINK[t.subject]||[],pool=(M.bank["Current Affairs"]||[]).filter(function(x){return u.indexOf(x[1])>=0}).map(function(x){return x[0]});
+    pool.sort(function(){return Math.random()-0.5});startCustom({type:"subject",title:"Current affairs for "+t.name,subject:"Current Affairs",qids:pool.slice(0,20),timed:true});return}
+  if(a==="warm"){var ids=(M.sets||[]).filter(function(s){return s.testDate===t.date&&s.type==="daily"}).map(function(s){return s.id}),q=[];
+    (M.bank[t.subject]||[]).forEach(function(x){if(ids.indexOf(x[0].split("#")[0])>=0)q.push(x[0])});q.sort(function(){return Math.random()-0.5});
+    if(!q.length){toast("No sets for this test yet.");return}
+    startCustom({type:"subject",title:"Warm-up for "+t.name,subject:t.subject,qids:q.slice(0,25),timed:true})}
+}
+
+/* --- quick revision card on Today: flashcards + CSAT 10 --- */
+function quickCard(td){
+  var due=0;try{due=mistakeBook().filter(function(m){return m.isDue}).length}catch(e){}
+  var cd=csat10Done(td);
+  return '<section class="panel quick"><h2>Quick revision</h2><ul class="list">'+
+    '<li><div><b>Flashcards from mistakes</b><span class="muted small">'+(due?due+' due · one hand, about 5 minutes':'Swipe through past mistakes')+'</span></div><button class="btn small primary" data-quick="flash">Open</button></li>'+
+    '<li><div><b>CSAT 10</b><span class="muted small">'+(cd?'Done today ✓':'3 comprehension, 4 numeracy, 3 reasoning · 15 minutes')+'</span></div><button class="btn small'+(cd?"":" primary")+'" data-quick="csat">'+(cd?"Again":"Start")+'</button></li></ul></section>';
+}
+
+/* --- week in review (Monday to Sunday) --- */
+function weekStart(ds){var d=new Date(ds+"T00:00:00"),wd=(d.getDay()+6)%7;return addDays(ds,-wd)}
+function weekData(ws){
+  var we=addDays(ws,6),m=dayCounts(),days=[],goal=0,q=0,studied=0;
+  for(var i=0;i<7;i++){var d=addDays(ws,i),g=goalOf(m[d]),o=m[d]||{s:0,c:0};days.push({d:d,g:g});if(g.done)goal++;if(g.any)studied++;q+=o.s+o.c}
+  var logs=recs("log").filter(function(r){return r.date>=ws&&r.date<=we}),hours=0,reasons={};
+  logs.forEach(function(r){hours+=+r.hours||0;(r.reasons||[]).forEach(function(x){reasons[x]=(reasons[x]||0)+1})});
+  var cur=unitStats(ws,we),prev=unitStats(addDays(ws,-7),addDays(ws,-1)),subs=[],weak=[];
+  Object.keys(cur).forEach(function(s){var a=accOf(cur[s]);if(a==null)return;var p=prev[s]?accOf(prev[s]):null;subs.push({s:s,a:a,p:p,n:cur[s].r+cur[s].w});
+    Object.keys(cur[s].units).forEach(function(u){var o=cur[s].units[u],n=o.r+o.w;if(n>=8)weak.push({s:s,u:u,a:o.r/n*100,n:n})})});
+  subs.sort(function(a,b){return b.n-a.n});weak.sort(function(a,b){return a.a-b.a});
+  var tests=recs("test").filter(function(r){return r.date>=ws&&r.date<=we&&r.marks!=null&&r.marks!==""});
+  var nt=TESTS.filter(function(t){return t.date>we&&t.date<=addDays(we,7)});
+  return {ws:ws,we:we,days:days,goal:goal,studied:studied,q:q,hours:hours,logs:logs.length,reasons:reasons,subs:subs,weak:weak.slice(0,3),tests:tests,next:nt};
+}
+function weekSection(){
+  var td=today(),thisWs=weekStart(td),ws=VIEW.weekWs||((new Date(td+"T00:00:00").getDay()===0)?thisWs:addDays(thisWs,-7));
+  if(ws<weekStart(CFG.START))ws=weekStart(CFG.START);
+  var w=weekData(ws),bl=catchupBacklog();
+  var h='<section class="panel" id="week-review"><div class="row between wrap"><h2>Week in review</h2><div class="row tight"><button class="btn small ghost" data-wk="-7" aria-label="Previous week">‹</button><span class="small">'+fd(w.ws)+' – '+fd(w.we)+'</span><button class="btn small ghost" data-wk="7" aria-label="Next week"'+(addDays(ws,7)>thisWs?" disabled":"")+'>›</button></div></div>';
+  h+='<div class="weekdots">'+w.days.map(function(x){var c=x.d>td?"fut":(x.g.done?"done":(x.g.any?"part":"miss"));return '<span class="wd '+c+'" title="'+esc(fdw(x.d)+": "+x.g.tot+"/75")+'"><b>'+["M","T","W","T","F","S","S"][(new Date(x.d+"T00:00:00").getDay()+6)%7]+'</b><i>'+(x.d>td?"":x.g.tot)+'</i></span>'}).join("")+'</div>';
+  h+='<dl class="kpis"><div><dt>Goal days</dt><dd>'+w.goal+' / 7</dd></div><div><dt>Days studied</dt><dd>'+w.studied+'</dd></div><div><dt>Questions</dt><dd>'+w.q+'</dd></div><div><dt>Hours logged</dt><dd>'+(w.logs?r1(w.hours):"–")+'</dd></div></dl>';
+  if(w.subs.length)h+='<h3>Accuracy this week</h3><table class="tbl"><thead><tr><th>Subject</th><th>Questions</th><th>Accuracy</th><th>vs last week</th></tr></thead><tbody>'+w.subs.map(function(x){var d=x.p==null?null:x.a-x.p;return '<tr><td>'+esc(x.s)+'</td><td>'+x.n+'</td><td>'+Math.round(x.a)+'%</td><td class="'+(d==null?"":(d>=0?"pos":"neg"))+'">'+(d==null?"–":(d>=0?"+":"")+Math.round(d)+" pts")+'</td></tr>'}).join("")+'</tbody></table>';
+  if(w.weak.length)h+='<h3>Weakest units this week</h3><ul class="plain small">'+w.weak.map(function(x){return '<li><b>'+esc(x.u)+'</b> ('+esc(x.s)+') – '+Math.round(x.a)+'% on '+x.n+' questions</li>'}).join("")+'</ul>';
+  var rs=Object.keys(w.reasons).sort(function(a,b){return w.reasons[b]-w.reasons[a]});
+  if(rs.length)h+='<p class="small"><b>What got in the way:</b> '+rs.slice(0,3).map(function(r){return esc(r)+" ("+w.reasons[r]+")"}).join(", ")+'</p>';
+  if(w.tests.length)h+='<p class="small"><b>Shankar tests:</b> '+w.tests.map(function(t){return esc(t.name)+" – "+t.marks+" / "+(t.max||200)}).join("; ")+'</p>';
+  var focus=[];
+  if(w.next.length)focus.push("Prepare for "+w.next.map(function(t){return t.name+" ("+fdw(t.date)+")"}).join(" and ")+".");
+  if(w.weak.length)focus.push("Retest "+w.weak.slice(0,2).map(function(x){return x.u}).join(" and ")+".");
+  if(bl.parts)focus.push("Catch up "+bl.parts*10+" questions from missed sets.");
+  if(w.goal<5&&w.ws<thisWs)focus.push("Aim for at least 5 goal days; a 10-minute part on hard days keeps the chain going.");
+  if(focus.length)h+='<div class="focus"><b>Focus for next week</b><ul class="plain small">'+focus.map(function(f){return '<li>'+esc(f)+'</li>'}).join("")+'</ul></div>';
+  return h+'</section>';
+}
+function weekCard(td){
+  var wd=new Date(td+"T00:00:00").getDay();if(wd!==0&&wd!==1)return "";
+  var w=weekData(wd===0?weekStart(td):addDays(weekStart(td),-7));
+  return '<section class="panel weekcard"><div class="row between wrap"><div><h2>'+(wd===0?"Your week so far":"Last week in review")+'</h2><p class="small">'+w.goal+' goal day'+(w.goal===1?"":"s")+' · '+w.q+' questions'+(w.weak[0]?' · weakest: '+esc(w.weak[0].u):'')+'</p></div><button class="btn small primary" data-gowk="1">Open review</button></div></section>';
+}
+
+/* --- pace to Prelims --- */
+function paceData(){
+  var td=today(),done=setDoneMap(),all=(M.sets||[]).filter(function(s){return s.type==="daily"&&s.n===50}),due=all.filter(function(s){return s.date<=td});
+  var nDone=all.filter(function(s){return done[s.id]}).length;
+  // rate: daily-set questions answered in the last 14 days
+  var from=addDays(td,-13),qs=0;attempts().forEach(function(a){if(a.date>=from&&(a.type==="daily"||a.type==="bonus"))qs+=a.n||0});
+  var rate=qs/50/14,left=all.length-nDone,last=all.reduce(function(m,s){return s.date>m?s.date:m},td);
+  var proj=rate>0?addDays(td,Math.ceil(left/rate)):null,daysLeft=dayNum(CFG.PRELIMS)-dayNum(td);
+  return {total:all.length,done:nDone,due:due.length,behind:Math.max(0,due.length-nDone),rate:rate,left:left,last:last,proj:proj,daysLeft:daysLeft,
+    testsLeft:TESTS.filter(function(t){return t.date>=td}).length};
+}
+function paceSection(){
+  var p=paceData(),pct=p.total?p.done/p.total*100:0,exp=p.total?p.due/p.total*100:0;
+  var verdict=p.behind===0?'<span class="good">On schedule</span>':(p.behind<=3?'<span class="warn-t">'+p.behind+' set'+(p.behind>1?"s":"")+' behind</span>':'<span class="bad-t">'+p.behind+' sets behind</span>');
+  var h='<section class="panel"><h2>Pace to Prelims</h2><dl class="kpis"><div><dt>Days left</dt><dd>'+p.daysLeft+'</dd></div><div><dt>Daily sets done</dt><dd>'+p.done+' / '+p.total+'</dd></div><div><dt>Status</dt><dd class="small">'+verdict+'</dd></div><div><dt>Shankar tests left (GS + CSAT)</dt><dd>'+p.testsLeft+'</dd></div></dl>'+
+    '<div class="pacebar" aria-label="Syllabus progress"><i style="width:'+pct.toFixed(1)+'%"></i><b style="left:'+exp.toFixed(1)+'%" title="Where the schedule is today"></b></div><p class="muted small">Bar: sets done. Marker: where the schedule is today.</p>';
+  if(p.rate>0){var ok=p.proj<=p.last;h+='<p class="small">At your last-14-day pace ('+r1(p.rate*7)+' sets a week) you finish the sets on <b>'+fdw(p.proj)+'</b>, '+(ok?'in time for the schedule ('+fd(p.last)+') and the revision months before Prelims.':'after the scheduled end ('+fd(p.last)+'). Raising the catch-up pace on the Today tab closes this gap.')+'</p>'}
+  else h+='<p class="small">No daily sets in the last 14 days yet, so there is no pace to project.</p>';
+  return h+'</section>';
+}
+
+/* --- attempt-strategy coach (GS marking: +2 right, −0.66 wrong; break-even accuracy about 25%) --- */
+function coachSection(){
+  var it=[],strike={n:0,r:0};attempts().forEach(function(a){if(a.mk||a.subject==="CSAT"||a.type==="csat10")return;(a.items||[]).forEach(function(x){it.push(x);if(x[8]&&x[4]!==-1&&x[4]!==2){strike.n++;if(x[4]===1)strike.r++}})});
+  var o=confStats(it),tagged=o[1].n+o[2].n+o[3].n;
+  var h='<section class="panel"><h2>Attempt strategy coach</h2>';
+  if(tagged<30)return h+'<p class="muted">Tag at least 30 answers as Sure, 50-50 or Guess (GS tests) and the coach will tell you which kinds of questions to attempt. So far: '+tagged+'.</p></section>';
+  function ev(c){var s=o[c];return s.n?(2*s.r-0.66*s.w)/s.n:0}
+  function acc(c){var s=o[c];return s.n?s.r/s.n*100:0}
+  var rows=[[1,"Sure"],[2,"50-50"],[3,"Guess"]].filter(function(r){return o[r[0]].n}).map(function(r){var c=r[0];return '<tr><td>'+r[1]+'</td><td>'+o[c].n+'</td><td>'+Math.round(acc(c))+'%</td><td class="'+(ev(c)>=0?"pos":"neg")+'">'+(ev(c)>=0?"+":"")+ev(c).toFixed(2)+'</td></tr>'}).join("");
+  h+='<table class="tbl"><thead><tr><th>Your tag</th><th>Answers</th><th>Accuracy</th><th>Marks per attempt</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  var tips=[];
+  if(o[1].n>=10){if(acc(1)<85)tips.push("Your Sure answers are right only "+Math.round(acc(1))+"% of the time. Before marking, re-read every statement for words like only, all, always and never: most of these misses are reading slips, not knowledge gaps.");else tips.push("Your Sure answers are reliable ("+Math.round(acc(1))+"%). Attempt all of them in the exam.")}
+  if(o[2].n>=10){if(acc(2)>=40)tips.push("Keep attempting 50-50 questions: at "+Math.round(acc(2))+"% each one is worth about "+ev(2).toFixed(2)+" marks on average. Skipping them would cost you.");else if(acc(2)>=25)tips.push("Your 50-50 answers are just above break-even ("+Math.round(acc(2))+"%). Attempt them only after you have eliminated two options.");else tips.push("Your 50-50 answers lose marks ("+Math.round(acc(2))+"%). Skip them unless you can eliminate two options with certainty.")}
+  if(o[3].n>=10){if(acc(3)<25)tips.push("Pure guesses are right only "+Math.round(acc(3))+"% of the time, below the 25% break-even. Leave them blank in the exam.");else tips.push("Your guesses beat the 25% break-even ("+Math.round(acc(3))+"%), which usually means your elimination is better than you think. Attempt a guess when you can strike out at least one option.")}
+  if(strike.n>=15)tips.push("When you cross out options, you get "+Math.round(strike.r/strike.n*100)+"% right"+(strike.r/strike.n>=0.5?", so elimination is working: use it on every doubtful question.":". Check the options you strike: the right answer may be getting crossed out."));
+  h+='<ul class="plain small coach">'+tips.map(function(t){return '<li>'+esc(t)+'</li>'}).join("")+'</ul><p class="muted small">Break-even: with +2 for right and −0.66 for wrong, an attempt pays off when you are right more than about 25% of the time.</p>';
+  return h+'</section>';
+}
+function bindBatch2(){
+  qsa("[data-quick]").forEach(function(b){b.onclick=function(){if(b.dataset.quick==="flash")startFlash("");else startCsat10()}});
+  qsa("[data-pack]").forEach(function(b){b.onclick=function(){packAction(b.dataset.pack)}});
+  qsa("[data-wk]").forEach(function(b){b.onclick=function(){var td=today(),cur=VIEW.weekWs||((new Date(td+"T00:00:00").getDay()===0)?weekStart(td):addDays(weekStart(td),-7));VIEW.weekWs=addDays(cur,+b.dataset.wk);render();var e=$("week-review");if(e)e.scrollIntoView()}});
+  qsa("[data-gowk]").forEach(function(b){b.onclick=function(){VIEW.tab="dash";location.hash="dash";render();setTimeout(function(){var e=$("week-review");if(e)e.scrollIntoView({behavior:"smooth"})},60)}});
+  qsa("[data-flashsub]").forEach(function(b){b.onclick=function(){startFlash(b.dataset.flashsub)}});
 }
