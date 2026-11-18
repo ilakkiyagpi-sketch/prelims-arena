@@ -71,7 +71,7 @@
       var r=body.getBoundingClientRect(),mid=r.top+r.height*0.35,p=1;
       for(var i=0;i<st.pages.length;i++){var b=st.pages[i].getBoundingClientRect();if(b.top<=mid)p=i+1;else break}
       $("nv-pg").textContent="Page "+p+" of "+st.pages.length;
-      clearTimeout(t);t=setTimeout(function(){try{localStorage.setItem(posKey(id),String(p))}catch(e){}},400);
+      clearTimeout(t);t=setTimeout(function(){try{localStorage.setItem(posKey(id),String(p))}catch(e){}if(window.markNotesPage)window.markNotesPage(id,p)},400);
     }
     function setZoom(z){var keep=0;var r=body.getBoundingClientRect();for(var i=0;i<st.pages.length;i++){if(st.pages[i].getBoundingClientRect().top<=r.top+r.height*0.35)keep=i}
       st.zoom=z;layout();if(st.pages[keep])st.pages[keep].scrollIntoView()}
