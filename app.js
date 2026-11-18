@@ -667,27 +667,6 @@ function startRevision(all){
 }
 
 /* Today tab: check-in, paused tests, the selected day's sets, calendar */
-function viewToday(){
-  var td=today(),v=$("view");
-  var dates=Object.keys(BYDATE).sort();
-  var sel=VIEW.sel||(BYDATE[td]?td:(dates.filter(function(d){return d>td})[0]||td));
-  if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
-  var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
-  html+=goalCard(td)+testPack(td)+remindCard(true)+catchupCard(td)+quickCard(td)+weekCard(td);
-  html+=checkinCard(td);
-  html+=logCard(td,"Today's study log");
-  html+='<section class="panel budget"><div><h2>Got a few minutes?</h2><p class="muted small">Tap the time you have. The app picks the most useful thing to do with it.</p></div><div class="row wrap">'+[10,20,40].map(function(m){return '<button class="btn" data-budget="'+m+'">'+m+' minutes</button>'}).join("")+'</div></section>';
-  var runs=pausedRuns();
-  if(runs.length)html+='<section class="panel"><h2>Paused tests</h2><ul class="list">'+runs.map(function(r){return '<li><div><b>'+esc(r.title)+'</b><span class="muted">'+r.done+' of '+r.n+' answered'+(r.timed?', '+fmtMin(Math.max(0,r.limit-r.el))+' left':'')+'</span></div><div class="row"><button class="btn primary small" data-resume="'+esc(r.id)+'">Resume</button><button class="btn ghost small" data-discard="'+esc(r.id)+'">Discard</button></div></li>'}).join("")+'</ul></section>';
-  html+='<div class="cols wide-left">'+dayPanel(sel,td)+calendarPanel(sel,td)+'</div>';
-  var t=TESTS.filter(function(x){return x.date>=td})[0];
-  html+='<section class="panel"><details><summary><h2>Shankar test days</h2><span class="muted">'+(t?'Next: '+esc(t.name)+', '+fdw(t.date)+', 2 to 4 pm':'All tests are over')+'</span></summary>'+
-    '<ul class="plain"><li>General Studies tests run 2 to 4 pm, with a live discussion at 4:30 pm.</li><li>CSAT tests run 2 to 4 pm; the recorded discussion is uploaded at 4:30 pm.</li><li>Tests are offline and online. Your admission ID is the user name and password for the test portal.</li><li>Refer to the India Year Book for every test; mock tests cover IYB 2025.</li><li>Test 24 (Budget and Economic Survey) and Mock Tests I and II are online.</li><li>The CSAT sectional syllabus is shared on the Telegram channel.</li></ul></details></section>';
-  var bonus=M.sets.filter(function(s){return s.type==="bonus"&&s.ready});
-  if(bonus.length)html+='<section class="panel"><h2>Extra practice</h2><ul class="list">'+bonus.map(function(s){return '<li><div><b>'+esc(s.title)+'</b><span class="muted">'+s.n+' questions</span></div><button class="btn small" data-start="'+s.id+'">Start</button></li>'}).join("")+'</ul></section>';
-  v.innerHTML=html;
-  bindToday();
-}
 function daysLeftLine(td){var n=dayNum(CFG.PRELIMS)-dayNum(td);return n>0?n+" days to Prelims (24 May 2027)":"Prelims day has passed"}
 function checkinCard(td){
   var c=DB.recs["chk_"+td];var s=streak();
@@ -910,43 +889,50 @@ function dashRows(type){
 function viewDash(){
   var v=$("view"),type=VIEW.dashType,rows=dashRows(type);
   var html='<div class="pagehead"><div><h1>Dashboard</h1><p class="muted">Goal: 90% in Prelims on 24 May 2027.</p></div></div>';
-  html+='<section class="panel"><div class="row between wrap"><h2>Performance</h2><div class="seg toggle" role="group" aria-label="Test type">'+DASH_TYPES.map(function(t){return '<button data-dt="'+t[0]+'" aria-pressed="'+(type===t[0])+'">'+t[1]+'</button>'}).join("")+'</div></div>';
+  html+=dashGlance();
+  var perf='<section class="panel"><div class="row between wrap"><h2>Performance</h2><div class="seg toggle" role="group" aria-label="Test type">'+DASH_TYPES.map(function(t){return '<button data-dt="'+t[0]+'" aria-pressed="'+(type===t[0])+'">'+t[1]+'</button>'}).join("")+'</div></div>';
   if(!rows.length){
-    html+='<p class="empty">'+({daily:"Take a daily set from the Today tab to start your record.",weekly:"Enter your Shankar weekly test marks in the Scores tab to see them here.",mock:"Take a full mock in Practice, or enter Shankar mock marks in Scores.",subject:"Take a subject test in Practice to see it here.",ca:"Take a current affairs set from the Today tab to see it here.",pyq:"Take a UPSC previous year paper in Practice to see it here.",all:"Your results will appear here after your first test."})[type]+'</p></section>';
+    perf+='<p class="empty">'+({daily:"Take a daily set from the Today tab to start your record.",weekly:"Enter your Shankar weekly test marks in the Scores tab to see them here.",mock:"Take a full mock in Practice, or enter Shankar mock marks in Scores.",subject:"Take a subject test in Practice to see it here.",ca:"Take a current affairs set from the Today tab to see it here.",pyq:"Take a UPSC previous year paper in Practice to see it here.",all:"Your results will appear here after your first test."})[type]+'</p></section>';
   }else{
     var ps=rows.map(function(r){return r.p}),avg=ps.reduce(function(a,b){return a+b},0)/ps.length;
     var last=rows[rows.length-1];
-    html+='<dl class="kpis"><div><dt>Tests</dt><dd>'+rows.length+'</dd></div><div><dt>Average</dt><dd>'+r1(avg)+'%</dd></div><div><dt>Best</dt><dd>'+r1(Math.max.apply(null,ps))+'%</dd></div><div><dt>Latest</dt><dd>'+r1(last.p)+'%</dd><dd class="sub">'+esc(last.marks+" / "+last.max)+'</dd></div></dl>';
-    html+='<div class="chartwrap" id="perfchart"></div>';
+    perf+='<dl class="kpis"><div><dt>Tests</dt><dd>'+rows.length+'</dd></div><div><dt>Average</dt><dd>'+r1(avg)+'%</dd></div><div><dt>Best</dt><dd>'+r1(Math.max.apply(null,ps))+'%</dd></div><div><dt>Latest</dt><dd>'+r1(last.p)+'%</dd><dd class="sub">'+esc(last.marks+" / "+last.max)+'</dd></div></dl>';
+    perf+='<div class="chartwrap" id="perfchart"></div>';
     var atts=rows.filter(function(r){return r.kind==="att"}).map(function(r){return DB.recs[r.id]});
     var items=[];atts.forEach(function(a){items=items.concat(a.items||[])});
     if(items.length){
       var tps={};items.forEach(function(x){if(!x[6])return;var o=tps[x[1]]||(tps[x[1]]={s:0,n:0});o.s+=x[6];o.n++});
       var tpRows=Object.keys(tps).map(function(s){return '<tr><td>'+esc(s)+'</td><td>'+Math.round(tps[s].s/tps[s].n)+' s</td><td>'+tps[s].n+'</td></tr>'}).join("");
-      html+='<div class="cols"><div><h3>Confidence</h3>'+confTable(items)+'</div><div><h3>Time per question</h3>'+(tpRows?'<table class="tbl"><thead><tr><th>Subject</th><th>Average</th><th>Questions timed</th></tr></thead><tbody>'+tpRows+'</tbody></table><p class="muted small">The exam allows 72 seconds per question.</p>':'<p class="muted">Time per question is recorded for tests taken from now on.</p>')+'</div></div>';
+      perf+='<div class="cols"><div><h3>Confidence</h3>'+confTable(items)+'</div><div><h3>Time per question</h3>'+(tpRows?'<table class="tbl"><thead><tr><th>Subject</th><th>Average</th><th>Questions timed</th></tr></thead><tbody>'+tpRows+'</tbody></table><p class="muted small">The exam allows 72 seconds per question.</p>':'<p class="muted">Time per question is recorded for tests taken from now on.</p>')+'</div></div>';
     }
     var months={};rows.forEach(function(r){months[r.date.slice(0,7)]=1});
     var mk=Object.keys(months).sort().reverse();if(VIEW.dashMonth!=="all"&&!months[VIEW.dashMonth])VIEW.dashMonth="all";
     var shown=rows.filter(function(r){return VIEW.dashMonth==="all"||r.date.slice(0,7)===VIEW.dashMonth}).slice().reverse();
-    html+='<div class="row between wrap"><h3>All results</h3><label class="inline">Month <select id="dm">'+'<option value="all">All months</option>'+mk.map(function(m){return '<option value="'+m+'"'+(VIEW.dashMonth===m?" selected":"")+'>'+MONTHS[+m.slice(5)-1]+' '+m.slice(0,4)+'</option>'}).join("")+'</select></label></div>'+
+    perf+='<div class="row between wrap"><h3>All results</h3><label class="inline">Month <select id="dm">'+'<option value="all">All months</option>'+mk.map(function(m){return '<option value="'+m+'"'+(VIEW.dashMonth===m?" selected":"")+'>'+MONTHS[+m.slice(5)-1]+' '+m.slice(0,4)+'</option>'}).join("")+'</select></label></div>'+
       '<div class="scroll"><table class="tbl hist"><thead><tr><th>Date</th><th>Test</th><th>Type</th><th>Marks</th><th>%</th><th class="hide-sm">Right</th><th class="hide-sm">Wrong</th><th class="hide-sm">Skipped</th><th class="hide-sm">Time</th></tr></thead><tbody>'+
       shown.map(function(r){return '<tr'+(r.kind==="att"?' class="click" data-att="'+r.id+'" tabindex="0"':'')+'><td>'+fd(r.date)+'</td><td>'+esc(r.title)+'</td><td>'+esc(r.type)+'</td><td class="num">'+r.marks+' / '+r.max+'</td><td class="num">'+r1(r.p)+'</td><td class="num hide-sm">'+(r.r==null?"–":r.r)+'</td><td class="num hide-sm">'+(r.w==null?"–":r.w)+'</td><td class="num hide-sm">'+(r.sk==null?"–":r.sk)+'</td><td class="num hide-sm">'+(r.sec?fmtMin(r.sec):(r.rank?"Rank "+r.rank:"–"))+'</td></tr>'}).join("")+'</tbody></table></div><p class="muted small">Tap a row to see every question with your answer and the explanation.</p>';
-    html+='</section>';
+    perf+='</section>';
   }
-  html+=paceSection()+weekSection();
-  html+=shankarSection();
-  html+=subjectSection();
-  html+=coachSection();
-  html+=logSection();
+  var ps_=rows.map(function(r){return r.p}),pd_=paceData(),wk=weekData(weekStart(today()));
+  html+=fold("perf","Performance",rows.length?rows.length+" tests · average "+r1(ps_.reduce(function(a,b){return a+b},0)/ps_.length)+"% · latest "+r1(ps_[ps_.length-1])+"%":"no results yet",unwrap(perf),true);
+  html+=fold("pace","Pace to Prelims",pd_.done+" of "+pd_.total+" daily sets · "+(pd_.behind?pd_.behind+" behind":"on schedule"),unwrap(paceSection()),false);
+  html+=fold("week","Week in review",wk.goal+" of 7 goal days this week · "+wk.q+" questions",unwrap(weekSection()),false);
+  var sk=testMarks().filter(function(t){return t.marks!=null&&t.marks!==""});
+  html+=fold("shankar","Shankar Prestorming tests",sk.length?sk.length+" test"+(sk.length>1?"s":"")+" entered":"no marks entered yet",unwrap(shankarSection()),false);
+  var us=unitStats(VIEW.from||CFG.START,VIEW.to||today()),sa=Object.keys(us).map(function(x){return [x,accOf(us[x]),us[x].r+us[x].w]}).filter(function(x){return x[2]>=20}).sort(function(a,b){return b[1]-a[1]});
+  html+=fold("subj","Subject-wise performance",sa.length?"strongest "+esc(sa[0][0])+" "+Math.round(sa[0][1])+"% · weakest "+esc(sa[sa.length-1][0])+" "+Math.round(sa[sa.length-1][1])+"%":"not enough data yet",unwrap(subjectSection()),false);
+  html+=fold("coach","Attempt strategy coach","when to attempt Sure, 50-50 and Guess answers",unwrap(coachSection()),false);
+  var lg=logs().filter(function(r){return r.date>=addDays(today(),-6)});
+  html+=fold("log","Study log",lg.length+" of last 7 days logged · "+r1(lg.reduce(function(a,r){return a+(+r.hours||0)},0))+" h",unwrap(logSection()),false);
   v.innerHTML=html;
-  if(rows.length)drawPerf($("perfchart"),rows,type);
+  if(rows.length&&$("perfchart")&&foldOpen("perf",true))drawPerf($("perfchart"),rows,type);
   qsa("[data-dt]").forEach(function(b){b.onclick=function(){VIEW.dashType=b.dataset.dt;render()}});
   if($("dm"))$("dm").onchange=function(){VIEW.dashMonth=this.value;render()};
   qsa("tr[data-att]").forEach(function(tr){tr.onclick=function(){openAttempt(tr.dataset.att)};tr.onkeydown=function(e){if(e.key==="Enter")openAttempt(tr.dataset.att)}});
   bindSubjects();
   bindLog();
-  bindBatch2();
-  drawShankar();
+  bindBatch2();bindFolds(true);
+  if(foldOpen("shankar",false))drawShankar();
 }
 
 /* performance line chart (SVG) */
@@ -1634,6 +1620,7 @@ function remindState(){
 function remindCard(compact){
   var s=remindState(),noSync=!syncCfg().url;
   if(compact&&(s==="on"||s==="unsupported"||DB.meta.remindHide))return "";
+  if(compact)return '<section class="panel remind compact"><div class="row between wrap"><div><b>Turn on study reminders</b><span class="muted small block">5:30 am plan, 2 pm and 10 pm nudges on this phone'+(s==="denied"?' – notifications are blocked: allow them in the app settings':'')+(noSync?' – needs Google Sheet sync':'')+'</span></div><div class="row tight">'+(s==="denied"?'':'<button class="btn primary small" data-remind="on">Turn on</button>')+'<button class="btn ghost small" data-remind="hide">Not now</button></div></div></section>';
   var h='<section class="panel remind'+(compact?" compact":"")+'" id="remind-card"><h2>Study reminders on this phone</h2>';
   if(s==="unsupported")return h+'<p class="muted small">This browser cannot show reminders. Open the app from Chrome on your Android phone (installed on the home screen).</p></section>';
   h+='<ul class="plain small">'+REMIND_TIMES.map(function(t){return '<li><b>'+t[0]+'</b> – '+esc(t[1])+'</li>'}).join("")+'</ul>';
@@ -1885,7 +1872,125 @@ function coachSection(){
 function bindBatch2(){
   qsa("[data-quick]").forEach(function(b){b.onclick=function(){if(b.dataset.quick==="flash")startFlash("");else startCsat10()}});
   qsa("[data-pack]").forEach(function(b){b.onclick=function(){packAction(b.dataset.pack)}});
-  qsa("[data-wk]").forEach(function(b){b.onclick=function(){var td=today(),cur=VIEW.weekWs||((new Date(td+"T00:00:00").getDay()===0)?weekStart(td):addDays(weekStart(td),-7));VIEW.weekWs=addDays(cur,+b.dataset.wk);render();var e=$("week-review");if(e)e.scrollIntoView()}});
-  qsa("[data-gowk]").forEach(function(b){b.onclick=function(){VIEW.tab="dash";location.hash="dash";render();setTimeout(function(){var e=$("week-review");if(e)e.scrollIntoView({behavior:"smooth"})},60)}});
+  qsa("[data-wk]").forEach(function(b){b.onclick=function(){var td=today(),cur=VIEW.weekWs||((new Date(td+"T00:00:00").getDay()===0)?weekStart(td):addDays(weekStart(td),-7));VIEW.weekWs=addDays(cur,+b.dataset.wk);render();var e=$("fold-week");if(e)e.scrollIntoView()}});
+  qsa("[data-gowk]").forEach(function(b){b.onclick=function(){DB.meta.fold=DB.meta.fold||{};DB.meta.fold.week=true;saveStore();VIEW.tab="dash";location.hash="dash";render();setTimeout(function(){var e=$("fold-week");if(e)e.scrollIntoView({behavior:"smooth"})},60)}});
   qsa("[data-flashsub]").forEach(function(b){b.onclick=function(){startFlash(b.dataset.flashsub)}});
+}
+
+/* ===== Simple layout: status first, details folded (Today and Dashboard) ===== */
+function foldOpen(id,def){var f=DB.meta.fold||{};return id in f?!!f[id]:!!def}
+function fold(id,title,sum,body,def,cls){
+  return '<details class="fold'+(cls?" "+cls:"")+'" data-fold="'+id+'" id="fold-'+id+'"'+(foldOpen(id,def)?" open":"")+'><summary><span class="fold-t">'+title+'</span><span class="fold-s">'+sum+'</span></summary><div class="fold-b">'+body+'</div></details>';
+}
+// take a "<section class=panel>…<h2>Title</h2>…</section>" block and keep only its inside, without the heading
+function unwrap(h){
+  if(!h)return "";
+  h=h.replace(/^\s*<section[^>]*>/,"").replace(/<\/section>\s*$/,"");
+  return h.replace(/<h2>[^<]*<\/h2>/,"");
+}
+function bindFolds(rerender){
+  qsa("details[data-fold]").forEach(function(d){d.addEventListener("toggle",function(){DB.meta.fold=DB.meta.fold||{};if(DB.meta.fold[d.dataset.fold]===d.open)return;DB.meta.fold[d.dataset.fold]=d.open;saveStore();if(rerender&&d.open)render()})});
+  qsa("[data-gofold]").forEach(function(b){b.onclick=function(){var id=b.dataset.gofold;DB.meta.fold=DB.meta.fold||{};DB.meta.fold[id]=true;saveStore();render();setTimeout(function(){var e=$("fold-"+id);if(e)e.scrollIntoView({behavior:"smooth",block:"start"})},60)}});
+}
+function chip(txt,cls,go){return go?'<button class="chip '+(cls||"")+'" data-gofold="'+go+'">'+txt+'</button>':'<span class="chip '+(cls||"")+'">'+txt+'</span>'}
+function stIcon(s){return '<span class="sti '+s+'" aria-hidden="true">'+({done:"✓",part:"◐",todo:"",opt:"+"}[s]||"")+'</span>'}
+
+/* ---------- Today ---------- */
+function todayHero(td){
+  var m=dayCounts(),g=goalOf(m[td]),st=goalStreaks(),y=addDays(td,-1),gy=goalOf(m[y]),left=GOAL_S+GOAL_C-g.tot;
+  var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}
+  var nt=nextGsTest(td),dl=nt?dayNum(nt.date)-dayNum(td):null,bl=catchupBacklog();
+  var msg=g.done?"Today's 50 + 25 is complete. Well done.":(g.any?left+" questions to go: "+(GOAL_S-g.s)+" subject and "+(GOAL_C-g.c)+" current affairs.":
+    (y>=CFG.START&&!gy.done?(gy.any?"Yesterday: "+gy.tot+" of 75. ":"Yesterday slipped by. ")+"Fresh start today – even one 10-minute part keeps you moving.":"Start with today's plan below."));
+  var chips=[chip("🔥 Streak "+st.cur+(st.best?" · best "+st.best:""),st.cur?"good":""),
+    due?chip(due+" mistakes due","warn","plan"):chip("No mistakes due","good"),
+    bl.parts?chip(bl.list.length+" set"+(bl.list.length>1?"s":"")+" behind","warn","catchup"):chip("On schedule","good"),
+    nt?chip((dl===0?"Shankar test today":dl===1?"Test tomorrow":"Test in "+dl+" days")+": "+esc(nt.subject),dl<=2?"bad":"", dl<=2?"pack":"days"):""];
+  return '<section class="panel hero'+(g.done?" done":"")+'"><div class="goal-row">'+ringSvg(g.tot/(GOAL_S+GOAL_C),g.tot+"/75","today")+
+    '<div class="goal-txt"><div class="goal-bars"><div><span class="small">Subject</span><div class="gbar"><i style="width:'+(g.s/GOAL_S*100)+'%"></i></div><span class="small num">'+g.s+' / '+GOAL_S+'</span></div>'+
+    '<div><span class="small">Current affairs</span><div class="gbar"><i style="width:'+(g.c/GOAL_C*100)+'%"></i></div><span class="small num">'+g.c+' / '+GOAL_C+'</span></div></div>'+
+    '<p class="hero-msg">'+esc(msg)+'</p></div></div><div class="chips">'+chips.join("")+'</div></section>';
+}
+function todayPlan(td){
+  var done=setDoneMap(),rows=[],set=todaysOpenSet(),schToday=schedFor(td).filter(function(s){return s.ready&&s.type!=="ca"&&s.n===50});
+  // 1. notes + subject set
+  if(set){
+    var pdn=partsDone(set.id),np=Object.keys(pdn).length,nxt=[1,2,3,4,5].filter(function(k){return !pdn[k]})[0];
+    var hasN=M.notes&&M.notes[set.id];
+    if(hasN&&!notesDone(set.id))rows.push([notesPagesRead(set.id)?"part":"todo","Read the notes",esc(M.notes[set.id].title)+' · '+(notesPagesRead(set.id)?'page '+notesPagesRead(set.id)+' of ':'')+M.notes[set.id].pages+' pages','<button class="btn small primary" data-notes="'+set.id+'">Read</button>']);
+    var late=set.date<td?' · from '+fdw(set.date):'';
+    rows.push([np?"part":"todo","Subject: 50 questions",esc(set.title)+late+(np?' · '+np+' of 5 parts done':''),
+      (np?'<button class="btn small primary" data-part="'+set.id+'|'+nxt+'">Part '+nxt+'</button>':'<button class="btn small primary" data-start="'+set.id+'">Start</button>')]);
+  }else if(schToday.length)rows.push(["done","Subject: 50 questions","Today's set is done",""]);
+  else rows.push(["done","Subject: 50 questions","No set due – revision or a subject test from Practice is a good use of time",""]);
+  // 2. current affairs 25
+  var cd=camDoneOn(td),nx=nextCamSet();
+  rows.push([cd?"done":"todo","Current affairs: 25 questions",cd?"Done for today":(nx?esc(monthLabel(nx.month))+': '+esc(nx.category):"Revision set: past mistakes and news you have not seen lately"),
+    cd?'':(nx?'<button class="btn small primary" data-start="'+nx.id+'">Start</button>':'<button class="btn small primary" id="cam-rev">Start</button>')]);
+  // 3. catch-up
+  var bl=catchupBacklog();
+  if(bl.parts){var b0=bl.list[0],pace=DB.meta.cuPace||20;rows.push(["todo","Catch-up: "+pace+" extra questions",esc(b0.s.title)+' · part '+b0.left[0]+' of 5 · '+bl.parts*10+' questions behind','<button class="btn small" data-part="'+b0.s.id+'|'+b0.left[0]+'">Start</button>'])}
+  // 4. mistakes
+  var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}
+  if(due)rows.push(["todo","Revise "+due+" due mistake"+(due>1?"s":""),"Quiz to clear them, or flashcards for a quick look",'<div class="row tight"><button class="btn small" data-quick="flash">Cards</button><button class="btn small" id="plan-rev">Quiz</button></div>']);
+  // 5. CSAT 10 (optional)
+  var c10=csat10Done(td);
+  rows.push([c10?"done":"opt","CSAT 10 <span class=\"muted small\">optional</span>",c10?"Done today":"3 comprehension, 4 numeracy, 3 reasoning · 15 min",c10?'':'<button class="btn small" data-quick="csat">Start</button>']);
+  // 6. log
+  var lr=logRec(td);
+  rows.push([lr?"done":"todo","Log your day",lr?logLine(lr):"Hours, what you covered, what got in the way",'<button class="btn small'+(lr?" ghost":"")+'" data-log="'+td+'">'+(lr?"Edit":"Add")+'</button>']);
+  var nDone=rows.filter(function(r){return r[0]==="done"}).length;
+  return '<section class="panel plan" id="fold-plan"><div class="row between"><h2>Today\'s plan</h2><span class="muted small">'+nDone+' of '+rows.length+' done</span></div><ul class="plan-list">'+
+    rows.map(function(r){return '<li class="pl-'+r[0]+'">'+stIcon(r[0])+'<div class="pl-t"><b>'+r[1]+'</b><span class="small muted">'+r[2]+'</span></div>'+r[3]+'</li>'}).join("")+'</ul>'+
+    '<div class="row wrap tight short"><span class="muted small">Short on time?</span>'+[10,20,40].map(function(m){return '<button class="btn small ghost" data-budget="'+m+'">'+m+' min</button>'}).join("")+'</div></section>';
+}
+function viewToday(){
+  var td=today(),v=$("view");
+  var dates=Object.keys(BYDATE).sort();
+  var sel=VIEW.sel||(BYDATE[td]?td:(dates.filter(function(d){return d>td})[0]||td));
+  if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
+  var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
+  html+=todayHero(td);
+  var runs=pausedRuns();
+  if(runs.length)html+='<section class="panel"><h2>Paused tests</h2><ul class="list">'+runs.map(function(r){return '<li><div><b>'+esc(r.title)+'</b><span class="muted">'+r.done+' of '+r.n+' answered'+(r.timed?', '+fmtMin(Math.max(0,r.limit-r.el))+' left':'')+'</span></div><div class="row"><button class="btn primary small" data-resume="'+esc(r.id)+'">Resume</button><button class="btn ghost small" data-discard="'+esc(r.id)+'">Discard</button></div></li>'}).join("")+'</ul></section>';
+  html+=todayPlan(td);
+  var nt=nextGsTest(td),dl=nt?dayNum(nt.date)-dayNum(td):99,pack=testPack(td);
+  if(pack)html+=fold("pack",(dl===0?"Shankar test today":dl===1?"Shankar test tomorrow":"Shankar test in 2 days"),esc(nt.name),unwrap(pack).replace(/^<div class="row between wrap">[\s\S]*?<\/div>/,""),dl<=1,"alert");
+  html+=weekCard(td)+remindCard(true);
+  // details, folded with a one-line status
+  var month=0,missed=0,done=setDoneMap();Object.keys(BYDATE).forEach(function(d){if(d.slice(0,7)!==td.slice(0,7)||d>td)return;var s=dayState(d,done,td).st;if(s==="done")month++;else if(s==="missed")missed++});
+  html+=fold("days","Calendar and sets",month+" full day"+(month===1?"":"s")+" this month"+(missed?" · "+missed+" missed":""),'<div class="cols wide-left">'+dayPanel(sel,td)+calendarPanel(sel,td)+'</div>',false,"plain");
+  var bl=catchupBacklog();
+  if(bl.list.length){var pace=DB.meta.cuPace||20,fin=addDays(td,Math.ceil(bl.parts/Math.max(1,Math.round(pace/10)))-1);html+=fold("catchup","Catch-up plan",bl.list.length+" set"+(bl.list.length>1?"s":"")+" behind · back on track by "+fd(fin),unwrap(catchupCard(td)).replace(/^<div class="row between wrap">[\s\S]*?<\/div>/,""),false)}
+  var c=DB.recs["chk_"+td],lr=logRec(td);
+  html+=fold("checkin","Check-in and study log",(c&&!c.del?"Checked in ("+(c.v==="yes"?"Yes":"No")+")":"Not checked in")+" · "+(lr?"log added":"no log yet")+" · study streak "+streak(),checkinCard(td)+logCard(td,"Today's study log"),false,"plain");
+  var t=TESTS.filter(function(x){return x.date>=td})[0];
+  html+=fold("days-info","Shankar test days",t?"Next: "+esc(t.name)+", "+fdw(t.date):"All tests are over",'<ul class="plain small"><li>General Studies tests run 2 to 4 pm, with a live discussion at 4:30 pm.</li><li>CSAT tests run 2 to 4 pm; the recorded discussion is uploaded at 4:30 pm.</li><li>Tests are offline and online. Your admission ID is the user name and password for the test portal.</li><li>Refer to the India Year Book for every test; mock tests cover IYB 2025.</li></ul><ul class="list">'+TESTS.filter(function(x){return x.date>=td}).slice(0,8).map(function(x){return '<li><div><b>'+esc(x.name)+'</b><span class="muted small">'+fdw(x.date)+'</span></div></li>'}).join("")+'</ul>',false);
+  var bonus=M.sets.filter(function(s){return s.type==="bonus"&&s.ready});
+  if(bonus.length)html+=fold("extra","Extra practice",bonus.length+" set"+(bonus.length>1?"s":""),'<ul class="list">'+bonus.map(function(s){return '<li><div><b>'+esc(s.title)+'</b><span class="muted">'+s.n+' questions</span></div><button class="btn small" data-start="'+s.id+'">Start</button></li>'}).join("")+'</ul>',false);
+  v.innerHTML=html;
+  bindToday();bindFolds(false);
+  if($("plan-rev"))$("plan-rev").onclick=function(){startRevision(false)};
+}
+
+/* ---------- Dashboard ---------- */
+function dashGlance(){
+  var td=today(),p=paceData(),it=[],last30=0,max30=0,prev=0,pmax=0;
+  attempts().forEach(function(a){var dd=dayNum(td)-dayNum(a.date);if(dd<30){last30+=a.pts||0;max30+=a.max||0}else if(dd<60){prev+=a.pts||0;pmax+=a.max||0}});
+  var sc=max30?last30/max30*100:null,psc=pmax?prev/pmax*100:null;
+  var st=unitStats(),R=0,W=0,weak=null;Object.keys(st).forEach(function(s){R+=st[s].r;W+=st[s].w;Object.keys(st[s].units).forEach(function(u){var o=st[s].units[u],n=o.r+o.w;if(n>=10){var a=o.r/n;if(!weak||a<weak.a)weak={u:u,s:s,a:a}}})});
+  var acc=R+W?R/(R+W)*100:null,w=weekData(weekStart(td));
+  var gs=testMarks().filter(function(t){return t.marks!=null&&t.marks!==""&&t.subject!=="CSAT"&&!(TESTBYKEY[t.k]||{}).csat}).sort(function(a,b){return a.date<b.date?-1:1}),lg=gs[gs.length-1];
+  function tile(lab,val,sub,cls,go){return '<button class="tile '+(cls||"")+'" data-gofold="'+go+'"><span class="t-l">'+lab+'</span><span class="t-v">'+val+'</span><span class="t-s">'+sub+'</span></button>'}
+  var col=function(v,g,b){return v==null?"":(v>=g?"good":(v<b?"bad":"warn"))};
+  return '<div class="tiles">'+
+    tile("Prelims",p.daysLeft+" days","24 May 2027","","pace")+
+    tile("Syllabus",p.done+" / "+p.total,p.behind?p.behind+" sets behind":"on schedule",p.behind>3?"bad":(p.behind?"warn":"good"),"pace")+
+    tile("Score, last 30 days",sc==null?"–":Math.round(sc)+"%",psc==null||sc==null?"all tests":((sc>=psc?"▲ ":"▼ ")+Math.abs(Math.round(sc-psc))+" pts vs before"),col(sc,60,40),"perf")+
+    tile("Accuracy",acc==null?"–":Math.round(acc)+"%","right of attempted",col(acc,75,50),"subj")+
+    tile("This week",w.goal+" / 7","goal days so far",w.goal>=5?"good":(w.goal>=3?"warn":"bad"),"week")+
+    tile("Latest Shankar GS",lg?Math.round(lg.marks/(lg.max||200)*100)+"%":"–",lg?esc(lg.name||""):"enter marks in Scores",lg?col(lg.marks/(lg.max||200)*100,60,40):"","shankar")+
+    (function(){var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}return tile("Mistakes due",due,"for revision today",due>40?"bad":(due?"warn":"good"),"coach")})()+
+    tile("Weakest unit",weak?Math.round(weak.a*100)+"%":"–",weak?esc(weak.u):"not enough data yet",weak?"bad":"","subj")+
+    '</div>';
 }
