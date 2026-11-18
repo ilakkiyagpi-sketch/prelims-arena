@@ -545,8 +545,9 @@ function render(){
   $("syncbadge").onclick=function(){VIEW.tab="scores";location.hash="scores";render();setTimeout(function(){var s=$("sync-card");if(s)s.scrollIntoView({behavior:"smooth"})},50)};
   ({today:viewToday,practice:viewPractice,dash:viewDash,scores:viewScores})[VIEW.tab]();
   updateSyncBadge();
+  clearTimeout(render.ns);render.ns=setTimeout(function(){try{nudgeStatus()}catch(e){}},400);
 }
-window.addEventListener("hashchange",function(){var h=location.hash.replace("#","");if(["today","practice","dash","scores"].indexOf(h)>=0&&h!==VIEW.tab){VIEW.tab=h;if(VIEW.screen==="tabs"){render();window.scrollTo(0,0)}}});
+window.addEventListener("hashchange",function(){if(/go=/.test(location.hash)&&M){handleGo();return}var h=location.hash.replace("#","");if(["today","practice","dash","scores"].indexOf(h)>=0&&h!==VIEW.tab){VIEW.tab=h;if(VIEW.screen==="tabs"){render();window.scrollTo(0,0)}}});
 
 /* ===== starting tests ===== */
 function startSet(id,timed){
@@ -672,6 +673,7 @@ function viewToday(){
   var sel=VIEW.sel||(BYDATE[td]?td:(dates.filter(function(d){return d>td})[0]||td));
   if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
   var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
+  html+=goalCard(td)+remindCard(true)+catchupCard(td);
   html+=checkinCard(td);
   html+=logCard(td,"Today's study log");
   html+='<section class="panel budget"><div><h2>Got a few minutes?</h2><p class="muted small">Tap the time you have. The app picks the most useful thing to do with it.</p></div><div class="row wrap">'+[10,20,40].map(function(m){return '<button class="btn" data-budget="'+m+'">'+m+' minutes</button>'}).join("")+'</div></section>';
@@ -742,6 +744,7 @@ function calendarPanel(sel,td){
     '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
 }
 function bindToday(){
+  bindNudges();
   qsa("[data-chk]").forEach(function(b){b.onclick=function(){put("chk_"+today(),{kind:"chk",date:today(),v:b.dataset.chk});render();if(b.dataset.chk==="yes")toast("Logged. Keep the streak going.")}});
   qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
   qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
@@ -1023,6 +1026,7 @@ function viewScores(){
     '<div class="row wrap"><button class="btn primary" id="sy-save">Save and sync</button><button class="btn" id="sy-now"'+(c.url?"":" disabled")+'>Sync now</button><span class="muted small" id="sy-msg"></span></div>'+
     '<p class="muted small">'+(DB.meta.lastSync?'Last synced '+new Date(DB.meta.lastSync).toLocaleString()+'. ':'')+pendingCount()+' change(s) waiting to upload.</p>'+
     '<details><summary>Set up the Sheet (once, about 5 minutes)</summary><ol class="steps"><li>Create a new Google Sheet. Open Extensions, then Apps Script.</li><li>Delete the sample code. Tap Copy the script below and paste it in.</li><li>Change the passphrase on the line that starts with var KEY, then save.</li><li>Tap Deploy, New deployment. Choose Web app. Set Execute as: Me, and Who has access: Anyone. Tap Deploy and allow access.</li><li>Copy the Web app URL into the box above, type the same passphrase, and tap Save and sync.</li></ol><p class="muted small">Use the same URL and passphrase on every device. If you change the script later, choose Deploy, Manage deployments, Edit, New version, so the URL stays the same.</p><button class="btn" id="sy-copy">Copy the script</button></details></section>';
+  html+=remindCard(false);
   html+='<section class="panel"><h2>Test settings</h2>'+
     '<label class="check"><input type="checkbox" id="st-ap"'+(DB.meta.autoPause!==false?" checked":"")+'> Pause the clock when I leave the app during a test</label><p class="muted small">If your baby wakes or a call comes in, the timer stops while the app is in the background and starts again when you return.</p>'+
     '<label class="inline">Listen mode: thinking time before the answer <select id="st-think">'+[0,4,8,12].map(function(v){var cur=DB.meta.ttsThink==null?4:DB.meta.ttsThink;return '<option value="'+v+'"'+(v===cur?" selected":"")+'>'+(v?v+" seconds":"None")+'</option>'}).join("")+'</select></label></section>';
@@ -1045,6 +1049,7 @@ function viewScores(){
   $("sy-save").onclick=function(){saveCfg();if(!DB.meta.syncUrl){toast("Paste the Web app URL first.");return}Object.keys(DB.recs).forEach(function(id){DB.dirty[id]=1});saveStore(true);sync()};
   $("sy-now").onclick=function(){saveCfg();sync()};
   $("sy-copy").onclick=function(){copyText(GAS_SCRIPT,"Script copied. Paste it into Apps Script.")};
+  bindNudges();
   $("bk-exp").onclick=exportBackup;
   $("st-ap").onchange=function(){DB.meta.autoPause=this.checked;saveStore(true)};
   $("st-think").onchange=function(){DB.meta.ttsThink=+this.value;saveStore(true)};
@@ -1403,7 +1408,7 @@ function boot(){
   loadStore();
   var h=location.hash.replace("#","");if(["today","practice","dash","scores"].indexOf(h)>=0)VIEW.tab=h;
   fetch("data/manifest.json").then(function(r){return r.json()}).then(function(m){
-    indexManifest(m);migrateOld();render();
+    indexManifest(m);migrateOld();render();handleGo();
     if(syncCfg().url)setTimeout(sync,800);
   }).catch(function(){
     $("app").innerHTML='<div class="page"><h1>Prelims Arena</h1><p>The question bank could not be loaded. Connect to the internet once so this device can store it for offline use.</p></div>';
@@ -1526,4 +1531,137 @@ function showLinkedPyq(b){
   loadQids([b.dataset.rp]).then(function(l){var q=l[0];if(!q){box.textContent="This question could not be loaded.";return}
     box.innerHTML='<div class="expl"><b>UPSC '+esc(String(q.y||""))+'</b><div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+q.o.map(function(t,k){return '<li class="'+(k===q.a?"right":"")+'"><span class="ob">'+"ABCD"[k]+'</span><span class="ot">'+esc(t)+'</span></li>'}).join("")+'</ul></div>'
   }).catch(function(){box.textContent="This question could not be loaded."});
+}
+
+/* ===== Daily nudges: today's goal, goal streak, comeback, catch-up planner, phone reminders ===== */
+var GOAL_S=50,GOAL_C=25,PUSH_PUB="BHICrNnSrv5AcP9me2EP1yIQ1SQU3Zu_4NmwoEfN0jujSRfSo0pMZIqPg0y4-OCJTDvl6i8RKdRdXLj7XmA3Yqg";
+var REMIND_TIMES=[["5:30 am","Morning plan: today's 50 + 25 and mistakes due"],["2:00 pm","Only if nothing is done yet"],["10:00 pm","Only if the day is not complete: the smallest next step"]];
+function isCaType(t){return t==="cam"||t==="ca"||t==="capool"}
+// questions answered per day: s = subject side (goal 50), c = current affairs (goal 25)
+function dayCounts(){
+  var m={};attempts().forEach(function(a){if(!a.date)return;var o=m[a.date]||(m[a.date]={s:0,c:0});if(isCaType(a.type))o.c+=a.n||0;else o.s+=a.n||0});
+  return m;
+}
+function goalOf(o){o=o||{s:0,c:0};var s=Math.min(GOAL_S,o.s),c=Math.min(GOAL_C,o.c);return {s:s,c:c,tot:s+c,done:s>=GOAL_S&&c>=GOAL_C,any:o.s+o.c>0}}
+function goalStreaks(){
+  var m=dayCounts(),td=today(),cur=0,best=0,run=0,d=CFG.START;
+  while(d<=td){if(goalOf(m[d]).done){run++;if(run>best)best=run}else if(d!==td)run=0;d=addDays(d,1)}
+  // current streak: ends today if today is done, else yesterday
+  d=goalOf(m[td]).done?td:addDays(td,-1);
+  while(d>=CFG.START&&goalOf(m[d]).done){cur++;d=addDays(d,-1)}
+  return {cur:cur,best:best};
+}
+function ringSvg(frac,label,sub){
+  var r=34,c=2*Math.PI*r,off=c*(1-Math.max(0,Math.min(1,frac)));
+  return '<svg class="ring" viewBox="0 0 84 84" role="img" aria-label="'+esc(label+" "+sub)+'"><circle cx="42" cy="42" r="'+r+'" class="ring-bg"/><circle cx="42" cy="42" r="'+r+'" class="ring-fg'+(frac>=1?" full":"")+'" stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 42 42)"/><text x="42" y="40" text-anchor="middle" class="ring-n">'+esc(label)+'</text><text x="42" y="56" text-anchor="middle" class="ring-s">'+esc(sub)+'</text></svg>';
+}
+function goalCard(td){
+  var m=dayCounts(),g=goalOf(m[td]),st=goalStreaks(),y=addDays(td,-1),gy=goalOf(m[y]);
+  var h='<section class="panel goal'+(g.done?" done":"")+'"><div class="goal-row">'+ringSvg(g.tot/(GOAL_S+GOAL_C),g.tot+"/"+(GOAL_S+GOAL_C),"today")+
+    '<div class="goal-txt"><h2>'+(g.done?"Today's goal is complete":"Today's goal: 50 + 25")+'</h2>'+
+    '<div class="goal-bars"><div><span class="small">Subject</span><div class="gbar"><i style="width:'+(g.s/GOAL_S*100)+'%"></i></div><span class="small num">'+g.s+' / '+GOAL_S+'</span></div>'+
+    '<div><span class="small">Current affairs</span><div class="gbar"><i style="width:'+(g.c/GOAL_C*100)+'%"></i></div><span class="small num">'+g.c+' / '+GOAL_C+'</span></div></div>'+
+    '<p class="small">Goal streak: <b>'+st.cur+' day'+(st.cur===1?"":"s")+'</b> · Best: <b>'+st.best+'</b>'+(g.done?"":(st.cur?' · finish today to make it '+(st.cur+1):''))+'</p></div></div>';
+  // comeback: yesterday fell short and nothing is done yet today
+  if(!g.any&&y>=CFG.START&&!gy.done){
+    var bl=catchupBacklog();
+    h+='<div class="comeback"><b>'+(gy.any?"Yesterday you did "+gy.tot+" of 75.":"Yesterday slipped by.")+' Today is a fresh start.</b><span class="small">'+
+      (bl.parts?'Your catch-up plan below spreads the missed work over the coming days, so nothing piles up. ':'')+'Even one part of 10 questions keeps you moving.</span>'+
+      '<button class="btn primary small" data-budget="10">Start with 10 minutes</button></div>';
+  }
+  return h+'</section>';
+}
+/* catch-up planner: unfinished 50-question sets from past days, spread over the coming days */
+function catchupBacklog(){
+  var td=today(),done=setDoneMap(),list=[],parts=0;
+  Object.keys(BYDATE).filter(function(d){return d<td&&d>=CFG.START}).sort().forEach(function(d){
+    BYDATE[d].forEach(function(s){
+      if(!s.ready||s.pending||s.type==="ca"||s.n!==50||done[s.id])return;
+      var sk=DB.recs["cuskip_"+s.id];if(sk&&!sk.del)return;
+      var pd_=partsDone(s.id),left=[1,2,3,4,5].filter(function(k){return !pd_[k]});
+      list.push({s:s,date:d,left:left});parts+=left.length;
+    });
+  });
+  return {list:list,parts:parts};
+}
+function strongSubjects(){var st=unitStats(),o={};Object.keys(st).forEach(function(s){var t={r:0,w:0};Object.keys(st[s].units).forEach(function(u){t.r+=st[s].units[u].r;t.w+=st[s].units[u].w});if(t.r+t.w>=40&&t.r/(t.r+t.w)>=0.75)o[s]=Math.round(t.r/(t.r+t.w)*100)});return o}
+function catchupCard(td){
+  var bl=catchupBacklog();if(!bl.list.length)return "";
+  var pace=DB.meta.cuPace||20,perDay=Math.max(1,Math.round(pace/10)),days=Math.ceil(bl.parts/perDay),fin=addDays(td,days-1),strong=strongSubjects();
+  var plan=[],k=perDay;
+  bl.list.forEach(function(b){b.left.forEach(function(p){if(k>0){plan.push({b:b,p:p});k--}})});
+  var h='<section class="panel catchup"><div class="row between wrap"><h2>Catch-up plan</h2><span class="muted small">'+bl.list.length+' set'+(bl.list.length>1?"s":"")+' behind · '+bl.parts*10+' questions</span></div>'+
+    '<p class="small">At <b>'+pace+' extra questions a day</b> you are back on schedule by <b>'+fdw(fin)+'</b>. Do these on top of today\'s 50 + 25.</p>'+
+    '<div class="row wrap tight"><span class="muted small">Extra per day</span><div class="seg small">'+[10,20,30,50].map(function(p){return '<button data-pace="'+p+'" aria-pressed="'+(p===pace)+'">'+p+'</button>'}).join("")+'</div></div>'+
+    '<h3>Today\'s catch-up</h3><ul class="list">'+plan.map(function(x){return '<li><div><b>'+esc(x.b.s.title)+'</b><span class="muted small">Part '+x.p+' of 5 · scheduled '+fdw(x.b.date)+'</span></div><button class="btn small primary" data-part="'+x.b.s.id+'|'+x.p+'">Start</button></li>'}).join("")+'</ul>';
+  var opt=bl.list.filter(function(b){return strong[b.s.subject]});
+  if(opt.length)h+='<details><summary class="small">Low-priority sets you could skip ('+opt.length+')</summary><p class="muted small">You are already above 75% in these subjects, so skipping frees time for weaker ones. Skipped sets stay in Practice and on the calendar.</p><ul class="list">'+
+    opt.map(function(b){return '<li><div><b>'+esc(b.s.title)+'</b><span class="muted small">'+esc(b.s.subject)+' accuracy '+strong[b.s.subject]+'%</span></div><button class="btn ghost small" data-cuskip="'+b.s.id+'">Skip</button></li>'}).join("")+'</ul></details>';
+  var sk=recs("cuskip");if(sk.length)h+='<p class="muted small">'+sk.length+' set'+(sk.length>1?"s":"")+' skipped. <button class="link" id="cu-unskip">Bring them back</button></p>';
+  return h+'</section>';
+}
+function bindNudges(){
+  qsa("[data-pace]").forEach(function(b){b.onclick=function(){DB.meta.cuPace=+b.dataset.pace;saveStore();render()}});
+  qsa("[data-cuskip]").forEach(function(b){b.onclick=function(){put("cuskip_"+b.dataset.cuskip,{kind:"cuskip",set:b.dataset.cuskip});render();toast("Skipped. It stays available in Practice.")}});
+  if($("cu-unskip"))$("cu-unskip").onclick=function(){recs("cuskip").forEach(function(r){del(r.id)});render()};
+  qsa("[data-remind]").forEach(function(b){b.onclick=function(){remindAction(b.dataset.remind)}});
+}
+/* status the reminder sender reads from the Google Sheet (changes only when the day's picture changes) */
+function nudgeStatus(){
+  var td=today(),m=dayCounts(),g=goalOf(m[td]),st=goalStreaks(),set=todaysOpenSet(),bl=catchupBacklog(),nt=TESTS.filter(function(t){return t.date>=td})[0];
+  var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}
+  var cam=null;try{cam=nextCamSet()}catch(e){}
+  var tm=addDays(td,1),ts_=schedFor(tm).filter(function(x){return x.ready&&!x.pending&&x.type!=="ca"})[0];
+  var o={kind:"nudge",tset:ts_?ts_.title:"",date:td,s:g.s,c:g.c,done:g.done,streak:st.cur,best:st.best,due:due,set:set?set.title:"",setDate:set?set.date:"",ca:cam?cam.title:"",backlog:bl.parts,test:nt?nt.name:"",testDate:nt?nt.date:""};
+  var key=JSON.stringify(o),old=DB.recs.nudge_status;
+  if(!old||old.key!==key){o.key=key;put("nudge_status",o)}
+}
+/* phone reminders (web push). The sender is a scheduled job in the GitHub repository that reads the Sheet. */
+function pushOk(){return "serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window}
+function devId(){if(!DB.meta.dev){DB.meta.dev=Math.random().toString(36).slice(2,10);saveStore()}return DB.meta.dev}
+function b64u(s){var p="=".repeat((4-s.length%4)%4),b=atob((s+p).replace(/-/g,"+").replace(/_/g,"/")),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+function remindState(){
+  if(!pushOk())return "unsupported";
+  if(Notification.permission==="denied")return "denied";
+  var r=DB.recs["push_"+devId()];
+  return (Notification.permission==="granted"&&r&&!r.del&&r.on)?"on":"off";
+}
+function remindCard(compact){
+  var s=remindState(),noSync=!syncCfg().url;
+  if(compact&&(s==="on"||s==="unsupported"||DB.meta.remindHide))return "";
+  var h='<section class="panel remind'+(compact?" compact":"")+'" id="remind-card"><h2>Study reminders on this phone</h2>';
+  if(s==="unsupported")return h+'<p class="muted small">This browser cannot show reminders. Open the app from Chrome on your Android phone (installed on the home screen).</p></section>';
+  h+='<ul class="plain small">'+REMIND_TIMES.map(function(t){return '<li><b>'+t[0]+'</b> – '+esc(t[1])+'</li>'}).join("")+'</ul>';
+  if(s==="denied")h+='<p class="bad-t small">Notifications are blocked for this app. Long-press the app icon › App info › Notifications › Allow, then come back here.</p>';
+  else if(s==="on")h+='<p class="good small">Reminders are on for this device.</p><div class="row wrap"><button class="btn small" data-remind="test">Show a sample</button><button class="btn ghost small" data-remind="off">Turn off</button></div>';
+  else h+='<p class="muted small">Turn this on once on each device where you want reminders. Messages use your latest synced progress, so they stay quiet once the day is done.</p><div class="row wrap"><button class="btn primary small" data-remind="on">Turn on reminders</button>'+(compact?'<button class="btn ghost small" data-remind="hide">Not now</button>':'')+'</div>';
+  if(noSync&&s!=="denied")h+='<p class="bad-t small">Reminders need Google Sheet sync (Scores tab), because the reminder service reads your progress from the Sheet.</p>';
+  return h+'</section>';
+}
+function remindAction(a){
+  if(a==="hide"){DB.meta.remindHide=true;saveStore();render();return}
+  if(a==="test"){navigator.serviceWorker.ready.then(function(reg){reg.showNotification("Prelims Arena",{body:sampleBody(),icon:"icons/icon-192.png",badge:"icons/icon-192.png",tag:"pa-sample",data:{url:"./#today"}})});return}
+  if(a==="off"){
+    navigator.serviceWorker.ready.then(function(reg){return reg.pushManager.getSubscription()}).then(function(sub){if(sub)return sub.unsubscribe()}).catch(function(){}).then(function(){
+      put("push_"+devId(),{kind:"push",on:false,dev:devId()});render();toast("Reminders turned off on this device.")});
+    return;
+  }
+  Notification.requestPermission().then(function(p){
+    if(p!=="granted"){render();toast("Notifications were not allowed.");return}
+    return navigator.serviceWorker.ready.then(function(reg){
+      return reg.pushManager.getSubscription().then(function(old){return old||reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(PUSH_PUB)})});
+    }).then(function(sub){
+      put("push_"+devId(),{kind:"push",on:true,dev:devId(),sub:JSON.parse(JSON.stringify(sub)),ua:(navigator.userAgent.match(/Android[^;)]*|iPhone|Windows|Mac OS X|Linux/)||[""])[0]});
+      nudgeStatus();render();toast("Reminders are on. You will get the first one at the next reminder time.");
+      remindAction("test");
+    });
+  }).catch(function(e){toast("Could not turn on reminders: "+((e&&e.message)||"unknown error"))});
+}
+function sampleBody(){var g=goalOf(dayCounts()[today()]);return g.done?"Today's 50 + 25 is done. Rest well – see you at 5:30 tomorrow.":(75-g.tot)+" questions left today ("+(GOAL_S-g.s)+" subject, "+(GOAL_C-g.c)+" current affairs). Tap to start a 10-minute part."}
+/* notification taps open the app with #today&go=... */
+function handleGo(){
+  var m=/go=([a-z0-9]+)/.exec(location.hash);if(!m)return;
+  history.replaceState(null,"",location.pathname+"#today");VIEW.tab="today";render();
+  if(m[1]==="b10")setTimeout(function(){budgetPlan(10)},300);
+  else if(m[1]==="b20")setTimeout(function(){budgetPlan(20)},300);
 }

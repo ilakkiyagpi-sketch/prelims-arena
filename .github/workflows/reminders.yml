@@ -1,0 +1,40 @@
+name: Study reminders
+# Times are in UTC. 23:57 = 5:27 am IST, 08:27 = 1:57 pm IST, 16:27 = 9:57 pm IST.
+# GitHub usually starts scheduled runs a few minutes late, so reminders land close to 5:30 am, 2 pm and 10 pm.
+on:
+  schedule:
+    - cron: "57 23 * * *"
+    - cron: "27 8 * * *"
+    - cron: "27 16 * * *"
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Which reminder to send now (for testing)"
+        type: choice
+        options: [auto, morning, afternoon, night]
+        default: morning
+permissions:
+  contents: read
+concurrency:
+  group: reminders
+  cancel-in-progress: false
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: reminders
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund --silent
+        working-directory: reminders
+      - run: node send.mjs
+        working-directory: reminders
+        env:
+          SHEET_URL: ${{ secrets.SHEET_URL }}
+          SHEET_KEY: ${{ secrets.SHEET_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          SLOT: ${{ inputs.slot || 'auto' }}

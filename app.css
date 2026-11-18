@@ -355,3 +355,24 @@ body.in-notes .player{display:none}
 #ls-set{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
 .rpbox:empty{display:none}
 main.page,.panel{min-width:0}
+/* daily nudges */
+.goal{border-left:4px solid var(--pen)}
+.goal.done{border-left-color:var(--good)}
+.goal-row{display:flex;gap:16px;align-items:center}
+.goal-txt{flex:1;min-width:0}
+.ring{width:96px;height:96px;flex:none}
+.ring-bg{fill:none;stroke:var(--line2);stroke-width:8}
+.ring-fg{fill:none;stroke:var(--pen);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .4s}
+.ring-fg.full{stroke:var(--good)}
+.ring-n{font-size:15px;font-weight:700;fill:var(--ink);font-variant-numeric:tabular-nums}
+.ring-s{font-size:10px;fill:var(--ink3)}
+.goal-bars{display:grid;gap:6px;margin:8px 0 4px}
+.goal-bars>div{display:grid;grid-template-columns:104px 1fr 52px;gap:8px;align-items:center}
+.goal-bars .gbar{height:8px;border-radius:99px;background:var(--line2);overflow:hidden}
+.goal-bars .gbar i{display:block;height:100%;background:var(--pen);border-radius:99px}
+.goal.done .goal-bars .gbar i{background:var(--good)}
+.goal-bars .num{text-align:right}
+.comeback{margin-top:12px;padding:10px 12px;border-radius:var(--r-sm);background:var(--warn-soft);display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.catchup{border-left:4px solid var(--warn)}
+.remind.compact{border-left:4px solid var(--pen)}
+@media (max-width:420px){.goal-row{align-items:flex-start}.ring{width:78px;height:78px}.goal-bars>div{grid-template-columns:96px 1fr 46px}}
