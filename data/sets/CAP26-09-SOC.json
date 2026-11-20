@@ -1,0 +1,159 @@
+{
+ "id": "CAP26-09-SOC",
+ "title": "2026-09 Social, Health & Education",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to scrub typhus, consider the following statements:\n1. It is caused by the bacterium Orientia tsutsugamushi.\n2. It is spread by Aedes mosquitoes.\n3. A dark scab-like lesion called an eschar at the bite site is a key sign.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. It is spread by the bite of infected larval mites, 'chiggers', with rats and shrews as reservoirs, and does not spread person to person. A 2025 study found it the most common infectious cause of Acute Encephalitis Syndrome in South India. Doxycycline or azithromycin is used, and a 2023 trial found the combination faster.",
+   "s": "Shankar IAS pp. 93-95",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Scrub typhus",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the Food Safety and Standards Act, 2006, consider the following statements:\n1. An improvement notice must give the food business operator at least 14 days to comply.\n2. A Designated Officer may suspend a licence immediately in the interest of public health, recording reasons in writing.\n3. Compensation of at least Rs 5 lakh is payable for death caused by unsafe food.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct, under Sections 32, 32(3) and 65; interim relief to next of kin is due within 30 days. Courts in 2026 stressed that immediate suspension is an exception: the Bombay HC quashed suspension of an entire licence over industrial ice in buttermilk, and the Madras HC held suspension should not run beyond six weeks without a decision.",
+   "s": "Shankar IAS pp. 95-97",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Food safety",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the WHO report on mental health discussed in 2026, consider the following statements:\n1. More than one billion people live with mental health disorders.\n2. Median government spending on mental health is about 2 per cent of health budgets.\n3. Fewer than 10 per cent of countries have fully moved to community-based mental health care.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; spending has stayed at a median 2 per cent since 2017, and only 45 per cent of countries have rights-based laws fully meeting human-rights standards. India has 0.7 psychiatrists per lakh against a WHO norm of 3 and spent Rs 1,004 crore in FY 2025-26.",
+   "s": "Shankar IAS pp. 98-100",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Mental health",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "The national tele-mental-health helpline number under Tele-MANAS is",
+   "o": [
+    "14416",
+    "1930",
+    "108",
+    "1098"
+   ],
+   "a": 0,
+   "e": "Tele-MANAS can be reached at 14416 or 1800-891-4416. 1930 is the cyber-fraud helpline, 108 the ambulance number and 1098 Childline (static GK). India's mental-health infrastructure also includes Ayushman Arogya Mandirs and the District Mental Health Programme.",
+   "s": "Shankar IAS p. 100",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Mental health",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the ICMR study on antimicrobial resistance published in 2026, consider the following statements:\n1. More than 60 per cent of Gram-negative infections studied were resistant to carbapenems.\n2. Most bloodstream infections studied were acquired in the community rather than in hospitals.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; over 85 per cent of bloodstream infections were healthcare-associated. The study covered 1.59 lakh patients in 20 tertiary hospitals from 2022 to 2025, finding 16-43 per cent higher relative risk of death and up to twice the antibiotic cost. Its tertiary-care data are not representative of the whole population.",
+   "s": "Shankar IAS pp. 100-101",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "AMR",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following are Gram-negative bacteria?\n1. Escherichia coli\n2. Klebsiella pneumoniae\n3. Acinetobacter baumannii\n4. Staphylococcus aureus\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2 and 3",
+    "1, 2, 3 and 4"
+   ],
+   "a": 2,
+   "e": "E. coli, Klebsiella pneumoniae, Acinetobacter baumannii and Pseudomonas aeruginosa are Gram-negative pathogens named in the study. Staphylococcus aureus is Gram-positive (static GK). Carbapenems are key antibiotics for serious infections, and resistance to them leaves very few options.",
+   "s": "Shankar IAS p. 100",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "AMR",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to rare diseases in India, consider the following statements:\n1. The National Policy for Rare Diseases, 2021 provides up to Rs 50 lakh per eligible patient.\n2. Rule 101 of the New Drugs and Clinical Trials Rules, 2019 allows waiving local trials for drugs approved in specified countries.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; support is delivered through designated Centres of Excellence, and Rule 101 lists six countries including the US and UK. About 1,004 rare genetic disorders have been reported in India, and costs often push families to crowdfunding. The US Orphan Drug Act, 1983 offers tax benefits, grants and market exclusivity.",
+   "s": "Shankar IAS pp. 102-104",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Rare diseases",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Scrub typhus often goes undiagnosed until late.\nStatement-II: It is a zoonotic infection with rats and shrews as reservoirs.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second does not explain late diagnosis; that stems from symptoms being mistaken for dengue or leptospirosis. A 2021 review found scrub typhus behind about 25 per cent of acute undifferentiated febrile illness. Diagnosis is by IgM ELISA or PCR.",
+   "s": "Shankar IAS pp. 94-95",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Scrub typhus",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  }
+ ]
+}

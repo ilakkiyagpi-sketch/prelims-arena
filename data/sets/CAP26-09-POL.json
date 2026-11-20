@@ -1,0 +1,710 @@
+{
+ "id": "CAP26-09-POL",
+ "title": "2026-09 Polity & Governance",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to Article 371 of the Constitution, consider the following statements:\n1. As originally enacted in 1950, it gave special status to Jammu and Kashmir.\n2. It was designed from the start as a safeguard for tribal areas of the North-East.\n3. It now contains special provisions for Nagaland.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The original Article 371 provided Central supervision over Part B States; after the 7th Amendment, 1956 it was rewritten for regional development in Maharashtra and Gujarat (Vidarbha, Marathwada, Saurashtra, Kutch). Nagaland's provisions are in Article 371A. Article 371 was not designed as a tribal safeguard; a new Article 371K is proposed for Ladakh.",
+   "s": "Shankar IAS pp. 9-10",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Article 371K",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nArticle : Origin or feature\n1. Article 371A (Nagaland) : 16-Point Agreement of 1960\n2. Article 371D (Andhra Pradesh) : Six-Point Formula of 1973\n3. Article 371G (Mizoram) : Mizo Peace Accord of 1986\n4. Article 371H (Arunachal Pradesh) : Assembly of not less than 30 members\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 2,
+   "e": "Pairs 1, 2 and 3 are correct. Article 371H gives the Governor special responsibility for law and order in Arunachal Pradesh; the minimum of 30 members applies to the Goa Assembly under Article 371I. Articles 371A and 371G protect customary law and land ownership, the model Ladakh's leaders want in the proposed Article 371K.",
+   "s": "Shankar IAS p. 10",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Article 371K",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the proposed Article 371K for Ladakh, consider the following statements:\n1. It envisages a directly elected UT-level body with legislative, executive, financial and planning powers.\n2. Ladakh currently has a Legislative Assembly like Puducherry.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; Ladakh is a Union Territory without a legislature. The proposed body could legislate on land, culture and language, forests and natural resources, and on subjects assigned under Article 240, which lets the President make regulations for certain UTs. Ladakh's leaders also want a say over the bureaucracy and law and order.",
+   "s": "Shankar IAS pp. 10-11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Article 371K",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Uniform Civil Code, consider the following statements:\n1. The State UCCs adopted so far reportedly exclude tribal populations.\n2. The Law Commission's 2018 consultation paper called a UCC 'neither necessary nor desirable' at that stage.\n3. Uttarakhand's UCC has been in force since January 2025.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Critics cite tribal and cultural diversity under Article 29, while supporters stress gender justice. The Law Commission preferred reforming discriminatory provisions within each personal law. UCC Bills passed by Assam, Gujarat and Madhya Pradesh await assent; Article 44 itself is a non-justiciable Directive Principle.",
+   "s": "Shankar IAS pp. 26-28",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "UCC",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The Supreme Court held in 2024 that Article 29 does not protect practices such as caste discrimination.\nStatement-II: Article 29 protects the distinct culture of sections of citizens only so far as it is consistent with constitutional values.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. The ruling came in the case on Section 6A of the Citizenship Act, 1955. It matters for the UCC debate, where critics invoke Article 29 and tribal diversity; existing State UCCs reportedly exclude tribal populations. In Shah Bano (1985) the Court had urged a UCC.",
+   "s": "Shankar IAS p. 27",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "UCC",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Munshi-Ayyangar formula adopted on 14 September 1949, consider the following statements:\n1. It declared Hindi the national language of India.\n2. It provided that English would continue for official purposes of the Union for 15 years.\n3. It recognised 22 languages in the Eighth Schedule.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. The formula deliberately declared no national language; it made Hindi in Devanagari the official language of the Union under Article 343. The original Eighth Schedule listed 14 languages. When the 15 years ended in 1965 amid protests, the Official Languages Act, 1963 let English continue indefinitely. The date is marked as Hindi Diwas.",
+   "s": "Shankar IAS pp. 31-33",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Official language",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "In the Constituent Assembly debate on language, the President of the Assembly argued that the language decision should be acceptable to the whole country and not merely carried by a majority. He was",
+   "o": [
+    "Jawaharlal Nehru",
+    "S.P. Mookerjee",
+    "Maulana Abul Kalam Azad",
+    "Rajendra Prasad"
+   ],
+   "a": 3,
+   "e": "Rajendra Prasad presided over the Assembly. Seth Govind Das and R.V. Dhulekar pressed for Hindi, while Shankarrao Deo and S.P. Mookerjee warned against coercion; Nehru and Azad argued Hindi lacked modern technical vocabulary and should evolve naturally. The formula was named after K.M. Munshi and N. Gopalaswamy Ayyangar of the Drafting Committee.",
+   "s": "Shankar IAS pp. 32-33",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Official language",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to proposals to divide Uttar Pradesh, consider the following statements:\n1. The Mayawati government's 2011 Assembly resolution proposed dividing the State into four.\n2. Scheduled Castes make up about 40 per cent of Uttar Pradesh's population.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; the proposed States were Purvanchal, Bundelkhand, Awadh Pradesh and Paschim Pradesh. Scheduled Castes are about 21 per cent of UP, ranging from 16 to 28 per cent across the regions. Under Article 3, Parliament alone can reorganise States by a simple majority, and the State's views are not binding.",
+   "s": "Shankar IAS pp. 34-35",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Division of UP",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to South Africa's Judicial Service Commission, cited in the debate on judicial appointments, consider the following statements:\n1. It includes lawyers, legal academics and limited political representation besides judges.\n2. Its candidate interviews are held in public and broadcast.\n3. Vacancies are publicly advertised and public comments on candidates are invited.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The comparison followed the Supreme Court's judgment in Arvind Malhotra v. High Court of Himachal Pradesh. India's collegium is drawn mainly from the judiciary, with confidential scrutiny. Commentators say India can adapt principles such as objective criteria and published reasons without copying the model.",
+   "s": "Shankar IAS pp. 28-30",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Judicial appointments",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nCase : Holding\n1. S.P. Gupta (1981) : 'Consultation' does not mean 'concurrence'\n2. Second Judges Case (1993) : Nine-judge Bench introduced the collegium\n3. Third Judges Case (1998) : Supreme Court collegium of the CJI and two senior-most judges\n4. SC Advocates-on-Record Association (2015) : NJAC struck down by 4:1\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 2,
+   "e": "Pairs 1, 2 and 4 are correct. The Third Judges Case set the Supreme Court collegium as the CJI plus the four senior-most judges; the CJI plus two applies to High Court appointments. The 99th Amendment and the NJAC Act of 2014 were struck down in 2015 as harming judicial independence, a basic feature.",
+   "s": "Shankar IAS pp. 30-31",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Judicial appointments",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The Punjab Cabinet cannot veto the appointment of the Chief Justice of the Punjab and Haryana High Court.\nStatement-II: Article 217 requires the President to consult the Governor, but not to obtain the State's concurrence.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. The State's role comes through the Governor, who acts on the advice of the Council of Ministers under Article 163, but 'consultation' does not mean consent. Punjab objected after the Centre notified Ashwani Kumar Mishra as Chief Justice without awaiting its views.",
+   "s": "Shankar IAS pp. 30-31",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "HC Chief Justice",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the 'distinguished jurist' route to the Supreme Court, consider the following statements:\n1. It is provided in Article 217(2).\n2. It has been used twice since 1950.\n3. The 44th Amendment allowed distinguished jurists to be appointed High Court judges, a provision later removed by the 42nd Amendment.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The route is in Article 124(3), applies only to the Supreme Court and has never been used in over 76 years. The 42nd Amendment allowed jurists as High Court judges and the 44th removed it. Justice Ujjal Bhuyan called it an 'unused mandate'; H.V. Kamath pressed for it in May 1949.",
+   "s": "Shankar IAS pp. 37-39",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Distinguished jurist",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Article 142, consider the following statements:\n1. In Prem Chand Garg (1962), the Supreme Court held that orders under it cannot violate fundamental rights.\n2. In Supreme Court Bar Association (1998), the Court held that it can supplant statutory law where needed.\n3. In the Ayodhya case it was used to award the disputed site for a mosque.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The SCBA case held that Article 142 can supplement, not supplant, law. In Ayodhya the disputed site went to the temple and Article 142 was used to allot an alternative five-acre plot for a mosque. A study counted 791 direct invocations between 1950 and 2023; in 2026 it was used to close FIRs linked to exam protests.",
+   "s": "Shankar IAS pp. 40-42",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Article 142",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to decision-making in the Election Commission of India, consider the following statements:\n1. The governing statute requires the Commission to act unanimously, failing which the CEC's view prevails.\n2. In T.N. Seshan v. Union of India (1995), the Supreme Court held that the majority view is the view of the Commission.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. Section 18 of the 2023 Act asks the Commission to try to act unanimously and, failing that, the majority view prevails, so a 2:1 decision is valid. In 2026 it emerged that two Election Commissioners had recorded objections at least 14 times in 10 months. Seshan had challenged the conversion of the ECI into a multi-member body.",
+   "s": "Shankar IAS pp. 35-37",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ECI dissent",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Chief Election Commissioner and Other Election Commissioners Act, 2023, consider the following statements:\n1. The selection committee consists of the Prime Minister, the Leader of Opposition in the Lok Sabha and the Chief Justice of India.\n2. The search committee is headed by the Cabinet Secretary.\n3. Section 16 grants blanket immunity from arrest to serving and former Commissioners.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The selection committee has the PM, the Leader of Opposition and a Cabinet Minister nominated by the PM; the CJI was part only of the interim arrangement in Anoop Baranwal (2023). The search committee, headed by the Union Law Minister, prepares a panel of five. Section 16 bars court proceedings for official acts but does not mention arrest or investigation.",
+   "s": "Shankar IAS pp. 42-43",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CEC appointment",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Under Article 324(5), the Chief Election Commissioner can be removed",
+   "o": [
+    "by the President on the advice of the Prime Minister",
+    "on the recommendation of the senior-most Election Commissioner",
+    "by a simple majority resolution of the Lok Sabha",
+    "only in the manner and on the grounds of removal of a Supreme Court judge"
+   ],
+   "a": 3,
+   "e": "The CEC can be removed only for proved misbehaviour or incapacity through a special-majority process in both Houses, as for a Supreme Court judge, with procedure under the Judges (Inquiry) Act, 1968. Other Election Commissioners can be removed only on the CEC's recommendation; in 2009 CEC N. Gopalaswami recommended Navin Chawla's removal, which the government rejected.",
+   "s": "Shankar IAS pp. 36-37, 43",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CEC appointment",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the right to vote in India, consider the following statements:\n1. In Kuldip Nayar v. Union of India (2006), the Supreme Court held it to be a fundamental right.\n2. The voting age was lowered from 21 to 18 by the 42nd Amendment.\n3. The Constituent Assembly's Advisory Committee included it among Fundamental Rights.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. Kuldip Nayar held voting a statutory right under Section 62 of the RP Act, 1951; the 61st Amendment (1989) lowered the age to 18; and the Advisory Committee rejected the proposal by Ambedkar and K.T. Shah to make it a fundamental right. Justice Ajay Rastogi's dissent in Anoop Baranwal linked it to Articles 19(1)(a) and 21.",
+   "s": "Shankar IAS pp. 43-45",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to vote",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nCountry : Year of universal suffrage milestone\n1. United Kingdom : Women given equal franchise in 1928\n2. United States : 19th Amendment giving women the vote in 1920\n3. India : Universal adult suffrage from the first general election under the Constitution\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. The UK had universal male suffrage in 1918 and equal female franchise in 1928; in the US, poll taxes and literacy tests long excluded many despite the 15th and 19th Amendments. India chose immediate universal inclusion under Article 326, and CEC Sukumar Sen introduced election symbols for a largely illiterate electorate.",
+   "s": "Shankar IAS pp. 43-44",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to vote",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the referral of the 2023 Election Commissioners' appointment law, consider the following statements:\n1. A two-judge Bench delivered a split verdict on whether a larger Bench was needed.\n2. Under the 2023 law, nominees of the executive hold two of the three seats on the selection committee.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. Justice Dipankar Datta held a reference unnecessary while Justice S.C. Sharma favoured one, and the matter went to the CJI for a five-judge Bench. Concerns raised include the Leader of Opposition's role becoming 'ornamental' and the need for a neutral member. The ECI was set up on 25 January 1950 under Part XV (Articles 324-329).",
+   "s": "Shankar IAS pp. 46-48",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "EC appointment law",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the FCRA Amendment Bill, 2026, consider the following statements:\n1. Assets of organisations whose registration lapses may vest provisionally in a government-designated authority.\n2. Proceeds from selling permanently vested assets would go to the Public Account of India.\n3. The Bill provides for an appeal to the High Court only.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Proceeds would go to the Consolidated Fund of India, and revision and appeal lie to the District Judge. If registration is restored during provisional vesting, assets are returned. Since 2015, 22,496 NGOs have had registrations cancelled, leaving about 14,466 active associations.",
+   "s": "Shankar IAS pp. 48-49",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FCRA Bill",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Registration of unrecognised political parties can be cancelled by the Election Commission whenever a party stops contesting elections.\nStatement-II: In INC v. Institute of Social Welfare (2002), the Supreme Court held that the Election Commission has no general power to de-register parties.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect but Statement-II is correct. The EC may de-register only if registration was obtained by fraud, the party ceases allegiance to the Constitution, or it is declared unlawful; it can only de-list non-compliant parties. The 255th Law Commission Report suggested de-registering parties that do not contest for 10 consecutive years. There were over 2,800 RUPPs in July 2026.",
+   "s": "Shankar IAS pp. 54-56",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "RUPPs",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Registered Unrecognised Political Parties, consider the following statements:\n1. They are registered under Section 29A of the Representation of the People Act, 1951.\n2. They may nominate up to 20 star campaigners.\n3. Donations above Rs 2,000 must be received by cheque or bank transfer.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; recognised parties can have 40 star campaigners (static GK). Donors giving over Rs 20,000 a year must be reported to the EC, failing which tax exemption is lost. The EC has proposed limiting tax exemption to parties that win seats; others suggest a minimum vote-share threshold.",
+   "s": "Shankar IAS pp. 54-55",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "RUPPs",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nState : Cash transfer scheme for women\n1. Tamil Nadu : Kalaignar Magalir Urimai Thittam\n2. West Bengal : Gruha Lakshmi\n3. Karnataka : Majhi Ladki Bahin\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 1 is correct. West Bengal's scheme is Lakshmir Bhandar, Karnataka's is Gruha Lakshmi, and Majhi Ladki Bahin is Maharashtra's. The Economic Survey estimates States will spend about 18 billion dollars on unconditional cash transfers in 2025-26, mostly for women.",
+   "s": "Shankar IAS pp. 56-58",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cash transfers",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which one of the following is an example of a conditional rather than an unconditional transfer?",
+   "o": [
+    "Support tied to children's school attendance or health check-ups",
+    "A monthly payment to women heads of households",
+    "A lump-sum payment before a festival to all ration-card holders",
+    "An old-age pension paid without any conditions"
+   ],
+   "a": 0,
+   "e": "Conditional cash transfers tie support to behaviour such as school attendance, health care use or maternal check-ups, which builds human capital; Tamil Nadu's Midday Meal Scheme linking nutrition to schooling is cited. Unconditional transfers give cash without conditions. Targeting by proxies causes inclusion and exclusion errors, and excessive conditions can exclude those lacking services.",
+   "s": "Shankar IAS p. 58",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cash transfers",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the legal position of nicotine pouches in India, consider the following statements:\n1. They are banned under the Prohibition of Electronic Cigarettes Act, 2019.\n2. They clearly fall within the definition of tobacco products under COTPA, 2003.\n3. According to the DGFT, tobacco-free nicotine pouches are 'prohibited' imports.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. PECA bans e-cigarettes but not pouches; tobacco-free pouches arguably fall outside COTPA's definition; and the DGFT classes them as 'restricted', needing authorisation, not 'prohibited'. Nicotine gums and lozenges below set levels are exempt under Schedule K of the Drugs and Cosmetics Rules, but pouches make no therapeutic claim.",
+   "s": "Shankar IAS pp. 58-61",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Nicotine pouches",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "According to NFHS-6, which State or UT has the highest share of elderly people?",
+   "o": [
+    "Kerala",
+    "Goa",
+    "Himachal Pradesh",
+    "Tamil Nadu"
+   ],
+   "a": 0,
+   "e": "Kerala leads with 20.7 per cent, followed by Goa (17.2), Himachal Pradesh (16.4) and Tamil Nadu (16.3); Ladakh's share jumped from 8.9 to 14.6 per cent in four years. Nationally the elderly are 12.9 per cent. NFHS interviews women only up to 49 and men up to 54, so it misses much of the elderly's health picture.",
+   "s": "Shankar IAS pp. 61-62",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ageing",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Longitudinal Ageing Study in India (LASI), consider the following statements:\n1. It is conducted by the National Statistical Office.\n2. Its first wave covered adults aged 45 and above.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. LASI is run by the International Institute for Population Sciences; Wave 1 in 2017-18 covered over 73,000 adults aged 45 and above and is now about eight years old. Commentators want more frequent waves and age-disaggregated NFHS data, since AB-PMJAY now covers everyone aged 70 and above.",
+   "s": "Shankar IAS pp. 62-63",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ageing",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the red hexagon front-of-pack label proposed by FSSAI, consider the following statements:\n1. It covers added sugar, added saturated fat and salt.\n2. In Phase I, a warning would be shown if a product is high in two or more of these.\n3. Single-ingredient foods such as ghee, edible oil, jaggery and honey would be exempt.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. In Phase II the warning would apply if a product is high in any one nutrient, with thresholds based on the ICMR-NIN Dietary Guidelines, 2024. FSSAI proposed the label in an affidavit to the Supreme Court; it is not yet notified.",
+   "s": "Shankar IAS pp. 63-65",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Food labelling",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Pradhan Mantri Jan Dhan Yojana, consider the following statements:\n1. Accounts opened after 28 August 2018 carry accident insurance of Rs 2 lakh.\n2. The insurance premium is paid by the account holder.\n3. An overdraft of up to Rs 50,000 is available to one account holder per household.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The insurance premium is paid by NPCI, and the overdraft is up to Rs 10,000 for one account holder per household after six months of satisfactory operation. By 19 August 2026 there were 59.09 crore accounts; the Financial Inclusion Index rose from 53.9 in 2018 to 67.",
+   "s": "Shankar IAS pp. 65-68",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "PMJDY",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "In 2018 the focus of PM Jan Dhan Yojana shifted from",
+   "o": [
+    "rural to urban households",
+    "'every household' to 'every unbanked adult'",
+    "savings accounts to current accounts",
+    "women to all adults"
+   ],
+   "a": 1,
+   "e": "The 2018 shift targeted every unbanked adult rather than one account per household. There is no minimum balance and no upper age limit, and accounts can be opened through Business Correspondents. A Guinness record of over 1.8 crore accounts opened in one week was set in January 2015.",
+   "s": "Shankar IAS pp. 66-67",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "PMJDY",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Allahabad High Court's ruling on Scheduled Tribe status and religious conversion, consider the following statements:\n1. Conversion to another religion automatically ends ST status.\n2. The Constitution (Scheduled Tribes) Order, 1950 contains no religion-based exclusion.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. The court held that conversion does not automatically end ST status; continuing tribal affiliation is a question of fact. On the facts, it upheld cancellation of land transfers in Sonbhadra because the buyer could not prove a continuing link with the Bhuiyan community. The SC framework, unlike the ST one, has religion-based limits.",
+   "s": "Shankar IAS pp. 51-53",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ST status",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following provisions relate specifically to Scheduled Tribes?\n1. Article 338A\n2. Article 275(1) grants for Scheduled Areas\n3. The Fifth Schedule\n4. Article 341\nSelect the correct answer using the code given below:",
+   "o": [
+    "1, 2 and 3",
+    "1 and 3 only",
+    "2, 3 and 4",
+    "1, 2, 3 and 4"
+   ],
+   "a": 0,
+   "e": "Article 338A sets up the NCST, Article 275(1) provides grants for ST welfare and Scheduled Areas, and the Fifth Schedule covers Scheduled Areas and Tribes Advisory Councils. Article 341 concerns Scheduled Castes; STs are notified under Article 342. The Sixth Schedule covers tribal areas of Assam, Meghalaya, Tripura and Mizoram.",
+   "s": "Shankar IAS p. 53",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ST status",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to proposals for Aadhaar-based revision of electoral rolls, consider the following statements:\n1. Aadhaar face authentication would be used to determine citizenship.\n2. Biometrics captured at enrolment can help verify that a voter is at least 18.\n3. A manual route would be kept for those who opt out or lack access.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 2 and 3 are correct. The proposal uses digital ID only for roll accuracy (age, address, duplicates, life status), leaving citizenship to the MHA. The nationwide SIR deleted over 13 crore entries and pulled in about 10 lakh public servants. Face authentication is already used at scale in DigiYatra and Jeevan Pramaan.",
+   "s": "Shankar IAS pp. 50-51",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "SIR and Aadhaar",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Official Languages Act, 1963, consider the following statements:\n1. It ended the use of English for official purposes of the Union in 1965.\n2. It was enacted after violent anti-Hindi protests in the late 1960s.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The Act allowed English to continue alongside Hindi indefinitely after the 15-year period ended in 1965; it was passed in 1963, before the 1965 agitation (static GK on timing), which reinforced its assurances. Part XVII (Articles 343-351) deals with official language.",
+   "s": "Shankar IAS pp. 33-34",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Official language",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to private giving in India discussed in 2026, consider the following statements:\n1. CSR spending was made mandatory by the Companies Act, 2013.\n2. Retail giving by individuals is larger than total private philanthropy.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Private philanthropy was about Rs 1.43 lakh crore in FY2025, of which retail giving was about Rs 37,000 crore a year; CSR by listed companies was about Rs 22,563 crore. New philanthropists favour research and higher education, leaving gaps in basic education and rural development as foreign funding tightens.",
+   "s": "Shankar IAS pp. 49-50",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FCRA Bill",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Kalaignar Magalir Urimai Thittam of Tamil Nadu, consider the following statements:\n1. It gives Rs 1,000 a month to women heads of households.\n2. It was launched without any income or land eligibility criteria.\n3. Its beneficiaries were expanded in December 2025.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. Launched in September 2023 with income and land criteria, it initially covered about 1.13 crore women and added 16.94 lakh in December 2025, costing about Rs 13,807 crore in 2025-26. Dissatisfaction persisted among those excluded, illustrating how targeting errors carry political costs.",
+   "s": "Shankar IAS p. 57",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cash transfers",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: An order of the Election Commission passed by a 2:1 majority has no legal infirmity.\nStatement-II: The Chief Election Commissioner has a veto over decisions of the Commission.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. The CEC has no veto; the Commission tries to act unanimously and otherwise the majority prevails, as T.N. Seshan (1995) held. Commentators compare it with Kesavananda Bharati, a 7-6 majority that still governs the Republic.",
+   "s": "Shankar IAS pp. 35-36",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ECI dissent",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  }
+ ]
+}

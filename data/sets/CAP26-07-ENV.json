@@ -1,0 +1,634 @@
+{
+ "id": "CAP26-07-ENV",
+ "title": "2026-07 Environment",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the 2026 amendment to the EIA Notification, 2006, consider the following statements:\n1. It creates two standing bodies in every State and Union Territory to take over appraisal when regular bodies lapse.\n2. Category 'B' projects pending in a State without an SEIAA will now move automatically to the Central Expert Appraisal Committee.\n3. The tenure of SEIAA and SEAC has been increased from three to four years.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. The automatic transfer of Category B projects to the Centre has been omitted, so statement 2 is wrong; pending proposals stay in the State and go to the new standing bodies. These are the Standing Authority on EIA, replacing SEIAA, and the Standing Committee on Environment Impact Appraisal, replacing SEAC. EAC and SEAC membership is capped at 15.",
+   "s": "Vision IAS pp. 58-59",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "EIA amendment",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the 2026 amendment to the EIA Notification, 2006, the interim standing bodies set up when a State's regular appraisal bodies lapse may function for",
+   "o": [
+    "up to three months, non-extendable",
+    "up to six months, extendable by another six months",
+    "up to one year, extendable by another year",
+    "until the Centre constitutes new regular bodies, with no time limit"
+   ],
+   "a": 1,
+   "e": "Interim bodies may work for six months plus a further six. Earlier, approvals stopped or moved to the Centre when terms lapsed. The Standing Authority on EIA replaces the SEIAA and the Standing Committee on Environment Impact Appraisal replaces the SEAC; both now have four-year tenures. Category B2 projects remain exempt from EIA, and decisions are to be published on PARIVESH.",
+   "s": "Vision IAS p. 58",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "EIA amendment",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "The Espoo Convention, mentioned in discussions of gaps in India's environmental impact assessment, deals with",
+   "o": [
+    "public participation in environmental decision-making",
+    "environmental impact assessment in a transboundary context",
+    "trade in hazardous wastes",
+    "protection of wetlands of international importance"
+   ],
+   "a": 1,
+   "e": "The Espoo Convention requires a country to notify and consult neighbours on projects likely to have significant cross-border environmental effects; India has no such framework. Public participation is the subject of the Aarhus Convention, hazardous wastes of the Basel Convention and wetlands of the Ramsar Convention.",
+   "s": "Vision IAS p. 59",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "EIA amendment",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to CAMPA funds under the Compensatory Afforestation Fund Act, 2016, consider the following statements:\n1. They are non-lapsable and interest-bearing.\n2. They are kept in the Consolidated Fund of India and of the States.\n3. They are shared equally between the National CAMPA and the States.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The funds are kept in the Public Account of India and of the States, not the Consolidated Fund, and are shared 10:90 between the National CAMPA and the States. The money comes from charges on those diverting forest land, including the cost of afforestation and the net present value of lost forest.",
+   "s": "Shankar IAS pp. 110-111",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "CAMPA",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Compensatory afforestation often fails to replace the ecological functions of the natural forests that are diverted.\nStatement-II: Plantations frequently use fast-growing species in monocultures and are judged by the number of saplings planted.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. A mature forest has many vegetation layers, soil communities and food webs that a young monoculture cannot reproduce. Critics propose 'modest ecological compensation' aimed at recovering essential functions, native mixed species, assisted natural regeneration and long-term monitoring through an ecological success index.",
+   "s": "Shankar IAS pp. 113-114",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "CAMPA",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nCountry : Restoration practice cited as a model\n1. Costa Rica : Payment for ecosystem services to landowners\n2. China : 'Grain for Green' conversion of vulnerable farmland to forest or grassland\n3. Nepal : Community forestry\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. These are cited as lessons for reforming India's compensatory afforestation: pay for services such as water regulation and carbon storage, restore whole watersheds and landscapes, and give communities rights and incentives. Europe's emphasis on corridors and rewilding is another example.",
+   "s": "Shankar IAS p. 114",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "CAMPA",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to initiatives approved by the National CAMPA in 2026, consider the following statements:\n1. MISHTI, the mangrove initiative, was extended for three more years.\n2. The second cycle of snow leopard population estimation is part of Project Snow Leopard Phase-II.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; MISHTI's revised allocation is Rs 600 crore. CAMPA also approved action plans for river dolphins and the Indian rhinoceros, a strategy for wild water buffalo and continued support for the sangai, the brow-antlered deer of Manipur, showing a shift from plantations to wildlife conservation.",
+   "s": "Shankar IAS p. 112",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "CAMPA",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Ken-Betwa Link Project, consider the following statements:\n1. It transfers water from the Ken in Madhya Pradesh to the Betwa in Uttar Pradesh.\n2. Its Daudhan dam is expected to submerge part of the core area of the Panna Tiger Reserve.\n3. It is India's first major inter-State river-linking project.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; over 10 per cent of Panna's core area may be submerged. The project, costing over Rs 44,000 crore, is to irrigate 1.06 million hectares in Bundelkhand, supply drinking water to about 62 lakh people and generate 103 MW of hydropower and 27 MW of solar power. Over 6,600 families face displacement.",
+   "s": "Shankar IAS pp. 108-109",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Ken-Betwa",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "Tribal communities protesting against the Ken-Betwa project in 2026 demanded that compensation be paid",
+   "o": [
+    "per adult, treating each adult as a separate unit",
+    "per family at a uniform rate fixed by the State",
+    "only to those holding land titles",
+    "in the form of land in Uttar Pradesh"
+   ],
+   "a": 0,
+   "e": "The demand was Rs 12.5 lakh per adult rather than per family, along with moving the eligibility cut-off from 16 February 2024 to the present, correcting survey errors and similar packages for the Majhgaon and Runjh projects. Suggestions include an independent oversight body and release of hydrological data to test the 'surplus water' claim.",
+   "s": "Shankar IAS p. 109",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Ken-Betwa",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Indian Carbon Market, consider the following statements:\n1. It is cap-based, fixing an absolute ceiling on emissions for each obligated entity.\n2. The Bureau of Energy Efficiency administers the Carbon Credit Trading Scheme.\n3. Trading in carbon credit certificates is regulated by the Central Electricity Regulatory Commission.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 2 and 3 are correct. The market is intensity-based, setting targets per unit of output, so statement 1 is wrong. One credit equals one tonne of CO2-equivalent reduced beyond the target. The registry is run by Grid Controller of India. The scheme was notified in 2023 under the Energy Conservation (Amendment) Act, 2022.",
+   "s": "Vision IAS p. 62",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Indian Carbon Market",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Critics argue that the Indian Carbon Market's compliance mechanism does not cover the country's largest source of emissions.\nStatement-II: The power sector, which accounts for about 55 per cent of India's greenhouse gas emissions, is excluded from the emission-intensity targets.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Other criticisms are that buying credits costs large firms less than 7 per cent of annual profit, that penalties of twice the credit price are weak when prices are low, and that steel and cement firms need only 2 to 5 per cent cuts by 2026-27. A price floor and a market stability reserve are suggested.",
+   "s": "Vision IAS pp. 62-63",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Indian Carbon Market",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "The New Collective Quantified Goal on climate finance, agreed at COP29, commits to mobilise for developing countries at least",
+   "o": [
+    "1.3 trillion dollars a year by 2035 from all sources",
+    "300 billion dollars a year by 2030 from public sources only",
+    "100 billion dollars a year by 2025",
+    "22.7 trillion dollars cumulatively by 2070"
+   ],
+   "a": 0,
+   "e": "The goal, agreed at Baku, is at least 1.3 trillion dollars a year by 2035 from all sources. It becomes harder to meet as the World Bank drops its 45 per cent climate co-benefits target and the 35 per cent target in its Climate Change Action Plan after US objections. NITI Aayog estimates India needs 22.7 trillion dollars cumulatively by 2070.",
+   "s": "Vision IAS pp. 66-67",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "World Bank climate targets",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Climate Smart Villages, consider the following statements:\n1. The concept was pioneered by CGIAR under its programme on Climate Change, Agriculture and Food Security.\n2. ICRISAT, a CGIAR centre, is headquartered in Hyderabad.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. Climate Smart Villages, begun in 2011, are community-led open-air laboratories where farmers test climate-resilient practices while researchers collect data. In 2026 the Union Agriculture Minister set a target of at least 100 such villages in India.",
+   "s": "Vision IAS p. 67",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Climate Smart Villages",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to the Environmental Performance Index 2026, consider the following statements:\n1. India was ranked 150th of 177 countries.\n2. It is published annually by the UN Environment Programme.\n3. Denmark was ranked first.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. India was ranked 176th of 177, with only Laos below it, and Estonia came first; Denmark topped the 2024 edition. The index is biennial and is published by the Yale Center for Environmental Law and Policy with Columbia University's CIESIN, not by UNEP. It uses 47 indicators in 12 issue categories.",
+   "s": "Vision IAS p. 67",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "EPI 2026",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "An 'Omega block', associated with the European heatwave of 2026, is",
+   "o": [
+    "a low-pressure system trapped between two high-pressure systems, bringing persistent rain",
+    "a band of strong winds along the polar front",
+    "a high-pressure system trapped between two low-pressure systems, causing stagnant weather",
+    "a cold ocean current that blocks warm air from the Atlantic"
+   ],
+   "a": 2,
+   "e": "The pattern resembles the Greek letter omega and holds weather in place for days. An Omega block often creates and traps a heat dome, a persistent high that acts like a lid, blocking clouds and cooler air. World Weather Attribution found human greenhouse gases, not El Nino, to be the main driver of the heat.",
+   "s": "Shankar IAS pp. 117-118",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Europe heatwave",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Arctic amplification is linked to more persistent heatwaves and cold spells in the mid-latitudes.\nStatement-II: Faster Arctic warming increases the temperature contrast between the poles and the tropics, making the jet stream stronger and straighter.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. Faster Arctic warming reduces the pole-to-tropics temperature contrast, which makes the jet stream weaker and wavier. A slow, looping jet stream stalls weather systems, letting heat domes such as the 2026 European Omega block persist.",
+   "s": "Shankar IAS p. 118",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Europe heatwave",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the Puga Valley geothermal project, consider the following statements:\n1. India's first two geothermal wells were commissioned there at about 4,000 ft.\n2. It is implemented by NTPC with the Ladakh Administration.\n3. It aims at a 100 MW geothermal power plant in its first phase.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The wells are at over 14,000 ft in Ladakh, about 1,000 m deep, and recorded 135 degrees Celsius at 400 m. The project aims at a 1 MW pilot plant and is implemented by ONGC Energy Centre with the Ladakh Administration and the Leh hill council; MNRE is the nodal ministry. Puga lies on the Indus-Tsangpo suture zone.",
+   "s": "Vision IAS pp. 63-64",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Geothermal energy",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nGeothermal site : State or UT\n1. Manikaran : Himachal Pradesh\n2. Tattapani : Chhattisgarh\n3. Bakreshwar : West Bengal\n4. Chumathang : Ladakh\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 3,
+   "e": "All four pairs are correct. The Geological Survey of India has mapped 381 hot springs and 10 geothermal provinces, with a theoretical potential of about 10.6 GW. Note that there is also a Tattapani in Himachal Pradesh. Other sites include Tapoban in Uttarakhand, Unhavare in Maharashtra and Manuguru in Telangana.",
+   "s": "Vision IAS p. 64",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Geothermal energy",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Map"
+  },
+  {
+   "q": "The heat inside the Earth that is tapped as geothermal energy comes mainly from",
+   "o": [
+    "solar radiation absorbed by the crust",
+    "friction between tectonic plates",
+    "radioactive decay of elements such as uranium, thorium and potassium, and residual heat from the Earth's formation",
+    "chemical reactions in groundwater"
+   ],
+   "a": 2,
+   "e": "Radioactive decay and primordial heat drive mantle convection, which in turn causes earthquakes, volcanism and mountain building. Temperatures reach about 3,700 degrees Celsius at the mantle-core boundary. Where faults let heat rise, hot-water and steam reservoirs form in permeable rock, which wells can tap.",
+   "s": "Vision IAS p. 63",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Geothermal energy",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to international geothermal initiatives, consider the following statements:\n1. The Global Geothermal Alliance, coordinated by IRENA, was launched at COP26 in Glasgow.\n2. The International Geothermal Association is a UN body headquartered in Geneva.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The Global Geothermal Alliance, coordinated by IRENA, was launched at COP21 in Paris in 2015; India is one of its 56 members. The International Geothermal Association is a non-profit founded in 1988 and based in The Hague, not a UN body.",
+   "s": "Vision IAS p. 65",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Geothermal energy",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to ethanol as a motor fuel, consider the following statements:\n1. Ethanol has a lower octane rating than petrol.\n2. Ethanol has a higher calorific value than petrol, which improves mileage.\n3. Ethanol is hygroscopic, which can cause corrosion in fuel systems.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 3 is correct. Ethanol's octane is about 108 RON, higher than petrol's, which resists engine knock. Its calorific value is about 30 per cent lower, so mileage falls, the main consumer complaint. Being hygroscopic, it absorbs water and can corrode older fuel systems. With E20 achieved ahead of the 2030 target, the debate is on blends beyond E20.",
+   "s": "Shankar IAS pp. 115-116",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Ethanol blending",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The National Policy on Biofuels of 2009 had originally aimed at 20 per cent ethanol blending by 2017.\nStatement-II: India achieved nationwide E20 blending ahead of the revised target year of 2030.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second does not explain the first; they describe the original target and the later outcome. Supply shortfalls delayed the early goal. Unlike Brazil, Indian pumps mostly sell only E20, giving consumers no choice and no lower price despite lower mileage, which is why differential pricing and more flex-fuel vehicles are suggested.",
+   "s": "Shankar IAS pp. 115-116",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Ethanol blending",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to NITI Aayog's roadmap for India's bioeconomy, consider the following statements:\n1. India's bioeconomy was valued at about 195 billion dollars in 2025.\n2. The target for 2035 is about 691 billion dollars.\n3. It proposes a BioEconomy Growth Fund under the Department of Biotechnology.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; the 2025 figure is about 4.8 per cent of GDP, and the 2047 vision is 2.6 trillion dollars. The proposed Rs 50,000 crore fund would sit under the Anusandhan National Research Foundation, so statement 3 is wrong. The roadmap also proposes six national biomissions and a biomanufacturing PLI scheme.",
+   "s": "Vision IAS pp. 60-61",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Bioeconomy",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nInitiative : Description\n1. BioE3 Policy : Biotechnology for Economy, Environment and Employment\n2. National Biopharma Mission : Implemented by BIRAC under the Department of Biotechnology\n3. Biotech-KISAN : Scientist-farmer partnership network\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. BioE3 supports biomanufacturing facilities, bio-foundries and bio-AI hubs. The roadmap notes regulatory overlap among CDSCO, GEAC and FSSAI, approvals taking about 900 days against 500 in peer countries, and too few shared pilot facilities. One of its six missions, GeneIndia, focuses on affordable gene therapies.",
+   "s": "Vision IAS p. 61",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Bioeconomy",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the status of tigers in India, consider the following statements:\n1. India has 75 tiger reserves across 22 States.\n2. The 2022 estimate put India's tiger population at 2,967.\n3. The roadmap for active management of tigers was released by the Zoological Survey of India.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. India has 58 tiger reserves, and the 2022 estimate put the tiger population at 3,682; 2,967 was the 2018 figure. India holds about 70 per cent of the world's wild tigers. The 2026 roadmap for active management was released by the National Tiger Conservation Authority and the Wildlife Institute of India, not the Zoological Survey of India.",
+   "s": "Vision IAS pp. 65-66",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tiger roadmap",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "Which of the following are listed as low-density tiger reserves in the 2026 roadmap for active management?\n1. Buxa\n2. Palamau\n3. Corbett\n4. Udanti-Sitanadi\nSelect the correct answer using the code given below:",
+   "o": [
+    "1, 2 and 4",
+    "1 and 2 only",
+    "3 and 4 only",
+    "1, 2, 3 and 4"
+   ],
+   "a": 0,
+   "e": "The low-density reserves named are Buxa, Achanakmar, Udanti-Sitanadi, Indravati and Palamau, where tigers need to be recovered through habitat and prey restoration. Corbett in Uttarakhand has one of the highest tiger densities in India. M-STrIPES, the NTCA's monitoring app, and radio telemetry are used to track progress.",
+   "s": "Vision IAS p. 66",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tiger roadmap",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to the Great Indian Bustard, consider the following statements:\n1. A 2026 Wildlife Institute of India report put its Thar population at about 130.\n2. Collisions with overhead power lines are among the main threats it faces.\n3. Its Thar population has fallen sharply since 2017-18.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; the estimate was 130 plus or minus 21. The population has been stable since 2017-18, so statement 3 is wrong. Jaisalmer is its last stronghold, and solar plants and fencing add to the power-line threat. The bird is Critically Endangered on the IUCN Red List and the State bird of Rajasthan.",
+   "s": "Vision IAS p. 68",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Great Indian Bustard",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nPangolin : Scientific name\n1. Himalayan pangolin : Manis javanica\n2. Chinese pangolin : Manis pentadactyla\n3. Indian pangolin : Manis crassicaudata\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 2 and 3 are correct. The Himalayan pangolin is Manis aurita; Manis javanica is the Sunda pangolin of South-East Asia. In 2026 the Himalayan pangolin, earlier treated as a subspecies of the Chinese pangolin, was confirmed as a distinct species; the lineages split about 1.8 million years ago.",
+   "s": "Vision IAS pp. 67-68",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Himalayan pangolin",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "The Malvi camel, for which a breeding and conservation programme was launched in 2026, is",
+   "o": [
+    "a breed of Gujarat adapted to swimming in mangrove creeks",
+    "the smallest recognised Indian camel breed, white in colour, named after the Malwa region of Madhya Pradesh",
+    "the largest camel breed, native to Bikaner",
+    "a double-humped camel found in Ladakh"
+   ],
+   "a": 1,
+   "e": "The Malvi is endangered according to the 2019 livestock census and is one of nine recognised breeds. Six of those are from Rajasthan, Mewati is from Rajasthan and Haryana, and Kutchi and Kharai are from Gujarat; the Kharai is the swimming camel of the Kachchh mangroves. The double-humped Bactrian camel of Ladakh is not among the nine.",
+   "s": "Vision IAS p. 68",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Malvi camel",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the Narmada river, consider the following statements:\n1. It rises at Amarkantak in the Maikal Hills.\n2. It flows westward through a rift valley.\n3. Its basin includes parts of Chhattisgarh.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; the basin spans Madhya Pradesh, Gujarat, Maharashtra and Chhattisgarh. The Narmada lies between the Vindhyas and the Satpuras, and its tributaries include the Tawa, Banjar, Hiran and Kolar. The Sleemanabad tunnel of the Bargi Diversion Project, India's longest underground water-conveyance tunnel, carries its water by gravity towards the Vindhya region.",
+   "s": "Vision IAS p. 69",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Narmada",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "The Paizhen fault, reported in 2026 to threaten a mega hydropower project, lies beneath a dam on which river?",
+   "o": [
+    "Yarlung Tsangpo (Brahmaputra), in Tibet",
+    "Indus, in Ladakh",
+    "Mekong, in Yunnan",
+    "Sutlej, in Himachal Pradesh"
+   ],
+   "a": 0,
+   "e": "The fault lies beneath China's project on the Yarlung Tsangpo, described as the world's largest hydropower project. It is part of the eastern Himalayan fault network created by the India-Eurasia collision and has been active since the early Pleistocene. Its seismic risk adds to India's downstream concerns.",
+   "s": "Vision IAS p. 69",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Paizhen fault",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Forest fires in Uttarakhand have become more frequent and severe.\nStatement-II: The spread of chir pine, whose needles are highly flammable, and the weakening of Van Panchayats have contributed to the problem.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Plantation-centred forestry favoured chir pine, and the decline of community management weakened local fire control. India recorded 5,25,627 fire alerts in 2026, the second-highest since 2012, with the season starting earlier and lasting longer. Climate-driven heat and drought add to these governance causes.",
+   "s": "Shankar IAS p. 125",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Forest fires",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which type of forest fire burns deep humus and peat below the surface, spreading slowly but proving hard to extinguish completely?",
+   "o": [
+    "Crown fire",
+    "Surface fire",
+    "Prescribed fire",
+    "Ground fire"
+   ],
+   "a": 3,
+   "e": "Ground or subsurface fires smoulder in organic soil layers. Crown fires burn to the treetops and are the most intense, while surface fires burn only litter and duff and are the easiest to control. A prescribed fire is a deliberately set, controlled burn used to reduce fuel.",
+   "s": "Shankar IAS p. 124",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Forest fires",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  }
+ ]
+}

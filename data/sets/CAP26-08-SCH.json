@@ -1,0 +1,235 @@
+{
+ "id": "CAP26-08-SCH",
+ "title": "2026-08 Schemes & Reports",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the e-Shram portal, consider the following statements:\n1. It was launched in August 2021 by the Ministry of Labour and Employment.\n2. It was developed by the National Informatics Centre.\n3. Registration on e-Shram automatically enrols a worker in PMSBY and PMJJBY.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. e-Shram is essentially a database; insurance and pension schemes need separate enrolment, though the portal allows direct enrolment in PMSBY, PMJJBY and PM-SYM. It had 31.89 crore registrations by 20 August 2026, 54.28 per cent of them women, mostly through Common Service Centres.",
+   "s": "Shankar IAS pp. 78-80",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "e-Shram",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the e-Shram framework, which of the following workers can register as 'unorganised workers'?\n1. A home-based worker\n2. A self-employed street vendor\n3. An organised-sector worker who is not a member of EPFO or ESIC\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 only",
+    "1 and 2 only",
+    "1, 2 and 3",
+    "2 and 3 only"
+   ],
+   "a": 2,
+   "e": "The definition covers home-based, self-employed and wage workers in the unorganised sector, and also organised-sector workers who are not members of ESIC, EPFO or government employee schemes. Registered workers get a 12-digit Universal Account Number. Since October 2024 the portal has been a one-stop solution linking 15 schemes.",
+   "s": "Shankar IAS p. 78",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "e-Shram",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Which State has the largest number of registrations on the e-Shram portal?",
+   "o": [
+    "Bihar",
+    "Maharashtra",
+    "West Bengal",
+    "Uttar Pradesh"
+   ],
+   "a": 3,
+   "e": "Uttar Pradesh leads, followed by Bihar, West Bengal, Madhya Pradesh and Maharashtra. The largest age group is 18 to 40 years, at about 55 per cent, and agriculture, domestic work, construction and apparel are the top occupations. About 1.15 million platform workers are registered.",
+   "s": "Shankar IAS p. 79",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "e-Shram",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the National Animal Disease Control Programme, consider the following statements:\n1. It aims to control and eventually eradicate Lumpy Skin Disease and Brucellosis.\n2. FMD vaccination is done once in an animal's lifetime.\n3. Brucellosis vaccination is given every year to all adult cattle.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. NADCP, launched in September 2019, targets Foot and Mouth Disease and Brucellosis. FMD vaccination is six-monthly for all eligible livestock, and Brucellosis vaccination is a one-time dose for female bovine calves aged 4 to 8 months. Reported FMD outbreaks fell from 132 in 2019 to 40 in 2025.",
+   "s": "Shankar IAS pp. 81-83",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "NADCP",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Vaccination is the key strategy against Brucellosis in bovines.\nStatement-II: Brucellosis in bovines is a viral disease that is easily cured with antibiotics.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. Brucellosis is a bacterial disease caused mainly by Brucella abortus, and there is no curative treatment in bovines, which is why vaccination is central. Post-vaccination seroconversion in 2025 was about 76 per cent in cattle calves and 67 per cent in buffalo calves.",
+   "s": "Shankar IAS p. 83",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "NADCP",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nInitiative : Purpose\n1. Bharat Pashudhan Portal : Unique 12-digit tag ID for each animal linked to vaccination data\n2. 1962 : Toll-free number for doorstep veterinary services\n3. MAITRIs : Mobile veterinary hospitals run by the Army\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. MAITRIs are Multi-Purpose Artificial Insemination Technicians in Rural India; 39,810 have been trained. Over 39 crore animals were registered on Bharat Pashudhan by July 2026, and 4,019 Mobile Veterinary Units operate in 29 States and UTs. Milk output rose from 146.31 to 247.87 million tonnes in a decade.",
+   "s": "Shankar IAS pp. 83-84",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "NADCP",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to One Health in India, consider the following statements:\n1. The National One Health Mission was approved by PM-STIAC.\n2. India received a project from the G20 Pandemic Fund for animal health security.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. PM-STIAC approved the mission at its 21st meeting on 7 July 2022. The 25-million-dollar Pandemic Fund project, implemented with ADB, FAO and the World Bank, strengthens genomic and environmental surveillance. The revised Livestock Health and Disease Control Programme brings NADCP and Pashu Aushadhi under one umbrella.",
+   "s": "Shankar IAS p. 84",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "NADCP",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Pradhan Mantri Janjatiya Vikas Mission, consider the following statements:\n1. It was launched in 2021-22.\n2. Minimum Support Price has been notified for 87 Minor Forest Produce items.\n3. A Van Dhan Vikas Kendra typically has about 300 members.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. A Van Dhan SHG has up to 20 members and a VDVK about 300. As of 31 July 2026, 4,172 VDVKs linked 12.48 lakh tribals. TRIFED buys MFP at the pre-set MSP regardless of market price through State agencies.",
+   "s": "Shankar IAS pp. 84-86",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "PMJVM",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Tribal Gram Sabhas and Panchayats in Scheduled Areas have rights over Minor Forest Produce.\nStatement-II: The PESA Act, 1996 vests ownership of Minor Forest Produce in panchayats in Scheduled Areas.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. The Forest Rights Act, 2006 also defines MFP as all non-timber forest produce of plant origin, including bamboo, tendu leaves, honey, lac and medicinal plants, and recognises tribals' right to collect and sell it. PMJVM builds on these rights through processing and market linkages.",
+   "s": "Shankar IAS p. 85",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "PMJVM",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Under the Forest Rights Act, 2006, which of the following is not included in 'Minor Forest Produce'?",
+   "o": [
+    "Timber",
+    "Tendu leaves",
+    "Bamboo",
+    "Lac"
+   ],
+   "a": 0,
+   "e": "MFP covers non-timber forest produce of plant origin, so timber is excluded; bamboo, brushwood, cane, tussar, cocoons, honey, wax, lac, tendu leaves, medicinal plants, roots and tubers are included. Under PMJVM, working capital comes through banks and NSTFDC, and more than 5,000 haat bazaars are being modernised.",
+   "s": "Shankar IAS p. 85",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "PMJVM",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Through the e-Shram portal, a registered worker can directly enrol in which of the following?\n1. Pradhan Mantri Suraksha Bima Yojana\n2. Pradhan Mantri Jeevan Jyoti Bima Yojana\n3. Pradhan Mantri Shram Yogi Maan-dhan\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 only",
+    "1, 2 and 3",
+    "2 and 3 only",
+    "1 and 2 only"
+   ],
+   "a": 1,
+   "e": "All three allow direct enrolment: PMSBY gives Rs 2 lakh for accidental death or permanent disability, PMJJBY Rs 2 lakh life cover, and PM-SYM a Rs 3,000 monthly pension after 60. The portal also links the National Career Service, Skill India Digital Hub, myScheme and BHASHINI, but registration does not by itself confer benefits.",
+   "s": "Shankar IAS pp. 79-80",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "e-Shram",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to India's milk output and bovine productivity, consider the following statements:\n1. Milk production rose by about 70 per cent between 2014-15 and 2024-25.\n2. The target is average milk productivity of 3,000 kg per animal per year by 2030.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; milk output rose from 146.31 to 247.87 million tonnes, and average bovine productivity from 1,640 to 2,250 kg per animal a year. The 20th Livestock Census (2019) counted 535.78 million livestock including 302.79 million bovines. NADCP's disease control is credited for part of the gain.",
+   "s": "Shankar IAS p. 84",
+   "sub": "Current Affairs",
+   "u": "Schemes, Reports & Indices",
+   "it": "NADCP",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  }
+ ]
+}

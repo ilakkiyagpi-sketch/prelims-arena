@@ -1,0 +1,254 @@
+{
+ "id": "CAP26-07-CUL",
+ "title": "2026-07 History, Culture & Awards",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the inscription of Sarnath on the UNESCO World Heritage List in 2026, consider the following statements:\n1. It was inscribed at the 48th session of the World Heritage Committee in Busan.\n2. It is India's 45th World Heritage property.\n3. With it, all four principal Buddhist pilgrimage sites are now World Heritage properties.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. Lumbini, Bodh Gaya and now Sarnath are World Heritage properties, but Kushinagar, the site of the Mahaparinirvana, is not, so statement 3 is wrong. India now has 37 cultural, 7 natural and 1 mixed property, ranking 6th in the world. Sarnath is Uttar Pradesh's fourth, after the Taj Mahal, Agra Fort and Fatehpur Sikri.",
+   "s": "Vision IAS pp. 83-84",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath WHS",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nMonument at Sarnath : Feature\n1. Chaukhandi Stupa : Octagonal tower added in the Mughal period, in 1588 CE\n2. Dharmarajika Stupa : Built by Ashoka to enshrine relics of the Buddha\n3. Dhamekh Stupa : Built entirely in the Kushana period without later additions\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. The Dhamekh Stupa, linked to the first sermon, carries Gupta-period carvings. Chaukhandi marks the Buddha's meeting with his five companions, and the Dharmarajika Stupa was dismantled by Jagat Singh in 1794. Sarnath was inscribed as a serial property of two parts in Varanasi.",
+   "s": "Vision IAS p. 83",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath WHS",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Sarnath school of art, consider the following statements:\n1. It flourished in the Gupta period.\n2. Its sculptures were made of buff-coloured Chunar sandstone.\n3. Its Buddha images show transparent drapery covering both shoulders and a halo with little ornamentation.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; the school peaked in the fifth and sixth centuries CE and its sculptures have a smooth, polished finish. Grey-blue schist is typical of Gandhara, and spotted red sandstone of Mathura, which are common traps. Its masterpiece is the seated Buddha in the dharmachakra pravartana mudra in the Sarnath Museum.",
+   "s": "Vision IAS p. 84",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath art",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "On the abacus of the Sarnath Lion Capital, four animals are carved between the wheels. The bull among them is taken to symbolise the Buddha's",
+   "o": [
+    "conception",
+    "first sermon",
+    "renunciation",
+    "birth"
+   ],
+   "a": 3,
+   "e": "The elephant stands for conception, the bull for birth, the horse for renunciation and the lion for majesty. The four lions sit back to back on a circular abacus with a 24-spoked wheel in each direction, resting on an inverted lotus. The National Emblem adopted it without the crowning wheel and the lotus base.",
+   "s": "Vision IAS p. 84",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Lion Capital",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Sarnath is regarded as the birthplace of the Buddhist Sangha.\nStatement-II: The Buddha delivered his first sermon at Sarnath, the 'turning of the wheel of the law', to his first disciples.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. By teaching the Noble Eightfold Path to his five companions, who became his first disciples, the Buddha founded the Sangha at Sarnath, also known as Rishipatana or Mrigadava. Chinese pilgrims Faxian and Xuanzang later described its monuments.",
+   "s": "Vision IAS pp. 83-84",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath WHS",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following are UNESCO World Heritage properties associated with Buddhism outside India?\n1. Anuradhapura\n2. Paharpur\n3. Takht-i-Bahi\n4. Kushinagar\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2 and 3",
+    "1, 2, 3 and 4"
+   ],
+   "a": 2,
+   "e": "Anuradhapura is in Sri Lanka, Paharpur in Bangladesh and Takht-i-Bahi, like Taxila, in Pakistan. Kushinagar is in Uttar Pradesh and is not a World Heritage property. Buddhist World Heritage properties in India include Sanchi, Nalanda, Ajanta, Bodh Gaya and now Sarnath.",
+   "s": "Vision IAS p. 83",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath WHS",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to Vande Mataram, consider the following statements:\n1. It was first published in the journal Bangadarshan.\n2. It was set to music by Rabindranath Tagore and sung at the 1896 session of the Indian National Congress at Calcutta.\n3. Under the protocol issued by the MHA in 2026, it is to be played after the National Anthem when both are performed.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; Vision IAS dates the publication to 7 November 1875. The protocol puts Vande Mataram first and the Anthem after, so statement 3 is wrong. The official six-stanza version is to be used, with audiences standing except during newsreels or documentaries. Vande Mataram became a political slogan on 7 August 1905, in the Swadeshi movement.",
+   "s": "Vision IAS p. 85",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Vande Mataram",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the pollen study by the Birbal Sahni Institute of Palaeosciences on the Harappan decline, consider the following statements:\n1. It analysed sediments of Deoria Tal in the Garhwal Himalaya.\n2. It attributes the decline mainly to a weakening of the Indian summer monsoon.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. The study links prolonged drought and reduced river flows to a gradual migration of Harappan populations from the Indus-Ghaggar-Hakra region to the Ganga plains. The institute is an autonomous body of the Department of Science and Technology, based in Lucknow.",
+   "s": "Vision IAS pp. 85-86",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Harappan decline",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nTheory of Harappan decline : Proponent\n1. Aryan invasion : Mortimer Wheeler\n2. Ecological degradation : Fairservis\n3. Catastrophic floods : H.T. Lambrick\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. The flood hypothesis is Raikes's. Lambrick explained the decline through shifts and drying of the Indus river system, while D.P. Agarwal and Sood pointed to drying of the Ghaggar-Hakra. The 2026 pollen study adds evidence for monsoon weakening and drought.",
+   "s": "Vision IAS p. 86",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Harappan decline",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "Consider the following pairs:\nHarappan site : Position\n1. Daimabad : Southernmost\n2. Alamgirpur : Easternmost\n3. Manda : Westernmost\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct; Daimabad is in Maharashtra and Alamgirpur in Uttar Pradesh. Manda, in Jammu, is the northernmost site, while Sutkagendor in Pakistan's Makran region is the westernmost. The five major cities are Rakhigarhi and Dholavira in India and Mohenjodaro, Harappa and Ganweriwala in Pakistan.",
+   "s": "Vision IAS p. 86",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Harappan decline",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "The Jodhpuri Mojari, which received a GI tag in 2026, is",
+   "o": [
+    "handcrafted embroidered leather footwear made mainly by the Jingar community",
+    "a block-printed textile of Rajasthan",
+    "a style of miniature painting of the Marwar school",
+    "a lac bangle craft of Jodhpur"
+   ],
+   "a": 0,
+   "e": "The roughly 200-year-old craft is known for embroidery, decorative patterns and a curved toe. GI tags are registered under the Geographical Indications of Goods (Registration and Protection) Act, 1999 by the GI Registry at Chennai and are valid for ten years, renewable.",
+   "s": "Vision IAS p. 86",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Jodhpuri Mojari",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Geographical Indication tags in India, consider the following statements:\n1. The GI Registry is located in Mumbai.\n2. A registered GI remains valid permanently without renewal.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The GI Registry is in Chennai, and registration is valid for ten years and can be renewed. GI protection covers goods whose quality, reputation or characteristics come from their geographical origin, such as the Jodhpuri Mojari of Rajasthan or Lakadong turmeric of Meghalaya.",
+   "s": "Vision IAS p. 86",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Jodhpuri Mojari",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the World Heritage system, consider the following statements:\n1. India has more cultural than natural World Heritage properties.\n2. As of July 2026, there were more natural than cultural World Heritage properties.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; India has 37 cultural, 7 natural and 1 mixed property. Worldwide, of the 1,273 properties in 173 countries, 991 are cultural, 240 natural and 42 mixed. Inscription requires Outstanding Universal Value; Sarnath was inscribed under criteria (iii) and (vi).",
+   "s": "Vision IAS p. 84",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Sarnath WHS",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  }
+ ]
+}

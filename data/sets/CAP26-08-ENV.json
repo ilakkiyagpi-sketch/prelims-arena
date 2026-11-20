@@ -1,0 +1,615 @@
+{
+ "id": "CAP26-08-ENV",
+ "title": "2026-08 Environment",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to Urban Disaster Management Authorities (UDMAs), consider the following statements:\n1. They are provided for under Section 41A, inserted by the Disaster Management (Amendment) Act, 2025.\n2. They are headed by the District Collector.\n3. They can be set up in Delhi and Chandigarh as well.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. States may set up UDMAs in State capitals and cities with municipal corporations, except Delhi and Chandigarh, and they are headed by the Municipal Commissioner. The 261st parliamentary report found that only Karnataka has set one up and asked for them to be made mandatory, with a statutory Disaster Risk Impact Assessment for major projects.",
+   "s": "Shankar IAS pp. 4-6, 253-254",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Urban floods and heat",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Heatwaves and lightning have been included among the notified natural calamities for the 2026-31 Finance Commission period. What is the main practical effect of this?",
+   "o": [
+    "They become offences under the Disaster Management Act",
+    "The NDMA takes over all heat action plans from States",
+    "States can use disaster response and mitigation funds for them",
+    "Municipal bodies must declare a holiday during heatwaves"
+   ],
+   "a": 2,
+   "e": "Inclusion lets States draw on disaster response funds for relief and on mitigation funds for heatwave mitigation; the 261st parliamentary report had recommended this. Gurugram's 2026 experience of a 42-degree May heatwave followed by August waterlogging illustrated cities' twin vulnerability. A 2021 NITI Aayog report found 65 per cent of 7,933 urban settlements had no master plan.",
+   "s": "Shankar IAS pp. 4-6, 254",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Urban floods and heat",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Supreme Court's 2026 directions on solid waste management, consider the following statements:\n1. It set up a Central Implementation Committee to oversee implementation of the SWM Rules.\n2. Environmental compensation collected is to be credited to the Consolidated Fund of India.\n3. The Municipal Solid Waste Rules, 2000 were India's first formal framework for municipal waste.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. Compensation is to be kept in a dedicated escrow account and used only for SWM projects. The Court asked MoEF&CC to frame guidelines for compensation under Rule 17 of the SWM Rules, 2026, and the Committee will also guide the national online portal and standardise compensation rules.",
+   "s": "Shankar IAS pp. 220-222",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "SWM Rules 2026",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "According to the Supreme Court's principles on environmental compensation under the SWM Rules, 2026, consider the following statements:\n1. Compensation replaces penal fines for the same violation.\n2. Liability can arise even without actual damage if an activity poses a significant risk.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. Compensation is restitutionary and is in addition to penal fines, not a substitute. It should be predictable, cover tangible and intangible damage, and be proportionate to the extent and duration of harm. Amounts collected go to a dedicated escrow account for SWM projects.",
+   "s": "Shankar IAS p. 222",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "SWM Rules 2026",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "The Global Coal Mine Tracker, which reported a rise in the global proposed coal-mine pipeline to 2,521 Mtpa in 2025, is published by",
+   "o": [
+    "the International Energy Agency",
+    "Global Energy Monitor",
+    "the World Coal Association",
+    "Ember"
+   ],
+   "a": 1,
+   "e": "Global Energy Monitor found the pipeline up 11 per cent, driven almost wholly by India, whose proposed capacity nearly doubled to 638 Mtpa, mainly in Jharkhand and Odisha. China's stayed at 1,321 Mtpa. In 2025 wind and solar together overtook coal in global electricity for the first time.",
+   "s": "Shankar IAS pp. 222-223",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Coal and methane",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to India's proposed coal-mine capacity reported in 2026, consider the following statements:\n1. Most of it is greenfield capacity.\n2. Most of it is coking coal for steel.\n3. India accounts for nearly one-third of the global thermal-coal pipeline.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct; greenfield projects are about 80 per cent of India's proposed capacity. Thermal coal is about 94 per cent, so statement 2 is wrong. About 70 per cent of global projects are pre-construction, raising stranded-asset risk. No country mandates direct methane monitoring at surface mines.",
+   "s": "Shankar IAS pp. 223-224",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Coal and methane",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Gaps in methane monitoring at coal mines are both a climate and a safety concern.\nStatement-II: Methane is a weaker greenhouse gas than carbon dioxide and is not flammable.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. Methane is highly flammable, a major cause of mine explosions, and about 28 to 34 times more potent than CO2 over 100 years. Monitoring gaps include blind zones in goafs, infrequent readings and poorly calibrated sensors. No country mandates direct methane monitoring at surface mines.",
+   "s": "Shankar IAS p. 224",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Coal and methane",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to biochar, consider the following statements:\n1. It is produced by fast combustion of biomass in an oxygen-rich environment.\n2. It can improve soil water retention and sequester carbon.\n3. It offers an alternative to stubble burning.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 2 and 3 are correct. ICAR defines biochar as charred biomass from slow pyrolysis of crop residue or wood waste at 300 to 500 degrees Celsius without oxygen. An IIT Delhi review estimated it could cut 41 to 63 per cent of emissions from agriculture and allied activities. India generates about 350 million tonnes of farm waste a year.",
+   "s": "Shankar IAS p. 229",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Climate-resilient agriculture",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to National Innovations in Climate Resilient Agriculture (NICRA), consider the following statements:\n1. It was launched in 2011 and is implemented by ICAR.\n2. It found more than 300 of 651 agricultural districts to be vulnerable to climate change.\n3. It projects that soybean yields will fall sharply by 2030.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; 310 districts are vulnerable, 109 very highly. NICRA projects soybean yields rising by 3 to 10 per cent by 2030, while rainfed rice, wheat and kharif maize fall by 2050. District Agriculture Contingency Plans exist for all 651 districts. India was the first country to adopt a National Agroforestry Policy, in 2014.",
+   "s": "Shankar IAS pp. 229-230",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Climate-resilient agriculture",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to tiger conservation, consider the following statements:\n1. The Global Tiger Forum is headquartered in New Delhi.\n2. The Conservation Assured Tiger Standards (CA|TS) were launched at the CBD conference in Nagoya.\n3. The International Big Cat Alliance covers five big cat species.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. CA|TS was launched at the first Asian Parks Congress in Japan in 2013, and 23 Indian tiger reserves are accredited. IBCA covers seven big cats (tiger, lion, leopard, snow leopard, cheetah, jaguar and puma) and has 95 members. The GTF, based in New Delhi, has 13 tiger-range countries.",
+   "s": "Shankar IAS pp. 18-19",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tigers",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nTool : Use\n1. M-STrIPES : GPS-based patrolling and ecological monitoring\n2. CaTRAT : Radio-collaring of problem tigers\n3. ExtractCompare : Estimating prey density from dung counts\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 1 is correct. CaTRAT automatically classifies camera-trap images by species, and ExtractCompare identifies individual tigers from stripe patterns. These support the All India Tiger Estimation, run every four years by the NTCA and WII; the 2022 round assessed prey ungulates nationwide for the first time.",
+   "s": "Shankar IAS p. 19",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tigers",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Sariska Tiger Reserve was repopulated in 2008 through translocation.\nStatement-II: The tigers moved to Sariska were descendants of the tigress Machli of Ranthambore.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second does not explain why translocation was needed; it describes who was moved. Sariska's 2008 reintroduction was called the world's first successful tiger translocation and the reserve now has 53 tigers. Machli (T-16) bore 18 cubs. Madhya Pradesh has the most tigers, 785, but recorded 45 tiger deaths in 2026.",
+   "s": "Shankar IAS p. 18",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tigers",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Asian elephants in India, consider the following statements:\n1. The Synchronous All India Population Estimation of Elephants 2021-25 relied only on direct block counts.\n2. It estimated about 32,000 wild elephants.\n3. India has 50 Elephant Reserves.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The 2021-25 estimate was India's first DNA-based census, using dung samples alongside block counts and line transects, and found 22,446 wild elephants. India has 33 Elephant Reserves covering 80,777 sq km and 150 validated corridors, and holds about 60 per cent of the world's wild Asian elephants.",
+   "s": "Shankar IAS pp. 225-226",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Elephants",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "'Gajah Suchana', mentioned in the context of elephant conservation, is",
+   "o": [
+    "a radio-collaring programme for wild elephants",
+    "a fund for compensating crop losses",
+    "an early-warning system for train collisions",
+    "an app maintaining a national genetic database of captive elephants"
+   ],
+   "a": 3,
+   "e": "Gajah Suchana stores DNA profiles, morphology and ownership of captive elephants to verify identity before movement and provide forensic evidence against illegal trade. The Captive Elephant (Transfer or Transport) Rules, 2024 were notified after a Supreme Court order of March 2023, with a High-Powered Committee regulating inter-State transfers.",
+   "s": "Shankar IAS p. 226",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Elephants",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Asiatic lion, consider the following statements:\n1. Its IUCN Red List status has improved from Critically Endangered to Endangered.\n2. Nearly half the population now lives outside strictly protected areas.\n3. Barda Wildlife Sanctuary is being developed as a second home for lions in Gujarat.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Official census data of May 2025 put the population at 891, though the headline called it near 1,000, up from 100 to 150 in the 1960s. The range has grown by over 16 per cent to over 35,000 sq km. A Hi-Tech Monitoring Unit at Sasan Gir (2019) tracks lions by radio-telemetry.",
+   "s": "Shankar IAS pp. 230-231",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Asiatic lion",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Supreme Court's 2026 order on mining near wetlands, consider the following statements:\n1. It extended to all wetland conservation reserves the requirement of prior approval for mining within 10 km of the Asan reserve.\n2. Asan Wetland Conservation Reserve lies at the confluence of the Asan and Yamuna rivers in Himachal Pradesh.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; Asan is in Uttarakhand and has been a Ramsar site since 2020. Approval must come from the Standing Committee of the National Board for Wildlife and/or MoEF&CC. The Wetlands Rules, 2017 have no mandatory buffer, so the order adds a judicial layer. Separately, mining is barred within 1 km of national parks and sanctuaries.",
+   "s": "Shankar IAS pp. 231-233",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Wetlands and Ramsar",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Ramsar sites in India, consider the following statements:\n1. India has 101 Ramsar sites, the highest number in Asia.\n2. Glaw Lake in Arunachal Pradesh became the State's first Ramsar site.\n3. Designation as a Ramsar site by itself creates a statutory protection regime in India.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; Glaw Lake was India's 101st site. Ramsar designation does not itself give statutory protection; that comes from domestic laws such as the Wetlands (Conservation and Management) Rules, 2017, whose validity is under challenge. India joined the Convention, adopted at Ramsar in Iran in 1971, in 1982.",
+   "s": "Shankar IAS pp. 232-233",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Wetlands and Ramsar",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Western Ghats, consider the following statements:\n1. They extend across five States.\n2. The Gadgil Committee recommended declaring about 37 per cent of the Ghats as an Ecologically Sensitive Area.\n3. Anamudi is the highest peak of the Western Ghats.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 3 is correct. The Ghats span six States: Gujarat, Maharashtra, Goa, Karnataka, Kerala and Tamil Nadu. The Gadgil panel (WGEEP, 2011) wanted the entire Ghats declared an ESA, while the Kasturirangan group (HLWG, 2013) proposed about 37 per cent. Anamudi rises to about 8,842 ft.",
+   "s": "Shankar IAS pp. 234-235",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Western Ghats",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "Which of the following rivers rising in the Western Ghats flow west into the Arabian Sea?\n1. Sharavathi\n2. Netravati\n3. Bhima\n4. Bharathappuzha\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "1, 2, 3 and 4",
+    "2, 3 and 4",
+    "1, 2 and 4"
+   ],
+   "a": 3,
+   "e": "Sharavathi, Netravati and Bharathappuzha flow west, as do the Periyar and Mandovi. The Bhima is a tributary of the Krishna and flows east, like the Godavari, Krishna, Kaveri and Tungabhadra. Threats to the Ghats include plantations, iron-ore mining, quarrying and invasive species such as Senna spectabilis.",
+   "s": "Shankar IAS p. 234",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Western Ghats",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to Other Effective Area-based Conservation Measures (OECMs), consider the following statements:\n1. They are formally notified protected areas under the Wildlife (Protection) Act.\n2. The term first appeared in the Aichi Biodiversity Targets of 2010.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. OECMs are areas outside formal protected areas that still achieve long-term biodiversity conservation through ongoing management by communities, private bodies or government; the CBD formally recognised them in 2018. In India, MoEF&CC, the National Biodiversity Authority and UNDP are identifying and mapping them.",
+   "s": "Shankar IAS pp. 236-237",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "OECMs",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the 261st Report of the Parliamentary Standing Committee on disaster management, consider the following statements:\n1. It found that only ten States and UTs had adopted the Model Bill on fire and emergency services.\n2. It recommended two NDRF Regional Response Centres for the Western and Eastern Himalaya.\n3. It recommended that NDRF response be measured by the time of deployment from headquarters.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. The committee wants response measured by actual arrival at the site, not dispatch from headquarters. It also asked for revision of the 2009 National Policy and the NDMP, ward-level early warnings from a unified IMD-CWC-INCOIS-NRSC platform, and quarterly updates to the India Disaster Resource Network.",
+   "s": "Shankar IAS pp. 253-255",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Disaster management",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the 2026 flood on the Nepal-China border, consider the following statements:\n1. It was triggered by a cloudburst over the Kathmandu valley.\n2. The USGS attributed the seismic signal to a tectonic earthquake.\n3. China's Gyirong Port escaped damage.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. A glacier-ice and rock mass collapsed near Langtang Lirung and fell into the Lhende Khola; the USGS traced the seismic signal to this cliff collapse, not tectonics. China's 175.8-million-dollar Gyirong Port was destroyed. The magazine gives the toll as 500+ in one article and 350+ in another.",
+   "s": "Shankar IAS pp. 20-22",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Nepal flood",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nDisaster : State\n1. Dharali, 2025 : Uttarakhand\n2. Irshalwadi landslide, 2023 : Maharashtra\n3. Noney landslide, 2022 : Manipur\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. Other recent landslides include Pathanamthitta (2026) and Wayanad (2024) in Kerala and Kinnaur (2021) in Himachal Pradesh. Dharali, after days of rain, saw mudslides and flash floods that killed at least 69. The GSI counts 87,474 active landslide zones in 179 districts.",
+   "s": "Shankar IAS p. 23",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Landslides",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The Gandak river, which carries floodwaters from Nepal into India, enters Bihar at",
+   "o": [
+    "Kursela",
+    "Raxaul",
+    "Valmikinagar",
+    "Jogbani"
+   ],
+   "a": 2,
+   "e": "The Gandak enters Bihar at Valmikinagar. The Kosi, known for seasonal floods, enters near Kursela as labelled in the source, and the Karnali feeds the Ganga system. After the 2026 Nepal flood, Bihar and UP were on red alert, with extra monitoring in the border districts of Maharajganj and Kushinagar.",
+   "s": "Shankar IAS p. 263",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Nepal flood",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "Map"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: An earthquake swarm has a clearly identifiable mainshock followed by smaller aftershocks.\nStatement-II: Earthquakes in Maharashtra are mostly intraplate earthquakes, far from plate boundaries.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect but Statement-II is correct. A swarm has no clear mainshock; many quakes of similar size occur over days or months. The Nashik and Palghar swarms occur within the Indian plate, where stress is released along fractures in the Deccan Traps basalt, and rainfall can raise pore pressure in faults.",
+   "s": "Shankar IAS pp. 255-257",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Earthquake swarms",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "The Koyna earthquake of 10 December 1967 is a well-known example of",
+   "o": [
+    "volcanic seismicity",
+    "a plate-boundary subduction earthquake",
+    "seismicity caused by mining subsidence",
+    "reservoir-induced seismicity"
+   ],
+   "a": 3,
+   "e": "After the Koyna Dam reservoir was filled, seismicity began and culminated in a magnitude 6.3 quake that killed over 200 people. Reservoir loading and water entering fractures alter pore pressure. P-waves compress and expand rock in the direction of travel, while S-waves move it at right angles.",
+   "s": "Shankar IAS p. 257",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Earthquake swarms",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "According to the Geological Survey of India, which State has the largest number of active landslide zones?",
+   "o": [
+    "Himachal Pradesh",
+    "Uttarakhand",
+    "Kerala",
+    "Arunachal Pradesh"
+   ],
+   "a": 3,
+   "e": "Arunachal Pradesh has 26,213 zones, followed by Himachal Pradesh (17,102) and Uttarakhand (14,780). GSI identified 87,474 active landslide zones in 179 districts of 19 States and UTs, covering about 4.2 lakh sq km. Himachal has the largest share of its area vulnerable, about 26 per cent.",
+   "s": "Shankar IAS p. 258",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Landslides",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nType of landslide : Mechanism\n1. Topple : Blocks tilt forward over a pivot near the base\n2. Spread : A hard upper layer moves apart laterally as a weak layer below yields\n3. Translational slide : Movement along a curved slip surface\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. A translational slide moves along a planar surface; a rotational slide moves along a curved one. Flows such as mudflows and debris flows behave like fluids. Mitigation includes French drains, weep holes, live crib walls, soil nails, rock bolts and geogrids.",
+   "s": "Shankar IAS pp. 258-259",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Landslides",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to nature-based solutions, consider the following statements:\n1. They appear in the emission-reduction plans of at least 102 countries' NDCs.\n2. A PNAS study found they could provide over a third of cost-effective mitigation needed by 2030 to keep warming below 2 degrees Celsius.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; the PNAS figure is 37 per cent. Nature-based solutions address adaptation, mitigation and ecosystem restoration together; on farms they include conservation agriculture, reduced tillage, agroforestry and biochar. The National Mission for Sustainable Agriculture under the 2008 NAPCC supports such practices.",
+   "s": "Shankar IAS pp. 228-229",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Climate-resilient agriculture",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to legal restrictions on mining near protected areas, consider the following statements:\n1. Mining is prohibited inside national parks and sanctuaries under the Wildlife (Protection) Act, 1972.\n2. The Supreme Court has barred mining within 1 km of national park and sanctuary boundaries, or a larger notified Eco-Sensitive Zone.\n3. The Wetlands (Conservation and Management) Rules, 2017 fix a 10-km no-mining buffer around all Ramsar sites.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. Neither the Ramsar Convention nor the 2017 Rules fix any buffer distance, which is why the Supreme Court's order requiring prior approval within 10 km of wetland conservation reserves adds a judicial layer. The 2017 Rules replaced the 2010 Rules with State Wetland Authorities and dropped the explicit list of prohibited activities.",
+   "s": "Shankar IAS pp. 232-233",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Wetlands and Ramsar",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Which of the following are banned in Ecologically Sensitive Areas proposed for the Western Ghats?\n1. New mining and quarrying\n2. Thermal power plants\n3. Red-category industries\n4. Organic farming\nSelect the correct answer using the code given below:",
+   "o": [
+    "1, 2 and 3",
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2, 3 and 4"
+   ],
+   "a": 0,
+   "e": "Draft ESA notifications under the Environment (Protection) Act ban new mining, quarrying and sand mining, thermal power plants and Red-category industries, and require strict clearance for townships and new highways. Organic farming, agroforestry and eco-tourism are suggested green livelihoods. States and communities have resisted ESA notification.",
+   "s": "Shankar IAS p. 235",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Western Ghats",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to tiger conservation in India, consider the following statements:\n1. The NTCA and the Wildlife Crime Control Bureau were created by 2006 amendments to the Wildlife (Protection) Act.\n2. Madhya Pradesh has the largest tiger population.\n3. International Tiger Day originated at the St Petersburg Tiger Summit of 2010.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; Madhya Pradesh had 785 tigers in 2022, but it also recorded 45 tiger deaths in 2026, about 40 per cent of the national total. The NTCA is chaired by the Union Environment Minister. The Global Tiger Recovery Program, phase two of which runs from 2023 to 2034, works through the Global Tiger Forum.",
+   "s": "Shankar IAS pp. 17-19",
+   "sub": "Current Affairs",
+   "u": "Environment",
+   "it": "Tigers",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  }
+ ]
+}

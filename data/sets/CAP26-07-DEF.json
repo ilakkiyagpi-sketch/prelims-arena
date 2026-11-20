@@ -1,0 +1,349 @@
+{
+ "id": "CAP26-07-DEF",
+ "title": "2026-07 Defence & Security",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the Vision Document on Narcotics Control 2026-29, consider the following statements:\n1. It was released at the 10th apex-level meeting of the Narco-Coordination Centre.\n2. It targets container scanners at all major seaports by March 2029.\n3. It proposes a scheme funded equally by the Centre and the States for Anti-Narcotics Task Forces.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. The capacity-building pillar proposes a new 100 per cent centrally funded scheme for vulnerable districts and State Anti-Narcotics Task Forces, which are to be the nodal agencies with a uniform structure, so statement 3 is wrong. Other targets include AI-based passenger profiling at airports by March 2027 and eradicating illicit cultivation in known areas by March 2029.",
+   "s": "Vision IAS pp. 52-53",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Narcotics vision",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "'MANAS', referred to in India's anti-narcotics efforts, is",
+   "o": [
+    "a darknet monitoring tool developed by the NTRO",
+    "a 24x7 toll-free helpline and portal for anonymous reporting of drug-related information",
+    "a de-addiction treatment protocol of AIIMS",
+    "a container-scanning programme of the CBIC"
+   ],
+   "a": 1,
+   "e": "MANAS, the Madak-Padarth Nished Asoochna Kendra, runs on helpline 1933. Other initiatives include Nasha Mukt Bharat Abhiyaan of 2020, which has reached over 18 crore people, the National Action Plan for Drug Demand Reduction and drug disposal campaigns. Note that 14446 is the separate national de-addiction helpline.",
+   "s": "Vision IAS p. 53",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Narcotics vision",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "India is a party to which of the following UN drug control conventions?\n1. Single Convention on Narcotic Drugs, 1961\n2. Convention on Psychotropic Substances, 1971\n3. UN Convention against Illicit Traffic in Narcotic Drugs and Psychotropic Substances, 1988\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 only",
+    "1, 2 and 3",
+    "2 and 3 only",
+    "1 and 2 only"
+   ],
+   "a": 1,
+   "e": "India is party to all three; its NDPS Act, 1985 gives effect to them, with the Narcotics Control Bureau as the national nodal agency. Border forces such as the BSF, SSB, Assam Rifles and the Coast Guard are empowered under the Act to search and seize. The UNODC World Drug Report 2026 put global drug users at about 331 million.",
+   "s": "Vision IAS p. 53",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Narcotics vision",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Investigating drug sales on darknet marketplaces is difficult for enforcement agencies.\nStatement-II: Such marketplaces run over encrypted networks like Tor and often accept privacy coins such as Monero that hide identities and amounts.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. The Vision Document therefore asks the MHA and NTRO to build capacity in darknet monitoring, encryption analysis and crypto investigation. It also notes 30 clandestine labs busted in 2025, 6 tonnes of methamphetamine seized near Andaman and Nicobar waters, and the growing threat of synthetic drugs made from diverted precursors.",
+   "s": "Vision IAS p. 53",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Narcotics vision",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Digital Threat Report 2025-26 on India's banking, financial services and insurance sector, consider the following statements:\n1. It was released by the Reserve Bank of India.\n2. It recorded about 2.9 million cyber incidents in India in 2025.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct; incidents roughly doubled from 1.4 million in 2021. The report was released by MeitY with CERT-In, CSIRT-Fin and the firm SISA. It warns that offensive AI is outpacing defence and that attackers now target identity, APIs, payment logic and third-party vendors rather than perimeters.",
+   "s": "Vision IAS p. 54",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "BFSI cyber report",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "'Quishing', identified as a new cyber threat to the financial sector, refers to",
+   "o": [
+    "attacks that use quantum computers to break encryption",
+    "phishing through malicious QR codes",
+    "fraud using synthetic identities to pass KYC checks",
+    "flooding a bank server with fake queries"
+   ],
+   "a": 1,
+   "e": "Quishing lures victims into scanning a QR code that leads to a fraudulent payment or credential page. The report also flags AI-written phishing, deepfakes, synthetic identities and 'harvest now, decrypt later', in which encrypted data are stolen today to be decrypted by future quantum computers. It recommends assuming compromise and treating identity as the key control.",
+   "s": "Vision IAS p. 54",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "BFSI cyber report",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Consider the following pairs:\nInstitution : Parent body\n1. CERT-In : Ministry of Electronics and Information Technology\n2. NCIIPC : National Technical Research Organisation\n3. I4C : Ministry of Home Affairs\n4. FIU-IND : Ministry of Finance\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 3,
+   "e": "All four pairs are correct. The Financial Intelligence Unit, which analyses suspicious transactions, is under the Department of Revenue in the Ministry of Finance. CERT-In is the nodal agency for cyber incidents under Section 70B of the IT Act, NCIIPC protects critical information infrastructure, and I4C coordinates action against cybercrime.",
+   "s": "Vision IAS p. 55",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Cyber institutions",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to international cybercrime treaties, consider the following statements:\n1. India is a signatory to the Budapest Convention on Cybercrime, 2001.\n2. The UN Convention against Cybercrime of 2024 is the first legally binding global treaty on cybercrime.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. India has not signed the Council of Europe's Budapest Convention, which it sees as drafted without developing countries. Signing the UN convention would ease cross-border access to electronic evidence. The report also recommends implementing the DPDP Act, 2023 and its 2025 Rules.",
+   "s": "Vision IAS p. 55",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Cyber institutions",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Unlawful Activities (Prevention) Act, 1967, consider the following statements:\n1. Since the 2019 amendment, the Centre can designate individuals as terrorists.\n2. An accused may be detained for no more than 90 days without a chargesheet.\n3. Designation of an individual as a terrorist requires approval by a High Court.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Under the UAPA, detention without a chargesheet can be extended from 90 to 180 days, unlike the ordinary limit. Designation is a non-judicial executive act by the MHA, notified in the Gazette, with no High Court approval. A designated person may appeal to the MHA, which must decide within 45 days, and then to a review committee headed by a retired High Court judge.",
+   "s": "Shankar IAS pp. 122-123",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "UAPA designations",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Prolonged pre-trial detention is common in cases under the Unlawful Activities (Prevention) Act.\nStatement-II: Section 43D(5) of the Act makes bail automatic if no chargesheet is filed within 30 days.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. Section 43D(5) bars bail if the court finds the accusation prima facie true, and detention without a chargesheet may run to 180 days, so detention can become punishment before trial. Other concerns are vague definitions and low conviction rates.",
+   "s": "Shankar IAS p. 123",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "UAPA designations",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The 2019 amendment to the Unlawful Activities (Prevention) Act empowered which authority to attach property derived from terrorism without prior permission of the State police chief?",
+   "o": [
+    "The Home Secretary of the State",
+    "The Director of the Enforcement Directorate",
+    "The Director General of the National Investigation Agency",
+    "The Special Court"
+   ],
+   "a": 2,
+   "e": "Earlier the NIA needed the State Director General of Police's permission, which caused delays when property lay in several States; State police powers were not removed. The first individuals designated after the amendment in 2019 were Masood Azhar, Hafiz Saeed, Zaki-ur-Rehman Lakhvi and Dawood Ibrahim.",
+   "s": "Shankar IAS p. 123",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "UAPA designations",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following are founding members of the Integrated Anti-Ballistic Missile Coalition set up in Europe in 2026?\n1. Ukraine\n2. Norway\n3. United Kingdom\n4. Poland\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2 and 3",
+    "1, 2, 3 and 4"
+   ],
+   "a": 2,
+   "e": "The ten founders are Denmark, France, Germany, Italy, the Netherlands, Norway, Spain, Sweden, Ukraine and the United Kingdom; Poland is not among them. The coalition aims to build a shared ballistic missile defence capability using Ukraine's experience against Russian missiles.",
+   "s": "Vision IAS p. 55",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "European missile coalition",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to INS Mahendragiri, consider the following statements:\n1. It is the sixth frigate of Project 17A, the Nilgiri class.\n2. It was built by Mazagon Dock Shipbuilders, Mumbai.\n3. It uses combined diesel or gas propulsion.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; it has over 75 per cent indigenous content and was designed by the Navy's Warship Design Bureau. Project 17A has seven stealth frigates, four built at Mazagon Dock and three at Garden Reach Shipbuilders in Kolkata, so the Kolkata yard is a common trap. CODOG propulsion uses diesel engines for cruising and gas turbines for high speed.",
+   "s": "Vision IAS pp. 55-56",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "INS Mahendragiri",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nMissile or system : Description\n1. Pinaka LRGR : Guided version of the multi-barrel rocket launcher, range of about 300 km\n2. Astra Mk-1 : Beyond-visual-range air-to-air missile, first exported to Indonesia\n3. Kusha : Short-range anti-tank missile\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 2 is correct. The Pinaka Long Range Guided Rocket has a range of about 60 to 120 km. Kusha is an indigenous long-range surface-to-air missile with interceptor variants of 150, 250 and 350 to 400 km, meant for the 'Sudarshan Chakra' air-defence shield. Astra Mk-1 was first exported to Indonesia.",
+   "s": "Vision IAS p. 56",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Missiles",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "The maiden flight test of DRDO's Kusha long-range surface-to-air missile was carried out from",
+   "o": [
+    "Integrated Test Range, Chandipur",
+    "APJ Abdul Kalam Island, Odisha",
+    "Pokhran Field Firing Range, Rajasthan",
+    "Satish Dhawan Space Centre, Sriharikota"
+   ],
+   "a": 1,
+   "e": "The island test site off Odisha, formerly Wheeler Island, is used for longer-range missile tests, while the Pinaka LRGR was tested at the Integrated Test Range at Chandipur. Kusha is compared with systems such as the US THAAD and Patriot PAC-3 and Israel's Iron Dome.",
+   "s": "Vision IAS pp. 56-57",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Missiles",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to the Astra Mk-1 missile, consider the following statements:\n1. It uses terminal active radar homing.\n2. It flies at speeds of about Mach 4.5.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. The missile also uses inertial guidance with mid-course updates and can engage targets at up to 20 km altitude. Developed by DRDO for the Air Force and Navy, it was the subject of India's first export pact for the missile, signed with Indonesia during the Prime Minister's 2026 visit.",
+   "s": "Vision IAS p. 56",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Missiles",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to exercises in 2026, consider the following statements:\n1. Pitch Black is a biennial multinational air-combat exercise hosted by the Royal Australian Air Force at Perth.\n2. AUSINDEX is the bilateral army exercise between India and Australia.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. Pitch Black is hosted at Darwin in the Northern Territory; the name comes from night flying over sparsely populated northern Australia. AUSINDEX is the naval exercise; the army exercise is AUSTRAHIND.",
+   "s": "Vision IAS p. 57",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Exercises",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "'Operation Southern Readiness 26-2', hosted by the Indian Navy at Kochi in 2026, was conducted under",
+   "o": [
+    "Combined Task Force 154 of the Combined Maritime Forces",
+    "the Indian Ocean Naval Symposium",
+    "the Quad Maritime Security Initiative",
+    "the Colombo Security Conclave"
+   ],
+   "a": 0,
+   "e": "The Indian Navy leads Combined Task Force 154, which trains partners in maritime security within the 47-nation Combined Maritime Forces partnership against illicit non-state actors at sea. This was the first edition hosted in India, at the Southern Naval Command.",
+   "s": "Vision IAS p. 57",
+   "sub": "Current Affairs",
+   "u": "Defence & Security",
+   "it": "Exercises",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  }
+ ]
+}

@@ -1,0 +1,273 @@
+{
+ "id": "CAP26-07-SOC",
+ "title": "2026-07 Social, Health & Education",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to changes in the Indian family, consider the following statements:\n1. According to Census 2011, nuclear families made up about 70 per cent of households.\n2. India's total fertility rate has fallen below the replacement level of 2.1.\n3. The share of women aged 20-24 married before 18 has risen since 2005-06.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; NFHS-6 puts the total fertility rate at 2.0. Child marriage fell from 47.4 per cent in 2005-06 to 20.1 per cent in 2023-24, so statement 3 is wrong. The UNFPA's 2025 survey found young people still value marriage and parenthood but are delaying them, citing finances, careers and housing costs.",
+   "s": "Vision IAS pp. 70-71; Shankar IAS pp. 11-12",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Family structure",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Low fertility poses the risk of 'premature ageing' for India.\nStatement-II: India's old-age dependency and pension and health burdens may rise before the country has become rich.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains what premature ageing means and why it is a risk. The picture is uneven: Bihar, Uttar Pradesh and Jharkhand still have high fertility while Kerala, Tamil Nadu, Delhi and Sikkim are well below replacement, so State-specific demographic policies are suggested, with elderly care and workforce participation in low-fertility States.",
+   "s": "Shankar IAS pp. 12-13",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Family structure",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "The definition of the family as 'a group of persons united by ties of marriage, blood or adoption, constituting a single household' is associated with",
+   "o": [
+    "G.P. Murdock",
+    "Talcott Parsons",
+    "Burgess and Locke",
+    "Iravati Karve"
+   ],
+   "a": 2,
+   "e": "Burgess and Locke gave this definition in 1945, emphasising interaction among members in their social roles. Families are classified as nuclear, joint or extended, with newer forms such as single-person households, single parents and transnational families. Industrialisation, urbanisation, land reforms and smaller families drove the shift from joint to nuclear households.",
+   "s": "Vision IAS p. 70",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Family structure",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to women's internet use in NFHS-6, consider the following statements:\n1. The share of women using the internet roughly doubled from NFHS-5.\n2. A larger share of rural women than urban women used the internet.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct: it rose from 33.3 to 64.3 per cent, still below men at 80.5 per cent. Urban women, at 77.3 per cent, were well ahead of rural women at 58.6 per cent. Barriers include patriarchal norms, affordability, online harassment and shared family phones, which is why the focus is shifting from access to digital agency.",
+   "s": "Shankar IAS p. 13",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Digital agency",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the Pradhan Mantri Gramin Digital Saksharta Abhiyan, women account for about what share of registered beneficiaries?",
+   "o": [
+    "About a quarter",
+    "About half",
+    "About a third",
+    "About three-quarters"
+   ],
+   "a": 1,
+   "e": "Women make up about 52 per cent of registered beneficiaries. The 2026 discussion argues that literacy programmes must go further: gender-sensitive training that involves families and community leaders, digital safety in school curricula, smartphone subsidies for poor and single women, and local-language financial apps.",
+   "s": "Shankar IAS p. 14",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Digital agency",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the SUMAN Roadmap 2030, consider the following statements:\n1. It aims to bring the maternal mortality ratio below 70 by 2030.\n2. The maternal mortality ratio is expressed as maternal deaths per 1,000 live births.\n3. It focuses on 130 districts in 13 high-focus States.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. The maternal mortality ratio is measured per 1,00,000 live births and stood at 87 in 2022-24; infant and neonatal mortality are per 1,000 live births, at 24 and 18. SUMAN, Surakshit Matritva Aashwasan, is a framework of the health ministry under RMNCHA+N within the National Health Mission.",
+   "s": "Vision IAS pp. 71-72",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "SUMAN roadmap",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "Under the Pradhan Mantri Surakshit Matritva Abhiyan, free antenatal check-ups are provided to pregnant women on",
+   "o": [
+    "the 1st of every month",
+    "every Sunday",
+    "the 9th of every month",
+    "the 15th of every month"
+   ],
+   "a": 2,
+   "e": "The fixed day makes specialist check-ups available at government facilities across the country. Related programmes are PMMVY, which gives a cash incentive for nutrition and wage loss; POSHAN Abhiyaan against malnutrition; and Mission Indradhanush for full immunisation of children and pregnant women.",
+   "s": "Vision IAS p. 72",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "SUMAN roadmap",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the UDISE+ 2025-26 report, consider the following statements:\n1. The Gender Parity Index is above 1 at all levels of school education.\n2. Retention at the secondary level is above 80 per cent.\n3. Women make up less than two-fifths of the teaching workforce.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Women are 54.9 per cent of teachers. Retention is 83.7 per cent at the middle level but only 51.9 per cent at the secondary level. The report covers about 14.67 lakh schools and over 24 crore students, with secondary GER rising to 71.7 per cent.",
+   "s": "Vision IAS p. 72",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "UDISE+",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Female gross enrolment in higher education in India has exceeded male enrolment in recent years.\nStatement-II: The Gender Parity Index in higher education was 1.08 in 2023-24.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second is a measure of the first, not its cause; a GPI above 1 means the female GER exceeds the male GER. Female GER has been ahead for seven consecutive years. Overall GER for ages 18 to 23 reached 30.0 in 2023-24, against the NEP target of 50 per cent by 2035.",
+   "s": "Vision IAS p. 73",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "AISHE",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the All India Survey on Higher Education, consider the following statements:\n1. Participation by higher education institutions is mandatory under the UGC Act.\n2. Enrolment of Scheduled Tribe students grew faster than that of SC and OBC students between 2014-15 and 2023-24.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct; ST enrolment rose by 75.7 per cent to 28.83 lakh, against 60.2 per cent for OBC and 51.4 per cent for SC students. The survey is voluntary, with data self-reported by institutions on the AISHE portal. Women's share of STEM enrolment rose from 38.4 to 44 per cent.",
+   "s": "Vision IAS pp. 72-73",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "AISHE",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nIndex : Structure\n1. PGI-S (State) : 1,000 points across 70 indicators\n2. PGI-D (District) : 600 points across 70 indicators\nWhich of the pairs given above is/are correctly matched?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Neither 1 nor 2",
+    "Both 1 and 2"
+   ],
+   "a": 3,
+   "e": "Both are correct. The Performance Grading Index 2.0 for States has six domains, including learning outcomes, access, infrastructure, equity, governance and teacher training. The district index has six categories, including school safety and child protection and digital learning. The Ministry of Education released both for 2025-26.",
+   "s": "Vision IAS p. 73",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "PGI 2.0",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to India's R&D Statistics 2025-26, consider the following statements:\n1. Gross expenditure on R&D crossed 0.8 per cent of GDP for the first time since 2010.\n2. The private sector's share of R&D spending has overtaken the government's.\n3. Higher education institutions increased their share of R&D spending.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. GERD reached 0.84 per cent of GDP in 2023-24; the private sector's share rose to 51.8 per cent against 48.2 per cent for government; and higher education's share rose from 7.5 to 12.6 per cent. Note that a figure of 0.74 per cent cited in June referred to a two-decade average.",
+   "s": "Vision IAS pp. 73-74",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "R&D spending",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "The 'Global Report on Food Crises 2026', which found 266 million people in acute food insecurity, is published by the",
+   "o": [
+    "Global Network Against Food Crises",
+    "World Food Programme alone",
+    "International Fund for Agricultural Development",
+    "World Bank"
+   ],
+   "a": 0,
+   "e": "The Global Network Against Food Crises, which includes the FAO, WFP and other partners, publishes the report. It covered 47 countries and territories, found conflict to be the biggest driver followed by weather extremes and economic shocks, and noted humanitarian funding falling to 2016-17 levels. Forced displacement fell slightly to about 85 million.",
+   "s": "Vision IAS p. 74",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Global food crises",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to the 'Time Use Survey 2024', consider the following statements:\n1. Female participation in employment-related activities rose between 2019 and 2024.\n2. It shows that men and women now share unpaid household work equally.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; participation rose from 21.8 to 25 per cent. Household work and caregiving still fall mainly on women, which is a reason given for career-family conflict and delayed childbearing. Shared caregiving through paternity leave, workplace creches and flexible work is among the suggested responses.",
+   "s": "Shankar IAS p. 12",
+   "sub": "Current Affairs",
+   "u": "Social, Health & Education",
+   "it": "Family structure",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  }
+ ]
+}
