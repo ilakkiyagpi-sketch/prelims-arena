@@ -1,0 +1,273 @@
+{
+ "id": "CAP26-09-ST",
+ "title": "2026-09 Science & Tech",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the parachute system of the Gaganyaan crew module, consider the following statements:\n1. It uses two drogue chutes and three main chutes.\n2. Parachutes are deployed only after the module slows to sub-sonic speed.\n3. The module can land safely even if one main chute fails completely.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The module reaches about 170 m/s in the lower atmosphere; supersonic deployment would shred canopies. The sequence is pilot, drogue, then main, with drogues mortar-deployed and mains pulled out by mortar-ejected pilot chutes. Reefing lets canopies open in stages.",
+   "s": "Shankar IAS pp. 162-163",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Gaganyaan parachutes",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nMaterial : Use in the Gaganyaan parachutes\n1. Kevlar : High-load suspension lines and risers\n2. Nomex : Heat-exposed zones\n3. Nylon : Canopy broadcloth\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. Kevlar gives tensile strength and heat tolerance, Nomex resists hot mortar gas and friction heating, and nylon's elasticity absorbs opening shock while packing small. The system is developed by DRDO's Aerial Delivery Research and Development Establishment, Agra, and tested on the Rail Track Rocket Sled at TBRL, Chandigarh.",
+   "s": "Shankar IAS pp. 163-164",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Gaganyaan parachutes",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "In the context of space warfare, 'bricking' a satellite refers to",
+   "o": [
+    "shielding it with extra armour",
+    "moving it into a graveyard orbit",
+    "using malware to turn it into a non-working object",
+    "destroying it with a direct-ascent missile"
+   ],
+   "a": 2,
+   "e": "Bricking is a non-kinetic, soft-kill attack that achieves the effect of destruction without debris. Other non-kinetic tools are jamming, spoofing and hacking ground stations. A legal gap remains: Article 2(4) of the UN Charter bans the use of force but does not clearly say whether a cyberattack counts.",
+   "s": "Shankar IAS pp. 164-165",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Space warfare",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the Indian Space Policy, 2023, consider the following statements:\n1. ISRO is to expand its routine manufacturing of operational launch vehicles.\n2. NSIL is the body that authorises space activities of non-governmental entities.\n3. Non-governmental entities are barred from providing launch services.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. ISRO is to move away from routine manufacturing towards research and advanced missions; IN-SPACe authorises private space activity, while NSIL is ISRO's commercial arm; and non-governmental entities may now provide launch services. The aim is commercialisation, not privatisation of ISRO's core role.",
+   "s": "Shankar IAS pp. 168-169",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "ISRO commercialisation",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nAsset : Status of transfer to industry\n1. SSLV : Technology transferred to HAL\n2. PSLV : Manufacturing contract with Tata Advanced Systems alone\n3. LVM3 : Production already awarded to a private firm\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 1 is correct. The PSLV contract went to a HAL-L&T consortium, and for LVM3 a fresh Expression of Interest has been issued after no earlier award. Operation of the Small Satellite Launch Complex at Kulasekarapattinam is also proposed for transfer.",
+   "s": "Shankar IAS p. 169",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "ISRO commercialisation",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Anthropic's September 2026 report on AI misuse, consider the following statements:\n1. It found AI being used in multi-agent workflows for cyber operations, with humans choosing targets.\n2. It dismantled an influence operation promoting Bangladesh's Awami League.\n3. It found evidence that the Indian state directed the Bangladesh-related operation.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. Some content aligned with pro-Indian interests, but the report found no evidence of Indian state direction or funding; a single actor generated at least 1,500 headlines and 300 false narratives. The report covered seven areas, including scams, influence operations, surveillance and biological misuse, from December 2025 to August 2026.",
+   "s": "Shankar IAS pp. 166-168",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "AI misuse",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Blanket bans on AI assistance for whole fields of biology are considered undesirable.\nStatement-II: AI in biology is dual-use, with large benefits for drug discovery and disease modelling alongside misuse risks.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Safeguards should rest on risk, intent, capability and context. Anthropic's report described five cases of requests that could support dangerous biological research but cautioned against reading them as proof of imminent attacks.",
+   "s": "Shankar IAS pp. 170-172",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "AI misuse",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the Cell Broadcast System resumed in India in 2026, consider the following statements:\n1. It sends alerts to phones one number at a time, like SMS.\n2. It needs an internet connection and an app on the phone.\n3. Alerts can override silent and Do Not Disturb modes.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 3 is correct. Cell broadcast sends one message from towers to every compatible phone in an area, like radio, so it avoids SMS queues and network congestion; it works on 2G to 5G without data, apps or phone numbers. For fast disasters it can auto-issue alerts if no human confirms within about 10 seconds. C-DOT, DoT's R&D arm, runs it.",
+   "s": "Shankar IAS pp. 173-174",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Cell Broadcast",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which one of the following correctly orders India, China and the United States by R&D spending as a share of GDP, from highest to lowest?",
+   "o": [
+    "China, US, India",
+    "US, India, China",
+    "US, China, India",
+    "China, India, US"
+   ],
+   "a": 2,
+   "e": "The US spends about 3.5 per cent, China about 2.8 and India about 0.64 per cent of GDP on R&D. China's strategy centres on 'new quality productive forces' with AI at the core, moving from manufacturing to original innovation, while the US is rebuilding manufacturing to match its scientific strength.",
+   "s": "Shankar IAS p. 175",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Tech race",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Legal Metrology (Indian Standard Time) Rules, 2026, consider the following statements:\n1. They were notified on 27 August 2026 and come into force 180 days after publication.\n2. India's realisation of Coordinated Universal Time is maintained by ISRO.\n3. IST is traceable to UTC with an uncertainty below 3 nanoseconds.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. CSIR-NPL, the National Metrology Institute, maintains UTC(NPLI) with atomic clocks; ISRO provides traceability to IST through NavIC. The Rules require government and critical-sector systems to use an authorised, traceable IST source, enforced by the Department of Legal Metrology.",
+   "s": "Shankar IAS pp. 22-23, 177",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "One Nation One Time",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nTime dissemination method : Typical accuracy\n1. Network Time Protocol : Nanosecond level\n2. Precision Time Protocol : Second level\n3. Optical fibre links : Lower precision than NTP\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 3,
+   "e": "None of the pairs is correct. NTP gives millisecond-level accuracy, PTP microsecond-level, and optical fibre links extremely high precision, as with White Rabbit. Space applications may need nanosecond traceability. Satellite timing is vulnerable to jamming and spoofing, hence the push for redundancy.",
+   "s": "Shankar IAS pp. 24, 177",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "One Nation One Time",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to India's time zone, consider the following statements:\n1. India's standard meridian of 82 degrees 30 minutes East passes through Kolkata.\n2. India observes daylight saving time in summer.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The standard meridian of 82 degrees 30 minutes East passes near Mirzapur, and India has no daylight saving, using UTC+5:30 all year. Spanning about 30 degrees of longitude, India sees sunrise around 4:30 AM in Arunachal Pradesh but about 7 AM in Gujarat.",
+   "s": "Shankar IAS p. 23",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "One Nation One Time",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to Anthropic's 2026 report on AI misuse, which one of the following was not among its seven areas of concern?",
+   "o": [
+    "Influence operations",
+    "Illicit distillation",
+    "Biological misuse",
+    "Autonomous vehicle hacking"
+   ],
+   "a": 3,
+   "e": "The seven areas were scams and fraud, cyber operations, illicit distillation, influence operations, surveillance, conventional weapons and biological misuse. The report described a shift from AI assistance to AI-orchestrated operations, narrowing the gap between state actors and small groups.",
+   "s": "Shankar IAS p. 166",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "AI misuse",
+   "pr": "Extra",
+   "fmt": "not-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Gaganyaan abort scenarios, consider the following statements:\n1. In a pad abort, escape motors lift the crew module before parachutes are deployed.\n2. Max-Q refers to the point of maximum dynamic pressure during ascent.\n3. The parachute sequence is fixed and cannot be overridden by the flight computer.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. A fault-tolerant mission computer, fed by barometric altimeters, inertial navigation and accelerometers, can override default timelines if descent rate exceeds safety limits. In a pad abort there is no time for delayed reefing, so mortars must eject chutes within seconds.",
+   "s": "Shankar IAS p. 163",
+   "sub": "Current Affairs",
+   "u": "Science & Tech",
+   "it": "Gaganyaan parachutes",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  }
+ ]
+}

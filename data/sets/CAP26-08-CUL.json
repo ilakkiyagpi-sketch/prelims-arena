@@ -1,0 +1,216 @@
+{
+ "id": "CAP26-08-CUL",
+ "title": "2026-08 History, Culture & Awards",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the Communal Award of 1932, consider the following statements:\n1. It was announced by British Prime Minister Ramsay MacDonald.\n2. It granted separate electorates to the Depressed Classes for 10 years.\n3. It abolished separate electorates for Muslims and Sikhs.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The Award of 16 August 1932 gave the Depressed Classes separate electorates for 20 years and 71 special seats in provincial legislatures. It continued separate electorates for Muslims, Sikhs, Indian Christians, Anglo-Indians and Europeans. Muslim separate electorates dated from the Indian Councils Act, 1909.",
+   "s": "Shankar IAS pp. 26-27",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Poona Pact",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Under the Poona Pact of 1932, what share of seats in the Central Legislature was set aside for the Depressed Classes?",
+   "o": [
+    "10 per cent",
+    "15 per cent",
+    "25 per cent",
+    "18 per cent"
+   ],
+   "a": 3,
+   "e": "The Pact set aside 18 per cent of Central Legislature seats and raised reserved provincial seats from 71 under the Communal Award to 148, within joint electorates. It followed Gandhi's fast unto death from 20 September 1932 in Yerwada jail and was signed on 24 September; the British accepted it as an amendment to the Award.",
+   "s": "Shankar IAS pp. 27-28",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Poona Pact",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Ambedkar opposed separate electorates for the Depressed Classes at the Round Table Conferences.\nStatement-II: He feared that under joint electorates Dalit candidates would depend on caste-Hindu votes and serve dominant-caste interests.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect but Statement-II is correct. Ambedkar demanded separate electorates because he feared that under joint electorates Dalit candidates would depend on caste-Hindu votes. Gandhi opposed them as dividing Hindu society. Under reserved seats, all voters elect, but only candidates of the designated community may contest.",
+   "s": "Shankar IAS pp. 26-28",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Poona Pact",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Arrange the following events in chronological order:\n1. Lucknow Session of the Indian National Congress\n2. Montagu Declaration\n3. Rowlatt Act\n4. Britain's declaration of war on Germany\nSelect the correct answer using the code given below:",
+   "o": [
+    "4-1-3-2",
+    "1-4-2-3",
+    "4-2-1-3",
+    "4-1-2-3"
+   ],
+   "a": 3,
+   "e": "Britain declared war on Germany on 4 August 1914, drawing India in; the Lucknow Session was in 1916; the Montagu Declaration promising gradual self-government came in 1917; and the Rowlatt Act in 1919, followed by the Jallianwala Bagh massacre on 13 April 1919.",
+   "s": "Shankar IAS pp. 29-31",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "WWI and India",
+   "pr": "Core",
+   "fmt": "chronology",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to India and the First World War, consider the following statements:\n1. India supplied jute, used for sandbags, among its war materials.\n2. By 1930, many Indian officers had risen above the rank of captain in the Indian Army.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; India sent over 3.7 million tonnes of supplies including jute, cotton, iron and manganese, and over 170,000 animals. Even by 1930 very few Indians had risen above captain, one of the discriminations that fed post-war disillusionment, along with the Rowlatt Act and the Jallianwala Bagh massacre of 1919.",
+   "s": "Shankar IAS p. 30",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "WWI and India",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to India's role in the First World War, consider the following statements:\n1. Indian soldiers formed the bulk of the force in the Mesopotamian campaign.\n2. Indian troops fought on the Western Front, including at Ypres.\n3. All Indian war dead were commemorated individually by the Imperial War Graves Commission.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. British dead were commemorated individually, but many Indian dead, especially in Mesopotamia, were recorded only by numbers. About 1.3 to 1.5 million Indians served and 60,000 to 74,000 or more were killed. India also supplied over 3.7 million tonnes of materials, including jute for sandbags.",
+   "s": "Shankar IAS pp. 29-31",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "WWI and India",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to India's UNESCO World Heritage properties, consider the following statements:\n1. India has 45 properties, of which 37 are natural.\n2. India ranks fifth in the world by number of properties.\n3. Kaziranga National Park is India's only mixed property.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. India has 37 cultural, 7 natural and 1 mixed property, Khangchendzonga National Park in Sikkim; Kaziranga is a natural property. India ranks sixth after Italy (62), China (61), France (56), Germany (55) and Spain (50), and second in the Asia-Pacific.",
+   "s": "Shankar IAS pp. 32-34",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "World Heritage",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Arrange the following Indian World Heritage properties in the order of their inscription:\n1. Dholavira\n2. Rani-ki-Vav\n3. Santiniketan\n4. Jantar Mantar, Jaipur\nSelect the correct answer using the code given below:",
+   "o": [
+    "2-4-1-3",
+    "4-2-1-3",
+    "4-1-2-3",
+    "4-2-3-1"
+   ],
+   "a": 1,
+   "e": "Jantar Mantar was inscribed in 2010, Rani-ki-Vav at Patan in 2014, Dholavira in 2021 and Santiniketan in 2024. Recent additions also include the Moidams of Assam (2024), the Maratha Military Landscapes (2025) and Sarnath (2026).",
+   "s": "Shankar IAS pp. 33-34",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "World Heritage",
+   "pr": "Extra",
+   "fmt": "chronology",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nWorld Heritage property : State\n1. Great Himalayan National Park : Himachal Pradesh\n2. Keoladeo National Park : Gujarat\n3. Manas Wildlife Sanctuary : West Bengal\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 1 is correct. Keoladeo is in Rajasthan, and Manas, like Kaziranga, is in Assam; the Sundarbans is West Bengal's natural property. India's seven natural properties also include Nanda Devi and Valley of Flowers in Uttarakhand and the Western Ghats.",
+   "s": "Shankar IAS p. 34",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "World Heritage",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to heritage initiatives, consider the following statements:\n1. The 'Adopt a Heritage' scheme lets private companies and NGOs develop visitor amenities at protected monuments.\n2. The Gyan Bharatam Mission deals with the preservation and digitisation of manuscripts.\n3. The National Mission on Monuments and Antiquities is implemented by the Ministry of Tourism.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. The National Mission on Monuments and Antiquities is implemented by the ASI and builds a national database of built heritage and antiquities. Adopt a Heritage began in 2017 and was revamped in 2023, funded through CSR. Gyan Bharatam, launched in 2025, includes a National Manuscript Survey in 2026.",
+   "s": "Shankar IAS p. 34",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "Heritage initiatives",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following components were inscribed as part of the Ancient Buddhist Site of Sarnath?\n1. Chaukhandi Stupa\n2. Mulagandhakuti Vihara\n3. Mahaparinirvana Temple\n4. Ashokan Pillar\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "1, 2, 3 and 4",
+    "2, 3 and 4",
+    "1, 2 and 4"
+   ],
+   "a": 3,
+   "e": "The inscribed property has two parts: the Chaukhandi Stupa, and the archaeological remains including the Dhamek and Dharmarajika Stupas, Mulagandhakuti Vihara and the Ashokan Pillar. The Mahaparinirvana Temple is at Kushinagar. Sarnath had been on India's Tentative List since 1998, a 28-year journey.",
+   "s": "Shankar IAS pp. 31-32",
+   "sub": "Current Affairs",
+   "u": "Culture, Sports & Awards",
+   "it": "World Heritage",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "News"
+  }
+ ]
+}

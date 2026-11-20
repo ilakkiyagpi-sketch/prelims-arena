@@ -1,0 +1,1071 @@
+{
+ "id": "CAP26-08-POL",
+ "title": "2026-08 Polity & Governance",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the 2026 report of the Department-Related Standing Committee on Home Affairs on cybercrime, consider the following statements:\n1. It recommends a nationwide mechanism to convert complaints on the National Cybercrime Reporting Portal into e-FIRs automatically.\n2. It recommends transferring all cybercrime cases to the National Investigation Agency.\n3. The National Cybercrime Reporting Portal is run by the Ministry of Electronics and Information Technology.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The committee wanted a durable Centre-State mechanism for CBI probes into inter-State and transnational cybercrime, possibly by amending the DSPE Act, 1946, under which the CBI needs State consent. The portal, cybercrime.gov.in, is run by I4C under the Ministry of Home Affairs. It also proposed a unified cybercrime law.",
+   "s": "Shankar IAS pp. 6-7",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "DRSC reports",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the 165th Report of the parliamentary standing committee on alternative dispute resolution, consider the following statements:\n1. It asks the government to speed up setting up the Mediation Council of India under the Mediation Act, 2023.\n2. It recommends making pre-institution mediation mandatory, with cost penalties for unreasonable refusal.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. The committee also wants the India International Arbitration Centre and the Delhi International Arbitration Centre strengthened, clearer limits on court intervention in arbitration, and more staff and money for NALSA. NALSA is constituted under the Legal Services Authorities Act, 1987, which gives effect to Article 39A on free legal aid (static GK).",
+   "s": "Shankar IAS pp. 7-8",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "DRSC reports",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The 166th Report of a parliamentary standing committee recommended a 'Zero FIR'-type universal filing system, under which a claim could be filed at any Bench and transferred to the right one. This recommendation was made for the",
+   "o": [
+    "National Green Tribunal",
+    "Railway Claims Tribunal",
+    "Income Tax Appellate Tribunal",
+    "Telecom Disputes Settlement and Appellate Tribunal"
+   ],
+   "a": 1,
+   "e": "The universal filing idea was for the Railway Claims Tribunal, along with AI-assisted scheduling under the eRCT project. For TDSAT the committee suggested a Telecom Ombudsman; for the NGT, faster appointments and public dashboards; for the NCLT, dedicated IBC Benches. Tribunals rest on Articles 323A and 323B, inserted by the 42nd Amendment in 1976.",
+   "s": "Shankar IAS pp. 8-9",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "DRSC reports",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Oak forests account for most forest-fire incidents in the Western Himalaya.\nStatement-II: Chir pine sheds needles every year that pile up as dry, inflammable biomass.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect but Statement-II is correct. The 412th Report found chir pine forests account for about 57 per cent of Western Himalayan fire incidents, because their needles, 'pirul', pile up as dry fuel. It wants tighter scrutiny of diversion of oak, deodar and mixed-conifer forests and a National Pine-Needle Utilisation Policy.",
+   "s": "Shankar IAS pp. 9-10",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Himalayan forest fires",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the 412th Report on forest fires in the Himalayan region, consider the following statements:\n1. It recommends a dedicated geostationary satellite for round-the-clock fire monitoring.\n2. It found that the drivers of fires differ between the Western and Eastern Himalaya.\n3. It urges tighter scrutiny of proposals to divert oak, deodar and mixed-conifer forests.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. In the West, pre-monsoon heat, pine-needle fuel and nearby human activity drive fires; in the East, atmospheric dryness interacts with cultivation-linked burning. The 412th Report also wants a central database on casualties and compensation, and notes only two NDRF battalions are deployed for forest fires.",
+   "s": "Shankar IAS pp. 9-10",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Himalayan forest fires",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "The 'Business Ready (B-READY)' framework, with which a parliamentary committee asked India to align its reforms, is published by the",
+   "o": [
+    "World Economic Forum",
+    "World Bank",
+    "OECD",
+    "UNCTAD"
+   ],
+   "a": 1,
+   "e": "B-READY is the World Bank's successor to its discontinued Doing Business report. The 201st Report on doing business also noted that over 47,000 compliances have been reduced or decriminalised, and recommended deemed approval when service timelines lapse, automatic renewal for clean firms and full onboarding of the National Single Window System.",
+   "s": "Shankar IAS pp. 10-11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ease of doing business",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "Consider the following pairs:\nPlatform : Purpose\n1. ULIP : Integration of public and private logistics operators through open APIs\n2. NSWS : Grievance portal for delayed MSME payments\n3. D-BRAP : Reform ranking of State public sector enterprises\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 1 is correct. NSWS is the National Single Window System for investor approvals; MSME payment disputes go to the ODR portal and MSE Facilitation Councils. D-BRAP is the District Business Reform Action Plan, which takes reforms down to districts. The 201st Report wanted all ministries and States onboarded on NSWS.",
+   "s": "Shankar IAS pp. 10-11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ease of doing business",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the 392nd Report of the parliamentary committee on bus transport, consider the following statements:\n1. It recommends replacing the All-India Tourist Permit with an All-India Passenger Permit.\n2. It proposes separating ownership of bus terminals from their operation on the model of the Airports Authority.\n3. It suggests earmarking about 25 per cent of the road allocation for public transport.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The committee also proposed a National Bus Terminals Authority, a National Bus Digital Grid aligned with Railway tracking standards, citizen reporting modelled on the ECI's cVIGIL app, and women-run peak-hour services. It wants an annual State ranking on bus-transport facilitation.",
+   "s": "Shankar IAS p. 11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "DRSC reports",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the parliamentary committee report on India's presence in the polar regions, consider the following statements:\n1. India is a member State of the Arctic Council.\n2. The committee recommended appointing a dedicated Polar Ambassador.\n3. India's Arctic research station, Himadri, is located in Greenland.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. India is an Observer, not a member; the Council's eight members are the Arctic States. Himadri is at Ny-Alesund on Svalbard, Norway, and the committee wants restrictions there resolved through diplomacy with Norway. It also asked for Maitri-II in Antarctica, an Indian ice-breaker and 30 per cent more polar research funding.",
+   "s": "Shankar IAS pp. 11-12",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Polar presence",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Ministers are not eligible to be members of which of the following parliamentary committees?\n1. Public Accounts Committee\n2. Department-Related Standing Committees\n3. Committee on Subordinate Legislation\n4. Business Advisory Committee\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "1, 2, 3 and 4",
+    "2, 3 and 4",
+    "1, 2 and 3"
+   ],
+   "a": 3,
+   "e": "Ministers are barred from the Financial Committees (including the PAC), the DRSCs, and the Committees on Empowerment of Women, Government Assurances, Petitions, Subordinate Legislation and Welfare of SCs and STs. The Business Advisory Committee, which allots time for House business, includes ministers. Committees draw their authority from Articles 105 and 118.",
+   "s": "Shankar IAS pp. 12-14",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Parliamentary committees",
+   "pr": "Core",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "Concept"
+  },
+  {
+   "q": "Department-Related Standing Committees serviced by the Lok Sabha are governed by which of the following?",
+   "o": [
+    "Rules 268 to 277 of the Rules of Procedure of the Rajya Sabha",
+    "Article 118 read with the Tenth Schedule",
+    "Rules 331C to 331Q of the Rules of Procedure of the Lok Sabha",
+    "The Parliament (Prevention of Disqualification) Act, 1959"
+   ],
+   "a": 2,
+   "e": "Lok Sabha-serviced DRSCs follow Rules 331C to 331Q, and Rajya Sabha-serviced ones Rules 268 to 277. Article 118 lets each House frame its rules of procedure, and Article 105 covers privileges. Committee recommendations are advisory, and reports go to the House or the Presiding Officer.",
+   "s": "Shankar IAS p. 13",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Parliamentary committees",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the Lokniti-CSDS data on the youth vote discussed in 2026, consider the following statements:\n1. Nationally, turnout among voters aged 18-21 is below the overall average.\n2. In the 2026 Tamil Nadu election, support for TVK was higher among voters aged 18-21 than among those over 29.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. National 18-21 turnout is about six points below average, though it was very high in West Bengal (93 per cent) and Tamil Nadu (90 per cent). TVK drew 69 per cent of 18-21 voters against 26 per cent of those over 29. The data show there is no single 'youth vote' and that young voters often back losing sides.",
+   "s": "Shankar IAS pp. 42-44",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Youth vote",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the MSMED (Amendment) Act passed in August 2026, consider the following statements:\n1. Enterprises will be classified on the basis of turnover alone, dropping investment criteria.\n2. All Central Public Sector Enterprises must settle MSME invoices through the Trade Receivables Discounting System.\n3. Filing of the Udyam memorandum remains compulsory for medium manufacturing enterprises.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. Classification now uses both investment and turnover. Filing the memorandum becomes free and voluntary for all enterprises, with a national MSME platform and optional State platforms. States may also require their own enterprises to use TReDS, which runs under RBI guidelines. About 9.16 crore MSMEs are on Udyam.",
+   "s": "Shankar IAS pp. 44-46",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "MSMED Amendment",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Under the MSMED (Amendment) Act, 2026, what is the sequence of time limits for resolving delayed-payment disputes of micro and small enterprises?",
+   "o": [
+    "Mediation in 30 days, referral in 90 days, award in 30 days",
+    "Mediation in 90 days, referral to arbitration in 30 days, award in 90 days after pleadings close",
+    "Mediation in 60 days, referral in 15 days, award in 180 days",
+    "Mediation in 45 days, award in 45 days, with no arbitration stage"
+   ],
+   "a": 1,
+   "e": "The new timeline is 90-30-90 days. If a challenge to an award stays pending in court for over six months, at least half of the award must be paid to the supplier; earlier a challenger had to deposit 75 per cent. Awards under Section 18 can be recovered as arrears of land revenue. States may now set up several MSE Facilitation Councils.",
+   "s": "Shankar IAS p. 46",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "MSMED Amendment",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "The term 'Systemically Significant Digital Enterprises (SSDEs)', mentioned in discussions on reforming competition regulation, comes from",
+   "o": [
+    "the Information Technology Act, 2000",
+    "the Consumer Protection (E-Commerce) Rules, 2020",
+    "the Digital Personal Data Protection Act, 2023",
+    "the draft Digital Competition Bill"
+   ],
+   "a": 3,
+   "e": "The draft Digital Competition Bill proposes ex-ante rules for large digital firms designated as SSDEs, regulating them before harm occurs. Other suggested CCI reforms are refined deal-value thresholds, filling about 42 per cent vacant posts, published penalty guidelines and a National Competition Policy. In 2026 the CCI penalised two firms for bid-rigging in a Himachal Pradesh tyre tender.",
+   "s": "Shankar IAS pp. 47-48",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CCI",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "'Saptadhara', set out by the Prime Minister in his 80th Independence Day speech, refers to",
+   "o": [
+    "seven river-linking projects",
+    "seven streams of development for Viksit Bharat 2047",
+    "seven pillars of the new education policy",
+    "seven corridors of the National Infrastructure Pipeline"
+   ],
+   "a": 1,
+   "e": "The seven streams are manufacturing, agriculture and food processing, technology and innovation, Gati Shakti infrastructure, defence, the green and blue economy, and soft power. The speech also set a target of training one crore youth in AI skills, announced a talent hunt for children aged 5 to 15, and a Nasha Mukt Yuva Abhiyan.",
+   "s": "Shankar IAS pp. 48-50",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Saptadhara",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Tribunals Reforms Bill, 2026, consider the following statements:\n1. It seeks to repeal the Tribunals Reforms Act, 2021.\n2. Members of the proposed National Tribunals Commission are to be appointed by the Central Government after consulting the Chief Justice of India.\n3. Tribunal members are to serve five years or until the age of 67, whichever is earlier.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; chairpersons serve until 70. The Commission will have a chairperson who was an SC judge or HC Chief Justice, two judicial and two technical members, and a secretariat under a Central Government Secretary. Selection committees recommend one name and one waiting-list name, and the Centre must appoint within three months.",
+   "s": "Shankar IAS pp. 50-52",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Tribunals Bill",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Under the Tribunals Reforms Bill, 2026, expert members of a search-cum-selection committee have no vote.\nStatement-II: Under the Bill, the chair of a search-cum-selection committee has a casting vote.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second does not explain the first; they are separate design features. The Commission Secretary also has no vote. Committees recommend one name and one waiting-list name per vacancy, and the Centre must appoint within three months. The Bill seeks to meet the Madras Bar Association judgments on independence.",
+   "s": "Shankar IAS pp. 50-52",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Tribunals Bill",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the renaming of Kerala as 'Keralam', consider the following statements:\n1. Kerala was formed as a State on 26 January 1950.\n2. The President referred the renaming Bill to the Kerala Assembly in June 2026.\n3. The renaming requires an amendment of Article 1 of the Constitution.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. Kerala was formed on 1 November 1956, celebrated as Kerala Piravi. Renaming a State is done by an ordinary law under Article 3 amending the First Schedule, which Article 4 says is not an Article 368 amendment; dropping 'India' from Article 1 would need a special-majority amendment. The Assembly endorsed all 10 clauses of the reference in July 2026.",
+   "s": "Shankar IAS pp. 52-54",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Keralam",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Arrange the following steps in the renaming of Kerala in chronological order:\n1. Union Cabinet approval\n2. Unanimous resolution of the Kerala Assembly\n3. President's reference of the Bill to the State Legislature\n4. Kerala Assembly's endorsement of the President's reference\nSelect the correct answer using the code given below:",
+   "o": [
+    "2-3-1-4",
+    "1-2-3-4",
+    "2-1-3-4",
+    "1-3-2-4"
+   ],
+   "a": 2,
+   "e": "The Assembly resolved on 24 June 2024; the Cabinet approved in February 2026 after the Legal Affairs and Legislative Departments concurred; President Droupadi Murmu referred the Bill in June 2026; and the Assembly endorsed it in July 2026. The Bill now goes to Parliament. Kerala was formed on 1 November 1956, celebrated as Kerala Piravi.",
+   "s": "Shankar IAS pp. 52-53",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Keralam",
+   "pr": "Extra",
+   "fmt": "chronology",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "In which of the following cases did the Supreme Court strike down Section 66A of the Information Technology Act, distinguishing discussion and advocacy from incitement?",
+   "o": [
+    "Ramlila Maidan Incident case (2012)",
+    "Shreya Singhal v. Union of India (2015)",
+    "Anuradha Bhasin v. Union of India (2020)",
+    "Kaushal Kishor v. State of UP (2023)"
+   ],
+   "a": 1,
+   "e": "Shreya Singhal held that only incitement to imminent violence or disorder justifies restriction, not annoyance or offensive language. The Ramlila Maidan case affirmed the right to peaceful protest after force was used on Baba Ramdev's rally. Both were cited in the 2026 debate on shrinking space for dissent and on FIRs against Jantar Mantar protesters.",
+   "s": "Shankar IAS pp. 54-57, 63-65",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Dissent and speech",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Supreme Court's 2026 ruling on hanging as a mode of execution, consider the following statements:\n1. The Court overruled Deena v. Union of India (1983).\n2. Section 393(5) of the BNSS directs that a convict be hanged by the neck till dead.\n3. The Law Commission's 187th Report had recommended electrocution as an alternative.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. The Court declined to revisit Deena, which found hanging rapid and non-barbaric if properly done, citing no decisive new evidence and no clearly superior alternative. The Law Commission's 187th Report (2003) recommended lethal injection, which Parliament did not adopt. BNSS Section 393(5) keeps the wording of CrPC Section 354(5).",
+   "s": "Shankar IAS pp. 57-59",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Hanging",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nProvision of BNSS : Subject\n1. Section 360 : Inherent powers of the High Court\n2. Section 528 : Withdrawal from prosecution by the Public Prosecutor\n3. Section 173 : Information in cognizable cases (FIR)\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 3 is correct. Section 360 covers withdrawal from prosecution with the court's consent, and Section 528 the High Court's inherent powers, successor to CrPC Section 482. Section 173 replaces CrPC Section 154 on recording FIRs. In 2026 the Supreme Court allowed States to withdraw FIRs against protesting students if the procedure is followed.",
+   "s": "Shankar IAS pp. 59-61",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FIR withdrawal",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "The 'Baroda Dynamite case', cited in the 2026 debate on withdrawal of prosecutions, is significant because the Supreme Court held that",
+   "o": [
+    "lack of evidence is the only ground for withdrawing a prosecution",
+    "public interest can justify withdrawing prosecutions arising from periods of political unrest",
+    "the government may direct the police to close an FIR without reference to a Magistrate",
+    "the victim has no right to be heard on withdrawal"
+   ],
+   "a": 1,
+   "e": "In 1980 the Court allowed withdrawal of the prosecution of George Fernandes and others after the Emergency. Police still cannot end a case merely on a government directive, since a closure report goes to a Magistrate, and withdrawal needs the prosecutor's independent judgment and the court's consent, with the victim heard.",
+   "s": "Shankar IAS pp. 60-61",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FIR withdrawal",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Supreme Court (Number of Judges) Amendment Bill, 2026, consider the following statements:\n1. It raises the sanctioned strength of the Supreme Court from 31 to 34 judges, including the Chief Justice.\n2. It was first introduced in the Rajya Sabha.\n3. This was the first time the Money Bill route was used to raise the Court's strength.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The Bill raises the strength from 34 to 38 judges, including the CJI; it was passed by the Lok Sabha as a Money Bill, and a Money Bill can be introduced only in the Lok Sabha. The same route was used in 2019, when strength went from 31 to 34. Critics place it among contested Money Bill uses, such as the Aadhaar Act, 2016.",
+   "s": "Shankar IAS pp. 61-63",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Money Bill",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to Money Bills, consider the following statements:\n1. The President may return a Money Bill to the Lok Sabha for reconsideration under Article 111.\n2. A deadlock over a Money Bill may be resolved at a joint sitting of both Houses.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The President cannot return a Money Bill, and there is no joint sitting for one. The Rajya Sabha can only make recommendations within 14 days, which the Lok Sabha may accept or reject. A Money Bill is introduced only in the Lok Sabha, by a minister, on the President's recommendation, and the Speaker certifies it under Article 110(3).",
+   "s": "Shankar IAS p. 62",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Money Bill",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "Consider the following pairs:\nArticle : Subject\n1. Article 109 : Special procedure for Money Bills\n2. Article 110 : Definition of Money Bill\n3. Article 117 : Joint sitting of both Houses\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. Article 117 deals with Financial Bills, which are distinct from Money Bills and can be amended by the Rajya Sabha; joint sittings are under Article 108 (static GK). Article 111 bars the President from returning a Money Bill for reconsideration.",
+   "s": "Shankar IAS p. 62",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Money Bill",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The Bharatiya Nyaya Sanhita does not have a standalone offence of 'abusive language'.\nStatement-II: Under the BNS, rude or vulgar words attract liability only if the ingredients of a specific offence, such as intentional insult to provoke a breach of the peace, are met.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Section 352 needs a deliberate insult with intent or knowledge that it will provoke a breach of the peace. In State of Telangana v. Nalla Balu (2026) the Court upheld police guidelines against mechanical FIRs for merely offensive speech; in Mani @ Subramaniyam (2026) it held that profanity is not automatically obscene.",
+   "s": "Shankar IAS pp. 63-65",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Abusive speech",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nSection of BNS : Offence\n1. Section 351 : Criminal intimidation\n2. Section 356 : Defamation\n3. Section 296 : Obscene acts and songs\n4. Section 79 : Word, gesture or act intended to insult the modesty of a woman\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 3,
+   "e": "All four pairs are correct. Statements conducing to public mischief fall under Section 353, and intentional insult to provoke a breach of the peace under Section 352, the successor of IPC 504. The BNS has no standalone offence of 'abusive language'; liability arises only when a specific offence's ingredients are met.",
+   "s": "Shankar IAS p. 64",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Abusive speech",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the Indian Statistical Institute (ISI) Bill, 2026, consider the following statements:\n1. It would convert the ISI from a registered society into a statutory body corporate.\n2. It makes the Vice-President of India the Visitor of the Institute.\n3. It retains the 33-member Council as the apex body.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The Bill would make the ISI a statutory body corporate, replace the 33-member Council with a Board of Governance and make the President of India its Visitor, as for Central Universities and IITs. Faculty objected to the loss of autonomy. ISI was founded by P.C. Mahalanobis in 1931 and declared an Institution of National Importance in 1959.",
+   "s": "Shankar IAS pp. 66-67",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ISI Bill",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the National Commission for Scheduled Castes, consider the following statements:\n1. While investigating a matter, it has the powers of a civil court trying a suit.\n2. It can issue binding orders restoring promotions to aggrieved employees.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. In 2026 the Supreme Court held that the civil-court powers in Article 338(8) only aid investigation; the Commission can record findings and recommend, but cannot adjudicate or grant relief. It set aside an NCSC order restoring a Mumbai Port Authority stenographer's promotion. The ruling also bounds the NCST (Article 338A) and NCBC (Article 338B).",
+   "s": "Shankar IAS pp. 67-70",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NCSC",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the National Commission for Scheduled Castes, consider the following statements:\n1. It has five members, including a Chairperson and a Vice-Chairperson.\n2. Members hold office for three years.\n3. Members are appointed by the President by warrant under hand and seal.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Members may be reappointed for at most two terms, and service conditions are fixed by the President. In 2026 the Supreme Court held that the NCSC cannot adjudicate. Suggested reforms include binding recommendations, a central digital complaint platform and audits of the 15 per cent SC Sub Plan allocation.",
+   "s": "Shankar IAS pp. 67-68",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NCSC",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to delimitation in India, consider the following statements:\n1. Delimitation Commissions have been set up four times, in 1952, 1963, 1973 and 2002.\n2. The 2002 exercise redrew constituencies and also reallocated Lok Sabha seats among the States.\n3. A constitutional amendment is required before any fresh delimitation can be held after Census 2027.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The 2002-2008 exercise only redrew constituencies within States; seat shares among States were last fixed in 1973 on the 1971 Census and then frozen by the 42nd and 84th Amendments. Articles 81 and 82 already provide for readjustment after the first Census after 2026, so an amendment is needed only to change those rules, such as the proposed 850-seat cap.",
+   "s": "Shankar IAS pp. 70-73",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Delimitation",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: A Lok Sabha member from Kerala today represents far fewer electors than one from Uttar Pradesh or Bihar.\nStatement-II: Seat shares among States have been frozen on the basis of the 1971 Census so as not to penalise States that stabilised their population.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. A Kerala MP represents about 14 lakh electors and a UP or Bihar MP about 19 lakh, against 4 to 5 lakh in most major States in 1967. The freezes of 1976 and 2001 were deliberate all-party decisions. Reallocating on Census 2027 would shift seats from southern to Hindi-speaking States.",
+   "s": "Shankar IAS pp. 71-72",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Delimitation",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Public Examinations (Prevention of Unfair Means) Amendment Bill introduced in 2026, which one of the following is not correct?",
+   "o": [
+    "The maximum fine for an individual using unfair means rises from Rs 10 lakh to Rs 50 lakh.",
+    "The debarment period for service providers rises from four to eight years.",
+    "The Bill covers the UPSC, SSC, Railway Recruitment Boards, IBPS and NTA.",
+    "The Bill transfers the investigation of all paper-leak cases to the CBI."
+   ],
+   "a": 3,
+   "e": "The Bill does not hand all cases to the CBI; it provides Special Task Forces for organised crime, Special Public Prosecutors, Special Fast Track Courts, investigation within two months and trial within three months of the chargesheet. Fines for service providers rise to Rs 5 crore and for organised crime to Rs 10 crore.",
+   "s": "Shankar IAS pp. 73-76",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Exam paper leaks",
+   "pr": "Extra",
+   "fmt": "not-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "In its 27 May 2026 verdict on the Special Intensive Revision of electoral rolls, the Supreme Court described the relationship between Article 324 and Article 327 as",
+   "o": [
+    "competing, with Article 327 prevailing in all cases",
+    "overlapping, so that the courts must decide each case",
+    "sequential, so that the ECI may act only after Parliament legislates",
+    "complementary, allowing the ECI to act where laws and rules do not cover a situation"
+   ],
+   "a": 3,
+   "e": "Parliament legislates under Article 327, while the ECI's superintendence under Article 324 fills gaps to avoid a constitutional vacuum. The Court upheld the SIR, begun in Bihar by the ECI's order of 24 June 2025, as legitimate and proportional, accepting electoral purity as a constitutional aim, while stressing that the ECI is not a citizenship-determining authority.",
+   "s": "Shankar IAS pp. 76-78",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "SIR verdict",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the PC&PNDT Act, 1994, consider the following statements:\n1. Maharashtra was the first State to regulate prenatal diagnostic techniques.\n2. The 2003 amendment brought pre-conception sex selection within the Act.\n3. Offences under the Act are cognisable, non-bailable and non-compoundable.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct; Maharashtra legislated in 1988, the central PNDT Act came into force in 1996, and the Act was renamed with effect from 14 February 2003. India's sex ratio fell from 972 in 1901 to 927 in 1991. A woman seeking sex determination is presumed to have been compelled by her husband or relatives.",
+   "s": "Shankar IAS pp. 87-88",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "PC&PNDT",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: According to a 2026 Supreme Court ruling, a Magistrate cannot take cognisance of a PC&PNDT offence on a police charge sheet.\nStatement-II: The PC&PNDT Act entrusts investigation of its offences to the State police.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. Parliament entrusted enforcement to the Appropriate Authority under Section 17, a body with health, legal and women's-organisation members; Section 28 sets out how courts take cognisance. Police may give only supporting help, such as public order during searches. The case arose from a decoy operation in Bulandshahr.",
+   "s": "Shankar IAS pp. 88-89",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "PC&PNDT",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the analysis of youth unemployment published in 2026, consider the following statements:\n1. Households supporting an unemployed tertiary-educated young adult have, on average, fewer earning members than other households.\n2. Most unemployed tertiary-educated youth had been searching for work for less than six months.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct; such households average 1.5 earners against 2 and spend about Rs 1,087 a month less. About 58 per cent had been searching for over a year and about 29 per cent for over two years. Among tertiary-educated young women who are NEET, most are outside the labour force rather than counted as unemployed.",
+   "s": "Shankar IAS pp. 90-92",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Youth unemployment",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "The '3Cs' of the Aspirational Districts Programme, cited as an example of convergence in governance, are",
+   "o": [
+    "Coordination, Capacity and Credit",
+    "Centralisation, Compliance and Control",
+    "Communication, Cooperation and Coverage",
+    "Convergence, Collaboration and Competition"
+   ],
+   "a": 3,
+   "e": "The programme, launched in 2018, ranks districts on health, nutrition, education, agriculture, financial inclusion, skills and infrastructure. Convergence differs from merger: schemes keep their mandates and budgets but plan towards a shared outcome. Panchayat-level 'Single Plan-Multi Funding' is another example.",
+   "s": "Shankar IAS pp. 92-94",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Convergence",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the report 'Cyber Crimes and Cyber Safety of Women' presented in 2026, consider the following statements:\n1. It was presented by the Parliamentary Committee on Empowerment of Women chaired by D. Purandeswari.\n2. It recommends mandatory KYC verification on social media, dating and gaming platforms.\n3. It proposes a 24-hour service-level agreement for starting takedowns through the SAHYOG portal.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. NCRB data showed a 239 per cent rise in cybercrimes against women between 2017 and 2022. The committee also proposed mobile cyber-forensic vans, scaling up MeitY's CyberShakti training, letting Anganwadi and ASHA workers file complaints on victims' behalf, and a standalone gender-sensitive cyber law.",
+   "s": "Shankar IAS pp. 94-96",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Women's cyber safety",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Andhra Pradesh law of 2026 on urban local bodies, consider the following statements:\n1. Mayors and Chairpersons will be directly elected by the voters of the urban local body.\n2. Deputy Mayors will also be directly elected.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Mayors and Chairpersons get five-year terms and are elected along with ward elections, while the single Deputy Mayor and Vice-Chairperson posts remain indirectly elected. The amendments are to Section 90 of the AP Municipal Corporations Act, 1955 and Section 23 of the Municipalities Act, 1965. The 74th Amendment lists 18 functions in the Twelfth Schedule.",
+   "s": "Shankar IAS pp. 97-98",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Urban local bodies",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Foreign Contribution (Regulation) Amendment Bill, 2026, consider the following statements:\n1. It was referred to a Joint Parliamentary Committee of 21 members.\n2. The committee has 21 members from the Rajya Sabha and 10 from the Lok Sabha.\n3. It was introduced in the Rajya Sabha.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. The JPC has 31 members: 21 from the Lok Sabha nominated by the Speaker and 10 from the Rajya Sabha nominated by the Chairman. The Bill was introduced in the Lok Sabha on 25 March 2026 and referred on 12 August 2026. Its main proposal is a Designated Authority to manage the funds and assets of organisations whose registration ceases.",
+   "s": "Shankar IAS pp. 99-100",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FCRA JPC",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nCommittee : Feature\n1. Select Committee : Drawn from one House to examine a specific Bill\n2. Joint Parliamentary Committee : Drawn from both Houses for a specific Bill or issue\n3. Department-Related Standing Committee : Can overrule the government on a Bill\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. No committee can overrule the government; all recommendations are advisory. Committees can call persons, papers and records, and members can file dissent notes, but the ruling side usually holds the majority and the chair. Commentators note a broad decline in referral of Bills to committees.",
+   "s": "Shankar IAS pp. 99-100",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "FCRA JPC",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the creamy layer, consider the following statements:\n1. In Indra Sawhney (1992), the Supreme Court introduced the creamy layer concept while upholding OBC reservation.\n2. In Davinder Singh (2024), the Supreme Court held that States cannot sub-categorise Scheduled Castes.\n3. The Centre told the Supreme Court in 2026 that the creamy layer should be applied to Scheduled Castes.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. Davinder Singh held that SCs and STs are not homogeneous and that States may sub-categorise them. The Centre told the Court in 2026 that the creamy layer does not apply to SCs and STs, relying on Indra Sawhney, Ashoka Kumar Thakur and E.V. Chinnaiah, and on Articles 341 and 342.",
+   "s": "Shankar IAS pp. 101-103",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Creamy layer",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "In Union of India v. Rohith Nathan (2026), the Supreme Court held that the creamy-layer status of OBC candidates whose parents work in PSUs or the private sector",
+   "o": [
+    "must be decided on gross salary alone",
+    "cannot be decided on salary alone without assessing the status of the post",
+    "is irrelevant, since such parents are always in the creamy layer",
+    "must be decided only by including agricultural income"
+   ],
+   "a": 1,
+   "e": "The Court held that exclusion must be primarily status-based, that treating PSU and private employees' wards differently from government employees' on salary alone violates Article 14, and that the 2004 DoPT letter could not override the 1993 memorandum. The ruling came on 11 March 2026, five days after the CSE 2025 results, so a special bench will decide on retrospective effect.",
+   "s": "Shankar IAS pp. 106-107",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Creamy layer",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to CPGRAMS, consider the following statements:\n1. It is run by NITI Aayog.\n2. The timeline for disposing of grievances was cut from 60 days to 45 days in 2024.\n3. Grievances relating to RTI matters can be lodged on it.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 3,
+   "e": "None of the statements is correct. CPGRAMS is run by the Department of Administrative Reforms and Public Grievances; the August 2024 guidelines cut the disposal timeline from 30 to 21 days; and RTI, sub-judice, religious and government-service matters are excluded. The AI voice chatbot 'Samadhan Didi' was launched on 30 May 2026.",
+   "s": "Shankar IAS pp. 103-106",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CPGRAMS",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "The 'Grievance Redressal Assessment and Index (GRAI)' is used to",
+   "o": [
+    "rank States on police grievance redressal",
+    "benchmark Central Ministries and Departments on grievance handling",
+    "rate private companies under consumer protection law",
+    "grade High Courts on case disposal"
+   ],
+   "a": 1,
+   "e": "GRAI benchmarks Ministries and Departments for efficiency and accountability; it is one of ten CPGRAMS reforms, along with CPGRAMS 7.0, BHASHINI integration, a Feedback Call Centre, 'One Nation-One Portal' and a Data Strategy Unit in DARPG. Training follows the Sevottam framework.",
+   "s": "Shankar IAS p. 105",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CPGRAMS",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Supreme Court's 2026 report 'Judgments and Gender', consider the following statements:\n1. It analysed 125 trial-court judgments.\n2. It replaces the 2023 Handbook on Combating Gender Stereotypes, which is now withdrawn.\n3. It says a survivor's sexual history is immaterial to a rape trial.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 3 are correct. The report complements the 2023 Handbook rather than replacing it: the Handbook reformed judicial language, while the report targets secondary trauma across the trial, asking judges to treat witnesses as 'guests', stop indecent questioning and hold in-camera trials. Training is to be through the National Judicial Academy.",
+   "s": "Shankar IAS pp. 107-109",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Judgments and Gender",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nPlatform : Function\n1. ITSSO : Tracks investigations of sexual offences against deadlines\n2. MedLEaPR : Online medico-legal and post-mortem reports\n3. NAFIS : National fingerprint database\n4. Nyaya Shruti : Translation of judgments into regional languages\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 2,
+   "e": "Pairs 1, 2 and 3 are correct. Nyaya Shruti (2024) is a video-conferencing platform for virtual testimony; judgments are translated into 18 languages through the eSCR portal, and the PANINI tool translates within Digital Courts 2.1. These platforms link police, forensics, prosecution, courts and prisons through the ICJS.",
+   "s": "Shankar IAS pp. 109-113",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "e-Courts",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the e-Courts Mission Mode Project, consider the following statements:\n1. It was launched in 2007.\n2. The National Judicial Data Grid was created in Phase III.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The NJDG, e-Filing and eSewa Kendras came in Phase II (2015-2023); Phase I (2011-2015) computerised over 14,000 courts. Phase III (2023-2027) aims at paperless courts and AI-enabled High Courts, with tools such as LegRAA for research and ASR-SHRUTI for voice-to-text.",
+   "s": "Shankar IAS pp. 109-112",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "e-Courts",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to examination reforms discussed in 2026, consider the following statements:\n1. The Nandan Nilekani Task Force on examinations was set up in July 2026.\n2. Reforms such as provisional answer keys and access to OMR sheets were driven largely by the RTI Act, 2005.\n3. The Radhakrishnan Committee was set up after the NEET-2024 controversy.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The Radhakrishnan Committee's recommendations lack an actionable Action Taken Report, and the Nilekani agenda reportedly overlaps with it, prompting warnings of 'committee-hopping'. A proposed Public Examination Integrity Framework has six pillars, from question setting to post-exam forensic audits.",
+   "s": "Shankar IAS pp. 113-116",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Exam reform",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nConcept : Meaning\n1. Merger : Combining schemes or institutions into one structure\n2. Convergence : Programmes keep separate mandates but plan towards a shared outcome\n3. Saturation : Every eligible beneficiary receives a given benefit\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. Convergence goes beyond collaboration by linking planning, financing, delivery and outcome monitoring. Examples include the Aspirational Districts Programme, PM Dhan-Dhaanya Krishi Yojana, DAY-NRLM, Mission Poshan 2.0 and panchayat-level 'Single Plan-Multi Funding'.",
+   "s": "Shankar IAS pp. 92-93",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Convergence",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to urban local bodies, consider the following statements:\n1. They got constitutional status through the 73rd Constitutional Amendment Act.\n2. The Twelfth Schedule lists 29 functions for municipalities.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The 74th Amendment, 1992 gave urban local bodies constitutional status in Part IXA, and the Twelfth Schedule lists 18 functions; the 73rd Amendment and the Eleventh Schedule's 29 subjects concern panchayats (static GK). Urban local bodies raise only about 32 per cent of their own funds.",
+   "s": "Shankar IAS pp. 97-98",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Urban local bodies",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the e-Courts project, 'LegRAA', 'ASR-SHRUTI' and 'PANINI' are",
+   "o": [
+    "new tribunals for commercial disputes",
+    "AI tools for legal research, voice-to-text and translation",
+    "States' legal aid schemes",
+    "case-tracking apps for police"
+   ],
+   "a": 1,
+   "e": "LegRAA is a Legal Research and Analysis Assistant for judges; ASR-SHRUTI converts voice to text and PANINI translates within Digital Courts 2.1. Judgments are translated into 18 languages through the eSCR portal, and an IIT Madras tool flags defects in e-filed petitions. Phase III aims at AI-enabled High Courts by 2027.",
+   "s": "Shankar IAS p. 113",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "e-Courts",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the youth vote, consider the following statements:\n1. Lokniti is a research programme of the Centre for the Study of Developing Societies.\n2. In Punjab in 2022, AAP drew more support from voters aged 18-21 than Congress and BJP combined.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; AAP had 47 per cent among 18-21 voters against 24 per cent for Congress and 6 per cent for the BJP. Youth preferences shift quickly with jobs, education, leadership and social-media narratives, so they are not a reliable predictor of victory. The Cockroach Janta Party protests at Jantar Mantar drew attention to Gen Z politics.",
+   "s": "Shankar IAS pp. 42-44",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Youth vote",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Hard",
+   "kind": "News"
+  }
+ ]
+}

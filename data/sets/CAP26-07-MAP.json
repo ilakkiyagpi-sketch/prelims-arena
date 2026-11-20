@@ -1,0 +1,235 @@
+{
+ "id": "CAP26-07-MAP",
+ "title": "2026-07 Places in News",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "Which of the following countries border the Caspian Sea?\n1. Kazakhstan\n2. Turkmenistan\n3. Uzbekistan\n4. Azerbaijan\nSelect the correct answer using the code given below:",
+   "o": [
+    "1, 2 and 4",
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2, 3 and 4"
+   ],
+   "a": 0,
+   "e": "The five littoral States are Russia and Azerbaijan to the west, Kazakhstan and Turkmenistan to the east, and Iran to the south. Uzbekistan does not border it; it shares the shrinking Aral Sea with Kazakhstan. The Caspian is shrinking because of lower Volga inflow and higher evaporation.",
+   "s": "Shankar IAS p. 6",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Caspian Sea",
+   "pr": "Core",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to the Caspian Sea, consider the following statements:\n1. It is the world's largest landlocked body of water and has no natural outlet.\n2. Its water is more saline than the oceans.\n3. The Ural River supplies about four-fifths of its freshwater inflow.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The Volga, not the Ural, supplies about 80 per cent of inflow. The water is brackish, about one-third as saline as the ocean. Since its water balance depends on river inflow against evaporation, dams and withdrawals on the Volga and a warming climate are shrinking it; it has lost about 5.5 per cent of its area since the mid-1990s.",
+   "s": "Shankar IAS pp. 6-7",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Caspian Sea",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Global warming is lowering the level of the Caspian Sea, even as it raises the level of the oceans.\nStatement-II: In an enclosed basin with no outlet, the water level falls when evaporation exceeds inflow.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Oceans rise with warming through thermal expansion and ice melt, but an enclosed sea depends on its water balance, and higher temperatures increase evaporation. A further fall of about 5 m could expose some 20 per cent of the seabed, risking Aral-type salt and dust storms.",
+   "s": "Shankar IAS p. 7",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Caspian Sea",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "The Tehran Convention of 2003, the only legally binding regional agreement on the Caspian Sea, deals with",
+   "o": [
+    "sharing of oil and gas reserves among the littoral States",
+    "fishing quotas for sturgeon",
+    "navigation rights of non-littoral States",
+    "protection of the marine environment of the Caspian Sea"
+   ],
+   "a": 3,
+   "e": "It is a framework convention for environmental protection, with protocols on oil-pollution response (Aktau), land-based pollution (Moscow), biodiversity (Ashgabat) and environmental impact assessment. A declaration at COP29 in Baku in 2024 on the falling water level marked a shift from pollution control to climate adaptation.",
+   "s": "Shankar IAS p. 8",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Caspian Sea",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to the Indian Ocean Dipole, consider the following statements:\n1. In a positive phase, the western Indian Ocean is warmer than the eastern Indian Ocean.\n2. A positive phase tends to bring drought to Indonesia and Australia and heavy rain to East Africa.\n3. A positive phase weakens the Indian south-west monsoon.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct. A positive dipole strengthens the south-west monsoon and can offset El Nino's drying effect, so statement 3 is wrong. In 1997, despite a very strong El Nino, India's monsoon was about 2 per cent above normal because of a positive dipole. In 2026 the dipole was neutral while a 'Super El Nino' was forecast.",
+   "s": "Shankar IAS pp. 9-10",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Indian Ocean Dipole",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "The Dipole Mode Index, used to track the Indian Ocean Dipole, is calculated as the",
+   "o": [
+    "average rainfall over India as a share of the long period average",
+    "difference in air pressure between Tahiti and Darwin",
+    "difference in sea surface temperature anomalies between the western and eastern equatorial Indian Ocean",
+    "difference in sea level between the Arabian Sea and the Bay of Bengal"
+   ],
+   "a": 2,
+   "e": "A positive index means the west is warmer, a negative index that the east is warmer. The pressure difference between Tahiti and Darwin is the Southern Oscillation Index, linked to El Nino. In 2026 IMD forecast monsoon rainfall at about 90 per cent of the long period average, just above 'deficient'.",
+   "s": "Shankar IAS p. 10",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Indian Ocean Dipole",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the Indian Ocean Dipole in 2026, consider the following statements:\n1. The Dipole was in a neutral phase during the early monsoon.\n2. The Australian Bureau of Meteorology forecast a strong negative Dipole for the whole monsoon season.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. IMD and most models expected a neutral Dipole through all four monsoon months; the Australian Bureau of Meteorology gave a slim chance of a positive turn in August or September, likely too late to blunt El Nino. The monsoon was running about 40 per cent short at the time.",
+   "s": "Shankar IAS p. 10",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Indian Ocean Dipole",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nPlace in news : Reason\n1. Busan : Venue of the 48th session of the World Heritage Committee\n2. Deoria Tal : Pollen study on the decline of the Harappan civilisation\n3. Hamburg : Launch of the South-North Commission on Development\n4. Darwin : Operation Southern Readiness 26-2\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 2,
+   "e": "Pairs 1, 2 and 3 are correct. Darwin in northern Australia hosted Exercise Pitch Black 2026; Operation Southern Readiness 26-2 was hosted at Kochi by the Indian Navy's Southern Naval Command. Deoria Tal is a lake in the Garhwal Himalaya.",
+   "s": "Shankar IAS; Vision IAS pp. 29, 57, 83, 85",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Places in news",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "With reference to the Strait of Malacca, consider the following statements:\n1. It is the shortest sea route between the Indian Ocean and the Pacific Ocean.\n2. Sabang Port in Indonesia lies near its western entrance.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. Sabang, on Weh Island at the northern tip of Sumatra in Aceh, lies close to India's Andaman and Nicobar Islands, which gives the India-Indonesia port project strategic value. The Malacca, Hormuz and Bab-el-Mandeb straits are the three chokepoints central to India's maritime trade.",
+   "s": "Vision IAS pp. 20, 30",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Places in news",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "Which of the following countries have a coastline on the Red Sea?\n1. Eritrea\n2. Sudan\n3. Somalia\n4. Egypt\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "3 and 4 only",
+    "1, 2 and 4",
+    "1, 2, 3 and 4"
+   ],
+   "a": 2,
+   "e": "Eritrea, Sudan and Egypt border the Red Sea, along with Saudi Arabia, Yemen, Djibouti and, at the Gulf of Aqaba, Jordan and Israel. Somalia lies on the Gulf of Aden and the Indian Ocean (static GK). The Houthi blockade of Bab-el-Mandeb in 2026 threatened the Red Sea-Suez route that carries a large share of India's trade with Europe.",
+   "s": "Shankar IAS p. 60",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Places in news",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "Consider the following pairs:\nCapital : Country visited by President Murmu in 2026\n1. Chisinau : Moldova\n2. Skopje : North Macedonia\nWhich of the pairs given above is/are correctly matched?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Neither 1 nor 2",
+    "Both 1 and 2"
+   ],
+   "a": 3,
+   "e": "Both pairs are correct. Both countries are landlocked; Moldova lies between Ukraine and Romania, while North Macedonia is in the central Balkans bordering Kosovo, Serbia, Bulgaria, Greece and Albania. The visits were the first by an Indian head of State to each country.",
+   "s": "Vision IAS p. 30",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Places in news",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "Map"
+  },
+  {
+   "q": "The 'Gate of Tears' is a name given to the",
+   "o": [
+    "Strait of Hormuz",
+    "Bosporus",
+    "Strait of Gibraltar",
+    "Bab-el-Mandeb Strait"
+   ],
+   "a": 3,
+   "e": "The name reflects the strait's historical dangers to navigation. About 20 miles wide, it carries 10 to 12 per cent of world trade and about 30 per cent of container traffic. The US, China and France maintain bases in Djibouti on its African side.",
+   "s": "Shankar IAS p. 60",
+   "sub": "Current Affairs",
+   "u": "Places in News",
+   "it": "Places in news",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Map"
+  }
+ ]
+}

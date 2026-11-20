@@ -1,0 +1,1052 @@
+{
+ "id": "CAP26-07-POL",
+ "title": "2026-07 Polity & Governance",
+ "type": "capool",
+ "questions": [
+  {
+   "q": "With reference to the Public Examinations (Prevention of Unfair Means) Amendment Act, 2026, consider the following statements:\n1. Investigation of an offence must be completed within six months of the information being recorded.\n2. Trials are to be held by Special Fast Track Courts designated by the States in consultation with the Chief Justice of the High Court.\n3. An appeal against conviction lies directly to the Supreme Court.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 2 is correct. The amendment, in force from 31 July 2026, caps investigation at two months, not six, and requires day-to-day trials that finish within three months of the chargesheet. Appeals go to a Division Bench of two High Court judges, not directly to the Supreme Court. Penalties for organised syndicates rise to 7 to 10 years and at least Rs 10 crore.",
+   "s": "Vision IAS pp. 6-7",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Public Examinations Amendment",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the Public Examinations (Prevention of Unfair Means) Amendment Act, 2026, an organised exam-fraud syndicate faces",
+   "o": [
+    "imprisonment of 3 to 5 years and a fine up to Rs 10 lakh",
+    "a fine up to Rs 5 crore and an eight-year ban from conducting examinations",
+    "imprisonment of 5 to 10 years and a fine up to Rs 50 lakh",
+    "imprisonment of 7 to 10 years and a fine of at least Rs 10 crore"
+   ],
+   "a": 3,
+   "e": "Section 11, on organised crime, now carries 7 to 10 years and a fine of not less than Rs 10 crore, up from 5 to 10 years and Rs 1 crore. Individual offenders under Section 10 get 5 to 10 years and up to Rs 50 lakh. Service providers face up to Rs 5 crore and an eight-year ban. The 3 to 5 year term was the individual penalty under the 2024 Act.",
+   "s": "Vision IAS p. 7",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Public Examinations Amendment",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Critics doubt that the higher penalties of the 2026 amendment to the public examinations law will by themselves curb paper leaks.\nStatement-II: Several convictions had been secured in the two years after the Public Examinations (Prevention of Unfair Means) Act, 2024 came into force.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 2,
+   "e": "Statement-I is correct but Statement-II is incorrect. No conviction had been secured in the two years after the 2024 Act came into force, which points to an enforcement problem that harsher sentences do not solve. Other concerns are that the two-month investigation limit may be unrealistic and that the NTA's structure needs reform.",
+   "s": "Vision IAS p. 7",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Public Examinations Amendment",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the reforms around competitive examinations in 2026, consider the following statements:\n1. The National Testing Agency is a statutory body set up under an Act of Parliament.\n2. The Radhakrishnan Committee, set up after the NEET 2024 leaks, recommended a phased shift to computer-based testing.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 1,
+   "e": "Only statement 2 is correct. The Radhakrishnan Committee made 101 recommendations, now being implemented. The National Testing Agency lacks statutory backing, and only 23 of its 39 sanctioned posts were filled, all on deputation. A dedicated NTA cadre and a high-powered task force on examination reform under Nandan Nilekani are among the responses.",
+   "s": "Vision IAS pp. 6-8",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Exam reforms",
+   "pr": "Extra",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Committees on Subordinate Legislation of Parliament, consider the following statements:\n1. The Lok Sabha and the Rajya Sabha each have a separate committee.\n2. Each committee has not more than 15 members.\n3. They examine whether powers to make rules and regulations delegated by Parliament are being properly exercised.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Each House has its own Committee on Subordinate Legislation of up to 15 members, which checks whether rules, regulations and bye-laws stay within the powers Parliament delegated. In 2026 the Rajya Sabha committee reviewed four 2024 regulations of the Competition Commission of India and asked for periodic review, protection for whistle-blowers and clearer settlement procedures.",
+   "s": "Vision IAS pp. 12-13",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Subordinate legislation",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "In In re Delhi Laws Act (1951), the Supreme Court held that",
+   "o": [
+    "delegated legislation can be challenged only on the ground of excessive delegation",
+    "essential legislative functions such as repealing or modifying a law cannot be delegated, though details of operation can",
+    "Parliament cannot delegate any law-making power to the executive",
+    "rules framed by the executive need not be laid before Parliament"
+   ],
+   "a": 1,
+   "e": "The case set the limits of delegation: the legislature must lay down policy and may leave operational detail to the executive. Indian Express Newspapers (1984) later held that delegated legislation can be challenged on every ground available against plenary law, plus unreasonableness and arbitrariness. Delegation is not expressly provided in the Constitution, but Article 13 counts rules, regulations and bye-laws as law.",
+   "s": "Vision IAS p. 13",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Subordinate legislation",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Competition Commission of India, consider the following statements:\n1. It is a statutory body under the Competition Act, 2002, administered by the Ministry of Corporate Affairs.\n2. It can take suo motu cognisance of anti-competitive practices.\n3. Appeals against its orders lie to the National Company Law Appellate Tribunal.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The Commission has the powers of a civil court. The parliamentary committee noted that large penalties are often stayed or quashed on appeal, although about 98 per cent of enforceable penalties are recovered, and asked the Commission to show detailed penalty calculations and evidence.",
+   "s": "Vision IAS p. 12",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "CCI",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to India's anti-doping law, consider the following statements:\n1. The National Anti-Doping Act, 2022 gives effect to the UNESCO International Convention against Doping in Sport.\n2. Under the 2025 amendment, the World Anti-Doping Agency can appeal directly to the Court of Arbitration for Sport without exhausting domestic remedies.\n3. The 2025 amendment lets the Centre update the list of anti-doping rule violations by Gazette notification when the World Anti-Doping Code changes.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. India ratified the 2005 UNESCO Convention in 2007. The amendment inserted Section 2A and a Schedule that give Article 2 of the World Anti-Doping Code direct force of law, so changes need only a notification. It also strengthened the independence of the National Anti-Doping Agency from federations and replaced references to the CrPC with the BNSS.",
+   "s": "Vision IAS pp. 13-14",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Anti-doping law",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nBody : Description\n1. World Anti-Doping Agency : Headquartered in Lausanne\n2. Court of Arbitration for Sport : Headquartered in Montreal\n3. Athletics Integrity Unit : Independent watchdog set up by World Athletics\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 0,
+   "e": "Only pair 3 is correct. The first two locations are swapped: the World Anti-Doping Agency, created in 1999 after a conference at Lausanne, is headquartered in Montreal, while the Court of Arbitration for Sport sits in Lausanne. The Athletics Integrity Unit put India at the top of its global list of dope offenders in 2026 with 162 names.",
+   "s": "Vision IAS pp. 14-15",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Anti-doping bodies",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "Confusable"
+  },
+  {
+   "q": "In 2026 the Athletics Federation of India was placed in 'Category A' under the anti-doping rules of World Athletics. This means that",
+   "o": [
+    "Indian athletes are barred from international competition until a review",
+    "the federation is considered at extremely high risk of doping and its national-team athletes must be tested extensively",
+    "India may host international athletics events without a doping control laboratory",
+    "the federation is exempt from out-of-competition testing"
+   ],
+   "a": 1,
+   "e": "Under Rule 15 of the World Athletics Anti-Doping Rules, federations are grouped by risk and reviewed every three years. Category A signals the highest risk and brings mandatory, extensive testing of national-team athletes before major events. It is not a ban. India has been in the top two countries for anti-doping rule violations every year from 2022 to 2025.",
+   "s": "Vision IAS p. 15",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Anti-doping bodies",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the anti-doping rules, alcohol and beta-blockers are prohibited",
+   "o": [
+    "only in particular sports such as archery and shooting",
+    "at all times in all sports",
+    "only out of competition",
+    "only for athletes holding a Therapeutic Use Exemption"
+   ],
+   "a": 0,
+   "e": "Beta-blockers steady the hands and slow the heart, which helps in precision sports, so they are banned only in sports such as archery and rifle shooting. Anabolic agents such as stanozolol, whose use is rising in India, are prohibited at all times. A Therapeutic Use Exemption lets an athlete with a genuine medical need use an otherwise banned substance.",
+   "s": "Vision IAS p. 14",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Anti-doping law",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to trial in absentia under Section 356 of the Bharatiya Nagarik Suraksha Sanhita, 2023, consider the following statements:\n1. It applies only to a person declared a proclaimed offender for an offence punishable with ten years or more, life imprisonment or death.\n2. The court must issue two consecutive arrest warrants at least 90 days apart before proceeding.\n3. If the accused has no lawyer, the trial proceeds without defence counsel.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The court must issue two consecutive warrants at least 30 days apart, not 90; the 90-day figure is the gap required after charges are framed. Other safeguards are a newspaper notice giving 30 days to appear, a notice at the last known residence and informing a relative. If the accused has no lawyer, the court must appoint defence counsel at State expense.",
+   "s": "Shankar IAS pp. 18-19",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Trial in absentia",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Under the Code of Criminal Procedure, 1973, a full trial could not be held in the absence of an absconding accused.\nStatement-II: Section 299 of the Code allowed the court to record the evidence of witnesses when the accused had absconded.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 1,
+   "e": "Both statements are correct, but the second does not explain the first. The CrPC gave only limited tools: proclamation and attachment under Section 82, dispensing with attendance under Section 317, and preserving evidence under Section 299. Preserving testimony is not the reason a full trial was barred; the old Code simply contained no power to try in absence, which the BNSS now provides.",
+   "s": "Shankar IAS p. 19",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Trial in absentia",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the right to protest in India, consider the following statements:\n1. The right to assemble peaceably and without arms is guaranteed by Article 19(1)(b).\n2. Restrictions on the right of assembly may be imposed in the interest of public order and of the sovereignty and integrity of India.\n3. Prohibitory orders formerly issued under Section 144 of the CrPC are now issued under Section 163 of the BNSS.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Article 19(3) permits reasonable restrictions on assembly only on those two grounds, a narrower list than Article 19(2) provides for speech. The issue returned in 2026 with protests in Delhi by the Cockroach Janta Party. Courts insist that restrictions be reasonable and proportionate and that regulation must not turn into prohibition.",
+   "s": "Shankar IAS pp. 20-21",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to protest",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nCase : Holding\n1. Himat Lal K. Shah v. Commissioner of Police (1973) : Freedom of assembly is essential to democracy\n2. Mazdoor Kisan Shakti Sangathan v. Union of India (2018) : Guidelines for protests near central administrative areas; Jantar Mantar reaffirmed as a protest site\n3. Shaheen Bagh judgment (2020) : Public roads may be occupied indefinitely as long as the protest is peaceful\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. The 2018 judgment set limits on numbers and distances from Parliament, the Secretariat and the Supreme Court, banned weapons and said regulation must not become prohibition. Pair 3 reverses the Shaheen Bagh ruling, which held that public roads cannot be occupied indefinitely and that protests must be held in designated places.",
+   "s": "Shankar IAS p. 21",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to protest",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the right to be forgotten in India, consider the following statements:\n1. The Digital Personal Data Protection Act, 2023 expressly recognises a right to be forgotten.\n2. The Delhi High Court has held that the right is absolute once a person has been acquitted.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 3,
+   "e": "Neither statement is correct. The DPDP Act gives rights to correction, updating and erasure of data held by data fiduciaries, but no express right to be forgotten. The Delhi High Court held the right is not absolute and must be weighed against free speech, public interest and open justice; courts may order de-indexing or masking of names rather than deleting judicial records.",
+   "s": "Shankar IAS pp. 22-23",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to be forgotten",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "In the context of the right to be forgotten, 'de-indexing' means",
+   "o": [
+    "permanently deleting a court judgment from official records",
+    "transferring a case record from a public to a sealed court file",
+    "encrypting personal data held by a data fiduciary",
+    "removing a link from search-engine results so that the content is harder to find, without deleting it"
+   ],
+   "a": 3,
+   "e": "De-indexing leaves the original page in place but removes it from search results, which limits public exposure while preserving the record. The Delhi High Court preferred it, or masking of identifiers, to deletion of judicial records. The Data Protection Board of India enforces duties under the DPDP Act but is not empowered to decide every such dispute.",
+   "s": "Shankar IAS pp. 22-23",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to be forgotten",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "The Supreme Court in 2026 recognised the right to walk safely on footpaths. Which of the following provisions did it link this right to?\n1. Article 19(1)(d)\n2. Article 21\n3. Article 21A\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 only",
+    "1 and 2 only",
+    "2 and 3 only",
+    "1, 2 and 3"
+   ],
+   "a": 1,
+   "e": "The Court tied the right to freedom of movement under Article 19(1)(d) and to life and personal liberty under Article 21, which turns footpaths from a planning matter into a constitutional one. Article 21A, the right to education, was not its basis, though blocked mobility does limit access to schools, jobs and health care. Walkability as a Smart City indicator is among the suggested steps.",
+   "s": "Shankar IAS p. 27",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to walk",
+   "pr": "Core",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nWork : Creator\n1. 'Gyarah Murti' sculpture in New Delhi : Devi Prasad Roy Chowdhury\n2. 'Bapuji' linocut : Nandalal Bose\n3. 'The Painter of Modern Life' : Michel de Certeau\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct; both works show Gandhi walking, the first as part of the Dandi March group. The 1863 essay that introduced the flaneur, the urban stroller, is by Charles Baudelaire. Michel de Certeau wrote 'The Practice of Everyday Life', on how walking turns space into lived experience.",
+   "s": "Shankar IAS pp. 28-29",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to walk",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following are constitutional bases of the right to a fair trial in India?\n1. Article 20\n2. Article 22\n3. Article 39A\n4. Article 51A\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 and 2 only",
+    "2, 3 and 4",
+    "1, 2 and 3",
+    "1, 2, 3 and 4"
+   ],
+   "a": 2,
+   "e": "Article 20 bars self-incrimination and double jeopardy, Article 22 gives safeguards on arrest and detention, and Article 39A, a Directive Principle, calls for free legal aid; Article 21 underpins them all with fair, just and reasonable procedure. Article 51A lists Fundamental Duties. Internationally, Article 14 of the ICCPR and Article 10 of the UDHR guarantee a fair and public hearing.",
+   "s": "Shankar IAS p. 30",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to fair trial",
+   "pr": "Core",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nCase : Principle\n1. Hussainara Khatoon v. Home Secretary, Bihar (1979) : Speedy trial is part of Article 21\n2. M.H. Hoskot v. State of Maharashtra (1978) : Free legal aid to an indigent accused is a duty of the State\n3. Zahira Habibulla H. Sheikh v. State of Gujarat (2004) : Fair trial requires witness protection and an impartial prosecution\n4. Vinubhai Haribhai Malaviya v. State of Gujarat (2019) : No further investigation is permitted once a chargesheet is filed\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 2,
+   "e": "Pairs 1, 2 and 3 are correct. The Best Bakery case, Zahira Sheikh, allowed a retrial because witnesses had been intimidated. Pair 4 is wrong: Vinubhai held that a fair trial begins with a fair investigation and that further investigation is possible even after a chargesheet. The issue arose in 2026 over long pre-trial detention in the 2020 Delhi riots cases.",
+   "s": "Shankar IAS p. 31",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to fair trial",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "A 'reverse burden of proof', which places on the accused the burden of proving innocence once certain facts are shown, is found in which of the following laws?\n1. Narcotic Drugs and Psychotropic Substances Act, 1985\n2. Negotiable Instruments Act, 1881\n3. Unlawful Activities (Prevention) Act, 1967\nSelect the correct answer using the code given below:",
+   "o": [
+    "1 only",
+    "1 and 2 only",
+    "1, 2 and 3",
+    "2 and 3 only"
+   ],
+   "a": 2,
+   "e": "All three contain presumptions against the accused, as does the Prevention of Corruption Act. Courts accept such provisions only after the prosecution proves the foundational facts, and their spread is criticised for diluting the presumption of innocence, the 'golden thread' of Woolmington v. DPP (1935). UAPA Section 44 also allows protection of witness identities.",
+   "s": "Shankar IAS pp. 30-31",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to fair trial",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The right to vote in elections to the Lok Sabha and State Assemblies has no constitutional basis and is wholly a creation of the Representation of the People Acts.\nStatement-II: Article 326 provides for elections on the basis of adult suffrage, entitling every citizen aged 18 or above to be registered, subject to permissible disqualifications.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect and Statement-II is correct. Courts have described the right to vote as statutory, as in N.P. Ponnuswami (1952) and Jyoti Basu (1982), but Article 326 gives the core entitlement a constitutional footing that the Representation of the People Acts only operationalise. In Anoop Baranwal (2023) the bench called it a constitutional right, and one judge favoured treating it as fundamental.",
+   "s": "Shankar IAS pp. 33-34",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to vote",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nCase : Holding on elections\n1. Union of India v. Association for Democratic Reforms (2002) : Voters have a right to know the criminal record, assets and education of candidates\n2. PUCL v. Union of India (2003) : Freedom of voting, as distinct from the right to vote, is part of Article 19(1)(a)\n3. Kuldip Nayar v. Union of India (2006) : The right to vote is a fundamental right under Part III\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 1,
+   "e": "Pairs 1 and 2 are correct. Kuldip Nayar held that democracy is part of the basic structure but that the individual's vote flows from the Representation of the People Acts, so pair 3 is wrong. The 2013 NOTA judgment then protected the choice to reject all candidates, which produces the anomaly that rejecting everyone is protected expression while choosing one is only a statutory right.",
+   "s": "Shankar IAS p. 34",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Right to vote",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Cauvery Water Management Authority, consider the following statements:\n1. It was set up in 2007 under Section 6A of the Inter-State River Water Disputes Act, 1956.\n2. It is headquartered at Bengaluru and functions under the Ministry of Agriculture.\n3. Its Member-Secretary heads the Cauvery Water Regulation Committee, which includes a representative of the India Meteorological Department.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 3 is correct. The Authority was set up in 2018, after the Supreme Court's judgment, not in 2007, the year of the Tribunal's final award. It is a statutory, quasi-judicial body headquartered in New Delhi under the Ministry of Jal Shakti. It held its 53rd meeting on 22 July 2026 amid a deficient monsoon, and its Regulation Committee monitors daily releases.",
+   "s": "Shankar IAS pp. 17-18",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cauvery dispute",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "Publisher"
+  },
+  {
+   "q": "With reference to the Supreme Court's 2018 judgment on the Cauvery dispute, consider the following statements:\n1. It declared the river a national asset.\n2. It accepted basin water availability of 740 tmc ft in a normal year.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. The Court declared inter-State rivers national assets, modified and finalised the Tribunal's 2007 award rather than setting it aside, accepted basin availability of 740 tmc ft in a normal year and set aside 4.75 tmc ft for Bengaluru's drinking water. It ordered the scheme that created the CWMA.",
+   "s": "Shankar IAS p. 17",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cauvery dispute",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The Mekedatu project, a recurring point of conflict in the Cauvery dispute, is",
+   "o": [
+    "a canal proposed by Tamil Nadu to divert flood water to the delta",
+    "a balancing reservoir proposed by Karnataka for Bengaluru's water supply and hydropower",
+    "a joint gauging station of the four basin States",
+    "a desalination plant proposed for Puducherry"
+   ],
+   "a": 1,
+   "e": "Karnataka proposes the reservoir to meet Bengaluru's needs and generate power; Tamil Nadu opposes it as a threat to downstream flows. The dispute goes back to agreements of 1892 and 1924 between Madras Presidency and the princely State of Mysore. Suggested remedies include shifting delta farmers from paddy to millets, drip irrigation and better urban water management in Bengaluru.",
+   "s": "Shankar IAS pp. 16-18",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Cauvery dispute",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the National Food Security Act, 2013, consider the following statements:\n1. It covers up to 75 per cent of the rural and 50 per cent of the urban population.\n2. The eldest woman of the household, aged 18 or above, is treated as the head of the household for issuing ration cards.\n3. Pregnant women and lactating mothers are entitled to a maternity benefit of not less than Rs 6,000.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Antyodaya Anna Yojana households get 35 kg a month and priority households 5 kg per person, free of cost since the merger with PMGKAY. Children aged 6 months to 6 years get meals through Anganwadis and those aged 6 to 14 through PM POSHAN. A food security allowance is payable if grain is not supplied.",
+   "s": "Shankar IAS p. 25",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NFSA amendment",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Under the amendment to Section 3(1) of the National Food Security Act proposed in 2026, an Antyodaya Anna Yojana household of three members would receive",
+   "o": [
+    "35 kg of grain a month, as at present",
+    "15 kg of grain a month",
+    "21 kg of grain a month",
+    "28 kg of grain a month"
+   ],
+   "a": 2,
+   "e": "The proposal gives 7 kg per member with a cap of 35 kg a household, so three members get 21 kg; only households of five or more keep the full 35 kg. The Centre argues that the flat 35 kg gives small families far more per head than large ones. Tamil Nadu and Kerala object because most of their AAY families have three or four members.",
+   "s": "Shankar IAS p. 25",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NFSA amendment",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Tamil Nadu and Kerala expect the 2026 proposal on Antyodaya Anna Yojana entitlements to cut grain supplies to most of their AAY households.\nStatement-II: Lower fertility and more nuclear households in these States mean that most of their AAY families have fewer than five members.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Under a per-member entitlement capped at 35 kg, only families of five or more are unaffected. In Tamil Nadu about 15.75 lakh of 18.64 lakh AAY families have fewer than five members, and its monthly allocation would fall from about 65,000 to 42,000 tonnes. A household floor of 30 kg has been suggested.",
+   "s": "Shankar IAS pp. 25-26",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NFSA amendment",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which one of the following statements regarding the history of the public distribution system is not correct?",
+   "o": [
+    "Kerala's public distribution system has its roots in the princely State of Travancore.",
+    "Kerala set up a formal public distribution system in 1962, before the Food Corporation of India was established.",
+    "Tamil Nadu has always followed a targeted system that excludes households above the poverty line.",
+    "Rice shortages in Tamil Nadu in 1952 and 1967 had major political consequences."
+   ],
+   "a": 2,
+   "e": "Tamil Nadu runs a universal system, supplying free rice through ration shops to all cardholders, which is why it resists entitlement cuts. Kerala's system began in Travancore and became formal in 1962, earlier than the Food Corporation of India (1965). The shortages of 1952 and 1967 in Tamil Nadu shaped its politics of food.",
+   "s": "Shankar IAS p. 26; FCI's year is static",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "NFSA amendment",
+   "pr": "Extra",
+   "fmt": "not-correct",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to Panchayati Raj institutions, consider the following statements:\n1. Under Article 243B, a State with a population not exceeding 20 lakh need not constitute panchayats at the intermediate level.\n2. A State Finance Commission to review panchayat finances is constituted every five years.\n3. A person aged 21 years is not disqualified from contesting a panchayat election on grounds of age.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Article 243B exempts small States from the intermediate tier; the Governor sets up a State Finance Commission every five years under Article 243-I; and Article 243F says a person is not disqualified for being under 25 if aged 21 or above. A 2026 national study by NIRD&PR found Gram Sabhas weakened by low attendance, poor women's participation and dependence on tied grants.",
+   "s": "Vision IAS pp. 8-9",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Panchayati Raj",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The 'Panchayat Advancement Index', which won a gold award at the National Awards for e-Governance 2026, ranks gram panchayats on",
+   "o": [
+    "nine themes of the Localisation of the Sustainable Development Goals",
+    "the amount of own-source revenue they collect",
+    "the speed of payments under the rural employment scheme",
+    "the share of women among elected representatives"
+   ],
+   "a": 0,
+   "e": "The index is India's first data framework to rank panchayats, using the nine themes of localised SDGs such as poverty-free and healthy villages. Own-source revenue is addressed separately through the SAMARTH Panchayat Portal and model rules for property tax and user charges. Panchayats get about 95 per cent of revenue from grants.",
+   "s": "Vision IAS p. 9",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Panchayati Raj",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nInitiative : Purpose\n1. Sashakt Panchayat Netri Abhiyan : Capacity building of elected women representatives\n2. SAMARTH Panchayat Portal : Managing own-source revenue of gram panchayats\n3. DAANVEER : Crowdsourcing donations of computers to gram panchayats\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct. The women's campaign, launched in 2025, has trained about 1.5 lakh representatives, and 744 model women-friendly gram panchayats are being developed with UNFPA. These were showcased under India's BRICS chairship in 2026. The Atmanirbhar Panchayat Programme also helps panchayats build revenue-earning projects.",
+   "s": "Vision IAS pp. 8-9",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Panchayati Raj",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to social audit, consider the following statements:\n1. The Viksit Bharat - Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025 requires a Gram Sabha social audit of all works at least once every six months.\n2. The Rural Internal Audit Portal, launched in 2026, was developed by the Comptroller and Auditor General of India.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The portal was built by the office of the Chief Controller of Accounts in the Ministry of Rural Development with the National Informatics Centre; it is AI-enabled, risk-based and has a geospatial map view. A social audit complements, rather than replaces, CAG audits and RTI. Its weakness is that social audit units often depend on the departments they audit.",
+   "s": "Vision IAS pp. 10-11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Social audit",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "'Jaankari', 'Bhagidari', 'Suraksha' and 'Sunwai' are",
+   "o": [
+    "guiding principles of social audit",
+    "components of the PM-JANMAN mission",
+    "pillars of the e-Panchayat Mission Mode Project",
+    "stages of the Gram Panchayat Development Plan"
+   ],
+   "a": 0,
+   "e": "The five principles of social audit, with Janta ka Manch, are open access to information, participation in decisions, a safe forum for discussion in the Gram Sabha, grievance redress and a collective platform for citizens. Audits expose ghost beneficiaries, inflated bills and poor works. Suggested reforms include autonomous audit units and time-bound action-taken reports.",
+   "s": "Vision IAS p. 11",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Social audit",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Concept"
+  },
+  {
+   "q": "With reference to the International Labour Organization's 2026 assessment of social protection in India, consider the following statements:\n1. Coverage rose from 19 per cent in 2015 to 68.4 per cent in 2026.\n2. More than 100 crore people are now covered by at least one social protection benefit.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct; coverage went from about 25 crore people to over 101 crore. Note that the SDG National Indicator Framework report of 2026 gives a different figure of 65.3 per cent. About 90 per cent of India's more than 50 crore workers are informal, which is why the next challenge is depth of coverage, such as outpatient care, rather than numbers.",
+   "s": "Vision IAS p. 16",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ILO social protection",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nScheme : Benefit\n1. Pradhan Mantri Suraksha Bima Yojana : Rs 2 lakh cover for accidental death or disability\n2. Pradhan Mantri Jeevan Jyoti Bima Yojana : Rs 2 lakh renewable term life cover\n3. PM Shram Yogi Maan-dhan : Pension of Rs 3,000 a month after age 60\n4. Atal Pension Yojana : Guaranteed pension of Rs 1,000 to Rs 5,000 a month\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "Only three pairs",
+    "All four pairs"
+   ],
+   "a": 3,
+   "e": "All four pairs are correct. The Atal Pension Yojana gives a guaranteed pension of Rs 1,000 to Rs 5,000 a month and has about 9.29 crore subscribers. The accident scheme had about 57 crore enrolments. These schemes, with e-Shram, are counted in India's 68.4 per cent ILO social-protection coverage.",
+   "s": "Vision IAS p. 17",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Social security schemes",
+   "pr": "Core",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "With reference to the e-Shram portal, consider the following statements:\n1. It issues a Universal Account Number to unorganised workers.\n2. Women make up more than half of those registered.\n3. More than 30 crore workers have been registered.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. About 31.87 crore unorganised workers are registered, about 54 per cent of them women, each with a Universal Account Number. Along with Jan Dhan, Aadhaar and direct benefit transfers, e-Shram is one of the digital rails credited for India's ILO social-protection coverage of 68.4 per cent in 2026, up from 19 per cent in 2015.",
+   "s": "Vision IAS p. 17",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Social security schemes",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Which of the following are cited as examples of a 'whole-of-government' approach in India?\n1. PM GatiShakti National Master Plan\n2. POSHAN Abhiyaan\n3. Jan Samarth portal\n4. PRAGATI platform\nSelect the correct answer using the code given below:",
+   "o": [
+    "1, 2, 3 and 4",
+    "1, 2 and 3",
+    "2, 3 and 4",
+    "1 and 2 only"
+   ],
+   "a": 0,
+   "e": "All four bring several agencies onto one platform or goal. GatiShakti joins 44 central ministries and 36 States and UTs; POSHAN Abhiyaan unites over 26 ministries; Jan Samarth integrates 13 credit-linked schemes; and PRAGATI lets the Prime Minister's Office monitor projects across departments. The approach aims at policy coherence and single-window delivery.",
+   "s": "Vision IAS pp. 18-19",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Whole-of-government",
+   "pr": "Extra",
+   "fmt": "select-code",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to ministerial responsibility in India, consider the following statements:\n1. Under Article 75(3), the Council of Ministers is collectively responsible to the House of the People.\n2. Defeat of the Council of Ministers on a no-confidence motion obliges it to resign.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 2,
+   "e": "Both statements are correct. A censure motion states reasons and criticises the government or a minister, but its passage does not require resignation; only defeat on a no-confidence motion does. Individual responsibility under Article 75(2) means ministers hold office at the President's pleasure, in practice the Prime Minister's.",
+   "s": "Shankar IAS pp. 37-38; censure motion effect is static",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ministerial responsibility",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Hard",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following pairs:\nPerson : Act of accountability\n1. Lal Bahadur Shastri : Resigned as Home Minister in 1956 after a train accident\n2. Mahatma Gandhi : Withdrew the Civil Disobedience Movement after Chauri Chaura\n3. Kate Wilkinson : Resigned as Labour Minister of Australia after a bushfire\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 3,
+   "e": "None of the pairs is correct. Shastri resigned as Railway Minister in 1956 after the Ariyalur train accident. Gandhi withdrew the Non-Cooperation Movement after Chauri Chaura in 1922. Kate Wilkinson was New Zealand's Labour Minister and resigned in 2010 after the Pike River Mine disaster. All three are cited as examples of moral responsibility.",
+   "s": "Shankar IAS p. 38",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Ministerial responsibility",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Prevention of Insults to National Honour Act, 1971, consider the following statements:\n1. It protects the National Flag, the Constitution of India and the National Anthem.\n2. Intentionally preventing the singing of the National Anthem is punishable with imprisonment up to three years, fine, or both.\n3. As enacted, it also protected the National Song.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 1,
+   "e": "Statements 1 and 2 are correct; repeat offenders face a minimum of one year. Statement 3 is wrong, which is why an amendment Bill introduced in the Rajya Sabha on 24 July 2026 seeks to extend Section 3 to Vande Mataram in its 150th year. Note that Vision IAS reports the measure as an Act passed, while Shankar IAS describes a Bill introduced.",
+   "s": "Shankar IAS pp. 40-41",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "National Honour Act",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: The Fundamental Duty in Article 51A(a) mentions the National Song along with the National Anthem.\nStatement-II: In Bijoe Emmanuel v. State of Kerala (1986), the Supreme Court held that students who stand respectfully cannot be compelled to sing the National Anthem.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 3,
+   "e": "Statement-I is incorrect and Statement-II is correct. Article 51A(a) refers to respect for the Constitution, the National Flag and the National Anthem; the National Song is not mentioned. Bijoe Emmanuel held that compulsion would violate Articles 19(1)(a) and 25. Critics of the 2026 Bill rely on both points.",
+   "s": "Shankar IAS p. 41",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "National Honour Act",
+   "pr": "Core",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "The Congress Working Committee resolution of October 1937 on Vande Mataram decided that",
+   "o": [
+    "only the first two stanzas would be sung on public and official occasions",
+    "the song would be replaced by Jana Gana Mana at all Congress sessions",
+    "the song would be sung only in its original Bengali",
+    "the song would be adopted as the national anthem of free India"
+   ],
+   "a": 0,
+   "e": "Meeting at Calcutta, the committee adopted a resolution moved by Rajendra Prasad and seconded by Sardar Patel, with Gandhi present and Tagore consulted, restricting public use to the first two stanzas because later stanzas invoke Hindu goddesses. A government protocol order of 28 January 2026 requiring all six stanzas at certain functions is criticised for breaking this settlement.",
+   "s": "Shankar IAS pp. 41-42",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Vande Mataram",
+   "pr": "Core",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the history of Vande Mataram, consider the following statements:\n1. It appears in Bankim Chandra Chattopadhyay's novel 'Anandamath'.\n2. It became a rallying song of the Swadeshi Movement after the partition of Bengal.\n3. On 24 January 1950, Rajendra Prasad announced in the Constituent Assembly that it would have equal honour with Jana Gana Mana.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. Note that the sources differ on the date: Shankar IAS dates the song to 1882, the year of Anandamath, while Vision IAS gives 1875, when the poem is generally said to have been written. Prasad's announcement gave equal honour but no constitutional provision, which is why the National Song had no statutory protection.",
+   "s": "Shankar IAS pp. 41-42; Vision IAS",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Vande Mataram",
+   "pr": "Extra",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Consider the following pairs:\nCountry : Machine-readable legislation system\n1. United States : United States Legislative Markup\n2. United Kingdom : Crown Legislation Markup Language on legislation.gov.uk\n3. Several African countries : Akoma Ntoso markup with the Indigo platform\nHow many of the above pairs are correctly matched?",
+   "o": [
+    "Only one pair",
+    "Only two pairs",
+    "All three pairs",
+    "None of the pairs"
+   ],
+   "a": 2,
+   "e": "All three pairs are correct; the American and British systems are variants of Akoma Ntoso. They allow amendments to be tracked, laws to be viewed as they stood on any date and rules to be linked to parent Acts. India's India Code portal covers central Acts only, without subordinate legislation or past versions.",
+   "s": "Shankar IAS p. 46",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Legal publishing",
+   "pr": "Extra",
+   "fmt": "how-many-pairs",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to caste enumeration in Census 2027, consider the following statements:\n1. The last Census to record caste comprehensively was that of 1951.\n2. The data collected in the Socio-Economic and Caste Census of 2011 were fully released and used for reservation policy.\n3. The Mandal Commission's recommendation of 27 per cent reservation for backward classes rested on 1931 data.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 0,
+   "e": "Only statement 3 is correct; the 1931 Census put backward classes at about 52 per cent, the basis of the Mandal figure. Caste enumeration stopped in 1951, which counted only Scheduled Castes and Scheduled Tribes, so 1931 remains the last full caste count. Caste data from the 2011 survey were never fully released or used. Census 2027 will enumerate caste for the first time since 1931.",
+   "s": "Shankar IAS p. 48",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Caste census",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Under the Census Act, 1948, refusing to answer Census questions is punishable with",
+   "o": [
+    "cancellation of the person's ration card",
+    "a fine of Rs 10,000 only",
+    "imprisonment of up to two years",
+    "a fine of up to Rs 1,000 and imprisonment of up to six months"
+   ],
+   "a": 3,
+   "e": "Participation is compulsory under the Act. Census 2027 will be the first fully digital Census, the first with self-enumeration and the first comprehensive caste count since Independence. About 24 lakh enumeration blocks of 150 to 180 households each will be covered by about 30 lakh enumerators, mostly schoolteachers.",
+   "s": "Shankar IAS p. 49",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Caste census",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the Academic Bank of Credits and APAAR, consider the following statements:\n1. APAAR is a 12-digit student identity accessible through DigiLocker.\n2. Credits stored in the Academic Bank of Credits remain valid for up to seven years.\n3. A student may earn up to 40 per cent of credits through SWAYAM courses.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The Academic Bank of Credits is run by the Ministry of Education and regulated by the UGC, with the National Academic Depository as its backbone. It supports multiple entry and exit: a certificate after one year, a diploma after two and a degree after three or four. Students aged 13 to 30 with APAAR also get airfare discounts and extra baggage.",
+   "s": "Shankar IAS pp. 50-51",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ABC and APAAR",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "With reference to the revised three-language guidelines issued by the CBSE in 2026, consider the following statements:\n1. For students then in Classes 7, 8 and 9, the third language is assessed internally and has no Class 10 board examination.\n2. The new policy applies in full to students then in Class 10.\nWhich of the statements given above is/are correct?",
+   "o": [
+    "1 only",
+    "2 only",
+    "Both 1 and 2",
+    "Neither 1 nor 2"
+   ],
+   "a": 0,
+   "e": "Only statement 1 is correct. The current Class 10 batch was fully exempted and continues with two languages, while the full policy applies to incoming Class 6 batches. Children with special needs, schools abroad and foreign or returning students are fully exempt. The three-language formula was first proposed in 1968 and reiterated in NEP 2020.",
+   "s": "Shankar IAS pp. 52-53",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Three-language rules",
+   "pr": "Core",
+   "fmt": "two-statement",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "Education was moved from the State List to the Concurrent List by the",
+   "o": [
+    "Seventh Amendment, 1956",
+    "Forty-fourth Amendment, 1978",
+    "Forty-second Amendment, 1976",
+    "Eighty-sixth Amendment, 2002"
+   ],
+   "a": 2,
+   "e": "The 1976 amendment shifted education to the Concurrent List, which is why both the Centre and the States can legislate on it and why language policy under NEP 2020 involves both. The Eighty-sixth Amendment made elementary education a fundamental right under Article 21A. Article 343 makes Hindi in Devanagari the official language of the Union and Article 351 directs its promotion.",
+   "s": "Shankar IAS p. 53",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "Three-language rules",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "News + static"
+  },
+  {
+   "q": "With reference to the Employees' Provident Fund Organisation, consider the following statements:\n1. The employer's contribution of 12 per cent is split, with 8.33 per cent going to the Employees' Pension Scheme.\n2. Under EPFO 3.0, claims up to Rs 5 lakh are settled automatically within three days without employer approval.\n3. The new centralised IT system was developed by C-DAC.\nHow many of the above statements are correct?",
+   "o": [
+    "Only one",
+    "Only two",
+    "All three",
+    "None"
+   ],
+   "a": 2,
+   "e": "All three statements are correct. The remaining 3.67 per cent of the employer's share goes to the provident fund, which earns 8.25 per cent. The Centralised IT-Enabled System replaces a decentralised set-up, allows withdrawal through UPI and ATMs, and requires at least 25 per cent of the corpus to be kept for retirement on partial withdrawal.",
+   "s": "Shankar IAS pp. 54-55",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "EPFO 3.0",
+   "pr": "Core",
+   "fmt": "how-many",
+   "d": "Medium",
+   "kind": "News"
+  },
+  {
+   "q": "The Employees' Enrolment Scheme, 2025 is meant to",
+   "o": [
+    "give a wage incentive of up to Rs 15,000 to first-time employees",
+    "provide a six-month window for employers to declare workers left out of provident-fund coverage, waiving past dues",
+    "merge the provident-fund and pension schemes into one",
+    "issue digital life certificates to pensioners"
+   ],
+   "a": 1,
+   "e": "The scheme is an amnesty that brings uncovered workers into the provident-fund system without penal dues. The wage incentive of up to Rs 15,000 belongs to the PM Viksit Bharat Rozgar Yojana, and digital life certificates through face authentication come under Jeevan Pramaan. Provident-fund coverage is mandatory for establishments with 20 or more employees.",
+   "s": "Shankar IAS p. 55",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "EPFO 3.0",
+   "pr": "Extra",
+   "fmt": "single-correct",
+   "d": "Medium",
+   "kind": "Confusable"
+  },
+  {
+   "q": "Consider the following statements:\nStatement-I: Expansion of the Ayushman Bharat Digital Mission faces fragmentation at the State level.\nStatement-II: Health is a subject in the State List, and several States run their own digital health schemes.\nWhich one of the following is correct in respect of the above statements?",
+   "o": [
+    "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
+    "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
+    "Statement-I is correct but Statement-II is incorrect",
+    "Statement-I is incorrect but Statement-II is correct"
+   ],
+   "a": 0,
+   "e": "Both statements are correct and the second explains the first. Because health is a State subject, parallel State platforms slow a single national record system. Other challenges are privacy and consent management and low awareness. Suggested steps include using ASHA and Anganwadi workers to create ABHA IDs, QR-based 'Scan and Share' registration and enforcing the DPDP Act.",
+   "s": "Shankar IAS p. 37",
+   "sub": "Current Affairs",
+   "u": "Polity & Governance",
+   "it": "ABDM",
+   "pr": "Extra",
+   "fmt": "statement-I-II",
+   "d": "Medium",
+   "kind": "News + static"
+  }
+ ]
+}
