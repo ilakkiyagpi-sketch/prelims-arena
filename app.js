@@ -5,7 +5,7 @@ var CFG={
   START:"2026-10-18", PRELIMS:"2027-05-23", IDEAL_END:"2027-05-16", GOAL:90, RIGHT:2, WRONG:0.66,
   SEC_PER_Q:72, PYQ_SHARE:0.3, PYQ_HOLD:[2024,2025,2026], CSAT_MK:[2.5,0.83], CSAT_PASS:33, STORE:"pa2-store", OLD:"prelims-arena-v3", OLD_SYNC:"prelims-arena-sync-v1",
   MOCK_WEIGHTS:{"Polity":15,"History":15,"Geography":12,"Economy":14,"Environment":14,"Science & Tech":12,"Current Affairs":18},
-  REVIEW_DAYS:[1,3,7,21], CAM_FROM:"2026-10-30"
+  REVIEW_DAYS:[1,3,7,21], SURE_DAYS:[1,2,5,14], CAM_FROM:"2026-10-30"
 };
 // Shankar IAS Prestorming Batch II schedule: key, name, date, subject, type
 var TESTS=[
@@ -197,7 +197,7 @@ function loadQids(qids){
 /* per-question history from all finished attempts: qid -> [{ts,c}] (c: 1 right, 0 wrong, -1 skipped) */
 function qHistory(){
   var h={};
-  attempts().forEach(function(a){(a.items||[]).forEach(function(x){if(x[4]===2)return;(h[x[0]]=h[x[0]]||[]).push({ts:a.ts,c:x[4]})})});
+  attempts().forEach(function(a){(a.items||[]).forEach(function(x){if(x[4]===2)return;(h[x[0]]=h[x[0]]||[]).push({ts:a.ts,c:x[4],cf:x[5]||0})})});
   return h;
 }
 /* mistake book: questions answered wrong or skipped, until right twice in a row afterwards */
@@ -212,10 +212,11 @@ function mistakeBook(){
     if(streak>=2)return;
     var reviews=after.length;
     var lastTs=ev[ev.length-1].ts;
-    var due=lastTs+CFG.REVIEW_DAYS[Math.min(reviews,CFG.REVIEW_DAYS.length-1)]*86400000;
-    out.push({qid:qid,due:due,isDue:due<=now,reviews:reviews,lastBad:ev[lastBad].ts});
+    var sure=ev[lastBad].c===0&&ev[lastBad].cf===1?1:0,RD=sure?CFG.SURE_DAYS:CFG.REVIEW_DAYS;
+    var due=lastTs+RD[Math.min(reviews,RD.length-1)]*86400000;
+    out.push({qid:qid,due:due,isDue:due<=now,reviews:reviews,lastBad:ev[lastBad].ts,sure:sure});
   });
-  return out.sort(function(a,b){return a.due-b.due});
+  return out.sort(function(a,b){return (b.isDue-a.isDue)||(b.sure-a.sure)||(a.due-b.due)});
 }
 function qMeta(){ // qid -> [subject, unit] from attempts
   var m={};attempts().forEach(function(a){(a.items||[]).forEach(function(x){m[x[0]]=[x[1],x[2]]})});return m;
@@ -340,7 +341,8 @@ function startQuiz(o){
   var n=o.qs.length,run=o.run;
   QZ={key:o.key,type:o.type,setId:o.setId||null,title:o.title,subject:o.subject||"Mixed",sched:o.sched||null,qs:o.qs,
     i:0,ans:new Array(n).fill(null),conf:new Array(n).fill(0),mark:new Array(n).fill(0),secs:new Array(n).fill(0),seen:new Array(n).fill(0),strike:new Array(n).fill(0),part:o.part||(run&&run.part)||null,
-    timed:!!o.timed,limit:o.limit||Math.round(n*CFG.SEC_PER_Q),mk:o.mk||(run&&run.mk)||null,el:0,t0:Date.now(),qt0:Date.now(),nav:false,tick:null};
+    timed:!!o.timed,limit:o.limit||Math.round(n*CFG.SEC_PER_Q),mk:o.mk||(run&&run.mk)||null,el:0,t0:Date.now(),qt0:Date.now(),nav:false,tick:null,
+    x:o.x||(run&&run.x)||(typeof takePendingX==="function"?takePendingX(o):null)};
   if(run){["i","ans","conf","mark","secs","seen","strike"].forEach(function(k){if(run[k]&&(k==="i"||run[k].length===n))QZ[k]=Array.isArray(run[k])?run[k].slice():run[k]});QZ.el=run.el||0;QZ.limit=run.limit||QZ.limit;QZ.timed=!!run.timed}
   QZ.t0=Date.now()-QZ.el*1000;QZ.qt0=Date.now();
   if(typeof stopPlayer==="function"&&PL.list.length)stopPlayer();
@@ -361,7 +363,7 @@ function saveRun(sync){
   if(!answered&&QZ.i===0&&!QZ.mark.some(Boolean))return;
   put("run_"+QZ.key,{kind:"run",key:QZ.key,type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,
     qids:QZ.qs.map(function(q){return q.qid}),i:QZ.i,ans:QZ.ans,conf:QZ.conf,mark:QZ.mark,secs:QZ.secs,seen:QZ.seen,strike:QZ.strike,part:QZ.part,
-    el:Math.round(elapsed()),timed:QZ.timed,limit:QZ.limit,mk:QZ.mk,done:answered,n:QZ.qs.length},{noSync:!sync});
+    el:Math.round(elapsed()),timed:QZ.timed,limit:QZ.limit,mk:QZ.mk,done:answered,n:QZ.qs.length,x:QZ.x||null},{noSync:!sync});
 }
 function goQ(i){if(!QZ||i<0||i>=QZ.qs.length)return;noteTime();QZ.i=i;QZ.nav=false;renderQuiz();saveRun(false);var c=$("qz-card");if(c&&c.scrollIntoView&&window.innerWidth<900)window.scrollTo(0,0)}
 function choose(k){QZ.strike[QZ.i]&=~(1<<k);QZ.ans[QZ.i]=QZ.ans[QZ.i]===k?null:k;if(QZ.ans[QZ.i]==null)QZ.conf[QZ.i]=0;renderQuiz();saveRun(false)}
@@ -377,6 +379,7 @@ function bubbleClass(i){
   if(QZ.mark[i])c.push("mark");return c.join(" ");
 }
 function renderQuiz(){
+  if(QZ.x&&QZ.x.view==="omr"&&typeof renderOmr==="function")return renderOmr();
   var q=QZ.qs[QZ.i],n=QZ.qs.length;QZ.seen[QZ.i]=1;
   var answered=QZ.ans.filter(function(a){return a!=null}).length,marked=QZ.mark.filter(Boolean).length;
   var grid=QZ.qs.map(function(_,i){return '<button class="bub '+bubbleClass(i)+'" data-go="'+i+'" aria-label="Question '+(i+1)+'">'+(i+1)+'</button>'}).join("");
@@ -384,12 +387,12 @@ function renderQuiz(){
   var last=QZ.i===n-1;
   $("app").innerHTML=
    '<div class="quiz">'+
-    '<header class="qz-top"><button class="btn ghost" id="qz-pause">Pause</button><div class="qz-title"><b>'+esc(QZ.title)+'</b><span>'+answered+' of '+n+' answered'+(marked?', '+marked+' marked':'')+'</span></div><span class="qz-clock" id="qz-clock">'+(QZ.timed?fmtT(QZ.limit-elapsed())+" left":fmtT(elapsed()))+'</span><button class="btn ghost navbtn" id="qz-nav" aria-expanded="'+QZ.nav+'">Questions</button></header>'+
+    '<header class="qz-top"><button class="btn ghost" id="qz-pause">Pause</button><div class="qz-title"><b>'+esc(QZ.title)+'</b><span>'+answered+' of '+n+' answered'+(marked?', '+marked+' marked':'')+'</span></div>'+(typeof qzExtraHead==="function"?qzExtraHead():"")+'<span class="qz-clock" id="qz-clock">'+(QZ.timed?fmtT(QZ.limit-elapsed())+" left":fmtT(elapsed()))+'</span><button class="btn ghost navbtn" id="qz-nav" aria-expanded="'+QZ.nav+'">Questions</button></header>'+
     '<div class="qz-body">'+
      '<aside class="qz-grid'+(QZ.nav?" open":"")+'" aria-label="Question navigator"><div class="gridhead"><span>Jump to a question</span><span class="key"><i class="k ans"></i>Answered <i class="k skip"></i>Skipped <i class="k mark"></i>Marked</span></div><div class="bubs">'+grid+'</div></aside>'+
      '<section class="qz-main">'+
-      '<article class="qcard" id="qz-card"><div class="qmeta"><span>Question '+(QZ.i+1)+' of '+n+'</span>'+pyqChip(q)+'<span class="chip">'+esc(q.u)+'</span></div>'+
-       passageHtml(q,true)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><div class="opts">'+opts+'</div>'+
+      '<article class="qcard" id="qz-card"><div class="qmeta"><span>Question '+(QZ.i+1)+' of '+n+'</span>'+pyqChip(q)+'<span class="chip">'+esc(q.u)+'</span>'+(typeof qzExtraMeta==="function"?qzExtraMeta(q):"")+'</div>'+
+       passageHtml(q,true)+(q.map&&typeof mapSvg==="function"?mapSvg(q.map):"")+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><div class="opts">'+opts+'</div>'+
        '<div class="conf"><span>How sure are you?</span><div class="seg">'+[1,2,3].map(function(c){return '<button data-c="'+c+'" aria-pressed="'+(QZ.conf[QZ.i]===c)+'"'+(QZ.ans[QZ.i]==null?" disabled":"")+'>'+CONF[c]+'</button>'}).join("")+'</div></div>'+
       '</article>'+
       '<div class="qz-actions"><button class="btn" id="qz-prev"'+(QZ.i===0?" disabled":"")+'>Previous</button><button class="btn'+(QZ.mark[QZ.i]?" on":"")+'" id="qz-mark" aria-pressed="'+!!QZ.mark[QZ.i]+'">'+(QZ.mark[QZ.i]?"Marked for review":"Mark for review")+'</button><button class="btn" id="qz-clear"'+(QZ.ans[QZ.i]==null?" disabled":"")+'>Clear answer</button><button class="btn primary" id="qz-next">'+(last?"Review and submit":"Next")+'</button></div>'+
@@ -407,9 +410,10 @@ function renderQuiz(){
   $("qz-pause").onclick=pauseQuiz;$("qz-submit").onclick=confirmSubmit;
   $("qz-nav").onclick=function(){QZ.nav=!QZ.nav;renderQuiz()};
   $("qz-report").onclick=function(){reportDialog(q)};
+  if(typeof qzExtraBind==="function")qzExtraBind(q);
 }
 document.addEventListener("keydown",function(ev){
-  if(VIEW.screen!=="quiz"||!QZ||ev.metaKey||ev.ctrlKey||ev.altKey||$("modal"))return;
+  if(VIEW.screen!=="quiz"||!QZ||ev.metaKey||ev.ctrlKey||ev.altKey||$("modal")||(QZ.x&&QZ.x.view==="omr"))return;
   var tg=ev.target&&ev.target.tagName;if(tg==="INPUT"||tg==="TEXTAREA"||tg==="SELECT")return;
   var k=ev.key.toLowerCase(),m={a:0,b:1,c:2,d:3,"1":0,"2":1,"3":2,"4":3};
   if(m.hasOwnProperty(k)){choose(m[k]);ev.preventDefault()}
@@ -441,14 +445,17 @@ function confirmSubmit(){
     function(act){if(act==="sub")submitQuiz();else if(act==="mk")goQ(firstMk);else if(act==="un")goQ(firstUn)});
 }
 function submitQuiz(){
-  if(!QZ)return;noteTime();clearInterval(QZ.tick);
+  if(!QZ)return;noteTime();
+  if(typeof qzPreSubmit==="function"&&qzPreSubmit()===false)return;
+  clearInterval(QZ.tick);
   var r=0,w=0,sk=0,nd=0,items=[],mk=QZ.mk||[CFG.RIGHT,CFG.WRONG];
   QZ.qs.forEach(function(q,i){var a=QZ.ans[i],c=q.x?2:(a==null?-1:(a===q.a?1:0));if(c===1)r++;else if(c===0)w++;else if(c===2)nd++;else sk++;
     items.push([q.qid,q.sub,q.u,a==null?-1:a,c,QZ.conf[i],QZ.secs[i],QZ.mark[i],QZ.strike[i]||0])});
   var id=uid("att"),n=QZ.qs.length;
   var rec={kind:"att",type:QZ.type,setId:QZ.setId,title:QZ.title,subject:QZ.subject,sched:QZ.sched,date:today(),n:n,r:r,w:w,sk:sk,pts:pts(r,w,mk),max:Math.round((n-nd)*mk[0]*100)/100,sec:Math.round(elapsed()),timed:QZ.timed,items:items};
-  if(QZ.mk)rec.mk=QZ.mk;if(nd)rec.nd=nd;if(QZ.part)rec.part=QZ.part;
+  if(QZ.mk)rec.mk=QZ.mk;if(nd)rec.nd=nd;if(QZ.part)rec.part=QZ.part;if(QZ.x)rec.x=QZ.x;
   put(id,rec);
+  if(typeof qzAfterSubmit==="function")qzAfterSubmit(id,rec);
   if(DB.recs["run_"+QZ.key])del("run_"+QZ.key);
   saveStore(true);
   var qs=QZ.qs;QZ=null;document.body.classList.remove("in-quiz");
@@ -471,7 +478,8 @@ function confTable(items){
   return '<table class="tbl"><thead><tr><th>Confidence</th><th>Answered</th><th>Right</th><th>Net marks</th></tr></thead><tbody>'+rows+'</tbody></table>'+(adv?'<p class="muted">'+adv.trim()+'</p>':'');
 }
 function showResult(att,qs,fresh){
-  VIEW.screen="result";RES={att:att,qs:qs,filter:"all"};renderResult(fresh);window.scrollTo(0,0);
+  if(typeof resultGate==="function"&&resultGate(att,qs,fresh))return;
+  VIEW.screen="result";RES={att:att,qs:qs,filter:(typeof RES_FILTER_NEXT!=="undefined"&&RES_FILTER_NEXT)||"all"};if(typeof RES_FILTER_NEXT!=="undefined")RES_FILTER_NEXT=null;renderResult(fresh);window.scrollTo(0,0);
 }
 var RES=null;
 function renderResult(fresh){
@@ -492,23 +500,24 @@ function renderResult(fresh){
     var verdict=x[4]===1?'<span class="tag good">Right</span>':(x[4]===0?'<span class="tag bad">Wrong</span>':(x[4]===2?'<span class="tag">Not scored</span>':'<span class="tag">Not answered</span>'));
     if(ch==null&&!a.v1)verdict=x[4]===1?verdict:verdict;
     return '<div class="rcard"><div class="qmeta"><span>Question '+(o.i+1)+'</span>'+pyqChip(q)+verdict+(x[5]?'<span class="tag">'+CONF[x[5]]+'</span>':'')+(x[7]?'<span class="tag warn">Marked</span>':'')+(((x[8]||0)>>q.a)&1?'<span class="tag bad">Crossed out the right answer</span>':'')+'<span class="chip">'+esc(q.u)+'</span>'+(x[6]?'<span class="muted small">'+x[6]+' s</span>':'')+'</div>'+
-      passageHtml(q,false)+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
+      passageHtml(q,false)+(q.map&&typeof mapSvg==="function"?mapSvg(q.map,true):"")+(q.x?'<p class="note">'+esc(dropNote(q))+'</p>':'')+'<div class="qtext">'+esc(q.q)+'</div><ul class="ropts">'+opts+'</ul>'+(a.v1&&ch==null&&x[4]!==-1?'<p class="muted small">Your chosen option was not recorded for tests taken in the earlier version.</p>':'')+
       '<div class="expl"><b>Explanation.</b> '+esc(q.e||"No explanation available.")+(q.h?'<div class="hook">Memory hook: '+esc(q.h)+'</div>':'')+'<div class="muted small">Source: '+esc(q.s||"–")+'</div></div>'+
-      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+(q.rp?'<button class="link" data-rp="'+esc(q.rp)+'">See how UPSC asked this topic</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button><div class="rpbox"></div></div>';
+      (q.pg&&String(q.qid).indexOf("CAM26-")===0?'<button class="link" data-note="'+esc(q.qid)+'">Read the note for this question (page '+q.pg+')</button> ':'')+(q.rp?'<button class="link" data-rp="'+esc(q.rp)+'">See how UPSC asked this topic</button> ':'')+'<button class="link" data-rep="'+esc(q.qid)+'">Report a problem with this question</button><div class="rpbox"></div>'+(typeof rcardExtra==="function"?rcardExtra(a,x,q,o.i):"")+'</div>';
   }).join("");
   $("app").innerHTML='<div class="page"><div class="pagehead"><button class="btn ghost" id="rs-back">'+(fresh?"Done":"Back")+'</button><div><h1>'+esc(a.title)+'</h1><p class="muted">'+esc(TYPE_LABEL[a.type]||a.type)+', taken '+fdy(a.date)+(a.sched&&a.sched!==a.date?', scheduled for '+fdy(a.sched):'')+'</p></div></div>'+
-    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+retakeHtml(a)+
+    '<section class="panel scorecard"><div class="big"><b>'+a.pts+'</b><span>of '+a.max+' marks ('+pc+'%)'+(a.mk&&a.mk[0]===CFG.CSAT_MK[0]?(pc>=CFG.CSAT_PASS?' · <em class="pass">Qualifies (33% needed)</em>':' · <em class="fail">Below the 33% qualifying mark</em>'):'')+(a.nd?' · '+a.nd+' question'+(a.nd>1?"s":"")+' not scored':'')+'</span></div><dl class="stats"><div><dt>Right</dt><dd>'+a.r+'</dd></div><div><dt>Wrong</dt><dd>'+a.w+'</dd></div><div><dt>Not answered</dt><dd>'+a.sk+'</dd></div><div><dt>Accuracy</dt><dd>'+acc+'%</dd></div><div><dt>Time</dt><dd>'+fmtMin(a.sec||0)+'</dd></div><div><dt>Per question</dt><dd>'+(a.n?Math.round((a.sec||0)/a.n):0)+' s</dd></div></dl></section>'+(typeof resultExtra==="function"?resultExtra(a,qs):"")+retakeHtml(a)+
     '<div class="cols"><section class="panel"><h2>By unit</h2><div class="scroll"><table class="tbl"><thead><tr><th>Unit</th><th>Right</th><th>Wrong</th><th class="hide-sm">Skipped</th><th>Accuracy</th></tr></thead><tbody>'+unitRows+'</tbody></table></div></section>'+
     '<section class="panel"><h2>Confidence</h2>'+confTable(items)+elimHtml(items,qs)+'</section></div>'+nextPartHtml(a)+notesAfterTest(a,qs)+
     '<section class="panel"><div class="row between wrap"><h2>Answers and explanations</h2><button class="btn small" id="rs-listen">Listen to these</button><div class="seg small">'+filters.map(function(f){return '<button data-f="'+f[0]+'" aria-pressed="'+(RES.filter===f[0])+'">'+f[1]+'</button>'}).join("")+'</div></div>'+(cards||'<p class="muted">No questions match this filter.</p>')+'</section></div>';
   $("rs-back").onclick=function(){VIEW.screen="tabs";render()};
-  $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
+  $("rs-listen").onclick=function(){var l=list.filter(function(o){return o.q&&!o.q.x&&!o.q.map}).map(function(o){return {q:o.q,ch:o.x[3]}});if(!l.length){toast("Nothing to read out for this filter.");return}playList(l,"Review: "+a.title)};
   if($("rs-retake"))$("rs-retake").onclick=function(){retakeAttempt(a)};
   if($("rs-next"))$("rs-next").onclick=function(){startPart(a.setId,+$("rs-next").dataset.p)};
   qsa("[data-f]").forEach(function(b){b.onclick=function(){RES.filter=b.dataset.f;renderResult(fresh)}});
   qsa("[data-rp]").forEach(function(b){b.onclick=function(){showLinkedPyq(b)}});
   bindNotesAfterTest();
   qsa("[data-rep]").forEach(function(b){b.onclick=function(){reportDialog(byQid[b.dataset.rep])}});
+  if(typeof bindResultExtra==="function")bindResultExtra(a,byQid,fresh);
 }
 /* take any finished test again: the same questions, as a new attempt; earlier attempts stay in the record */
 function canRetake(a){return !!(a&&((a.setId&&SET[a.setId]&&SET[a.setId].ready)||(a.items&&a.items.length)))}
@@ -590,6 +599,7 @@ function render(){
   var nav=TABS.map(function(t){return '<a href="#'+t[0]+'" class="tab'+(VIEW.tab===t[0]?" on":"")+'" data-tab="'+t[0]+'" aria-current="'+(VIEW.tab===t[0]?"page":"false")+'">'+ICON[t[0]]+'<span>'+t[1]+'</span></a>'}).join("");
   $("app").innerHTML='<div class="shell"><header class="topbar"><div class="brand"><span class="mark" aria-hidden="true"></span><span>Prelims Arena</span></div><button class="syncbadge" id="syncbadge"></button></header>'+
     '<nav class="tabs" aria-label="Sections">'+nav+'</nav><main id="view" class="page"></main></div>';
+  if(typeof topbarExtra==="function")topbarExtra();
   $("syncbadge").onclick=function(){VIEW.tab="scores";location.hash="scores";render();setTimeout(function(){var s=$("sync-card");if(s)s.scrollIntoView({behavior:"smooth"})},50)};
   ({today:viewToday,practice:viewPractice,read:viewRead,dash:viewDash,scores:viewScores})[VIEW.tab]();
   updateSyncBadge();
@@ -608,7 +618,7 @@ function startSet(id,timed){
 }
 function resumeRun(runId){
   var run=DB.recs[runId];if(!run||run.del)return;
-  if(run.setId&&SET[run.setId]&&!run.part&&["subject","fullmock","revision","myq","pyqsub","pyqmock","csatmock"].indexOf(run.type)<0)return startSet(run.setId);
+  if(run.setId&&SET[run.setId]&&!run.part&&!run.x&&["subject","fullmock","revision","myq","pyqsub","pyqmock","csatmock"].indexOf(run.type)<0)return startSet(run.setId);
   $("app").innerHTML='<div class="page"><p class="muted">Loading your paused test…</p></div>';
   loadQids(run.qids).then(function(qs){
     if(qs.length!==run.qids.length){toast("Some questions in this paused test are no longer available, so it restarts with the rest.");run=Object.assign({},run,{ans:null,conf:null,mark:null,secs:null,seen:null,i:0})}
@@ -631,7 +641,7 @@ function startCustom(o){
   loadQids(o.qids).then(function(qs){
     if(!qs.length){VIEW.screen="tabs";render();toast("No questions available for this selection.");return}
     if(o.arrange)qs=cbArrange(qs);
-    startQuiz({key:uid("q"),type:o.type,setId:null,title:o.title,subject:o.subject,qs:qs,timed:o.timed,limit:o.limit||Math.round(qs.length*CFG.SEC_PER_Q),mk:o.mk||null});
+    startQuiz({key:o.key||uid("q"),type:o.type,setId:o.setId||null,title:o.title,subject:o.subject,qs:qs,timed:o.timed,limit:o.limit||Math.round(qs.length*CFG.SEC_PER_Q),mk:o.mk||null,x:o.x||null});
   }).catch(function(){VIEW.screen="tabs";render();toast("Could not load the questions. Check your connection and try again.")});
 }
 function poolFor(subject,units){
@@ -715,7 +725,7 @@ function startRevision(all){
 }
 
 /* Today tab: check-in, paused tests, the selected day's sets, calendar */
-function daysLeftLine(td){var n=dayNum(CFG.PRELIMS)-dayNum(td);return n>0?n+" days to Prelims (24 May 2027)":"Prelims day has passed"}
+function daysLeftLine(td){var n=dayNum(CFG.PRELIMS)-dayNum(td);return n>0?n+" days to Prelims (23 May 2027)":"Prelims day has passed"}
 function checkinCard(td){
   var c=DB.recs["chk_"+td];var s=streak();
   if(c&&!c.del)return '<section class="panel checkin done"><div><h2>Daily check-in</h2><p>You answered <b>'+(c.v==="yes"?"Yes":"No")+'</b> today. '+(s?'Study streak: <b>'+s+' day'+(s>1?"s":"")+'</b>.':'A new streak starts with your next Yes.')+'</p></div></section>';
@@ -837,6 +847,7 @@ function viewPractice(){
   myqSet().questions.forEach(function(q){if(q.sub===subj)uc[q.u]=(uc[q.u]||0)+1});
   var nSel=Object.keys(chosen).filter(function(k){return chosen[k]}).length;
   var html='<div class="pagehead"><div><h1>Practice</h1><p class="muted">Test yourself on any subject, any time. Every test is logged with the date you take it.</p></div></div>';
+  if(typeof practiceTop==="function")html+=practiceTop();
   html+=camPanel();
   html+=cbPanel();
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
@@ -852,6 +863,7 @@ function viewPractice(){
   html+='<section class="panel"><h2>Full UPSC-style mock</h2><p class="muted">100 questions from every subject, weighted like recent papers. 2 hours, with negative marking.</p><button class="btn primary" id="fm-go">Start a full mock</button></section>';
   html+='<section class="panel"><h2>Mistake book</h2>'+(mb.length?'<p><b>'+due+'</b> question'+(due===1?"":"s")+' due for revision today, '+mb.length+' in the book.</p><p class="muted small">Every question you get wrong or skip comes back after 1, 3, 7 and 21 days until you answer it right twice in a row.</p><p class="muted small">'+Object.keys(bySub).map(function(s){return esc(s)+': '+bySub[s]}).join(", ")+'</p><div class="row wrap"><button class="btn primary" id="mb-go"'+(due?"":" disabled")+'>Revise '+Math.min(due,25)+' due question'+(due===1?"":"s")+'</button>'+(mb.length>due?'<button class="btn" id="mb-all">Revise early</button>'+'<button class="btn" data-quick="flash">Flashcards</button>':'')+'</div>':'<p class="muted">Questions you get wrong or skip will appear here for spaced revision.</p>')+'</section>';
   html+='</div>';
+  if(typeof practiceExtra==="function")html+=practiceExtra();
   var my=recs("myq").sort(function(a,b){return (b.created||b.ts)-(a.created||a.ts)});
   html+='<section class="panel" id="myq-panel"><div class="row between wrap"><h2>My questions</h2><div class="row wrap"><button class="btn" id="myq-add">Add a question</button><button class="btn primary" id="myq-mock"'+(my.length>=10?"":" disabled")+'>Mock from my questions</button></div></div>'+
     '<p class="muted small">Add questions from your test booklets or notes. They join the subject tests and full mocks, and sync to all your devices through your Google Sheet. You can also type them straight into the "My questions" tab of the Sheet.'+(my.length<10?' Add at least 10 to build a mock from them.':'')+'</p>'+
@@ -878,6 +890,7 @@ function viewPractice(){
   qsa("[data-myedit]").forEach(function(b){b.onclick=function(){myqDialog(b.dataset.myedit)}});
   qsa("[data-mydel]").forEach(function(b){b.onclick=function(){modal('<h2>Delete this question?</h2><div class="row"><button class="btn danger" data-m="y">Delete</button><button class="btn ghost" data-m="x">Cancel</button></div>',function(a){if(a==="y"){del(b.dataset.mydel);render()}})}});
   qsa("[data-repdel]").forEach(function(b){b.onclick=function(){del(b.dataset.repdel);render()}});
+  if(typeof bindPracticeExtra==="function")bindPracticeExtra();
 }
 /* Schemes, reports and indices: revision notes plus four question sets */
 function sriPanel(){
@@ -959,7 +972,7 @@ function dashRows(type){
 }
 function viewDash(){
   var v=$("view"),type=VIEW.dashType,rows=dashRows(type);
-  var html='<div class="pagehead"><div><h1>Dashboard</h1><p class="muted">Goal: 90% in Prelims on 24 May 2027.</p></div></div>';
+  var html='<div class="pagehead"><div><h1>Dashboard</h1><p class="muted">Goal: 90% in Prelims on 23 May 2027.</p></div></div>';
   html+=dashGlance();
   var perf='<section class="panel"><div class="row between wrap"><h2>Performance</h2><div class="seg toggle" role="group" aria-label="Test type">'+DASH_TYPES.map(function(t){return '<button data-dt="'+t[0]+'" aria-pressed="'+(type===t[0])+'">'+t[1]+'</button>'}).join("")+'</div></div>';
   if(!rows.length){
@@ -992,6 +1005,7 @@ function viewDash(){
   html+=fold("shankar","Shankar Prestorming tests",sk.length?sk.length+" test"+(sk.length>1?"s":"")+" entered":"no marks entered yet",unwrap(shankarSection()),false);
   var us=unitStats(VIEW.from||CFG.START,VIEW.to||today()),sa=Object.keys(us).map(function(x){return [x,accOf(us[x]),us[x].r+us[x].w]}).filter(function(x){return x[2]>=20}).sort(function(a,b){return b[1]-a[1]});
   html+=fold("subj","Subject-wise performance",sa.length?"strongest "+esc(sa[0][0])+" "+Math.round(sa[0][1])+"% · weakest "+esc(sa[sa.length-1][0])+" "+Math.round(sa[sa.length-1][1])+"%":"not enough data yet",unwrap(subjectSection()),false);
+  if(typeof dashExtra==="function")html+=dashExtra();
   html+=fold("coach","Attempt strategy coach","when to attempt Sure, 50-50 and Guess answers",unwrap(coachSection()),false);
   var lg=logs().filter(function(r){return r.date>=addDays(today(),-6)});
   html+=fold("log","Study log",lg.length+" of last 7 days logged · "+r1(lg.reduce(function(a,r){return a+(+r.hours||0)},0))+" h",unwrap(logSection()),false);
@@ -1004,6 +1018,7 @@ function viewDash(){
   bindLog();
   bindBatch2();bindFolds(true);
   if(foldOpen("shankar",false))drawShankar();
+  if(typeof bindDashExtra==="function")bindDashExtra();
 }
 
 /* performance line chart (SVG) */
@@ -1089,6 +1104,7 @@ function viewScores(){
     '<p class="muted small">'+(DB.meta.lastSync?'Last synced '+new Date(DB.meta.lastSync).toLocaleString()+'. ':'')+pendingCount()+' change(s) waiting to upload.</p>'+
     '<details><summary>Set up the Sheet (once, about 5 minutes)</summary><ol class="steps"><li>Create a new Google Sheet. Open Extensions, then Apps Script.</li><li>Delete the sample code. Tap Copy the script below and paste it in.</li><li>Change the passphrase on the line that starts with var KEY, then save.</li><li>Tap Deploy, New deployment. Choose Web app. Set Execute as: Me, and Who has access: Anyone. Tap Deploy and allow access.</li><li>Copy the Web app URL into the box above, type the same passphrase, and tap Save and sync.</li></ol><p class="muted small">Use the same URL and passphrase on every device. If you change the script later, choose Deploy, Manage deployments, Edit, New version, so the URL stays the same.</p><button class="btn" id="sy-copy">Copy the script</button></details></section>';
   html+=remindCard(false);
+  if(typeof scoresExtra==="function")html+=scoresExtra();
   html+='<section class="panel"><h2>Test settings</h2>'+
     '<label class="check"><input type="checkbox" id="st-ap"'+(DB.meta.autoPause!==false?" checked":"")+'> Pause the clock when I leave the app during a test</label><p class="muted small">If your baby wakes or a call comes in, the timer stops while the app is in the background and starts again when you return.</p>'+
     '<label class="inline">Listen mode: thinking time before the answer <select id="st-think">'+[0,4,8,12].map(function(v){var cur=DB.meta.ttsThink==null?4:DB.meta.ttsThink;return '<option value="'+v+'"'+(v===cur?" selected":"")+'>'+(v?v+" seconds":"None")+'</option>'}).join("")+'</select></label></section>';
@@ -1116,6 +1132,7 @@ function viewScores(){
   $("st-ap").onchange=function(){DB.meta.autoPause=this.checked;saveStore(true)};
   $("st-think").onchange=function(){DB.meta.ttsThink=+this.value;saveStore(true)};
   $("bk-imp").onchange=function(){var f=this.files[0];if(f)importBackup(f)};
+  if(typeof bindScoresExtra==="function")bindScoresExtra();
   updateSyncBadge();
 }
 function xtestDialog(id){
@@ -1218,7 +1235,7 @@ function listenPanel(){
     '<label class="inline">Subject <select id="ls-subj">'+subs.map(function(s){return '<option>'+esc(s)+'</option>'}).join("")+'</select></label><button class="btn" id="ls-subj-go">Listen to 20</button></div></section>';
 }
 function bindListen(){
-  var go=function(qids,title){loadQids(qids).then(function(qs){qs=qs.filter(function(q){return !q.x});if(!qs.length){toast("Nothing to read out.");return}playList(qs.map(function(q){return {q:q}}),title)})};
+  var go=function(qids,title){loadQids(qids).then(function(qs){qs=qs.filter(function(q){return !q.x&&!q.map});if(!qs.length){toast("Nothing to read out.");return}playList(qs.map(function(q){return {q:q}}),title)})};
   if($("ls-mist"))$("ls-mist").onclick=function(){var mb=mistakeBook().slice(0,30);go(mb.map(function(m){return m.qid}),"My mistakes")};
   if($("ls-set"))$("ls-set").onclick=function(){var s=todaysOpenSet()||scheduledFor(today()).filter(function(x){return x.ready})[0];loadSet(s.id).then(function(d){playList(d.questions.filter(function(q){return !q.x}).map(function(q){return {q:q}}),s.title)})};
   if($("ls-subj-go"))$("ls-subj-go").onclick=function(){var s=$("ls-subj").value;go(shuffle(poolFor(s)).slice(0,20),s+": 20 questions")};
@@ -1431,7 +1448,7 @@ function renderNotes(){
     '<section class="panel notecard" id="nt-card" aria-live="polite"><div class="row between wrap"><span class="chip">'+esc(p.t)+'</span><span class="muted small">'+esc(p.when||"")+'</span></div>'+
     '<h2 class="nh">'+esc(p.headline)+'</h2><p>'+esc(p.what)+'</p>'+(key?'<h3>Key points</h3><ul class="nkey">'+key+'</ul>':'')+
     (p.static?'<h3>Static link</h3><p>'+esc(p.static)+'</p>':'')+(p.angle?'<h3>Prelims angle</h3><p>'+esc(p.angle)+'</p>':'')+
-    (p.remember?'<div class="nrem"><b>Remember</b> '+esc(p.remember)+'</div>':'')+'</section>'+
+    (p.remember?'<div class="nrem"><b>Remember</b> '+esc(p.remember)+'</div>':'')+(typeof pageNoteHtml==="function"?pageNoteHtml(NV.id,p.n):"")+'</section>'+
     '<div class="notenav"><button class="btn" id="nt-prev"'+(NV.i===0?" disabled":"")+'>Previous</button><button class="btn" id="nt-listen">'+(NV.auto?"Stop reading":"Listen")+'</button>'+
     (last?'<button class="btn primary" id="nt-test">Test this set</button>':'<button class="btn primary" id="nt-next">Next</button>')+'</div>'+
     '<p class="muted small center">Swipe left or right, or use the buttons. Pages open where you left off.</p></div>';
@@ -1441,6 +1458,7 @@ function renderNotes(){
   if($("nt-test"))$("nt-test").onclick=function(){noteStop();VIEW.screen="tabs";startSet(NV.id,!!DB.meta.timed)};
   $("nt-listen").onclick=function(){if(NV.auto){noteStop();renderNotes()}else noteSpeak()};
   qsa("[data-pg]").forEach(function(b){b.onclick=function(){noteGo(+b.dataset.pg-1)}});
+  if(typeof bindPageNote==="function")bindPageNote(function(){renderNotes()});
   var c=$("nt-card"),x0=null,y0=null;
   c.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
   c.addEventListener("touchend",function(e){if(x0==null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)noteGo(NV.i+(dx<0?1:-1))},{passive:true});
@@ -1676,6 +1694,7 @@ function nudgeStatus(){
   var tm=addDays(td,1),ts_=schedFor(tm).filter(function(x){return x.ready&&!x.pending&&x.type!=="ca"})[0];
   var unr=function(x){return x&&M.notes&&M.notes[x.id]&&!notesDone(x.id)?(M.notes[x.id].title||x.title):""};
   var o={kind:"nudge",nt:unr(set),tnt:unr(ts_),c10:csat10Done(td),tset:ts_?ts_.title:"",date:td,s:g.s,c:g.c,done:g.done,streak:st.cur,best:st.best,due:due,set:set?set.title:"",setDate:set?set.date:"",ca:cam?cam.title:"",backlog:bl.parts,test:nt?nt.name:"",testDate:nt?nt.date:""};
+  if(typeof nudgeExtra==="function")Object.assign(o,nudgeExtra());
   var key=JSON.stringify(o),old=DB.recs.nudge_status;
   if(!old||old.key!==key){o.key=key;put("nudge_status",o)}
 }
@@ -1771,8 +1790,8 @@ function drawFlash(){
     '<div class="fc-prog"><i style="width:'+(FC.i/FC.qs.length*100)+'%"></i></div>'+
     '<article class="fc-card'+(FC.flip?" flipped":"")+'" id="fc-card"><p class="muted small">'+esc((q.sub||"")+(q.u?" · "+q.u:""))+'</p>'+
     (q.p?'<details class="fc-pass"><summary class="small">Show the passage</summary>'+passageHtml(q,false)+'</details>':'')+
-    '<div class="qtext">'+esc(q.q)+'</div><ol class="fc-opts">'+q.o.map(function(o,k){return '<li class="'+(FC.flip?(String(k)===String(q.a)?"right":"dim"):"")+'"><b>'+L[k]+'</b> '+esc(o)+'</li>'}).join("")+'</ol>';
-  if(FC.flip)h+='<div class="fc-ans"><p><b>Answer: '+L[+q.a]+'</b></p>'+(q.e?'<div class="small">'+paras(q.e)+'</div>':'')+(q.h?'<p class="hook small"><b>Memory hook:</b> '+esc(q.h)+'</p>':'')+'</div>';
+    (q.map&&typeof mapSvg==="function"?mapSvg(q.map,FC.flip):"")+'<div class="qtext">'+esc(q.q)+'</div><ol class="fc-opts">'+q.o.map(function(o,k){return '<li class="'+(FC.flip?(String(k)===String(q.a)?"right":"dim"):"")+'"><b>'+L[k]+'</b> '+esc(o)+'</li>'}).join("")+'</ol>';
+  if(FC.flip)h+='<div class="fc-ans"><p><b>Answer: '+L[+q.a]+'</b></p>'+(q.e?'<div class="small">'+paras(q.e)+'</div>':'')+(q.h?'<p class="hook small"><b>Memory hook:</b> '+esc(q.h)+'</p>':'')+(typeof qNoteHtml==="function"?qNoteHtml(q.qid):"")+'</div>';
   h+='</article><div class="fc-actions">'+(FC.flip?'<button class="btn big" id="fc-no">✗ Didn\'t know</button><button class="btn big primary" id="fc-yes">✓ Knew it</button>':'<button class="btn big primary wide" id="fc-show">Show answer</button>')+'</div>'+
     '<p class="muted small center">Think of the answer first. Swipe right if you knew it, left if you did not.</p></div>';
   $("app").innerHTML=h;
@@ -2023,6 +2042,7 @@ function viewToday(){
   if(VIEW.month==null){var d=pd(sel);VIEW.month=[d.getFullYear(),d.getMonth()]}
   var html='<div class="pagehead"><div><h1>'+fdw(td)+'</h1><p class="muted">'+daysLeftLine(td)+'</p></div></div>';
   html+=todayHero(td);
+  if(typeof todayExtra==="function")html+=todayExtra(td);
   var runs=pausedRuns();
   if(runs.length)html+='<section class="panel"><h2>Paused tests</h2><ul class="list">'+runs.map(function(r){return '<li><div><b>'+esc(r.title)+'</b><span class="muted">'+r.done+' of '+r.n+' answered'+(r.timed?', '+fmtMin(Math.max(0,r.limit-r.el))+' left':'')+'</span></div><div class="row"><button class="btn primary small" data-resume="'+esc(r.id)+'">Resume</button><button class="btn ghost small" data-discard="'+esc(r.id)+'">Discard</button></div></li>'}).join("")+'</ul></section>';
   html+=todayPlan(td);
@@ -2043,6 +2063,7 @@ function viewToday(){
   v.innerHTML=html;
   bindToday();bindFolds(false);
   if($("plan-rev"))$("plan-rev").onclick=function(){startRevision(false)};
+  if(typeof bindTodayExtra==="function")bindTodayExtra();
 }
 
 /* ---------- Dashboard ---------- */
@@ -2056,7 +2077,7 @@ function dashGlance(){
   function tile(lab,val,sub,cls,go){return '<button class="tile '+(cls||"")+'" data-gofold="'+go+'"><span class="t-l">'+lab+'</span><span class="t-v">'+val+'</span><span class="t-s">'+sub+'</span></button>'}
   var col=function(v,g,b){return v==null?"":(v>=g?"good":(v<b?"bad":"warn"))};
   return '<div class="tiles">'+
-    tile("Prelims",p.daysLeft+" days","24 May 2027","","pace")+
+    tile("Prelims",p.daysLeft+" days","23 May 2027","","pace")+
     tile("Syllabus",p.done+" / "+p.total,p.behind?p.behind+" sets behind":"on schedule",p.behind>3?"bad":(p.behind?"warn":"good"),"pace")+
     tile("Score, last 30 days",sc==null?"–":Math.round(sc)+"%",psc==null||sc==null?"all tests":((sc>=psc?"▲ ":"▼ ")+Math.abs(Math.round(sc-psc))+" pts vs before"),col(sc,60,40),"perf")+
     tile("Accuracy",acc==null?"–":Math.round(acc)+"%","right of attempted",col(acc,75,50),"subj")+
@@ -2064,7 +2085,7 @@ function dashGlance(){
     tile("Latest Shankar GS",lg?Math.round(lg.marks/(lg.max||200)*100)+"%":"–",lg?esc(lg.name||""):"enter marks in Scores",lg?col(lg.marks/(lg.max||200)*100,60,40):"","shankar")+
     (function(){var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}return tile("Mistakes due",due,"for revision today",due>40?"bad":(due?"warn":"good"),"coach")})()+
     tile("Weakest unit",weak?Math.round(weak.a*100)+"%":"–",weak?esc(weak.u):"not enough data yet",weak?"bad":"","subj")+
-    '</div>';
+    (typeof glanceExtra==="function"?glanceExtra():"")+'</div>';
 }
 
 /* ===== Notes tab: everything to read, by subject (study notes, unit sheets, fact tables, CA booklets) + rapid fire ===== */
@@ -2090,6 +2111,7 @@ function readRow(title,sub,btns,state){return '<li class="rd-'+(state||"todo")+'
 function viewRead(){
   var v=$("view"),subj=VIEW.readSub||((todaysOpenSet()||{}).subject)||"Polity";if(READ_SUBJ.indexOf(subj)<0)subj="Polity";VIEW.readSub=subj;
   var html='<div class="pagehead"><div><h1>Notes</h1><p class="muted">Everything to read, by subject. Each note links to its test, so you can read and then check yourself.</p></div></div>';
+  if(typeof readExtra==="function")html+=readExtra(subj);
   var cl=continueList();
   if(cl.length)html+='<section class="panel"><h2>Continue reading</h2><ul class="list">'+cl.map(function(x){return readRow(esc(x.title),'Page '+x.p+' of '+x.n,'<button class="btn small primary" data-'+(x.kind==="pdf"?"notes":"camread")+'="'+x.id+'">Continue</button>',"part")}).join("")+'</ul></section>';
   html+='<section class="panel quicktools"><div class="row wrap"><button class="btn" data-rf="all">⚡ Rapid fire</button><button class="btn" data-quick="flash">Flashcards from mistakes</button></div><p class="muted small">Rapid fire: quick one-line facts from the fact tables, about 8 seconds each.</p></section>';
@@ -2127,6 +2149,7 @@ function viewRead(){
   }
   v.innerHTML=html;
   bindRead();bindFolds(false);bindBatch2();
+  if(typeof bindReadExtra==="function")bindReadExtra();
 }
 function bindRead(){
   qsa("[data-rsub]").forEach(function(b){b.onclick=function(){VIEW.readSub=b.dataset.rsub;render()}});
@@ -2234,6 +2257,7 @@ function openSheet(subj,unit){
     if(mist.length)h+='<h2>From your mistakes</h2><ol class="sheetlist">'+mist.map(qa).filter(Boolean).slice(0,8).join("")+'</ol>';
     if(pyq.length)h+='<h2>What UPSC asked</h2><ol class="sheetlist">'+pyq.map(function(x){var y=pyqYear(x.q.qid),l=qa(x);return l?l.replace("<li>","<li><span class=\"tag\">"+(y||"PYQ")+"</span> "):""}).filter(Boolean).slice(0,6).join("")+'</ol>';
     if(hooks.length)h+='<h2>Memory hooks</h2><ul class="plain small sheethooks">'+hooks.slice(0,8).map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>';
+    if(typeof sheetNotes==="function")h+=sheetNotes(subj,unit);
     if(facts.length)h+='<h2>Key facts</h2><ul class="plain sheetfacts">'+facts.slice(0,14).map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>';
     var sn=studyNotes(subj);
     if(sn.length)h+='<p class="noprint small"><b>Full notes for '+esc(subj)+':</b> '+sn.map(function(x){return '<button class="link" data-notes="'+x.id+'">'+esc(x.n.title)+'</button>'}).join(" · ")+'</p>';

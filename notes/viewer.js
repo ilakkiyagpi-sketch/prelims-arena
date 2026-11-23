@@ -18,8 +18,9 @@
   window.openNotes=function(id){
     var info=M&&M.notes&&M.notes[id];if(!info)return;
     VIEW.screen="notes";document.body.classList.add("in-notes");window.scrollTo(0,0);
-    $("app").innerHTML='<div class="nv"><header class="nv-bar"><button class="btn small" id="nv-back">Back</button><div class="nv-title"><b>'+esc(info.title)+'</b><span id="nv-pg" class="muted small">Opening…</span></div><div class="nv-zoom"><button class="btn small" id="nv-minus" aria-label="Smaller">A−</button><button class="btn small" id="nv-plus" aria-label="Larger">A+</button></div></header><div id="nv-body" class="nv-body"><p class="muted nv-msg">Opening the notes…</p></div></div>';
+    $("app").innerHTML='<div class="nv"><header class="nv-bar"><button class="btn small" id="nv-back">Back</button><div class="nv-title"><b>'+esc(info.title)+'</b><span id="nv-pg" class="muted small">Opening…</span></div><div class="nv-zoom"><button class="btn small" id="nv-note" aria-label="My note on this page">Note</button><button class="btn small" id="nv-minus" aria-label="Smaller">A−</button><button class="btn small" id="nv-plus" aria-label="Larger">A+</button></div></header><div id="nv-body" class="nv-body"><p class="muted nv-msg">Opening the notes…</p></div></div>';
     $("nv-back").onclick=close;
+    $("nv-note").onclick=function(){if(window.pdfPageNote)window.pdfPageNote(id,st.p||1)};
     document.addEventListener("contextmenu",block,true);
     var st={id:id,info:info,zoom:1,pages:[],io:null,doc:null,rendering:{}};cur=st;
     var body=$("nv-body");
@@ -70,7 +71,7 @@
     function onScroll(){
       var r=body.getBoundingClientRect(),mid=r.top+r.height*0.35,p=1;
       for(var i=0;i<st.pages.length;i++){var b=st.pages[i].getBoundingClientRect();if(b.top<=mid)p=i+1;else break}
-      $("nv-pg").textContent="Page "+p+" of "+st.pages.length;
+      st.p=p;$("nv-pg").textContent="Page "+p+" of "+st.pages.length;
       clearTimeout(t);t=setTimeout(function(){try{localStorage.setItem(posKey(id),String(p))}catch(e){}if(window.markNotesPage)window.markNotesPage(id,p)},400);
     }
     function setZoom(z){var keep=0;var r=body.getBoundingClientRect();for(var i=0;i<st.pages.length;i++){if(st.pages[i].getBoundingClientRect().top<=r.top+r.height*0.35)keep=i}
