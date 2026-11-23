@@ -14,7 +14,7 @@ if (!SHEET_URL || !SHEET_KEY || !VAPID_PRIVATE_KEY) {
 }
 webpush.setVapidDetails("https://ilakkiyagpi-sketch.github.io/prelims-arena/", VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
 
-const ist = new Date(Date.now() + 5.5 * 3600e3);
+const ist = process.env.TEST_DATE ? new Date(process.env.TEST_DATE + "T06:00:00Z") : new Date(Date.now() + 5.5 * 3600e3); // TEST_DATE only for local testing
 const ymd = (d) => d.toISOString().slice(0, 10);
 const today = ymd(ist), yesterday = ymd(new Date(ist.getTime() - 864e5)), tomorrow = ymd(new Date(ist.getTime() + 864e5));
 const hour = ist.getUTCHours();
@@ -50,9 +50,18 @@ const streak = isToday ? st.streak || 0 : (isYest && st.done ? st.streak || 0 : 
 // what to do today: status written today, or yesterday's look-ahead to today
 const plan = isToday ? { set: st.set, notes: st.nt, ca: st.ca, due: st.due, backlog: st.backlog }
   : isYest ? { set: st.tset, notes: st.tnt, ca: st.ca, due: st.due, backlog: st.done ? st.backlog : (st.backlog || 0) + (st.set && st.setDate === yesterday ? 5 : 0) } : {};
+// UPSC CSE 2027 key dates (official calendar): application window, Prelims
+const applied = recs.some((r) => r.kind === "kd" && r.done && !r.del);
+const days = (d) => Math.round((Date.parse(d) - Date.parse(today)) / 864e5);
+let kd = "";
+const dOpen = days("2027-01-13"), dLast = days("2027-02-02"), dPre = days("2027-05-23");
+if (dOpen === 0) kd = "UPSC CSE 2027 notification is out today – applications open on upsconline.gov.in.";
+else if (!applied && dLast >= 0 && dOpen < 0 && (dLast <= 3 || dLast % 5 === 0)) kd = dLast === 0 ? "Today is the LAST DAY to apply for CSE 2027." : `CSE 2027 application closes in ${dLast} day${dLast > 1 ? "s" : ""} (2 Feb). Tap "I have applied" in the app once done.`;
+else if (dPre > 0 && dPre <= 14) kd = `${dPre} day${dPre > 1 ? "s" : ""} to Prelims.`;
 let msg = null;
 if (slot === "morning") {
   const parts = [];
+  if (kd) parts.push(kd);
   if (plan.set) parts.push(`Subject: ${plan.set}.`);
   if (plan.notes) parts.push(`Read the notes first (${plan.notes}).`);
   if (plan.ca) parts.push(`Current affairs: ${plan.ca}.`);
