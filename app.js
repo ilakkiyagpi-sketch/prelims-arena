@@ -30,6 +30,54 @@ var TESTS=[
   });
   TESTS.sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:0)});
 })();
+// Shankar Prestorming Batch II (Anna Nagar) 2026-27: topics per test, from the brochure.
+// o = orientation class date, oc = orientation includes a current-affairs class, ca = current-affairs coverage, a = heading, t = topics
+var SHK={
+T1:{o:"2026-10-10",oc:1,ca:"Subject related",a:"World Physical & Human Geography",t:["Origin of Universe","Evolution of Earth","Earth's Structure","Volcanoes and Earthquakes","Continents and Ocean Basins","Earth Movements","Mountains, Plateaus, Plains and Lakes","Rocks, Soils and Minerals","Drainage System and Pattern","Various Landforms","Reliefs of Ocean Basins","Temperature and Salinity of Ocean","Ocean Deposits","Ocean tides and Currents","Coral Reefs","Marine Resources","Structure and Composition of Atmosphere","Insolation and Heat Budget of Atmosphere","Temperature and its Distribution","Atmospheric Pressure","Wind System","Humidity and Precipitation","Frontogenesis and cyclones","World Climatic Regions (location, distribution, climate, vegetation, wildlife, people and economic activities)"]},
+T2:{o:"2026-10-18",oc:1,ca:"Subject related",a:"Indian Polity 1",t:["Historical Background","Preamble","Union & its Territory","Citizenship","Fundamental Rights","Directive Principles","Fundamental Duties","Justice Administration, Law Enforcement & Statutory Frameworks","Constitutional Amendment & Basic Structure Doctrine"]},
+T3:{o:"2026-10-25",oc:0,ca:"",a:"Indian History - Modern India 1",t:["Arrival of Europeans","Early English Wars - Carnatic, Plassey, Buxar, Maratha and Mysore Wars","Early Structure of British Empire","Constitutional Developments (from 1772 to 1858)","Governor Generals (from Robert Clive to Lord Dalhousie) and their administration, reforms, etc.","Administration during Company period (civil services, judiciary, police, education policy, famine policy, press regulation, etc.)","Tribal and Peasant Uprisings till 1857","Revolt of 1857","Socio-Religious Reform Movements (entirely)"]},
+T4:{o:"2026-11-01",oc:1,ca:"Jan to Mar 2026",a:"Current Affairs Test 1",t:[]},
+T5:{o:"2026-11-15",oc:1,ca:"Subject related",a:"Economics 1",t:["National Income","Growth and Development","Public Finance","Money","Inflation","Banking (including RBI's policies)","External Sector","Financial Markets"]},
+T6:{o:"2026-11-22",oc:1,ca:"Subject related",a:"Science & Technology I",t:["General Science and Basics from NCERT","Space Technology","Deep Space Missions","Astrophysics","Nuclear Science","Energy Technologies"]},
+T7:{o:"2026-11-29",oc:1,ca:"Subject related",a:"Environment I",t:["Principles of Ecology","Ecosystem Functioning","Ecosystem Types - Terrestrial & Aquatic Ecosystem","Biodiversity Concepts","Indian Biodiversity conservation - In-situ & Ex-situ methods","Indian Biodiversity - Major Flora & Fauna, Institutions, Acts & Policies","Biodiversity - India & International organisation, Conventions & Protocol"]},
+T8:{o:"2026-12-06",oc:1,ca:"Apr to Jun 2026",a:"Current Affairs Test 2",t:[]},
+T9:{o:"2026-12-13",oc:1,ca:"Subject related",a:"Geography - Indian Geography",t:["Geological Structure","Physiography","Drainage","Climate","Natural Vegetation and Wildlife","Soils","Population","Resources","Industries","Transport","Trade and Other Economic Activities"]},
+T10:{o:"2026-12-20",oc:1,ca:"Subject related",a:"Indian Polity II",t:["Union & State Executive","Union & State Legislatures","Supreme Court, High Court & Subordinate Courts","Union Territories"]},
+T11:{o:"2026-12-27",oc:0,ca:"",a:"Indian History - Modern India II",t:["Pre-Congress Political Parties; Indian National Congress - early leaders and their contributions","Phase of Moderates and Extremists","Swadeshi Movement","Period of Revolutionary Movements","Arrival of Gandhi, his early successes in South Africa and his early experiments in India","Non-Cooperation Movement & Temple Entry Movements","Civil Disobedience Movements","Developments to Government of India Act 1935 (Simon Commission, Round Table Conference, Poona Pact)","1937 Election and Formation of Congress Ministries in Provinces","Transfer of Power issues (from 1940 to 1947)","Rise of Capitalism and Rise of Trade Union Movements","Rise of Communalism","Other Political Parties during National Movement","Famous Personalities and their Contributions","Constitutional Developments & British Administration after 1857","Tribal and Peasant Uprisings after 1857"]},
+T12:{o:"2027-01-03",oc:1,ca:"Jul to Sep 2026",a:"Current Affairs Test 3",t:[]},
+T13:{o:"2027-01-10",oc:1,ca:"Subject related",a:"Economics II",t:["Planning","Industry","Agriculture","Infrastructure","Service Sector","Schemes (Current Affairs)","Social Sector (special focus on Skill Development, Employment & Poverty)","Contemporary Economic issues in India and the World"]},
+T14:{o:"2027-01-24",oc:1,ca:"Subject related",a:"Science & Technology II",t:["General Science","Electronics","Information Technology","Defence Technology","Biotechnology","Nano technology","Intellectual Property Rights"]},
+T15:{o:"2027-01-31",oc:1,ca:"Subject related",a:"Environment II",t:["Pollution - Air, Water, Solid waste, Hazardous chemical & Heavy metals","Pollution - India control measures & International conventions","Climate Change - Concepts, causes, effects, mitigation strategies","India and International climate change negotiations","Environmental degradation - Impact on human health & Biodiversity","Sustainable development - India Legal framework & International institution"]},
+T16:{o:"2027-02-07",oc:1,ca:"Oct to Dec 2026",a:"Current Affairs Test 4",t:[]},
+T17:{o:"2027-02-14",oc:1,ca:"Subject related",a:"Indian Polity III",t:["Rural & Urban Local Bodies","Scheduled & Tribal Areas","Centre-State, Inter-State & Emergency Provisions","Special Provisions - Classes & States","Languages, Elections & Services of Union & States","Tribunals & Various Constitutional & Non-Constitutional Bodies","Rights Issues","Salient Features of the Constitution","Indian Political System","Public Policy - Core Political Governance Policies","Miscellaneous"]},
+T18:{o:"2027-02-21",oc:0,ca:"",a:"Indian History III",t:["Pre History","Indus Valley Civilization","Vedic Period (early and later Vedic)","Mahajanapadas","Mauryan Period","Dark Age (300 BC to 300 AD)","Gupta Period","Post Gupta period till Harsha Vardhana","Ancient Indian religious and philosophies including Buddhism & Jainism, six philosophical schools","Early Medieval India (including Cholas)","Delhi Sultanate","Bhakthi and Sufi Movements","Regional Kingdoms of 14th and 15th Century (including Bahmani and Vijayanagar)","Mughals","Marathas","Later Mughals","Art and Culture (from Ancient Times to Modern History)","Places and Terms (related to Ancient and Medieval India)"]},
+T19:{o:"2027-02-28",oc:1,ca:"Subject related",a:"Special focus areas - Social Justice, Reports, Agriculture & Map",t:["Agriculture - Geographic, Economic and Environment perspective","Map - India and World","Schemes, Acts, Policies, Reports, Rules and Regulations related to social justice and empowerment","Governance","International Reports","National and International Sports","Other Miscellaneous topics (including Historical Events)"]},
+T20:{o:"2027-03-07",oc:1,ca:"Subject related + Jan 2027",a:"International Organisations",t:["United Nations (Organs, Agencies, Programmes and Funds)","Regional Organisations","Nuclear Organisations","Treaties and conventions","Ideological and Political organisations","Financial and Trade organisations","Cultural and Religious organisations","International Relations (Bilateral and Multilateral relations including Military Exercises)"]},
+T21:{ca:"Complete syllabus",a:"Polity - complete syllabus",t:[]},T22:{ca:"Complete syllabus",a:"Geography - complete syllabus",t:[]},
+T23:{ca:"Complete syllabus",a:"Economics - complete syllabus",t:[]},T24:{ca:"",a:"Budget & Economic Survey (online test)",t:[]},
+T25:{ca:"Complete syllabus",a:"History - complete syllabus",t:[]},T26:{ca:"Complete syllabus",a:"Science & Technology - complete syllabus",t:[]},
+T27:{ca:"Full test",a:"Current Affairs - full test",t:[]},T28:{ca:"Complete syllabus",a:"Environment - complete syllabus",t:[]},
+MK1:{ca:"",a:"Mock Test I (online)",t:[]},MK2:{ca:"",a:"Mock Test II (online)",t:[]},
+AM1:{ca:"",a:"All India Mock Test I",t:[]},AM2:{ca:"",a:"All India Mock Test II",t:[]},AM3:{ca:"",a:"All India Mock Test III",t:[]}
+};
+var SHK_NOTES=["General Studies tests: 2 to 4 pm, followed by a live test discussion at 4:30 pm.","CSAT tests: 2 to 4 pm; the recorded discussion is uploaded at 4:30 pm (live discussion for the complete-syllabus tests).","Tests run both offline and online. Related topics from NCERT books are covered in each test.","India Year Book is to be referred for relevant topics in every test; updated portions of IYB 2025 are covered in the mock tests.","Orientation classes are recorded and uploaded on their scheduled dates.","CSAT sectional test syllabus is shared on Shankar's Telegram channel, so it is not listed here."];
+var SHK_ORIENT={};Object.keys(SHK).forEach(function(k){if(SHK[k].o)SHK_ORIENT[SHK[k].o]=k});
+function shkTestNo(k){return /^T\d+$/.test(k)?"Test "+k.slice(1):""}
+// card with a test's date, time, current-affairs coverage and topic list
+function shkCard(t,open,lead){
+  var d=SHK[t.k]||{},h='<details class="shk"'+(open?" open":"")+'><summary>'+(lead?'<span class="muted small">'+esc(lead)+'</span>':'')+'<b>'+esc(t.name)+'</b><span class="muted small">'+fdw(t.date)+', 2 to 4 pm</span></summary>';
+  if(t.csat)h+='<p class="small">'+(t.type==="mock"?"Complete-syllabus CSAT test.":"CSAT sectional test.")+' The sectional syllabus is shared on Shankar\'s Telegram channel.</p>';
+  if(d.a&&!t.csat)h+='<p class="small"><b>'+esc(d.a)+'</b>'+(d.ca?' · Current affairs: '+esc(d.ca):'')+'</p>';
+  if(d.t&&d.t.length)h+='<ol class="shklist">'+d.t.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ol>';
+  else if(!t.csat&&/^T2[1-8]$/.test(t.k))h+='<p class="muted small">Covers the whole subject; the brochure lists no separate topics.</p>';
+  if(d.o)h+='<p class="muted small">Orientation'+(d.oc?' and current-affairs':'')+' class (recorded): '+fdw(d.o)+'.</p>';
+  return h+'</details>';
+}
+function nextTests(ds,n,f){return TESTS.filter(function(t){return t.date>=ds&&(!f||f(t))}).slice(0,n||1)}
+function shkSchedule(){
+  var h='<h2>Shankar Prestorming schedule</h2><p class="muted small">Batch II, Anna Nagar, 2026-27. Tap a test to see its topics.</p><div class="shkall">'+TESTS.map(function(t){return shkCard(t,false,t.date<today()?"Done · ":"")}).join("")+'</div><h3>From the brochure</h3><ul class="small">'+SHK_NOTES.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul><div class="row"><button class="btn" data-m="x">Close</button></div>';
+  modal(h);
+}
 var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",capool:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
 function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",capool:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
@@ -695,6 +743,9 @@ function dayPanel(ds,td){
   var h='<section class="panel"><h2>'+(ds===td?"Today's work":fdw(ds))+'</h2>';
   if(sch.length){var s0=sch[0];h+='<p class="muted">'+esc(s0.testName)+', '+esc(s0.dayLabel)+'. Shankar test on '+fdw(s0.testDate)+'.</p>';}
   if(t)h+='<p class="testday">'+esc(t.name)+' is on this day, 2 to 4 pm'+(t.csat?(t.type==="mock"?', with a live discussion at 4:30 pm.':'. The recorded discussion is uploaded at 4:30 pm.'):', with a live discussion at 4:30 pm.')+' Enter your marks afterwards in the Scores tab.</p>';
+  if(t)h+=shkCard(t,true,"Topics for this test");
+  var ot=SHK_ORIENT[ds];if(ot&&TESTBYKEY[ot])h+='<p class="small">Shankar orientation'+(SHK[ot].oc?' and current-affairs':'')+' class for '+esc(TESTBYKEY[ot].name)+' (recorded) is uploaded today.</p>';
+  if(!t||t.csat){var nx=nextTests(t?addDays(ds,1):ds,1,function(x){return !x.csat})[0];if(nx)h+=shkCard(nx,false,"Next Shankar GS test")}
   var ds_=dayState(ds,done,td),show25=ds_.need25;
   if(!sch.length&&show25){var nt=TESTS.filter(function(x){return x.subject==="Current Affairs"&&x.date>=ds})[0];if(nt)h+='<p class="muted">Next Shankar current affairs test: '+esc(nt.name)+', '+fdw(nt.date)+'.</p>'}
   if(sch.length||show25){
@@ -720,7 +771,7 @@ function calendarPanel(sel,td){
   g+='</div>';
   var minM=[2026,9],maxM=[2027,4],cur=y*12+m;
   return '<section class="panel"><div class="row between"><h2>'+MONTHS[m]+' '+y+'</h2><div class="row tight"><button class="btn ghost small" id="cal-prev" aria-label="Previous month"'+(cur<=minM[0]*12+minM[1]?" disabled":"")+'>‹</button><button class="btn ghost small" id="cal-today">Today</button><button class="btn ghost small" id="cal-next" aria-label="Next month"'+(cur>=maxM[0]*12+maxM[1]?" disabled":"")+'>›</button></div></div>'+g+
-    '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div></section>';
+    '<div class="legend"><span><i class="lg done"></i>50 and 25 done</span><span><i class="lg part"></i>One of them done</span><span><i class="lg missed"></i>Missed</span><span><i class="lg paused"></i>Paused</span><span><i class="lg todo"></i>Upcoming</span><span><b class="star">★</b> Extra test</span><span><i class="cdot yes"></i>Checked in</span><span><b class="tmark">T</b> Shankar GS test</span><span><b class="tmark csat">C</b> Shankar CSAT test</span></div><div class="row"><button class="btn ghost small" id="shk-all">Full Shankar schedule with topics</button></div></section>';
 }
 function bindToday(){
   bindNudges();bindBatch2();
@@ -741,6 +792,7 @@ function bindToday(){
   var mv=function(k){var y=VIEW.month[0],m=VIEW.month[1]+k;if(m<0){m=11;y--}if(m>11){m=0;y++}VIEW.month=[y,m];render()};
   $("cal-prev").onclick=function(){mv(-1)};$("cal-next").onclick=function(){mv(1)};
   $("cal-today").onclick=function(){VIEW.sel=null;VIEW.month=null;render()};
+  if($("shk-all"))$("shk-all").onclick=shkSchedule;
 }
 
 /* "I have N minutes": pick the most useful short session */
