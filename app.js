@@ -2112,7 +2112,7 @@ function viewRead(){
     html+=fold("rd-sheets","One-page unit sheets",units.length+" units"+(weakN?" · "+weakN+" weak":""),ub,false);
   }
   // 3. fact tables
-  var ft=(FACTS||[]).filter(function(t){return t.subject===subj});
+  var ft=(FACTS||[]).filter(function(t){return t.subject===subj||(t.subjects||[]).indexOf(subj)>=0});
   if(!FACTS)loadFacts().then(function(){if(VIEW.tab==="read"&&VIEW.screen==="tabs")render()}).catch(function(){});
   if(ft.length)html+=fold("rd-facts","Fact tables",ft.length+" table"+(ft.length>1?"s":"")+" · "+ft.reduce(function(a,t){return a+t.rows.length},0)+" facts",
     '<ul class="list">'+ft.map(function(t){return readRow(esc(t.title),t.rows.length+' rows','<button class="btn small primary" data-facts="'+t.id+'">Open</button><button class="btn small" data-rf="'+t.id+'">Rapid fire</button>')}).join("")+'</ul>',false);
