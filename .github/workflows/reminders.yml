@@ -1,11 +1,12 @@
 name: Study reminders
-# Times are in UTC. 23:57 = 5:27 am IST, 08:27 = 1:57 pm IST, 16:27 = 9:57 pm IST.
-# GitHub usually starts scheduled runs a few minutes late, so reminders land close to 5:30 am, 2 pm and 10 pm.
+# Times are in UTC. 23:20 = 4:50 am IST, 08:05 = 1:35 pm IST, 16:05 = 9:35 pm IST.
+# GitHub starts scheduled runs 15-45 minutes late at busy hours (seen 21-23 Nov 2026),
+# so these early times land close to 5:30 am, 2 pm and 10 pm.
 on:
   schedule:
-    - cron: "57 23 * * *"
-    - cron: "27 8 * * *"
-    - cron: "27 16 * * *"
+    - cron: "20 23 * * *"
+    - cron: "5 8 * * *"
+    - cron: "5 16 * * *"
   workflow_dispatch:
     inputs:
       slot:
