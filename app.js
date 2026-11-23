@@ -591,11 +591,11 @@ function render(){
   $("app").innerHTML='<div class="shell"><header class="topbar"><div class="brand"><span class="mark" aria-hidden="true"></span><span>Prelims Arena</span></div><button class="syncbadge" id="syncbadge"></button></header>'+
     '<nav class="tabs" aria-label="Sections">'+nav+'</nav><main id="view" class="page"></main></div>';
   $("syncbadge").onclick=function(){VIEW.tab="scores";location.hash="scores";render();setTimeout(function(){var s=$("sync-card");if(s)s.scrollIntoView({behavior:"smooth"})},50)};
-  ({today:viewToday,practice:viewPractice,dash:viewDash,scores:viewScores})[VIEW.tab]();
+  ({today:viewToday,practice:viewPractice,read:viewRead,dash:viewDash,scores:viewScores})[VIEW.tab]();
   updateSyncBadge();
   clearTimeout(render.ns);render.ns=setTimeout(function(){try{nudgeStatus()}catch(e){}},400);
 }
-window.addEventListener("hashchange",function(){if(/go=/.test(location.hash)&&M){handleGo();return}var h=location.hash.replace("#","");if(["today","practice","dash","scores"].indexOf(h)>=0&&h!==VIEW.tab){VIEW.tab=h;if(VIEW.screen==="tabs"){render();window.scrollTo(0,0)}}});
+window.addEventListener("hashchange",function(){if(/go=/.test(location.hash)&&M){handleGo();return}var h=location.hash.replace("#","");if(["today","practice","read","dash","scores"].indexOf(h)>=0&&h!==VIEW.tab){VIEW.tab=h;if(VIEW.screen==="tabs"){render();window.scrollTo(0,0)}}});
 
 /* ===== starting tests ===== */
 function startSet(id,timed){
@@ -1058,7 +1058,7 @@ function unitTable(s,o){
   var list=UNITLIST[s]||[],extra=Object.keys(o.units).filter(function(u){return list.indexOf(u)<0});
   var all=list.concat(extra);
   var row=function(u){var x=o.units[u]||{r:0,w:0,sk:0,ev:[]},n=x.r+x.w,st=n?unitStatus(x):"nodata",tr=unitTrend(x);var avail=poolFor(s,[u]).length;
-    return '<tr><td>'+esc(u)+'<span class="sub">'+(n?n+' attempted':'Not attempted')+'</span></td><td class="num hide-sm">'+n+'</td><td class="num">'+(n?Math.round(x.r/n*100)+"%":"–")+'</td><td>'+(n?'<span class="tag '+st+'">'+STATUS_LABEL[st]+'</span>':'')+'</td><td class="hide-sm">'+(tr?'<span class="trend '+tr+'">'+TREND_LABEL[tr]+'</span>':'')+'</td><td>'+(avail?'<button class="btn small'+(st==="weak"?" primary":"")+'" data-retest="'+esc(s)+'|'+esc(u)+'">'+(n?"Retest":"Test")+'</button>':'')+'</td></tr>'};
+    return '<tr><td>'+esc(u)+'<span class="sub">'+(n?n+' attempted':'Not attempted')+'</span></td><td class="num hide-sm">'+n+'</td><td class="num">'+(n?Math.round(x.r/n*100)+"%":"–")+'</td><td>'+(n?'<span class="tag '+st+'">'+STATUS_LABEL[st]+'</span>':'')+'</td><td class="hide-sm">'+(tr?'<span class="trend '+tr+'">'+TREND_LABEL[tr]+'</span>':'')+'</td><td><div class="row tight nowrap"><button class="btn small ghost" data-sheet="'+esc(s)+'|'+esc(u)+'">Sheet</button>'+(avail?'<button class="btn small'+(st==="weak"?" primary":"")+'" data-retest="'+esc(s)+'|'+esc(u)+'">'+(n?"Retest":"Test")+'</button>':'')+'</div></td></tr>'};
   var groups={};all.forEach(function(u){var g=UNITGROUP[s+"|"+u]||"";(groups[g]=groups[g]||[]).push(u)});
   var body="";Object.keys(groups).forEach(function(g){if(g)body+='<tr class="grp"><td colspan="6">'+esc(g)+'</td></tr>';body+=groups[g].map(row).join("")});
   return '<div class="scroll"><table class="tbl units"><thead><tr><th>Unit</th><th class="hide-sm">Attempted</th><th>Accuracy</th><th>Status</th><th class="hide-sm">Trend</th><th></th></tr></thead><tbody>'+body+'</tbody></table></div>';
@@ -1066,6 +1066,7 @@ function unitTable(s,o){
 function bindSubjects(){
   qsa("[data-sx]").forEach(function(b){b.onclick=function(){var s=b.dataset.sx;VIEW.subjOpen[s]=!VIEW.subjOpen[s];render()}});
   qsa("[data-retest]").forEach(function(b){b.onclick=function(){var p=b.dataset.retest.split("|");startSubjectTest(p[0],[p.slice(1).join("|")])}});
+  qsa("[data-sheet]").forEach(function(b){b.onclick=function(){var p=b.dataset.sheet.split("|");openSheet(p[0],p.slice(1).join("|"))}});
   var f=$("df"),t=$("dto");if(f)f.onchange=function(){VIEW.from=this.value||null;render()};if(t)t.onchange=function(){VIEW.to=this.value||null;render()};
 }
 
@@ -1467,7 +1468,7 @@ function bindNotesAfterTest(){
 /* boot */
 function boot(){
   loadStore();
-  var h=location.hash.replace("#","");if(["today","practice","dash","scores"].indexOf(h)>=0)VIEW.tab=h;
+  var h=location.hash.replace("#","");if(["today","practice","read","dash","scores"].indexOf(h)>=0)VIEW.tab=h;
   fetch("data/manifest.json").then(function(r){return r.json()}).then(function(m){
     indexManifest(m);migrateOld();render();handleGo();
     if(syncCfg().url)setTimeout(sync,800);
@@ -2064,4 +2065,181 @@ function dashGlance(){
     (function(){var due=0;try{due=mistakeBook().filter(function(x){return x.isDue}).length}catch(e){}return tile("Mistakes due",due,"for revision today",due>40?"bad":(due?"warn":"good"),"coach")})()+
     tile("Weakest unit",weak?Math.round(weak.a*100)+"%":"–",weak?esc(weak.u):"not enough data yet",weak?"bad":"","subj")+
     '</div>';
+}
+
+/* ===== Notes tab: everything to read, by subject (study notes, unit sheets, fact tables, CA booklets) + rapid fire ===== */
+TABS.splice(2,0,["read","Notes"]);
+ICON.read='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5c2.5-1 5-1 8 1 3-2 5.5-2 8-1v13c-2.5-1-5-1-8 1-3-2-5.5-2-8-1z"/><path d="M12 6.5v13"/></svg>';
+var FACTS=null;
+function loadFacts(){if(FACTS)return Promise.resolve(FACTS);return fetch("data/facts.json").then(function(r){return r.json()}).then(function(d){FACTS=d.tables;return FACTS})}
+var READ_SUBJ=["Polity","History","Geography","Economy","Environment","Science & Tech","Current Affairs"];
+// which study-note PDFs belong to which subject (set notes follow their set; topic notes are listed here)
+var NOTE_SUBJ={SRI:["Economy","Current Affairs"],SPP:["Environment"],GSCH:["Economy","Current Affairs","Polity"]};
+var NOTE_SETS={SRI:"sri",SPP:"spp",GSCH:"sri"};
+var CA_CAT_FOR={"Polity":/Polity/i,"Economy":/Economy|Schemes/i,"Environment":/Environment/i,"Science & Tech":/Science/i,"History":/Culture/i,"Geography":/Environment|International/i};
+function noteSubjects(id){if(NOTE_SUBJ[id])return NOTE_SUBJ[id];var s=(M.sets||[]).filter(function(x){return x.id===id})[0];return s?(s.subjects||[s.subject]):[]}
+function studyNotes(subj){return Object.keys(M.notes||{}).filter(function(id){return noteSubjects(id).indexOf(subj)>=0}).map(function(id){return {id:id,n:M.notes[id]}})}
+function camRead(id){var s=(M.sets||[]).filter(function(x){return x.id===id})[0];return {p:notesRead(id),n:s&&s.n||25}}
+function continueList(){
+  var out=[];
+  Object.keys(M.notes||{}).forEach(function(id){var p=notesPagesRead(id),n=M.notes[id].pages;if(p>0&&p<n-1)out.push({kind:"pdf",id:id,title:M.notes[id].title,p:p,n:n})});
+  camSets().forEach(function(s){var r=camRead(s.id);if(r.p>0&&r.p<r.n)out.push({kind:"cam",id:s.id,title:s.title,p:r.p,n:r.n})});
+  return out.slice(0,4);
+}
+function readRow(title,sub,btns,state){return '<li class="rd-'+(state||"todo")+'"><div><b>'+title+'</b><span class="muted small">'+sub+'</span></div><div class="row tight">'+btns+'</div></li>'}
+function viewRead(){
+  var v=$("view"),subj=VIEW.readSub||((todaysOpenSet()||{}).subject)||"Polity";if(READ_SUBJ.indexOf(subj)<0)subj="Polity";VIEW.readSub=subj;
+  var html='<div class="pagehead"><div><h1>Notes</h1><p class="muted">Everything to read, by subject. Each note links to its test, so you can read and then check yourself.</p></div></div>';
+  var cl=continueList();
+  if(cl.length)html+='<section class="panel"><h2>Continue reading</h2><ul class="list">'+cl.map(function(x){return readRow(esc(x.title),'Page '+x.p+' of '+x.n,'<button class="btn small primary" data-'+(x.kind==="pdf"?"notes":"camread")+'="'+x.id+'">Continue</button>',"part")}).join("")+'</ul></section>';
+  html+='<section class="panel quicktools"><div class="row wrap"><button class="btn" data-rf="all">⚡ Rapid fire</button><button class="btn" data-quick="flash">Flashcards from mistakes</button></div><p class="muted small">Rapid fire: quick one-line facts from the fact tables, about 8 seconds each.</p></section>';
+  html+='<div class="subjchips" role="tablist">'+READ_SUBJ.map(function(s){return '<button role="tab" class="chip'+(s===subj?" on":"")+'" data-rsub="'+esc(s)+'" aria-selected="'+(s===subj)+'">'+esc(s)+'</button>'}).join("")+'</div>';
+  // 1. study notes
+  var sn=studyNotes(subj),done=setDoneMap();
+  var snBody=sn.length?'<ul class="list">'+sn.map(function(x){var p=notesPagesRead(x.id),rd=notesDone(x.id),ts=NOTE_SETS[x.id];
+      var test=ts?'<button class="btn small" data-rtest="'+ts+'">Test</button>':((M.sets||[]).some(function(s){return s.id===x.id})?'<button class="btn small" data-start="'+x.id+'">'+(done[x.id]?"Retake":"Test")+'</button>':'');
+      return readRow(esc(x.n.title),x.n.pages+' pages'+(rd?' · read ✓':(p?' · page '+p+' of '+x.n.pages:'')),'<button class="btn small'+(rd?"":" primary")+'" data-notes="'+x.id+'">'+(rd?"Read again":(p?"Continue":"Read"))+'</button>'+test,rd?"done":(p?"part":"todo"))}).join("")+'</ul>':
+    '<p class="muted small">No study notes for '+esc(subj)+' yet. Notes for each day\'s set are added in 6-day batches.</p>';
+  var snRead=sn.filter(function(x){return notesDone(x.id)}).length;
+  html+=fold("rd-notes","Study notes",sn.length?snRead+" of "+sn.length+" read":"none yet",snBody,true);
+  // 2. one-page unit sheets
+  if(subj!=="Current Affairs"){
+    var st=unitStats()[subj]||{units:{}},units=(UNITLIST[subj]||[]).slice();Object.keys(st.units).forEach(function(u){if(units.indexOf(u)<0)units.push(u)});
+    var weakN=0;
+    var ub='<p class="muted small">One page per unit: your mistakes, what UPSC asked, memory hooks and key facts from the question bank. Weak units first.</p><ul class="list">'+
+      units.map(function(u){var x=st.units[u]||{r:0,w:0},n=x.r+x.w,s_=n?unitStatus(x):"nodata";if(s_==="weak")weakN++;return {u:u,n:n,a:n?x.r/n:1.1,s:s_}}).sort(function(a,b){return a.a-b.a}).map(function(o){
+        return readRow(esc(o.u),o.n?Math.round(o.a*100)+'% on '+o.n+' questions · <span class="tag '+o.s+'">'+STATUS_LABEL[o.s]+'</span>':'Not attempted yet','<button class="btn small'+(o.s==="weak"?" primary":"")+'" data-sheet="'+esc(subj)+'|'+esc(o.u)+'">Sheet</button>',o.s==="strong"?"done":"todo")}).join("")+'</ul>';
+    html+=fold("rd-sheets","One-page unit sheets",units.length+" units"+(weakN?" · "+weakN+" weak":""),ub,false);
+  }
+  // 3. fact tables
+  var ft=(FACTS||[]).filter(function(t){return t.subject===subj});
+  if(!FACTS)loadFacts().then(function(){if(VIEW.tab==="read"&&VIEW.screen==="tabs")render()}).catch(function(){});
+  if(ft.length)html+=fold("rd-facts","Fact tables",ft.length+" table"+(ft.length>1?"s":"")+" · "+ft.reduce(function(a,t){return a+t.rows.length},0)+" facts",
+    '<ul class="list">'+ft.map(function(t){return readRow(esc(t.title),t.rows.length+' rows','<button class="btn small primary" data-facts="'+t.id+'">Open</button><button class="btn small" data-rf="'+t.id+'">Rapid fire</button>')}).join("")+'</ul>',false);
+  // 4. current affairs booklets (all months for CA; linked categories for other subjects)
+  var cams=camSets().filter(function(s){return subj==="Current Affairs"||(CA_CAT_FOR[subj]&&CA_CAT_FOR[subj].test(s.category||""))});
+  if(cams.length){
+    var byM={};cams.forEach(function(s){(byM[s.month]=byM[s.month]||[]).push(s)});
+    var readN=cams.filter(function(s){var r=camRead(s.id);return r.p>=r.n}).length;
+    var cb=Object.keys(byM).sort().map(function(mk){return '<h3>'+esc(monthLabel(mk))+'</h3><ul class="list">'+byM[mk].map(function(s){var r=camRead(s.id),dn=r.p>=r.n;
+      return readRow(esc(s.category),(dn?'read ✓':(r.p?'page '+r.p+' of '+r.n:r.n+' pages'))+(done[s.id]?' · test taken':''),'<button class="btn small'+(dn?"":" primary")+'" data-camread="'+s.id+'">'+(dn?"Again":(r.p?"Continue":"Read"))+'</button><button class="btn small" data-start="'+s.id+'">Test</button>',dn?"done":(r.p?"part":"todo"))}).join("")+'</ul>'}).join("");
+    html+=fold("rd-ca",subj==="Current Affairs"?"Monthly current affairs notes":"Current affairs linked to "+esc(subj),readN+" of "+cams.length+" booklets read",cb,subj==="Current Affairs");
+  }
+  v.innerHTML=html;
+  bindRead();bindFolds(false);bindBatch2();
+}
+function bindRead(){
+  qsa("[data-rsub]").forEach(function(b){b.onclick=function(){VIEW.readSub=b.dataset.rsub;render()}});
+  qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
+  qsa("[data-camread]").forEach(function(b){b.onclick=function(){openCamNotes(b.dataset.camread,Math.max(1,notesRead(b.dataset.camread)),"tabs")}});
+  qsa("[data-start]").forEach(function(b){b.onclick=function(){startSet(b.dataset.start,!!DB.meta.timed)}});
+  qsa("[data-rtest]").forEach(function(b){b.onclick=function(){var done=setDoneMap(),ss=(M.sets||[]).filter(function(s){return s.type===b.dataset.rtest&&s.ready}),s=ss.filter(function(x){return !done[x.id]})[0]||ss[0];if(s)startSet(s.id,!!DB.meta.timed)}});
+  qsa("[data-sheet]").forEach(function(b){b.onclick=function(){var p=b.dataset.sheet.split("|");openSheet(p[0],p.slice(1).join("|"))}});
+  qsa("[data-facts]").forEach(function(b){b.onclick=function(){openFacts(b.dataset.facts)}});
+  qsa("[data-rf]").forEach(function(b){b.onclick=function(){startRapid(b.dataset.rf)}});
+}
+function backToTabs(){document.body.classList.remove("in-quiz");VIEW.screen="tabs";render();window.scrollTo(0,0)}
+
+/* --- fact table screen: search, hide answers to self-test --- */
+function openFacts(id){loadFacts().then(function(T){var t=T.filter(function(x){return x.id===id})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:"",hide:false};drawFacts();window.scrollTo(0,0)})}
+function drawFacts(){
+  var o=VIEW.ft,t=o.t,q=o.q.toLowerCase(),rows=t.rows.filter(function(r){return !q||r.join(" ").toLowerCase().indexOf(q)>=0});
+  $("app").innerHTML='<div class="page ftpage"><div class="row between wrap"><button class="btn small" id="ft-back">‹ Notes</button><div class="row tight"><button class="btn small" id="ft-hide" aria-pressed="'+o.hide+'">'+(o.hide?"Show answers":"Hide answers")+'</button><button class="btn small primary" data-rf="'+t.id+'">⚡ Rapid fire</button></div></div>'+
+    '<h1>'+esc(t.title)+'</h1><p class="muted small">'+esc(t.subject)+' · '+t.rows.length+' facts'+(t.note?' · '+esc(t.note):'')+(o.hide?' · tap a blurred cell to reveal it':'')+'</p>'+
+    '<input type="search" id="ft-q" class="ftsearch" placeholder="Search this table" value="'+esc(o.q)+'">'+
+    '<div class="scroll"><table class="tbl facts"><thead><tr>'+t.cols.map(function(c){return '<th>'+esc(c)+'</th>'}).join("")+'</tr></thead><tbody>'+
+    rows.map(function(r){return '<tr>'+r.map(function(c,k){return '<td'+(o.hide&&k>0?' class="hid" tabindex="0"':'')+'>'+(k===0?'<b>'+esc(c)+'</b>':esc(c))+'</td>'}).join("")+'</tr>'}).join("")+'</tbody></table></div>'+
+    (rows.length?'':'<p class="muted">Nothing matches.</p>')+'<p class="muted small">If a row looks wrong, tell me and it will be corrected.</p></div>';
+  $("ft-back").onclick=backToTabs;
+  $("ft-hide").onclick=function(){o.hide=!o.hide;drawFacts()};
+  $("ft-q").oninput=function(){o.q=this.value;var pos=this.selectionStart;drawFacts();var e=$("ft-q");e.focus();e.setSelectionRange(pos,pos)};
+  qsa("td.hid").forEach(function(td){td.onclick=function(){td.classList.remove("hid")}});
+  qsa("[data-rf]").forEach(function(b){b.onclick=function(){startRapid(b.dataset.rf)}});
+}
+
+/* --- rapid fire: one-line prompts from the fact tables, 8 seconds each, self-marked --- */
+var RF=null;
+function rapidCards(src,T){
+  var cards=[];
+  T.forEach(function(t){if(src!=="all"&&src!==t.id&&src!=="s:"+t.subject)return;
+    t.rows.forEach(function(r,i){(t.rf||[[0,1]]).forEach(function(p){cards.push({q:r[p[0]],ask:t.cols[p[1]],a:r[p[1]],t:t.title,key:t.id+"-"+i+"-"+p.join("")})})})});
+  var seen=DB.meta.rfSeen||{};
+  cards.forEach(function(c){c.w=(seen[c.key]||0)+Math.random()});
+  cards.sort(function(a,b){return a.w-b.w});
+  return cards.slice(0,20);
+}
+function startRapid(src){
+  loadFacts().then(function(T){
+    var cards=rapidCards(src,T);if(!cards.length){toast("No facts for this yet.");return}
+    RF={src:src,cards:cards,i:0,shown:false,ok:0,miss:[],t0:0,timer:null};
+    VIEW.screen="rapid";document.body.classList.add("in-quiz");drawRapid();
+  });
+}
+function drawRapid(){
+  clearTimeout(RF.timer);
+  if(RF.i>=RF.cards.length)return rapidEnd();
+  var c=RF.cards[RF.i];
+  $("app").innerHTML='<div class="fc rf"><header class="fc-bar"><button class="btn small" id="rf-x">Close</button><span class="muted small">'+(RF.i+1)+' / '+RF.cards.length+'</span><span class="small good">'+RF.ok+' ✓</span></header>'+
+    '<div class="rf-time"><i id="rf-bar"></i></div><article class="fc-card rf-card" id="rf-card"><p class="muted small">'+esc(c.t)+'</p><h2 class="rf-q">'+esc(c.q)+'</h2><p class="rf-ask">'+esc(c.ask)+'?</p>'+
+    (RF.shown?'<p class="rf-a">'+esc(c.a)+'</p>':'<p class="muted small">Say it in your head – the answer shows in 8 seconds, or tap.</p>')+'</article>'+
+    '<div class="fc-actions">'+(RF.shown?'<button class="btn big" id="rf-no">✗ Missed</button><button class="btn big primary" id="rf-yes">✓ Got it</button>':'<button class="btn big primary wide" id="rf-show">Show</button>')+'</div></div>';
+  $("rf-x").onclick=rapidEnd;
+  if(!RF.shown){
+    var bar=$("rf-bar");requestAnimationFrame(function(){bar.style.transition="width 8s linear";bar.style.width="100%"});
+    RF.timer=setTimeout(function(){RF.shown=true;drawRapid()},8000);
+    $("rf-show").onclick=function(){RF.shown=true;drawRapid()};$("rf-card").onclick=function(){RF.shown=true;drawRapid()};
+  }else{$("rf-yes").onclick=function(){rapidMark(true)};$("rf-no").onclick=function(){rapidMark(false)}}
+}
+function rapidMark(ok){var c=RF.cards[RF.i],s=DB.meta.rfSeen=DB.meta.rfSeen||{};s[c.key]=(s[c.key]||0)+(ok?2:0.5);if(ok)RF.ok++;else RF.miss.push(c);RF.i++;RF.shown=false;saveStore();drawRapid()}
+function rapidEnd(){
+  clearTimeout(RF&&RF.timer);if(!RF)return backToTabs();
+  var n=RF.i,ok=RF.ok,miss=RF.miss,src=RF.src;RF=null;
+  if(!n)return backToTabs();
+  var best=DB.meta.rfBest=DB.meta.rfBest||{};var pct=Math.round(ok/n*100),nb=!best[src]||pct>best[src];if(nb){best[src]=pct;saveStore()}
+  $("app").innerHTML='<div class="page fc-end"><h1>Rapid fire</h1><p class="lead">'+ok+' of '+n+' ('+pct+'%)'+(nb?' – your best for this set':'')+'</p>'+
+    (miss.length?'<h3>Look at these again</h3><ul class="plain small">'+miss.map(function(c){return '<li><b>'+esc(c.q)+'</b> – '+esc(c.ask)+': '+esc(c.a)+'</li>'}).join("")+'</ul>':'<p>No misses.</p>')+
+    '<div class="row wrap"><button class="btn primary" id="rf-again">Another round</button><button class="btn ghost" id="rf-done">Done</button></div></div>';
+  $("rf-again").onclick=function(){startRapid(src)};$("rf-done").onclick=backToTabs;
+}
+
+/* --- one-page unit sheet: your mistakes, UPSC asked, memory hooks, key facts --- */
+function keyLine(e){
+  var ss=String(e||"").replace(/\s+/g," ").split(/(?<=[.!?])\s+(?=[A-Z])/);
+  for(var i=0;i<ss.length;i++){var s=ss[i].trim();if(s.length<35||s.length>230)continue;if(/^(Statement|Both|All|Option|Only|None|Neither|Hence|So |Therefore|Thus|This|That|It |These|Pair|The answer|Answer|Correct|Incorrect|\(|[0-9]\.|[a-d]\))/i.test(s))continue;if(/statement|option|the pair|is correct|is incorrect|is wrong/i.test(s))continue;return s}
+  return "";
+}
+function openSheet(subj,unit){
+  var pool=(M.bank[subj]||[]).filter(function(x){return x[1]===unit}).map(function(x){return x[0]});
+  if(!pool.length){toast("No questions in this unit yet.");return}
+  var wrong={};attempts().forEach(function(a){(a.items||[]).forEach(function(x){if(x[2]===unit&&x[4]!==1)wrong[x[0]]=(wrong[x[0]]||0)+1;if(x[2]===unit&&x[4]===1&&wrong[x[0]])wrong[x[0]]-=0.5})});
+  var pick=pool.filter(function(q){return wrong[q]>0}).slice(0,12).concat(pool.filter(function(q){return isPyq(q)&&!(wrong[q]>0)}).slice(0,15),pool.filter(function(q){return !isPyq(q)&&!(wrong[q]>0)}).slice(0,60));
+  $("app").innerHTML='<div class="page"><p class="muted">Putting the sheet together…</p></div>';VIEW.screen="sheet";
+  loadQids(pick).then(function(qs){
+    qs=qs.filter(function(q){return !q.x});var L="abcd",mist=[],pyq=[],hooks=[],facts=[],seen={};
+    qs.forEach(function(q){
+      var ans=q.o&&q.o[+q.a],line=keyLine(q.e);
+      var item={q:q,ans:ans,line:line};
+      if(wrong[q.qid]>0)mist.push(item);else if(isPyq(q.qid))pyq.push(item);
+      if(q.h&&!seen[q.h]){seen[q.h]=1;hooks.push(q.h)}
+      if(!(wrong[q.qid]>0)&&!isPyq(q.qid)&&line&&!seen[line]){seen[line]=1;facts.push(line)}
+    });
+    var st=(unitStats()[subj]||{units:{}}).units[unit]||{r:0,w:0},n=st.r+st.w;
+    // direct questions show "question → answer"; statement-type questions show the fact behind them instead
+    var direct=function(x){var qt=String(x.q.q||"");return !/\n|Consider|statement|following|correct|pairs|Statement/i.test(qt)&&qt.length<=170&&x.ans&&x.ans.length<=70&&!/^(Both|Neither|None|All|Only|1|2|3|4)\b/i.test(x.ans)};
+    var keyLines=function(e){var out=[],t=String(e||"");for(var k=0;k<2;k++){var l=keyLine(t);if(!l)break;out.push(l);t=t.replace(l,"")}return out.join(" ")};
+    var qa=function(x){if(direct(x))return '<li><span class="small">'+esc(x.q.q)+'</span><br><b>→ '+esc(x.ans)+'</b>'+(x.line?'<span class="muted small block">'+esc(x.line)+'</span>':'')+'</li>';
+      var kl=keyLines(x.q.e);return kl?'<li>'+esc(kl)+'</li>':''};
+    var h='<div class="page sheet"><div class="row between wrap noprint"><button class="btn small" id="sh-back">‹ Back</button><div class="row tight"><button class="btn small" id="sh-print">Print / PDF</button><button class="btn small primary" data-retest="'+esc(subj)+'|'+esc(unit)+'">Test this unit</button></div></div>'+
+      '<h1>'+esc(unit)+'</h1><p class="muted small">'+esc(subj)+' · '+(n?Math.round(st.r/n*100)+'% on '+n+' questions':'not attempted yet')+' · built from the app\'s question bank</p>';
+    if(mist.length)h+='<h2>From your mistakes</h2><ol class="sheetlist">'+mist.map(qa).filter(Boolean).slice(0,8).join("")+'</ol>';
+    if(pyq.length)h+='<h2>What UPSC asked</h2><ol class="sheetlist">'+pyq.map(function(x){var y=pyqYear(x.q.qid),l=qa(x);return l?l.replace("<li>","<li><span class=\"tag\">"+(y||"PYQ")+"</span> "):""}).filter(Boolean).slice(0,6).join("")+'</ol>';
+    if(hooks.length)h+='<h2>Memory hooks</h2><ul class="plain small sheethooks">'+hooks.slice(0,8).map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>';
+    if(facts.length)h+='<h2>Key facts</h2><ul class="plain sheetfacts">'+facts.slice(0,14).map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul>';
+    var sn=studyNotes(subj);
+    if(sn.length)h+='<p class="noprint small"><b>Full notes for '+esc(subj)+':</b> '+sn.map(function(x){return '<button class="link" data-notes="'+x.id+'">'+esc(x.n.title)+'</button>'}).join(" · ")+'</p>';
+    $("app").innerHTML=h+'</div>';window.scrollTo(0,0);
+    $("sh-back").onclick=backToTabs;$("sh-print").onclick=function(){window.print()};
+    qsa("[data-retest]").forEach(function(b){b.onclick=function(){var p=b.dataset.retest.split("|");VIEW.screen="tabs";startSubjectTest(p[0],[p.slice(1).join("|")])}});
+    qsa("[data-notes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.notes)}});
+  }).catch(function(){backToTabs();toast("Could not load this unit. Check your connection.")});
 }

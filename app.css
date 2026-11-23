@@ -463,3 +463,25 @@ button.chip{cursor:pointer}
 @media (max-width:560px){.shklist{columns:1}}
 .shkall{max-height:60vh;overflow:auto}
 .shk>summary::before{content:none!important;display:none!important}
+/* Notes tab */
+.subjchips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+.subjchips .chip{flex:none;padding:7px 13px;font-size:13.5px;cursor:pointer;background:var(--card)}
+.subjchips .chip.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.list li.rd-done b{color:var(--ink2)}
+.list li.rd-part{box-shadow:inset 3px 0 0 var(--pen)}
+.quicktools .row{gap:8px}
+.nowrap{flex-wrap:nowrap}
+.ftsearch{width:100%;margin:8px 0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-sm);font:inherit;background:var(--card);color:var(--ink)}
+.tbl.facts td{vertical-align:top}
+.tbl.facts td.hid{filter:blur(5px);cursor:pointer;user-select:none}
+.rf-time{height:4px;border-radius:99px;background:var(--line2);overflow:hidden}.rf-time i{display:block;height:100%;width:0;background:var(--warn)}
+.rf-card{display:flex;flex-direction:column;justify-content:center;text-align:center;gap:10px}
+.rf-q{font-size:24px;margin:0}
+.rf-ask{color:var(--ink2);margin:0}
+.rf-a{font-size:18px;font-weight:650;color:var(--good);margin:8px 0 0}
+.sheet h1{margin-bottom:2px}
+.sheet h2{font-size:16px;margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line2)}
+.sheetlist{padding-left:20px;margin:0}.sheetlist li{margin:0 0 8px}
+.sheetfacts li,.sheethooks li{margin:0 0 6px;padding-left:12px;position:relative}
+.sheetfacts li::before,.sheethooks li::before{content:"•";position:absolute;left:0;color:var(--ink3)}
+@media print{.noprint,.tabs,.topbar{display:none!important}.sheet{font-size:11.5px}.sheet h2{font-size:13px;margin:8px 0 4px}body{background:#fff}}
