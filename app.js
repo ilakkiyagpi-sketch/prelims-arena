@@ -78,9 +78,9 @@ function shkSchedule(){
   var h='<h2>Shankar Prestorming schedule</h2><p class="muted small">Batch II, Anna Nagar, 2026-27. Tap a test to see its topics.</p><div class="shkall">'+TESTS.map(function(t){return shkCard(t,false,t.date<today()?"Done · ":"")}).join("")+'</div><h3>From the brochure</h3><ul class="small">'+SHK_NOTES.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul><div class="row"><button class="btn" data-m="x">Close</button></div>';
   modal(h);
 }
-var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",capool:"Current affairs",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
+var TYPE_LABEL={daily:"Daily",weekly:"Weekly",mock:"Mock",subject:"Subject test",ca:"Current affairs",cam:"Current affairs",capool:"Current affairs",sri:"Schemes & indices",fullmock:"Mock",revision:"Revision",bonus:"Daily",myq:"Mock",pyq:"UPSC paper",pyqsub:"PYQ practice",pyqmock:"PYQ mock",csatset:"CSAT practice",csatmock:"CSAT mock"};
 // dashboard filter group of an attempt type
-function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",capool:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
+function typeGroup(t){return ({daily:"daily",bonus:"daily",ca:"ca",cam:"ca",capool:"ca",mock:"mock",fullmock:"mock",myq:"mock",subject:"subject",revision:"subject",weekly:"weekly",sri:"subject",pyq:"pyq",pyqsub:"pyq",pyqmock:"pyq",csatset:"subject",csatmock:"mock"})[t]||"daily"}
 function isPyq(qid){return String(qid).indexOf("PYQ-")===0}
 function pyqYear(qid){var m=/^PYQ-[A-Z]+-(\d{4})/.exec(qid);return m?+m[1]:null}
 
@@ -842,6 +842,7 @@ function viewPractice(){
   html+='<section class="panel"><h2>Subject test</h2><div class="subjgrid">'+M.subjects.map(function(s){return '<button class="subj'+(s===subj?" on":"")+'" data-subj="'+esc(s)+'"'+(counts[s]?"":" disabled")+'><b>'+esc(s)+'</b><span>'+(counts[s]?counts[s]+' questions':'Questions coming later')+'</span></button>'}).join("")+'</div>'+
     '<details class="units"'+(nSel?" open":"")+'><summary>Limit to certain units (optional)'+(nSel?' <span class="tag">'+nSel+' chosen</span>':'')+'</summary><div class="chips">'+units.filter(function(u){return uc[u]}).map(function(u){return '<button class="chipbtn" data-unit="'+esc(u)+'" aria-pressed="'+!!chosen[u]+'">'+esc(u)+' <span>'+uc[u]+'</span></button>'}).join("")+'</div>'+(nSel?'<button class="link" id="u-clear">Clear units</button>':'')+'</details>'+
     '<div class="row"><button class="btn primary" id="st-go"'+(counts[subj]?"":" disabled")+'>Start a '+esc(subj)+' test</button><span class="muted small">You choose 50, 100, 150 or 200 questions next. Always timed.</span></div></section>';
+  html+=sriPanel();
   html+=pyqPanel();
   html+=listenPanel();
   var mb=mistakeBook(),due=mb.filter(function(m){return m.isDue}).length;
@@ -877,6 +878,14 @@ function viewPractice(){
   qsa("[data-mydel]").forEach(function(b){b.onclick=function(){modal('<h2>Delete this question?</h2><div class="row"><button class="btn danger" data-m="y">Delete</button><button class="btn ghost" data-m="x">Cancel</button></div>',function(a){if(a==="y"){del(b.dataset.mydel);render()}})}});
   qsa("[data-repdel]").forEach(function(b){b.onclick=function(){del(b.dataset.repdel);render()}});
 }
+/* Schemes, reports and indices: revision notes plus four question sets */
+function sriPanel(){
+  var ss=M.sets.filter(function(s){return s.type==="sri"&&s.ready});if(!ss.length)return "";
+  var done=setDoneMap(),nt=M.notes&&M.notes.SRI;
+  return '<section class="panel" id="sri-panel"><h2>Schemes, reports and indices</h2><p class="muted small">Revision notes on who each scheme is for and what UPSC asks about it, plus what every index measures, then four question sets. Read the notes first or test first.</p>'+
+    (nt?'<div class="notesrow"><button class="btn small'+(notesDone("SRI")?"":" primary")+'" data-srinotes="SRI">Read the notes</button><span class="muted small">'+nt.pages+' pages, works offline</span>'+notesBadge("SRI")+'</div>':'')+
+    '<ul class="list">'+ss.map(function(s){var d=done[s.id];return '<li><div><b>'+esc(s.title)+'</b><span class="muted small">'+s.n+' questions'+(d?', taken '+d+' time'+(d>1?"s":""):'')+'</span></div><button class="btn small'+(d?"":" primary")+'" data-cset="'+s.id+'">'+(d?"Retake":"Start")+'</button></li>'}).join("")+'</ul></section>';
+}
 function pyqPanel(){
   var paper=VIEW.pyqPaper||"GS",sets=pyqSets(paper);if(!M.sets.some(function(s){return s.type==="pyq"}))return "";
   var runs={};pausedRuns().forEach(function(r){runs[r.key]=1});
@@ -899,6 +908,7 @@ function bindPyq(){
   qsa("[data-pp]").forEach(function(b){b.onclick=function(){VIEW.pyqPaper=b.dataset.pp;render()}});
   qsa("[data-pyq]").forEach(function(b){b.onclick=function(){startPyqPaper(b.dataset.pyq)}});
   qsa("[data-cset]").forEach(function(b){b.onclick=function(){startSet(b.dataset.cset,false)}});
+  qsa("[data-srinotes]").forEach(function(b){b.onclick=function(){openNotes(b.dataset.srinotes)}});
   if($("pyq-subj-go"))$("pyq-subj-go").onclick=function(){startPyqSubject($("pyq-subj").value)};
   if($("pyq-mock"))$("pyq-mock").onclick=startPyqMock;
   if($("csat-mock"))$("csat-mock").onclick=startCsatMock;
