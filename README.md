@@ -1,5 +1,7 @@
 # Prelims Arena
 
+Handover notes (links, where every key and passcode lives, data formats, how to release or move accounts): [docs/HANDOVER.md](docs/HANDOVER.md).
+
 Personal UPSC Prelims 2027 practice app: daily sets on the Shankar IAS Prestorming timetable, current affairs sets, subject tests, full mocks, a mistake book and progress tracking.
 
 - Open the site and add it to your home screen. It works offline after the first visit.
