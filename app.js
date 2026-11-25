@@ -1,4 +1,4 @@
-var GAS_SCRIPT="/* Prelims Arena v2: Google Sheet sync script.\n   Setup:\n   1) In a new Google Sheet: Extensions > Apps Script. Delete the sample code and paste this whole script.\n   2) Change the passphrase on the next line. Use the same passphrase in the app.\n   3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.\n   4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.\n   Your daily study log appears in the \"Study log\" tab.\n   You can type your own questions in the \"My questions\" tab. Answer column takes A, B, C or D. Leave the id column empty. */\nvar KEY = 'change-this-passphrase';\n\nvar T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data', T_LOG = 'Study log';\nvar H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];\nvar H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];\nvar H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];\nvar H_DATA = ['id','kind','ts','record'];\nvar H_LOG = ['id','date','day','hours','subjects','covered','reasons','shankar test','notes','ts','deleted'];\nvar LOG_ST = {full: 'Studied as planned', partial: 'Studied partly', none: 'Could not study'};\n\nfunction sheet_(name, h) {\n  var ss = SpreadsheetApp.getActiveSpreadsheet();\n  var s = ss.getSheetByName(name);\n  if (!s) { s = ss.insertSheet(name); s.appendRow(h); s.setFrozenRows(1); s.getRange(1, 1, 1, h.length).setFontWeight('bold'); }\n  return s;\n}\nfunction rows_(s, w) { var n = s.getLastRow(); return n > 1 ? s.getRange(2, 1, n - 1, w).getValues() : []; }\nfunction idx_(rows) { var m = {}; rows.forEach(function (r, i) { if (r[0] !== '') m[String(r[0])] = i; }); return m; }\nfunction out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }\nfunction d_(v) { return v instanceof Date ? Utilities.formatDate(v, Session.getScriptTimeZone(), 'yyyy-MM-dd') : String(v); }\nfunction n_(v) { return v === '' || v == null ? null : Number(v); }\nfunction L_(i) { return ['A', 'B', 'C', 'D'][i] || ''; }\n\nfunction doPost(e) {\n  var lock = LockService.getScriptLock(); lock.waitLock(25000);\n  try {\n    var b = JSON.parse(e.postData.contents);\n    if (b.key !== KEY) return out_({error: 'wrong passphrase'});\n    var res = sheet_(T_RES, H_RES), tst = sheet_(T_TEST, H_TEST), myq = sheet_(T_MYQ, H_MYQ), dat = sheet_(T_DATA, H_DATA);\n    var resIdx = idx_(rows_(res, 1));\n    var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);\n    var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);\n    var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);\n    var lg = sheet_(T_LOG, H_LOG), lRows = rows_(lg, H_LOG.length), lIdx = idx_(lRows);\n    var newRes = [];\n    (b.recs || []).forEach(function (r) {\n      var ts = Number(r.ts) || 0;\n      if (r.kind === 'att') {\n        if (r.id in resIdx) return;\n        resIdx[r.id] = -1;\n        var att = r.r + r.w;\n        newRes.push([r.id, r.date, r.type, r.title, r.subject, r.n, r.r, r.w, r.sk, r.pts, r.max,\n          r.max ? Math.round(r.pts / r.max * 1000) / 10 : '', att ? Math.round(r.r / att * 1000) / 10 : '',\n          Math.round((r.sec || 0) / 6) / 10, r.sched || '', r.setId || '', ts, JSON.stringify(r)]);\n      } else if (r.kind === 'test') {\n        var row = [r.id, r.name || '', r.type || '', r.subject || '', r.date || '', r.marks == null ? '' : r.marks, r.max == null ? '' : r.max,\n          (r.marks != null && r.max) ? Math.round(r.marks / r.max * 1000) / 10 : '', r.r == null ? '' : r.r, r.w == null ? '' : r.w, r.rank == null ? '' : r.rank, ts, r.del ? 'yes' : ''];\n        upsert_(tst, tRows, tIdx, row, 11);\n      } else if (r.kind === 'myq') {\n        var o = r.o || [];\n        var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];\n        upsert_(myq, qRows, qIdx, row2, 11);\n      } else if (r.kind === 'log') {\n        upsert_(lg, lRows, lIdx, [r.id, r.date || '', LOG_ST[r.status] || '', r.hours == null ? '' : r.hours, (r.subjects || []).join(', '), r.covered || '',\n          (r.reasons || []).join(', '), r.test === 'yes' ? 'taken' : (r.test === 'no' ? 'missed' : ''), r.note || '', ts, r.del ? 'yes' : ''], 9);\n      } else {\n        upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);\n      }\n    });\n    if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);\n    if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);\n    return out_({ok: true});\n  } finally { lock.releaseLock(); }\n}\nfunction upsert_(s, rows, idx, row, tsCol) {\n  var id = String(row[0]);\n  if (id in idx) {\n    var i = idx[id];\n    if ((Number(row[tsCol]) || 0) >= (Number(rows[i][tsCol]) || 0)) { s.getRange(i + 2, 1, 1, row.length).setValues([row]); rows[i] = row; }\n  } else { s.appendRow(row); rows.push(row); idx[id] = rows.length - 1; }\n}\nfunction doGet(e) {\n  if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});\n  var out = [];\n  rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {\n    try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}\n  });\n  rows_(sheet_(T_TEST, H_TEST), H_TEST.length).forEach(function (r) {\n    out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});\n  });\n  var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);\n  qRows.forEach(function (r, i) {\n    if (r[3] === '') return;\n    if (r[0] === '') { // typed by hand in the Sheet: give it an id\n      r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();\n      q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);\n    }\n    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());\n    out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});\n  });\n  var stBack = {}; Object.keys(LOG_ST).forEach(function (k) { stBack[LOG_ST[k]] = k; });\n  var split = function (v) { return String(v || '').split(',').map(function (x) { return x.trim(); }).filter(String); };\n  rows_(sheet_(T_LOG, H_LOG), H_LOG.length).forEach(function (r) {\n    if (r[0] === '') return;\n    out.push({id: String(r[0]), kind: 'log', date: d_(r[1]), status: stBack[r[2]] || 'partial', hours: n_(r[3]), subjects: split(r[4]), covered: String(r[5] || ''),\n      reasons: split(r[6]), test: r[7] === 'taken' ? 'yes' : (r[7] === 'missed' ? 'no' : null), note: String(r[8] || ''), ts: Number(r[9]) || 0, del: r[10] === 'yes'});\n  });\n  rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {\n    try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}\n  });\n  return out_({recs: out});\n}\n";
+var GAS_SCRIPT="/* Prelims Arena v2: Google Sheet sync script.\n   Setup:\n   1) In a new Google Sheet: Extensions > Apps Script. Delete the sample code and paste this whole script.\n   2) Change the passphrase on the next line. Use the same passphrase in the app.\n   3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.\n   4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.\n   Updating an older copy: paste this over it, then Deploy > Manage deployments > Edit (pencil) > Version: New version > Deploy. The URL stays the same.\n   Your daily study log appears in the \"Study log\" tab.\n   You can type your own questions in the \"My questions\" tab. Answer column takes A, B, C or D. Leave the id column empty. */\nvar KEY = 'change-this-passphrase';\n\nvar T_RES = 'Quiz results', T_TEST = 'Test marks', T_MYQ = 'My questions', T_DATA = 'App data', T_LOG = 'Study log';\nvar H_RES = ['id','date','type','title','subject','questions','right','wrong','skipped','marks','max','percent','accuracy','minutes','scheduled','set','ts','record'];\nvar H_TEST = ['id','name','type','subject','date','marks','max','percent','right','wrong','rank','ts','deleted'];\nvar H_MYQ = ['id','subject','unit','question','option A','option B','option C','option D','answer','explanation','source','ts','deleted'];\nvar H_DATA = ['id','kind','ts','record'];\nvar H_LOG = ['id','date','day','hours','subjects','covered','reasons','shankar test','notes','ts','deleted'];\nvar LOG_ST = {full: 'Studied as planned', partial: 'Studied partly', none: 'Could not study'};\n\nfunction sheet_(name, h) {\n  var ss = SpreadsheetApp.getActiveSpreadsheet();\n  var s = ss.getSheetByName(name);\n  if (!s) { s = ss.insertSheet(name); s.appendRow(h); s.setFrozenRows(1); s.getRange(1, 1, 1, h.length).setFontWeight('bold'); }\n  return s;\n}\nfunction rows_(s, w) { var n = s.getLastRow(); return n > 1 ? s.getRange(2, 1, n - 1, w).getValues() : []; }\nfunction idx_(rows) { var m = {}; rows.forEach(function (r, i) { if (r[0] !== '') m[String(r[0])] = i; }); return m; }\nfunction out_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }\nfunction d_(v) { return v instanceof Date ? Utilities.formatDate(v, Session.getScriptTimeZone(), 'yyyy-MM-dd') : String(v); }\nfunction n_(v) { return v === '' || v == null ? null : Number(v); }\nfunction L_(i) { return ['A', 'B', 'C', 'D'][i] || ''; }\n\nfunction doPost(e) {\n  var lock = LockService.getScriptLock(); lock.waitLock(25000);\n  try {\n    var b = JSON.parse(e.postData.contents);\n    if (b.key !== KEY) return out_({error: 'wrong passphrase'});\n    var res = sheet_(T_RES, H_RES), tst = sheet_(T_TEST, H_TEST), myq = sheet_(T_MYQ, H_MYQ), dat = sheet_(T_DATA, H_DATA);\n    var resIdx = idx_(rows_(res, 1));\n    var tRows = rows_(tst, H_TEST.length), tIdx = idx_(tRows);\n    var qRows = rows_(myq, H_MYQ.length), qIdx = idx_(qRows);\n    var dRows = rows_(dat, H_DATA.length), dIdx = idx_(dRows);\n    var lg = sheet_(T_LOG, H_LOG), lRows = rows_(lg, H_LOG.length), lIdx = idx_(lRows);\n    var newRes = [];\n    (b.recs || []).forEach(function (r) {\n      var ts = Number(r.ts) || 0;\n      if (r.kind === 'att') {\n        if (r.id in resIdx) return;\n        resIdx[r.id] = -1;\n        var att = r.r + r.w;\n        newRes.push([r.id, r.date, r.type, r.title, r.subject, r.n, r.r, r.w, r.sk, r.pts, r.max,\n          r.max ? Math.round(r.pts / r.max * 1000) / 10 : '', att ? Math.round(r.r / att * 1000) / 10 : '',\n          Math.round((r.sec || 0) / 6) / 10, r.sched || '', r.setId || '', ts, JSON.stringify(r)]);\n      } else if (r.kind === 'test') {\n        var row = [r.id, r.name || '', r.type || '', r.subject || '', r.date || '', r.marks == null ? '' : r.marks, r.max == null ? '' : r.max,\n          (r.marks != null && r.max) ? Math.round(r.marks / r.max * 1000) / 10 : '', r.r == null ? '' : r.r, r.w == null ? '' : r.w, r.rank == null ? '' : r.rank, ts, r.del ? 'yes' : ''];\n        upsert_(tst, tRows, tIdx, row, 11);\n      } else if (r.kind === 'myq') {\n        var o = r.o || [];\n        var row2 = [r.id, r.sub || '', r.u || '', r.q || '', o[0] || '', o[1] || '', o[2] || '', o[3] || '', L_(r.a), r.e || '', r.src || '', ts, r.del ? 'yes' : ''];\n        upsert_(myq, qRows, qIdx, row2, 11);\n      } else if (r.kind === 'log') {\n        upsert_(lg, lRows, lIdx, [r.id, r.date || '', LOG_ST[r.status] || '', r.hours == null ? '' : r.hours, (r.subjects || []).join(', '), r.covered || '',\n          (r.reasons || []).join(', '), r.test === 'yes' ? 'taken' : (r.test === 'no' ? 'missed' : ''), r.note || '', ts, r.del ? 'yes' : ''], 9);\n      } else {\n        upsert_(dat, dRows, dIdx, [r.id, r.kind, ts, JSON.stringify(r)], 2);\n      }\n    });\n    if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);\n    if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);\n    return out_(b.pull ? {ok: true, recs: collect_()} : {ok: true}); // pull: send everything back, so the passphrase never goes in a URL\n  } finally { lock.releaseLock(); }\n}\nfunction upsert_(s, rows, idx, row, tsCol) {\n  var id = String(row[0]);\n  if (id in idx) {\n    var i = idx[id];\n    if ((Number(row[tsCol]) || 0) >= (Number(rows[i][tsCol]) || 0)) { s.getRange(i + 2, 1, 1, row.length).setValues([row]); rows[i] = row; }\n  } else { s.appendRow(row); rows.push(row); idx[id] = rows.length - 1; }\n}\nfunction doGet(e) {\n  if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});\n  return out_({recs: collect_()});\n}\nfunction collect_() {\n  var out = [];\n  rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {\n    try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}\n  });\n  rows_(sheet_(T_TEST, H_TEST), H_TEST.length).forEach(function (r) {\n    out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});\n  });\n  var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);\n  var qNotes = qRows.length ? q.getRange(2, 9, qRows.length, 1).getNotes() : [];\n  var BAD = 'Type A, B, C or D. This question stays out of the app until the answer is fixed.';\n  qRows.forEach(function (r, i) {\n    if (r[3] === '') return;\n    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());\n    if (a < 0 && r[12] !== 'yes') { // flag it in the Sheet instead of guessing an answer\n      if (qNotes[i][0] !== BAD) q.getRange(i + 2, 9).setNote(BAD).setBackground('#fde2e1');\n      return;\n    }\n    if (qNotes[i][0] === BAD) q.getRange(i + 2, 9).setNote('').setBackground(null);\n    if (r[0] === '') { // typed by hand in the Sheet: give it an id\n      r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();\n      q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);\n    }\n    out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});\n  });\n  var stBack = {}; Object.keys(LOG_ST).forEach(function (k) { stBack[LOG_ST[k]] = k; });\n  var split = function (v) { return String(v || '').split(',').map(function (x) { return x.trim(); }).filter(String); };\n  rows_(sheet_(T_LOG, H_LOG), H_LOG.length).forEach(function (r) {\n    if (r[0] === '') return;\n    out.push({id: String(r[0]), kind: 'log', date: d_(r[1]), status: stBack[r[2]] || 'partial', hours: n_(r[3]), subjects: split(r[4]), covered: String(r[5] || ''),\n      reasons: split(r[6]), test: r[7] === 'taken' ? 'yes' : (r[7] === 'missed' ? 'no' : null), note: String(r[8] || ''), ts: Number(r[9]) || 0, del: r[10] === 'yes'});\n  });\n  rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {\n    try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}\n  });\n  return out;\n}\n";
 /* Prelims Arena v2 — core: config, helpers, store */
 "use strict";
 var CFG={
@@ -128,16 +128,95 @@ function scheduledFor(ds){return (BYDATE[ds]||[])}
 /* ===== store ===== */
 // records: att (finished quiz), test (Shankar or added test marks), run (paused quiz),
 // chk (daily check-in), rep (reported question), myq (own question)
+// On this device the records live in IndexedDB, one row per record: a save writes only the records that changed,
+// and the space is far larger than localStorage's ~5 MB. Where IndexedDB is unavailable it falls back to localStorage.
+// The Google Sheet stays the copy in the cloud (sync below).
 var DB={recs:{},dirty:{},meta:{}};
-function loadStore(){var o=lsGet(CFG.STORE,null);if(o&&o.recs){DB=o;DB.dirty=DB.dirty||{};DB.meta=DB.meta||{}}}
+var STORE={mode:"ls",idb:null,ready:false,chg:{},moving:false,warned:false};
+var LS_MOVED=CFG.STORE+"-before-idb"; // the old localStorage copy, kept once as a safety net after the move
+// every assignment to DB.recs[id] is noted, so only changed records are written
+function trackRecs(o){STORE.raw=o;return new Proxy(o,{set:function(t,k,v){t[k]=v;STORE.chg[k]=1;return true},deleteProperty:function(t,k){delete t[k];STORE.chg[k]=1;return true}})}
+function idbOpen(){return new Promise(function(res,rej){
+  if(!window.indexedDB)return rej(new Error("IndexedDB unavailable"));
+  var rq;try{rq=indexedDB.open("prelims-arena",1)}catch(e){return rej(e)}
+  rq.onupgradeneeded=function(){var d=rq.result;if(!d.objectStoreNames.contains("recs"))d.createObjectStore("recs");if(!d.objectStoreNames.contains("kv"))d.createObjectStore("kv")};
+  rq.onsuccess=function(){res(rq.result)};rq.onerror=function(){rej(rq.error)};rq.onblocked=function(){rej(new Error("IndexedDB blocked"))};
+})}
+function idbReadAll(db){return new Promise(function(res,rej){
+  var tx=db.transaction(["recs","kv"],"readonly"),out={recs:{},kv:{}};
+  var c1=tx.objectStore("recs").openCursor();c1.onsuccess=function(){var c=c1.result;if(c){out.recs[c.key]=c.value;c.continue()}};
+  var c2=tx.objectStore("kv").openCursor();c2.onsuccess=function(){var c=c2.result;if(c){out.kv[c.key]=c.value;c.continue()}};
+  tx.oncomplete=function(){res(out)};tx.onerror=tx.onabort=function(){rej(tx.error)};
+})}
+function useStore(o){DB={recs:o.recs||{},dirty:o.dirty||{},meta:o.meta||{}}}
+function loadStore(){
+  var ls=lsGet(CFG.STORE,null);if(!(ls&&ls.recs))ls=lsGet(LS_MOVED,null);
+  return idbOpen().then(function(db){return idbReadAll(db).then(function(d){
+    STORE.idb=db;STORE.mode="idb";
+    db.onversionchange=function(){db.close();STORE.idb=null};
+    var cur=lsGet(CFG.STORE,null); // left by a session that had to fall back to localStorage
+    if(d.kv.meta){useStore({recs:d.recs,dirty:d.kv.dirty,meta:d.kv.meta});
+      if(cur&&cur.recs){Object.keys(cur.recs).forEach(function(k){var r=cur.recs[k],l=DB.recs[k];if(!l||(r.ts||0)>(l.ts||0)){DB.recs[k]=r;STORE.chg[k]=1}});
+        Object.keys(cur.dirty||{}).forEach(function(k){DB.dirty[k]=1});STORE.moving=true}}
+    else if(ls&&ls.recs){useStore(ls);Object.keys(DB.recs).forEach(function(k){STORE.chg[k]=1});STORE.moving=true} // first run: move everything over
+  })}).catch(function(){STORE.mode="ls";STORE.idb=null;if(ls&&ls.recs)useStore(ls)}).then(function(){
+    DB.recs=trackRecs(DB.recs);STORE.ready=true;
+    if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){}); // ask the browser not to clear it under storage pressure
+    if(STORE.moving)saveStore(true);
+    if(STORE.mode==="idb"&&window.BroadcastChannel){STORE.bc=new BroadcastChannel("pa-store");STORE.bc.onmessage=function(ev){storeFromOtherTab(ev.data&&ev.data.ids||[])}}
+  });
+}
+// another open tab saved: read what it wrote, so neither tab overwrites the other's changes
+function storeFromOtherTab(ids){
+  if(!STORE.idb)return;
+  var tx=STORE.idb.transaction(["recs","kv"],"readonly"),st=tx.objectStore("recs"),got={},kv={};
+  ids.forEach(function(id){var rq=st.get(id);rq.onsuccess=function(){got[id]=rq.result}});
+  ["dirty","meta"].forEach(function(k){var rq=tx.objectStore("kv").get(k);rq.onsuccess=function(){kv[k]=rq.result}});
+  tx.oncomplete=function(){
+    Object.keys(got).forEach(function(id){if(STORE.chg[id])return;if(got[id]===undefined)delete STORE.raw[id];else STORE.raw[id]=got[id]}); // straight to the store, so nothing is re-saved
+    if(kv.dirty)Object.keys(kv.dirty).forEach(function(k){DB.dirty[k]=1});
+    if(kv.meta)DB.meta=Object.assign({},DB.meta,kv.meta);
+    if(VIEW.screen==="tabs"&&!$("modal")&&!(document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)))render();
+  };
+}
+function storeFull(){if(STORE.warned)return;STORE.warned=true;toast("This device is out of storage space. Sync to your Google Sheet, then free some space on the phone.",6000)}
 var saveT=null;
-function saveStore(now){clearTimeout(saveT);if(now){if(!lsSet(CFG.STORE,DB))toast("This device is out of storage space. Sync to your Google Sheet and clear old data.");return}saveT=setTimeout(function(){saveStore(true)},150)}
+function saveStore(now){
+  clearTimeout(saveT);
+  if(!STORE.ready)return; // never write before the stored data has loaded
+  if(!now){saveT=setTimeout(function(){saveStore(true)},150);return}
+  if(STORE.mode==="idb"&&STORE.idb)return idbSave();
+  if(!lsSet(CFG.STORE,{recs:DB.recs,dirty:DB.dirty,meta:DB.meta}))storeFull();else STORE.chg={};
+}
+function idbSave(){
+  var ids=Object.keys(STORE.chg);STORE.chg={};
+  var undo=function(){ids.forEach(function(id){STORE.chg[id]=1})};
+  try{
+    var tx=STORE.idb.transaction(["recs","kv"],"readwrite"),st=tx.objectStore("recs"),kv=tx.objectStore("kv");
+    ids.forEach(function(id){var r=DB.recs[id];if(r===undefined)st.delete(id);else st.put(r,id)});
+    kv.put(DB.dirty,"dirty");kv.put(DB.meta,"meta");
+    tx.oncomplete=function(){
+      STORE.warned=false;if(STORE.bc&&ids.length)try{STORE.bc.postMessage({ids:ids})}catch(e){}
+      if(STORE.moving){STORE.moving=false;try{var old=localStorage.getItem(CFG.STORE);if(old!=null){localStorage.removeItem(CFG.STORE);localStorage.setItem(LS_MOVED,old)}}catch(e){}}
+    };
+    tx.onabort=function(){undo();if(tx.error&&tx.error.name==="QuotaExceededError")storeFull();else{clearTimeout(saveT);saveT=setTimeout(function(){saveStore(true)},2000)}};
+  }catch(e){undo();STORE.idb=null;STORE.mode="ls";saveStore(true)} // the database went away: keep working on localStorage
+}
+function storeInfo(){
+  var n=Object.keys(DB.recs).length,base=(STORE.mode==="idb"?"Saved in this device's database":"Saved in this browser's local storage")+": "+n+" record"+(n===1?"":"s");
+  if(!(navigator.storage&&navigator.storage.estimate))return Promise.resolve(base+".");
+  return Promise.all([navigator.storage.estimate(),navigator.storage.persisted?navigator.storage.persisted():Promise.resolve(false)]).then(function(a){
+    var e=a[0],mb=function(x){return x>=1e9?r1(x/1e9)+" GB":r1(x/1048576)+" MB"};
+    return base+", "+mb(e.usage||0)+" used of "+mb(e.quota||0)+" available to the app"+(a[1]?". Protected from automatic clean-up.":".");
+  }).catch(function(){return base+"."});
+}
 function put(id,rec,opts){
   rec.ts=(opts&&opts.keepTs&&rec.ts)?rec.ts:Date.now();
   DB.recs[id]=rec;DB.dirty[id]=1;saveStore();
   if(!(opts&&opts.noSync))syncSoon();
 }
-function del(id){var r=DB.recs[id];if(!r)return;var c=Object.assign({},r,{del:true});if(c.kind==="run"){c={kind:"run",key:r.key,del:true}}put(id,c)}
+// deleting keeps a small marker so the deletion syncs; only rows the Sheet shows in their own tab keep their fields
+function del(id){var r=DB.recs[id];if(!r)return;var c=(r.kind==="test"||r.kind==="myq"||r.kind==="log")?Object.assign({},r,{del:true}):{kind:r.kind,del:true};if(r.kind==="run")c.key=r.key;put(id,c)}
 function recs(kind){var out=[];for(var id in DB.recs){var r=DB.recs[id];if(r.kind===kind&&!r.del)out.push(Object.assign({id:id},r))}return out}
 function attempts(){return recs("att").sort(function(a,b){return a.ts-b.ts})}
 function testMarks(){return recs("test")}
@@ -301,16 +380,28 @@ function sync(){
   SY.busy=true;setSyncMsg("busy","Syncing");
   var ids=Object.keys(DB.dirty),batches=[];
   for(var i=0;i<ids.length;i+=40)batches.push(ids.slice(i,i+40));
+  // POSTs read the script's reply, so a wrong passphrase shows at once. If the browser cannot read the reply (CORS),
+  // fall back to a blind upload; the download below still tells which records arrived.
+  var blind=false,pulled=null;
+  var post=function(payload){
+    var body=JSON.stringify(payload),opts={method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:body};
+    if(blind)return fetch(c.url,Object.assign({mode:"no-cors"},opts)).then(function(){return null});
+    return fetch(c.url,opts).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()},function(){blind=true;return post(payload)}).then(function(j){
+      if(j&&j.error)throw new Error(j.error==="wrong passphrase"?"the passphrase does not match the script":j.error);return j});
+  };
   var chain=Promise.resolve();
   batches.forEach(function(b){
     chain=chain.then(function(){
-      var payload={key:c.key,v:2,recs:b.map(function(id){var r=DB.recs[id];return r?Object.assign({id:id},r):null}).filter(Boolean)};
-      return fetch(c.url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+      return post({key:c.key,v:2,recs:b.map(function(id){var r=DB.recs[id];return r?Object.assign({id:id},r):null}).filter(Boolean)});
     });
   });
   return chain.then(function(){
-    return fetch(c.url+(c.url.indexOf("?")<0?"?":"&")+"key="+encodeURIComponent(c.key)+"&v=2&_="+Date.now());
-  }).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(j){
+    // the current script sends everything back on a pull request; an older script ignores it, so then use the plain download
+    return (blind?Promise.resolve(null):post({key:c.key,v:2,pull:true,recs:[]}).catch(function(e){if(/passphrase/.test(e.message))throw e;return null})).then(function(j){pulled=j&&j.recs?j:null});
+  }).then(function(){
+    if(pulled)return pulled;
+    return fetch(c.url+(c.url.indexOf("?")<0?"?":"&")+"key="+encodeURIComponent(c.key)+"&v=2&_="+Date.now()).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()});
+  }).then(function(j){
     if(j.error)throw new Error(j.error==="wrong passphrase"?"the passphrase does not match the script":j.error);
     if(!j.recs)throw new Error("the Sheet script is an old version; copy the new script from this page");
     mergeRemote(j.recs);
@@ -356,6 +447,8 @@ function quizTick(){
   if(QZ.timed){var left=QZ.limit-elapsed();el.textContent=fmtT(left)+" left";el.classList.toggle("low",left<300);if(left<=0){toast("Time is up. Your test has been submitted.");submitQuiz()}}
   else el.textContent=fmtT(elapsed());
 }
+// exam mode: in full mocks and rehearsals the clock does not stop when the app is left
+function strictClock(){return !!(DB.meta.strictMock&&QZ&&QZ.timed&&((QZ.x&&QZ.x.reh)||["mock","fullmock","pyqmock","csatmock"].indexOf(QZ.type)>=0))}
 function noteTime(){if(!QZ)return;var now=Date.now();QZ.secs[QZ.i]+=Math.round((now-QZ.qt0)/1000);QZ.qt0=now}
 function saveRun(sync){
   if(!QZ)return;
@@ -421,10 +514,10 @@ document.addEventListener("keydown",function(ev){
   else if(k==="arrowleft")goQ(QZ.i-1);
   else if(k==="m")toggleMark();
 });
-window.addEventListener("pagehide",function(){if(QZ){noteTime();saveRun(false)}saveStore(true)});
+window.addEventListener("pagehide",function(){if(QZ){if(QZ.hiddenAt){var g=Date.now()-QZ.hiddenAt;QZ.t0+=g;QZ.qt0+=g;QZ.hiddenAt=Date.now()}noteTime();saveRun(false)}saveStore(true)}); // time spent hidden is not counted
 document.addEventListener("visibilitychange",function(){
   if(!QZ)return;
-  if(document.hidden){noteTime();if(DB.meta.autoPause!==false)QZ.hiddenAt=Date.now();saveRun(false);saveStore(true)}
+  if(document.hidden){noteTime();if(DB.meta.autoPause!==false&&!strictClock())QZ.hiddenAt=Date.now();saveRun(false);saveStore(true)}
   else if(QZ.hiddenAt){var gap=Date.now()-QZ.hiddenAt;QZ.hiddenAt=null;QZ.t0+=gap;QZ.qt0=Date.now();if(gap>20000)toast("The clock was paused while you were away ("+fmtMin(gap/1000)+").")}
 });
 
@@ -447,7 +540,7 @@ function confirmSubmit(){
 function submitQuiz(){
   if(!QZ)return;noteTime();
   if(typeof qzPreSubmit==="function"&&qzPreSubmit()===false)return;
-  clearInterval(QZ.tick);
+  clearInterval(QZ.tick);closeModal(); // e.g. time ran out while a dialog was open
   var r=0,w=0,sk=0,nd=0,items=[],mk=QZ.mk||[CFG.RIGHT,CFG.WRONG];
   QZ.qs.forEach(function(q,i){var a=QZ.ans[i],c=q.x?2:(a==null?-1:(a===q.a?1:0));if(c===1)r++;else if(c===0)w++;else if(c===2)nd++;else sk++;
     items.push([q.qid,q.sub,q.u,a==null?-1:a,c,QZ.conf[i],QZ.secs[i],QZ.mark[i],QZ.strike[i]||0])});
@@ -1107,8 +1200,9 @@ function viewScores(){
   if(typeof scoresExtra==="function")html+=scoresExtra();
   html+='<section class="panel"><h2>Test settings</h2>'+
     '<label class="check"><input type="checkbox" id="st-ap"'+(DB.meta.autoPause!==false?" checked":"")+'> Pause the clock when I leave the app during a test</label><p class="muted small">If your baby wakes or a call comes in, the timer stops while the app is in the background and starts again when you return.</p>'+
+    '<label class="check"><input type="checkbox" id="st-strict"'+(DB.meta.strictMock?" checked":"")+'> Exam mode: keep the clock running in full mocks and exam-day rehearsals</label><p class="muted small">As in the exam hall, leaving the app does not stop the clock in these, so there is no time to look anything up. Other tests follow the setting above.</p>'+
     '<label class="inline">Listen mode: thinking time before the answer <select id="st-think">'+[0,4,8,12].map(function(v){var cur=DB.meta.ttsThink==null?4:DB.meta.ttsThink;return '<option value="'+v+'"'+(v===cur?" selected":"")+'>'+(v?v+" seconds":"None")+'</option>'}).join("")+'</select></label></section>';
-  html+='<section class="panel"><h2>Backup</h2><p class="muted small">Download everything on this device as a file, or restore from one. Restoring merges with what is already here.</p><div class="row wrap"><button class="btn" id="bk-exp">Download backup</button><label class="btn">Restore from file<input type="file" id="bk-imp" accept="application/json,.json" hidden></label></div></section>';
+  html+='<section class="panel"><h2>Backup</h2><p class="muted small">Download everything on this device as a file, or restore from one. Restoring merges with what is already here.</p><p class="muted small" id="st-store"></p><div class="row wrap"><button class="btn" id="bk-exp">Download backup</button><label class="btn">Restore from file<input type="file" id="bk-imp" accept="application/json,.json" hidden></label></div></section>';
   html+='<p class="muted small center">Prelims Arena, question bank '+esc(M.version)+'. '+(navigator.serviceWorker&&navigator.serviceWorker.controller?"Available offline on this device.":"")+'</p>';
   v.innerHTML=html;
   var timers={};
@@ -1130,6 +1224,8 @@ function viewScores(){
   bindNudges();
   $("bk-exp").onclick=exportBackup;
   $("st-ap").onchange=function(){DB.meta.autoPause=this.checked;saveStore(true)};
+  $("st-strict").onchange=function(){DB.meta.strictMock=this.checked;saveStore(true)};
+  storeInfo().then(function(t){var el=$("st-store");if(el)el.textContent=t});
   $("st-think").onchange=function(){DB.meta.ttsThink=+this.value;saveStore(true)};
   $("bk-imp").onchange=function(){var f=this.files[0];if(f)importBackup(f)};
   if(typeof bindScoresExtra==="function")bindScoresExtra();
@@ -1485,9 +1581,8 @@ function bindNotesAfterTest(){
 
 /* boot */
 function boot(){
-  loadStore();
   var h=location.hash.replace("#","");if(["today","practice","read","dash","scores"].indexOf(h)>=0)VIEW.tab=h;
-  fetch("data/manifest.json").then(function(r){return r.json()}).then(function(m){
+  Promise.all([fetch("data/manifest.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}),loadStore()]).then(function(a){var m=a[0];
     indexManifest(m);migrateOld();render();handleGo();
     if(syncCfg().url)setTimeout(sync,800);
   }).catch(function(){
@@ -2092,7 +2187,7 @@ function dashGlance(){
 TABS.splice(2,0,["read","Notes"]);
 ICON.read='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5c2.5-1 5-1 8 1 3-2 5.5-2 8-1v13c-2.5-1-5-1-8 1-3-2-5.5-2-8-1z"/><path d="M12 6.5v13"/></svg>';
 var FACTS=null;
-function loadFacts(){if(FACTS)return Promise.resolve(FACTS);return fetch("data/facts.json").then(function(r){return r.json()}).then(function(d){FACTS=d.tables;return FACTS})}
+function loadFacts(){if(FACTS)return Promise.resolve(FACTS);return fetch("data/facts.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){FACTS=d.tables;return FACTS})}
 var READ_SUBJ=["Polity","History","Geography","Economy","Environment","Science & Tech","Current Affairs"];
 // which study-note PDFs belong to which subject (set notes follow their set; topic notes are listed here)
 var NOTE_SUBJ={SRI:["Economy","Current Affairs"],SPP:["Environment"],GSCH:["Economy","Current Affairs","Polity"]};
@@ -2164,7 +2259,7 @@ function bindRead(){
 function backToTabs(){document.body.classList.remove("in-quiz");VIEW.screen="tabs";render();window.scrollTo(0,0)}
 
 /* --- fact table screen: search, hide answers to self-test --- */
-function openFacts(id){loadFacts().then(function(T){var t=T.filter(function(x){return x.id===id})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:"",hide:false};drawFacts();window.scrollTo(0,0)})}
+function openFacts(id){loadFacts().then(function(T){var t=T.filter(function(x){return x.id===id})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:"",hide:false};drawFacts();window.scrollTo(0,0)}).catch(function(){toast("Could not load the fact tables. Connect to the internet once so they can be stored on this device.")})}
 function drawFacts(){
   var o=VIEW.ft,t=o.t,q=o.q.toLowerCase(),rows=t.rows.filter(function(r){return !q||r.join(" ").toLowerCase().indexOf(q)>=0});
   $("app").innerHTML='<div class="page ftpage"><div class="row between wrap"><button class="btn small" id="ft-back">‹ Notes</button><div class="row tight"><button class="btn small" id="ft-hide" aria-pressed="'+o.hide+'">'+(o.hide?"Show answers":"Hide answers")+'</button><button class="btn small primary" data-rf="'+t.id+'">⚡ Rapid fire</button></div></div>'+
@@ -2196,7 +2291,7 @@ function startRapid(src){
     var cards=rapidCards(src,T);if(!cards.length){toast("No facts for this yet.");return}
     RF={src:src,cards:cards,i:0,shown:false,ok:0,miss:[],t0:0,timer:null};
     VIEW.screen="rapid";document.body.classList.add("in-quiz");drawRapid();
-  });
+  }).catch(function(){toast("Could not load the fact tables. Connect to the internet once so they can be stored on this device.")});
 }
 function drawRapid(){
   clearTimeout(RF.timer);

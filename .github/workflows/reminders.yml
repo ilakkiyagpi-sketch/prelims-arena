@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install --no-audit --no-fund --silent
+      - run: npm ci --no-audit --no-fund --silent
         working-directory: reminders
       - run: node send.mjs
         working-directory: reminders
