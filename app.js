@@ -128,10 +128,88 @@ function scheduledFor(ds){return (BYDATE[ds]||[])}
 /* ===== store ===== */
 // records: att (finished quiz), test (Shankar or added test marks), run (paused quiz),
 // chk (daily check-in), rep (reported question), myq (own question)
+// On this device the records live in IndexedDB, one row per record: a save writes only the records that changed,
+// and the space is far larger than localStorage's ~5 MB. Where IndexedDB is unavailable it falls back to localStorage.
+// The Google Sheet stays the copy in the cloud (sync below).
 var DB={recs:{},dirty:{},meta:{}};
-function loadStore(){var o=lsGet(CFG.STORE,null);if(o&&o.recs){DB=o;DB.dirty=DB.dirty||{};DB.meta=DB.meta||{}}}
+var STORE={mode:"ls",idb:null,ready:false,chg:{},moving:false,warned:false};
+var LS_MOVED=CFG.STORE+"-before-idb"; // the old localStorage copy, kept once as a safety net after the move
+// every assignment to DB.recs[id] is noted, so only changed records are written
+function trackRecs(o){STORE.raw=o;return new Proxy(o,{set:function(t,k,v){t[k]=v;STORE.chg[k]=1;return true},deleteProperty:function(t,k){delete t[k];STORE.chg[k]=1;return true}})}
+function idbOpen(){return new Promise(function(res,rej){
+  if(!window.indexedDB)return rej(new Error("IndexedDB unavailable"));
+  var rq;try{rq=indexedDB.open("prelims-arena",1)}catch(e){return rej(e)}
+  rq.onupgradeneeded=function(){var d=rq.result;if(!d.objectStoreNames.contains("recs"))d.createObjectStore("recs");if(!d.objectStoreNames.contains("kv"))d.createObjectStore("kv")};
+  rq.onsuccess=function(){res(rq.result)};rq.onerror=function(){rej(rq.error)};rq.onblocked=function(){rej(new Error("IndexedDB blocked"))};
+})}
+function idbReadAll(db){return new Promise(function(res,rej){
+  var tx=db.transaction(["recs","kv"],"readonly"),out={recs:{},kv:{}};
+  var c1=tx.objectStore("recs").openCursor();c1.onsuccess=function(){var c=c1.result;if(c){out.recs[c.key]=c.value;c.continue()}};
+  var c2=tx.objectStore("kv").openCursor();c2.onsuccess=function(){var c=c2.result;if(c){out.kv[c.key]=c.value;c.continue()}};
+  tx.oncomplete=function(){res(out)};tx.onerror=tx.onabort=function(){rej(tx.error)};
+})}
+function useStore(o){DB={recs:o.recs||{},dirty:o.dirty||{},meta:o.meta||{}}}
+function loadStore(){
+  var ls=lsGet(CFG.STORE,null);if(!(ls&&ls.recs))ls=lsGet(LS_MOVED,null);
+  return idbOpen().then(function(db){return idbReadAll(db).then(function(d){
+    STORE.idb=db;STORE.mode="idb";
+    db.onversionchange=function(){db.close();STORE.idb=null};
+    var cur=lsGet(CFG.STORE,null); // left by a session that had to fall back to localStorage
+    if(d.kv.meta){useStore({recs:d.recs,dirty:d.kv.dirty,meta:d.kv.meta});
+      if(cur&&cur.recs){Object.keys(cur.recs).forEach(function(k){var r=cur.recs[k],l=DB.recs[k];if(!l||(r.ts||0)>(l.ts||0)){DB.recs[k]=r;STORE.chg[k]=1}});
+        Object.keys(cur.dirty||{}).forEach(function(k){DB.dirty[k]=1});STORE.moving=true}}
+    else if(ls&&ls.recs){useStore(ls);Object.keys(DB.recs).forEach(function(k){STORE.chg[k]=1});STORE.moving=true} // first run: move everything over
+  })}).catch(function(){STORE.mode="ls";STORE.idb=null;if(ls&&ls.recs)useStore(ls)}).then(function(){
+    DB.recs=trackRecs(DB.recs);STORE.ready=true;
+    if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){}); // ask the browser not to clear it under storage pressure
+    if(STORE.moving)saveStore(true);
+    if(STORE.mode==="idb"&&window.BroadcastChannel){STORE.bc=new BroadcastChannel("pa-store");STORE.bc.onmessage=function(ev){storeFromOtherTab(ev.data&&ev.data.ids||[])}}
+  });
+}
+// another open tab saved: read what it wrote, so neither tab overwrites the other's changes
+function storeFromOtherTab(ids){
+  if(!STORE.idb)return;
+  var tx=STORE.idb.transaction(["recs","kv"],"readonly"),st=tx.objectStore("recs"),got={},kv={};
+  ids.forEach(function(id){var rq=st.get(id);rq.onsuccess=function(){got[id]=rq.result}});
+  ["dirty","meta"].forEach(function(k){var rq=tx.objectStore("kv").get(k);rq.onsuccess=function(){kv[k]=rq.result}});
+  tx.oncomplete=function(){
+    Object.keys(got).forEach(function(id){if(STORE.chg[id])return;if(got[id]===undefined)delete STORE.raw[id];else STORE.raw[id]=got[id]}); // straight to the store, so nothing is re-saved
+    if(kv.dirty)Object.keys(kv.dirty).forEach(function(k){DB.dirty[k]=1});
+    if(kv.meta)DB.meta=Object.assign({},DB.meta,kv.meta);
+    if(VIEW.screen==="tabs"&&!$("modal")&&!(document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)))render();
+  };
+}
+function storeFull(){if(STORE.warned)return;STORE.warned=true;toast("This device is out of storage space. Sync to your Google Sheet, then free some space on the phone.",6000)}
 var saveT=null;
-function saveStore(now){clearTimeout(saveT);if(now){if(!lsSet(CFG.STORE,DB))toast("This device is out of storage space. Sync to your Google Sheet and clear old data.");return}saveT=setTimeout(function(){saveStore(true)},150)}
+function saveStore(now){
+  clearTimeout(saveT);
+  if(!STORE.ready)return; // never write before the stored data has loaded
+  if(!now){saveT=setTimeout(function(){saveStore(true)},150);return}
+  if(STORE.mode==="idb"&&STORE.idb)return idbSave();
+  if(!lsSet(CFG.STORE,{recs:DB.recs,dirty:DB.dirty,meta:DB.meta}))storeFull();else STORE.chg={};
+}
+function idbSave(){
+  var ids=Object.keys(STORE.chg);STORE.chg={};
+  var undo=function(){ids.forEach(function(id){STORE.chg[id]=1})};
+  try{
+    var tx=STORE.idb.transaction(["recs","kv"],"readwrite"),st=tx.objectStore("recs"),kv=tx.objectStore("kv");
+    ids.forEach(function(id){var r=DB.recs[id];if(r===undefined)st.delete(id);else st.put(r,id)});
+    kv.put(DB.dirty,"dirty");kv.put(DB.meta,"meta");
+    tx.oncomplete=function(){
+      STORE.warned=false;if(STORE.bc&&ids.length)try{STORE.bc.postMessage({ids:ids})}catch(e){}
+      if(STORE.moving){STORE.moving=false;try{var old=localStorage.getItem(CFG.STORE);if(old!=null){localStorage.removeItem(CFG.STORE);localStorage.setItem(LS_MOVED,old)}}catch(e){}}
+    };
+    tx.onabort=function(){undo();if(tx.error&&tx.error.name==="QuotaExceededError")storeFull();else{clearTimeout(saveT);saveT=setTimeout(function(){saveStore(true)},2000)}};
+  }catch(e){undo();STORE.idb=null;STORE.mode="ls";saveStore(true)} // the database went away: keep working on localStorage
+}
+function storeInfo(){
+  var n=Object.keys(DB.recs).length,base=(STORE.mode==="idb"?"Saved in this device's database":"Saved in this browser's local storage")+": "+n+" record"+(n===1?"":"s");
+  if(!(navigator.storage&&navigator.storage.estimate))return Promise.resolve(base+".");
+  return Promise.all([navigator.storage.estimate(),navigator.storage.persisted?navigator.storage.persisted():Promise.resolve(false)]).then(function(a){
+    var e=a[0],mb=function(x){return x>=1e9?r1(x/1e9)+" GB":r1(x/1048576)+" MB"};
+    return base+", "+mb(e.usage||0)+" used of "+mb(e.quota||0)+" available to the app"+(a[1]?". Protected from automatic clean-up.":".");
+  }).catch(function(){return base+"."});
+}
 function put(id,rec,opts){
   rec.ts=(opts&&opts.keepTs&&rec.ts)?rec.ts:Date.now();
   DB.recs[id]=rec;DB.dirty[id]=1;saveStore();
@@ -369,6 +447,8 @@ function quizTick(){
   if(QZ.timed){var left=QZ.limit-elapsed();el.textContent=fmtT(left)+" left";el.classList.toggle("low",left<300);if(left<=0){toast("Time is up. Your test has been submitted.");submitQuiz()}}
   else el.textContent=fmtT(elapsed());
 }
+// exam mode: in full mocks and rehearsals the clock does not stop when the app is left
+function strictClock(){return !!(DB.meta.strictMock&&QZ&&QZ.timed&&((QZ.x&&QZ.x.reh)||["mock","fullmock","pyqmock","csatmock"].indexOf(QZ.type)>=0))}
 function noteTime(){if(!QZ)return;var now=Date.now();QZ.secs[QZ.i]+=Math.round((now-QZ.qt0)/1000);QZ.qt0=now}
 function saveRun(sync){
   if(!QZ)return;
@@ -437,7 +517,7 @@ document.addEventListener("keydown",function(ev){
 window.addEventListener("pagehide",function(){if(QZ){if(QZ.hiddenAt){var g=Date.now()-QZ.hiddenAt;QZ.t0+=g;QZ.qt0+=g;QZ.hiddenAt=Date.now()}noteTime();saveRun(false)}saveStore(true)}); // time spent hidden is not counted
 document.addEventListener("visibilitychange",function(){
   if(!QZ)return;
-  if(document.hidden){noteTime();if(DB.meta.autoPause!==false)QZ.hiddenAt=Date.now();saveRun(false);saveStore(true)}
+  if(document.hidden){noteTime();if(DB.meta.autoPause!==false&&!strictClock())QZ.hiddenAt=Date.now();saveRun(false);saveStore(true)}
   else if(QZ.hiddenAt){var gap=Date.now()-QZ.hiddenAt;QZ.hiddenAt=null;QZ.t0+=gap;QZ.qt0=Date.now();if(gap>20000)toast("The clock was paused while you were away ("+fmtMin(gap/1000)+").")}
 });
 
@@ -1120,8 +1200,9 @@ function viewScores(){
   if(typeof scoresExtra==="function")html+=scoresExtra();
   html+='<section class="panel"><h2>Test settings</h2>'+
     '<label class="check"><input type="checkbox" id="st-ap"'+(DB.meta.autoPause!==false?" checked":"")+'> Pause the clock when I leave the app during a test</label><p class="muted small">If your baby wakes or a call comes in, the timer stops while the app is in the background and starts again when you return.</p>'+
+    '<label class="check"><input type="checkbox" id="st-strict"'+(DB.meta.strictMock?" checked":"")+'> Exam mode: keep the clock running in full mocks and exam-day rehearsals</label><p class="muted small">As in the exam hall, leaving the app does not stop the clock in these, so there is no time to look anything up. Other tests follow the setting above.</p>'+
     '<label class="inline">Listen mode: thinking time before the answer <select id="st-think">'+[0,4,8,12].map(function(v){var cur=DB.meta.ttsThink==null?4:DB.meta.ttsThink;return '<option value="'+v+'"'+(v===cur?" selected":"")+'>'+(v?v+" seconds":"None")+'</option>'}).join("")+'</select></label></section>';
-  html+='<section class="panel"><h2>Backup</h2><p class="muted small">Download everything on this device as a file, or restore from one. Restoring merges with what is already here.</p><div class="row wrap"><button class="btn" id="bk-exp">Download backup</button><label class="btn">Restore from file<input type="file" id="bk-imp" accept="application/json,.json" hidden></label></div></section>';
+  html+='<section class="panel"><h2>Backup</h2><p class="muted small">Download everything on this device as a file, or restore from one. Restoring merges with what is already here.</p><p class="muted small" id="st-store"></p><div class="row wrap"><button class="btn" id="bk-exp">Download backup</button><label class="btn">Restore from file<input type="file" id="bk-imp" accept="application/json,.json" hidden></label></div></section>';
   html+='<p class="muted small center">Prelims Arena, question bank '+esc(M.version)+'. '+(navigator.serviceWorker&&navigator.serviceWorker.controller?"Available offline on this device.":"")+'</p>';
   v.innerHTML=html;
   var timers={};
@@ -1143,6 +1224,8 @@ function viewScores(){
   bindNudges();
   $("bk-exp").onclick=exportBackup;
   $("st-ap").onchange=function(){DB.meta.autoPause=this.checked;saveStore(true)};
+  $("st-strict").onchange=function(){DB.meta.strictMock=this.checked;saveStore(true)};
+  storeInfo().then(function(t){var el=$("st-store");if(el)el.textContent=t});
   $("st-think").onchange=function(){DB.meta.ttsThink=+this.value;saveStore(true)};
   $("bk-imp").onchange=function(){var f=this.files[0];if(f)importBackup(f)};
   if(typeof bindScoresExtra==="function")bindScoresExtra();
@@ -1498,9 +1581,8 @@ function bindNotesAfterTest(){
 
 /* boot */
 function boot(){
-  loadStore();
   var h=location.hash.replace("#","");if(["today","practice","read","dash","scores"].indexOf(h)>=0)VIEW.tab=h;
-  fetch("data/manifest.json").then(function(r){return r.json()}).then(function(m){
+  Promise.all([fetch("data/manifest.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}),loadStore()]).then(function(a){var m=a[0];
     indexManifest(m);migrateOld();render();handleGo();
     if(syncCfg().url)setTimeout(sync,800);
   }).catch(function(){

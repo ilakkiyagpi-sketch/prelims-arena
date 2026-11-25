@@ -3,6 +3,7 @@
 Personal UPSC Prelims 2027 practice app: daily sets on the Shankar IAS Prestorming timetable, current affairs sets, subject tests, full mocks, a mistake book and progress tracking.
 
 - Open the site and add it to your home screen. It works offline after the first visit.
+- Everything you do is saved on the device in IndexedDB (the browser's built-in database), with room for years of results. Existing data moves over automatically the first time the new version opens.
 - Results sync to your own Google Sheet (Scores tab > Google Sheet sync). The Sheet script is in `sheet-script.gs.txt`.
 - Question keys are drafts and unverified; use "Report a problem with this question" for anything that looks wrong.
 
