@@ -78,7 +78,7 @@ function openHit(k,id){
   var p=id.split("#");document.body.classList.remove("in-quiz");
   if(k==="q")return showQuestion(id);
   if(k==="c")return openCamNotes(p[0],+p[1],"tabs");
-  if(k==="f")return loadFacts().then(function(T){var t=T.filter(function(x){return x.id===p[0]})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:SRCH.q.trim(),hide:false};drawFacts();window.scrollTo(0,0)});
+  if(k==="f")return loadFacts().then(function(T){var t=T.filter(function(x){return x.id===p[0]})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:SRCH.q.trim(),hide:false};drawFacts();window.scrollTo(0,0)}).catch(function(){toast("Could not load the fact tables.")});
   if(k==="p"){try{localStorage.setItem("pa_notes_pos_"+p[0],p[1])}catch(e){}return openNotes(p[0])}
 }
 function showQuestion(qid){

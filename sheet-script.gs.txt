@@ -4,6 +4,7 @@
    2) Change the passphrase on the next line. Use the same passphrase in the app.
    3) Deploy > New deployment > Select type: Web app > Execute as: Me > Who has access: Anyone > Deploy. Allow access.
    4) Copy the Web app URL into the app: Scores tab > Google Sheet sync.
+   Updating an older copy: paste this over it, then Deploy > Manage deployments > Edit (pencil) > Version: New version > Deploy. The URL stays the same.
    Your daily study log appears in the "Study log" tab.
    You can type your own questions in the "My questions" tab. Answer column takes A, B, C or D. Leave the id column empty. */
 var KEY = 'change-this-passphrase';
@@ -67,7 +68,7 @@ function doPost(e) {
     });
     if (newRes.length) res.getRange(res.getLastRow() + 1, 1, newRes.length, H_RES.length).setValues(newRes);
     if (newRes.length) res.getRange(2, 1, res.getLastRow() - 1, H_RES.length).sort([{column: 2, ascending: true}, {column: 17, ascending: true}]);
-    return out_({ok: true});
+    return out_(b.pull ? {ok: true, recs: collect_()} : {ok: true}); // pull: send everything back, so the passphrase never goes in a URL
   } finally { lock.releaseLock(); }
 }
 function upsert_(s, rows, idx, row, tsCol) {
@@ -79,6 +80,9 @@ function upsert_(s, rows, idx, row, tsCol) {
 }
 function doGet(e) {
   if ((e.parameter.key || '') !== KEY) return out_({error: 'wrong passphrase'});
+  return out_({recs: collect_()});
+}
+function collect_() {
   var out = [];
   rows_(sheet_(T_RES, H_RES), H_RES.length).forEach(function (r) {
     try { var o = JSON.parse(r[17]); o.id = String(r[0]); o.ts = Number(r[16]) || o.ts; out.push(o); } catch (err) {}
@@ -87,13 +91,20 @@ function doGet(e) {
     out.push({id: String(r[0]), kind: 'test', name: r[1], type: r[2], subject: r[3], date: d_(r[4]), marks: n_(r[5]), max: n_(r[6]), r: n_(r[8]), w: n_(r[9]), rank: n_(r[10]), ts: Number(r[11]) || 0, del: r[12] === 'yes', k: String(r[0]).replace(/^test_/, '')});
   });
   var q = sheet_(T_MYQ, H_MYQ), qRows = rows_(q, H_MYQ.length);
+  var qNotes = qRows.length ? q.getRange(2, 9, qRows.length, 1).getNotes() : [];
+  var BAD = 'Type A, B, C or D. This question stays out of the app until the answer is fixed.';
   qRows.forEach(function (r, i) {
     if (r[3] === '') return;
+    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());
+    if (a < 0 && r[12] !== 'yes') { // flag it in the Sheet instead of guessing an answer
+      if (qNotes[i][0] !== BAD) q.getRange(i + 2, 9).setNote(BAD).setBackground('#fde2e1');
+      return;
+    }
+    if (qNotes[i][0] === BAD) q.getRange(i + 2, 9).setNote('').setBackground(null);
     if (r[0] === '') { // typed by hand in the Sheet: give it an id
       r[0] = 'myq_s' + Utilities.getUuid().slice(0, 8); r[11] = Date.now();
       q.getRange(i + 2, 1).setValue(r[0]); q.getRange(i + 2, 12).setValue(r[11]);
     }
-    var a = ['A', 'B', 'C', 'D'].indexOf(String(r[8]).trim().toUpperCase());
     out.push({id: String(r[0]), kind: 'myq', sub: String(r[1] || 'Polity'), u: String(r[2] || 'My questions'), q: String(r[3]), o: [String(r[4]), String(r[5]), String(r[6]), String(r[7])], a: a < 0 ? 0 : a, e: String(r[9] || ''), src: String(r[10] || ''), ts: Number(r[11]) || 0, del: r[12] === 'yes', fromSheet: true});
   });
   var stBack = {}; Object.keys(LOG_ST).forEach(function (k) { stBack[LOG_ST[k]] = k; });
@@ -106,5 +117,5 @@ function doGet(e) {
   rows_(sheet_(T_DATA, H_DATA), H_DATA.length).forEach(function (r) {
     try { var o = JSON.parse(r[3]); o.id = String(r[0]); o.ts = Number(r[2]) || 0; out.push(o); } catch (err) {}
   });
-  return out_({recs: out});
+  return out;
 }

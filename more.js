@@ -502,10 +502,10 @@ function fmtPanel(){
 
 /* ---------- 14. map questions ---------- */
 var INDIA=null;
-function loadIndia(){if(INDIA)return Promise.resolve(INDIA);return fetch("data/india.json").then(function(r){return r.json()}).then(function(d){INDIA=d;return d})}
+function loadIndia(){if(INDIA)return Promise.resolve(INDIA);return fetch("data/india.json").then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){INDIA=d;return d})}
 function mproj(lat,lon){var p=INDIA.proj,m=Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))*180/Math.PI;return [p.ax*lon+p.bx,p.ay*m+p.by]}
 function mapSvg(mp,reveal){
-  if(!INDIA){loadIndia().then(function(){if(VIEW.screen==="quiz"&&QZ)renderQuiz();else if(VIEW.screen==="result"&&RES)renderResult(false);else if(VIEW.screen==="flash"&&FC)drawFlash()});return '<div class="mapbox"><p class="muted small">Loading the map…</p></div>'}
+  if(!INDIA){loadIndia().then(function(){if(VIEW.screen==="quiz"&&QZ)renderQuiz();else if(VIEW.screen==="result"&&RES)renderResult(false);else if(VIEW.screen==="flash"&&FC)drawFlash()}).catch(function(){qsa(".mapbox .muted").forEach(function(el){el.textContent="The map could not be loaded. Connect to the internet once so it can be stored on this device."})});return '<div class="mapbox"><p class="muted small">Loading the map…</p></div>'}
   var pts=(mp.pts||[mp]).map(function(p){var xy=mproj(p.lat,p.lon);return {x:xy[0],y:xy[1],l:p.l||""}});
   var vb=INDIA.viewBox.split(" ").map(Number),VB=(vb[0]-14)+" "+(vb[1]-14)+" "+(vb[2]+28)+" "+(vb[3]+28);
   var s='<svg class="imap" viewBox="'+VB+'" role="img" aria-label="Map of India with a marked place">'+INDIA.states.map(function(st){return '<path d="'+st[1]+'"><title>'+esc(st[0])+'</title></path>'}).join("");
@@ -593,7 +593,7 @@ function openHit(k,id){
   var p=id.split("#");document.body.classList.remove("in-quiz");
   if(k==="q")return showQuestion(id);
   if(k==="c")return openCamNotes(p[0],+p[1],"tabs");
-  if(k==="f")return loadFacts().then(function(T){var t=T.filter(function(x){return x.id===p[0]})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:SRCH.q.trim(),hide:false};drawFacts();window.scrollTo(0,0)});
+  if(k==="f")return loadFacts().then(function(T){var t=T.filter(function(x){return x.id===p[0]})[0];if(!t)return;VIEW.screen="facts";VIEW.ft={t:t,q:SRCH.q.trim(),hide:false};drawFacts();window.scrollTo(0,0)}).catch(function(){toast("Could not load the fact tables.")});
   if(k==="p"){try{localStorage.setItem("pa_notes_pos_"+p[0],p[1])}catch(e){}return openNotes(p[0])}
 }
 function showQuestion(qid){

@@ -97,28 +97,20 @@ def main():
           "sizes", os.path.getsize("data/qfmt.json"), os.path.getsize("data/search.json"))
 
 
-if __name__ == "__main__":
-    main()
-
-
 def assemble():
-    """Concatenate src/m*.js into more.js, then bump the cache version in index.html and sw.js."""
+    """Concatenate src/m*.js into more.js, then bump the cache version in index.html and sw.js.
+
+    The version is a hash of every file the service worker stores, so a fix to any question set or
+    data file reaches installed phones (the service worker serves stored copies until the version changes)."""
     import hashlib
+    import check_data
+    if check_data.main([]) != 0:
+        raise SystemExit("assemble stopped: fix the data problems above first")
     parts = sorted(glob.glob("src/m*.js"))
     js = "\n".join(open(p).read() for p in parts)
     open("more.js", "w").write(js)
-    h = hashlib.sha1()
-    for f in ["app.js", "app.css", "more.js", "notes/viewer.js", "data/manifest.json", "data/qfmt.json"]:
-        h.update(open(f, "rb").read())
-    v = h.hexdigest()[:10]
-    idx = open("index.html").read()
-    idx = re.sub(r"\?v=[0-9a-f]+", "?v=" + v, idx)
-    if "more.js" not in idx:
-        idx = idx.replace('<script src="notes/viewer.js', '<script src="more.js?v=' + v + '"></script>\n<script src="notes/viewer.js')
-    open("index.html", "w").write(idx)
     sw = open("sw.js").read()
-    sw = re.sub(r'var VERSION="[0-9a-f]+"', 'var VERSION="' + v + '"', sw)
-    for extra in ["more.js", "data/qfmt.json", "data/india.json", "data/mapq.json", "data/mains.json"]:
+    for extra in ["more.js", "data/qfmt.json", "data/search.json", "data/india.json", "data/mapq.json", "data/mains.json"]:
         if os.path.exists(extra) and '"' + extra + '"' not in sw:
             sw = sw.replace('"app.css", ', '"app.css", "' + extra + '", ', 1)
     # every question set in the manifest is stored for offline use
@@ -127,9 +119,26 @@ def assemble():
         f = "data/sets/" + s["id"] + ".json"
         if os.path.exists(f) and '"' + f + '"' not in sw:
             sw = sw.replace('"data/facts.json", ', '"data/facts.json", "' + f + '", ', 1)
+    stored = json.loads(re.search(r"var PRECACHE=(\[.*?\]);", sw).group(1)) + json.loads(re.search(r"var NOTES=(\[.*?\]);", sw).group(1))
+    h = hashlib.sha1()
+    for f in sorted(set(stored) - {"./", "index.html"}):
+        h.update(f.encode() + b"\0")
+        h.update(open(f, "rb").read())
+    h.update(re.sub(r'var VERSION="[0-9a-f]+"', "", sw).encode())  # service worker logic changes count too
+    v = h.hexdigest()[:10]
+    sw = re.sub(r'var VERSION="[0-9a-f]+"', 'var VERSION="' + v + '"', sw)
     open("sw.js", "w").write(sw)
+    idx = open("index.html").read()
+    idx = re.sub(r"\?v=[0-9a-f]+", "?v=" + v, idx)
+    if "more.js" not in idx:
+        idx = idx.replace('<script src="notes/viewer.js', '<script src="more.js?v=' + v + '"></script>\n<script src="notes/viewer.js')
+    open("index.html", "w").write(idx)
     print("assembled", len(parts), "parts; version", v)
 
 
-if __name__ == "__main__" and "--assemble" in __import__("sys").argv:
-    assemble()
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    main()  # rebuild qfmt.json and search.json from the sets
+    if "--assemble" in sys.argv:
+        assemble()  # then build more.js and bump the cache version

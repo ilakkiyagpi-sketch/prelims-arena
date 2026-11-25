@@ -22,8 +22,11 @@ const slot = SLOT && SLOT !== "auto" ? SLOT
   : hour >= 4 && hour < 9 ? "morning" : hour >= 12 && hour < 17 ? "afternoon" : hour >= 20 ? "night" : null;
 if (!slot) { console.log("Outside the reminder windows; nothing to do."); process.exit(0); }
 
-const res = await fetch(`${SHEET_URL}${SHEET_URL.includes("?") ? "&" : "?"}key=${encodeURIComponent(SHEET_KEY)}&v=2&_=${Date.now()}`, { redirect: "follow" });
-const j = await res.json();
+// read everything with a POST so the passphrase is not in a URL; an older Sheet script ignores "pull", so fall back to the plain download
+const readJson = (r) => r.json().catch(() => ({}));
+let j = await fetch(SHEET_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ key: SHEET_KEY, v: 2, pull: true, recs: [] }), redirect: "follow" })
+  .then(readJson).catch(() => ({}));
+if (!j.recs && !j.error) j = await fetch(`${SHEET_URL}${SHEET_URL.includes("?") ? "&" : "?"}key=${encodeURIComponent(SHEET_KEY)}&v=2&_=${Date.now()}`, { redirect: "follow" }).then(readJson).catch(() => ({}));
 if (j.error || !j.recs) { console.log("Could not read the Sheet (check SHEET_URL and SHEET_KEY)."); process.exit(1); }
 
 const recs = j.recs;
